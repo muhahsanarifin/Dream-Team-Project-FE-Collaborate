@@ -12,11 +12,6 @@
   font-family: "Arimo";
 }
 
-.line {
-  width: 80px;
-  border: 2px solid #c2c2c2;
-}
-
 .main-2 {
   background-color: #bcbaba;
 }
@@ -93,7 +88,12 @@
   font-weight: 400;
   font-size: 32px;
   line-height: 36.8px;
-  margin-top: 58px;
+  margin-bottom: 80px;
+}
+
+.line {
+  width: 80px;
+  border: 2px solid #c2c2c2;
 }
 
 .section-2-aside-right-header {
@@ -118,7 +118,7 @@
 .aside-right-input-2 {
   height: 70px;
   width: 100%;
-  margin-bottom: 33px;
+  margin-bottom: 29px;
   padding-left: 20px;
   font-weight: 400;
   font-size: 12px;
@@ -142,6 +142,7 @@
 
 .remember-div {
   display: flex;
+  margin-bottom: 33px;
 }
 
 .remember-text {
@@ -150,12 +151,5 @@
   line-height: 28px;
   color: #4a4141;
   margin-left: 8px;
-  margin-right: 15px;
-}
-
-.forget {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 28px;
-  color: #d25b5b;
+  margin-right: 38px;
 }

@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import styles from "../styles/Login.module.css";
+import styles from "../styles/Register.module.css";
 
-class Login extends Component {
+class Register extends Component {
   render() {
     return (
       <Fragment>
@@ -18,34 +18,35 @@ class Login extends Component {
             </section>
             <section className={styles["section-2"]}>
               <aside className={styles["section-2-aside-left"]}>
-                <h1 className={styles["section-2-aside-left-header"]}>
+                <h1 className={styles["section-2-aside-left-header-2"]}>
                   Login Account
                 </h1>
-                <div className={styles["line"]}></div>
-                <h1 className={styles["section-2-aside-left-header-2"]}>
+                <h1 className={styles["section-2-aside-left-header"]}>
                   Register Account
                 </h1>
+                <div className={styles["line"]}></div>
               </aside>
               <aside className={styles["section-2-aside-right"]}>
                 <h1 className={styles["section-2-aside-right-header"]}>
-                  Login
+                  Create Account
                 </h1>
                 <input
                   className={styles["aside-right-input-1"]}
                   type="text"
-                  placeholder="User name or email address *"
+                  placeholder="Email address*"
                 />
                 <input
                   className={styles["aside-right-input-2"]}
                   type="text"
                   placeholder="Password *"
                 />
-                <button className={styles["button"]}>Login</button>
                 <div className={styles["remember-div"]}>
                   <input type="checkbox" />
-                  <p className={styles["remember-text"]}>Remember me</p>
-                  <p className={styles["forget"]}>Forget your password?</p>
+                  <p className={styles["remember-text"]}>I'm customer</p>
+                  <input type="checkbox" />
+                  <p className={styles["remember-text"]}>I'm seller</p>
                 </div>
+                <button className={styles["button"]}>Register</button>
               </aside>
             </section>
             <Footer />
@@ -56,4 +57,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default Register;
