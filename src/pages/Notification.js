@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
+
+//import css
 import styles from '../styles/Notification.module.css';
-import icon_sifa from '../asset/icon_Syifa.png';
-import icon_Aisya from '../asset/icon_Aisya.png';
-import icon_Aisya_2 from '../asset/icon_Aisyah_2.png';
-import icon_online from '../asset/icon_online.png';
-import icon_row from '../asset/icon_row.png';
+
+//import image
+import icon_sifa from '../assets/icon_Syifa.png';
+import icon_Aisya from '../assets/icon_Aisya.png';
+import icon_Aisya_2 from '../assets/icon_Aisyah_2.png';
+import icon_online from '../assets/icon_online.png';
+import icon_row from '../assets/icon_row.png';
+
+//import component
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 class Notification extends Component {
   render() {
     return (
       <>
+        <Header />
         <main>
           <section>
             <div className="container-fluid">
@@ -56,6 +65,7 @@ class Notification extends Component {
             </div>
           </section>
         </main>
+        <Footer />
       </>
     );
   }
