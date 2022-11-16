@@ -6,7 +6,6 @@ class Login extends Component {
     return (
       <Fragment>
         <Header />
-        <div>test</div>
       </Fragment>
     );
   }

@@ -1,25 +1,26 @@
 .header-left {
+  border: 1px solid darkred;
   font-weight: 700;
   font-size: 45px;
   line-height: 51px;
 }
 
 .main {
-  padding-top: 50px;
-  padding-bottom: 71px;
-  padding-left: 80px;
-  padding-right: 80px;
+  border: 1px solid darkblue;
+  padding: 20px 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .header-center {
+  border: 1px solid blueviolet;
   display: flex;
   column-gap: 50px;
 }
 
 .header-center-div {
+  border: 1px solid darkgreen;
   display: flex;
   column-gap: 10px;
   align-items: center;
@@ -31,12 +32,14 @@
 }
 
 .header-center-text {
+  border: 1px solid darkblue;
   font-weight: 700;
   font-size: 18px;
   line-height: 20px;
 }
 
 .header-right {
+  border: 1px solid darkgreen;
   display: flex;
   column-gap: 60px;
 }
