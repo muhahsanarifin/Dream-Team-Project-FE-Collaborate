@@ -4,7 +4,9 @@ class Header extends Component {
   render() {
     return (
       <Fragment>
-        <div>test</div>
+        <main>
+          <h1>RAZ</h1>
+        </main>
       </Fragment>
     );
   }
