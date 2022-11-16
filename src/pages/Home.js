@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import Header from "../components/Header";
 
+import Footer from "../components/Footer"
+
 import styles from "../styles/Home.module.css";
 
 import sofaWithPillow from "../assets/raz-retangle-1.png"
@@ -47,6 +49,7 @@ export class Home extends Component {
           <section></section>
           <section></section>
         </main>
+        <Footer/>
       </>
     );
   }
