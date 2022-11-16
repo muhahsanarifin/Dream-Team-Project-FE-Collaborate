@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import styles from "../styles/Login.module.css";
+import styles from "../styles/Header.module.css";
 
 import mag from "../assets/mag.png";
 import love from "../assets/love.png";
