@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import styles from '../styles/Notification.module.css';
 import icon_sifa from '../asset/icon_Syifa.png';
 import icon_Aisya from '../asset/icon_Aisya.png';
@@ -10,6 +12,7 @@ class Notification extends Component {
   render() {
     return (
       <>
+      <Header/>
         <main>
           <section>
             <div className="container-fluid">
@@ -56,6 +59,7 @@ class Notification extends Component {
             </div>
           </section>
         </main>
+        <Footer/>
       </>
     );
   }
