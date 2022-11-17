@@ -1,3 +1,13 @@
+.main-2 {
+  background-color: #bcbaba;
+}
+
+.main {
+  background-color: white;
+  max-width: 1440px;
+  margin: auto;
+}
+
 .section-1 {
   display: flex;
   position: relative;
@@ -60,8 +70,10 @@
 }
 
 .profile-top-header-div {
+  /* border: 1px solid darkblue; */
   display: flex;
   column-gap: 20px;
+  align-items: center;
 }
 
 .profile-image-div {
@@ -80,14 +92,30 @@
   column-gap: 11px;
 }
 
+.profile-image-edit img,
+.profile-top-header-div img,
+.section-3-edit img {
+  width: 18px;
+  height: 18px;
+}
+
 .section-3-div {
-  border: 1px solid#D1D1D1;
   display: flex;
   justify-content: space-between;
   padding-left: 60px;
   padding-right: 60px;
   padding-top: 40px;
   padding-bottom: 40px;
+}
+
+.section-3-div:nth-child(2),
+.section-3-div:nth-child(4) {
+  border: 1px solid#D1D1D1;
+}
+
+.section-3-div:nth-child(3) {
+  border-left: 1px solid #D1D1D1;
+  border-right: 1px solid #D1D1D1;
 }
 
 .section-3-label {
@@ -110,9 +138,15 @@
   line-height: 20.7px;
   display: flex;
   column-gap: 11px;
+  cursor: pointer;
+}
+
+.section-3-edit p {
+  margin-bottom: 0;
 }
 
 .logout {
+  /* border: 1px solid darkblue; */
   display: flex;
   column-gap: 10px;
   justify-content: center;
@@ -127,4 +161,8 @@
   font-size: 16px;
   line-height: 18.4px;
   cursor: pointer;
+}
+
+.logout p {
+  margin-bottom: 0;
 }
