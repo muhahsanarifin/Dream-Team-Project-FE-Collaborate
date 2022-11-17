@@ -1,0 +1,154 @@
+.main-2 {
+  background-color: #bcbaba;
+}
+
+.main {
+  background-color: #ffffff;
+  max-width: 1440px;
+  margin: auto;
+}
+
+.section-1 {
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: 74px;
+  padding-left: 80px;
+}
+
+.section-1-nav {
+  display: flex;
+  column-gap: 20px;
+  padding-bottom: 16px;
+}
+
+.section-1-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #1a1a1a;
+}
+
+.section-1-arrow {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #919191;
+}
+
+.section-1::after {
+  background-image: url("../assets/login-background.png");
+  content: "";
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+.section-1-header {
+  text-align: center;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 64.39px;
+  margin-bottom: 20px;
+}
+
+.section-1-text {
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18.4px;
+}
+
+.aside-left {
+  width: 700px;
+  height: 629px;
+}
+
+.section-2 {
+  display: flex;
+}
+
+.aside-right {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding-left: 100px;
+  padding-right: 140px;
+  padding-top: 80px;
+}
+
+.aside-right-text-1 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 37px;
+  color: #4d4d4d;
+}
+
+.aside-right-text-2 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: #1a1a1a;
+}
+
+.aside-right-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.aside-right-btn {
+  width: 180px;
+  height: 60px;
+  background: #262626;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ffffff;
+  border: none;
+  margin-top: 80px;
+}
+
+.line {
+  border: 1px solid #dbdbdb;
+  margin-bottom: 50px;
+}
+
+.truck-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #111111;
+  border-radius: 50%;
+}
+
+.delivery-div {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.delivery-text-1 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 37px;
+  color: #4d4d4d;
+}
+
+.delivery-text-2 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: #1a1a1a;
+}
+
+.line-2 {
+  width: 2px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
