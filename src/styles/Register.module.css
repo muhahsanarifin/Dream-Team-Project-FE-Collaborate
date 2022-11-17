@@ -33,6 +33,8 @@
 
 .section-1::after {
   background-image: url("../assets/login-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   content: "";
   opacity: 0.2;
   top: 0;
@@ -94,6 +96,7 @@
 .line {
   width: 80px;
   border: 2px solid #c2c2c2;
+  background-color: #c2c2c2;
 }
 
 .section-2-aside-right-header {
@@ -143,6 +146,10 @@
 .remember-div {
   display: flex;
   margin-bottom: 33px;
+}
+
+.remember-div p {
+  margin-bottom: 0;
 }
 
 .remember-text {

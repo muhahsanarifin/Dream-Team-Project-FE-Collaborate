@@ -128,3 +128,33 @@
   cursor: pointer;
   font-weight: 700;
 }
+
+@media all and (max-width: 480px) {
+  .second-section,
+  .fourth-section,
+  .sixth-section,
+  .seventh-section {
+    /* border: 1px solid red; */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .third-section,
+  .fifth-section,
+  .eigth-section {
+    position: relative;
+    /* border: 1px solid darkgreen; */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .second-section__description {
+    /* border: 1px solid darkblue; */
+    padding: 1rem 1rem;
+  }
+}

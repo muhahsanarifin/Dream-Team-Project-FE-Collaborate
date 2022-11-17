@@ -6,6 +6,9 @@ import Register from "./pages/Register";
 import Forgot from "./pages/Forgot";
 import Profile from "./pages/Profile";
 import Notification from "./pages/Notification";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import Tracking from "./pages/tracking";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -14,6 +17,9 @@ const router = createBrowserRouter([
   { path: "/forgot", element: <Forgot /> },
   { path: "/profile", element: <Profile /> },
   { path: "/notification", element: <Notification /> },
+  { path: "/cart", element: <Cart /> },
+  { path: "/checkout", element: <Checkout /> },
+  { path: "/tracking", element: <Tracking /> },
 ]);
 
 export default router;
