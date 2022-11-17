@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+
+//import css
 import styles from '../styles/Notification.module.css';
+
+//import image
 import icon_sifa from '../assets/icon_Syifa.png';
 import icon_Aisya from '../assets/icon_Aisya.png';
 import icon_Aisya_2 from '../assets/icon_Aisyah_2.png';
 import icon_online from '../assets/icon_online.png';
 import icon_row from '../assets/icon_row.png';
 
+//import component
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
 class Notification extends Component {
   render() {
     return (
       <>
-      <Header/>
-        <main className={styles["main"]}>
+        <Header />
+        <main>
           <section>
             <div>
               <div className={`${styles['content']}`}>
@@ -59,7 +65,7 @@ class Notification extends Component {
             </div>
           </section>
         </main>
-        <Footer/>
+        <Footer />
       </>
     );
   }

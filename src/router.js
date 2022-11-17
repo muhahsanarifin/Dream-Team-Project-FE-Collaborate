@@ -10,6 +10,8 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Tracking from "./pages/tracking";
 import TrackingDetail from "./pages/TrackingDetail";
+import Favorite from "./pages/Favorite";
+import Whislist from "./pages/Whislist";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -22,6 +24,8 @@ const router = createBrowserRouter([
   { path: "/checkout", element: <Checkout /> },
   { path: "/tracking", element: <Tracking /> },
   { path: "/tracking/detail", element: <TrackingDetail /> },
+  { path: "/favorite", element: <Favorite /> },
+  { path: "/whislist", element: <Whislist /> },
 ]);
 
 export default router;
