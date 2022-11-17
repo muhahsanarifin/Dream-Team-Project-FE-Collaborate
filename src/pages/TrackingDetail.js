@@ -76,7 +76,9 @@ class TrackingDetail extends Component {
                     </p>
                   </div>
                 </div>
-                <button className={styles["aside-right-btn"]}>Track Now</button>
+                <button className={styles["aside-right-btn"]}>
+                  Check on Map
+                </button>
               </aside>
             </section>
             <Footer />
