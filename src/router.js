@@ -7,7 +7,7 @@ import Forgot from './pages/Forgot';
 import Profile from './pages/Profile';
 import Notification from './pages/Notification';
 import Whislist from './pages/Whislist';
-// import CardWhislist from './components/CardWhislist';
+import Favorite from './pages/Favorite';
 
 const router = createBrowserRouter([
   { path: '/', element: <Home /> },
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
   { path: '/profile', element: <Profile /> },
   { path: '/notification', element: <Notification /> },
   { path: '/whislist', element: <Whislist /> },
-  // { path: '/cardwhislist', element: <CardWhislist /> },
+  { path: '/favorite', element: <Favorite /> },
 ]);
 
 export default router;
