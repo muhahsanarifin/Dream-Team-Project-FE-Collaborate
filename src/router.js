@@ -6,6 +6,8 @@ import Register from './pages/Register';
 import Forgot from './pages/Forgot';
 import Profile from './pages/Profile';
 import Notification from './pages/Notification';
+import Whislist from './pages/Whislist';
+// import CardWhislist from './components/CardWhislist';
 
 const router = createBrowserRouter([
   { path: '/', element: <Home /> },
@@ -14,6 +16,8 @@ const router = createBrowserRouter([
   { path: '/forgot', element: <Forgot /> },
   { path: '/profile', element: <Profile /> },
   { path: '/notification', element: <Notification /> },
+  { path: '/whislist', element: <Whislist /> },
+  // { path: '/cardwhislist', element: <CardWhislist /> },
 ]);
 
 export default router;
