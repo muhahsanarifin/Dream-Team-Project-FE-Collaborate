@@ -12,9 +12,10 @@ import Tracking from "./pages/tracking";
 import TrackingDetail from "./pages/TrackingDetail";
 import Favorite from "./pages/Favorite";
 import Whislist from "./pages/Whislist";
+import NotFound from "./pages/NotFound";
 
 const router = createBrowserRouter([
-  { path: "/", element: <Home /> },
+  { path: "/", element: <Home />, errorElement: <NotFound /> },
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Register /> },
   { path: "/forgot", element: <Forgot /> },
