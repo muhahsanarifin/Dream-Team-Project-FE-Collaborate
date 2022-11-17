@@ -64,6 +64,7 @@ class Registers extends Component {
   }
 
   render() {
+    console.log(this.state.role);
     return (
       <Fragment>
         <main className={styles["main-2"]}>
@@ -77,10 +78,20 @@ class Registers extends Component {
             </section>
             <section className={styles["section-2"]}>
               <aside className={styles["section-2-aside-left"]}>
-                <h1 className={styles["section-2-aside-left-header-2"]}>
+                <h1
+                  onClick={() => {
+                    this.props.navigate("/login");
+                  }}
+                  className={styles["section-2-aside-left-header-2"]}
+                >
                   Login Account
                 </h1>
-                <h1 className={styles["section-2-aside-left-header"]}>
+                <h1
+                  onClick={() => {
+                    this.props.navigate("/register");
+                  }}
+                  className={styles["section-2-aside-left-header"]}
+                >
                   Register Account
                 </h1>
                 <div className={styles["line"]}></div>
@@ -104,9 +115,23 @@ class Registers extends Component {
                   onChange={(event) => this.handleChange(event, "password")}
                 />
                 <div className={styles["remember-div"]}>
-                  <input type="checkbox" />
+                  <input
+                    className={styles["radio"]}
+                    type="radio"
+                    name="role"
+                    onClick={() => {
+                      this.setState({ role: "customer" });
+                    }}
+                  />
                   <p className={styles["remember-text"]}>I'm customer</p>
-                  <input type="checkbox" />
+                  <input
+                    className={styles["radio"]}
+                    type="radio"
+                    name="role"
+                    onClick={() => {
+                      this.setState({ role: "seller" });
+                    }}
+                  />
                   <p className={styles["remember-text"]}>I'm seller</p>
                 </div>
                 <form onSubmit={this.handleSubmit}>
