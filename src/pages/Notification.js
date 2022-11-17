@@ -2,25 +2,25 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styles from '../styles/Notification.module.css';
-import icon_sifa from '../asset/icon_Syifa.png';
-import icon_Aisya from '../asset/icon_Aisya.png';
-import icon_Aisya_2 from '../asset/icon_Aisyah_2.png';
-import icon_online from '../asset/icon_online.png';
-import icon_row from '../asset/icon_row.png';
+import icon_sifa from '../assets/icon_Syifa.png';
+import icon_Aisya from '../assets/icon_Aisya.png';
+import icon_Aisya_2 from '../assets/icon_Aisyah_2.png';
+import icon_online from '../assets/icon_online.png';
+import icon_row from '../assets/icon_row.png';
 
 class Notification extends Component {
   render() {
     return (
       <>
       <Header/>
-        <main>
+        <main className={styles["main"]}>
           <section>
-            <div className="container-fluid">
+            <div>
               <div className={`${styles['content']}`}>
                 <div className={styles['chat']}>Chat</div>
                 <p className={styles['text']}>See your notifications for the latest updates</p>
               </div>
-              <div className="container d-flex justify-content-center pt-5">
+              <div className="d-flex justify-content-center py-5">
                 <div className={`${styles['content-left']} col-4`}>
                   <div className={`${styles['content-left-border']} d-flex ps-4 pt-3 `}>
                     <img src={icon_sifa} alt="icon_sifa" />

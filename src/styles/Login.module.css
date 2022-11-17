@@ -15,6 +15,7 @@
 .line {
   width: 80px;
   border: 2px solid #c2c2c2;
+  background-color: #c2c2c2;
 }
 
 .main-2 {
@@ -38,6 +39,8 @@
 
 .section-1::after {
   background-image: url("../assets/login-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   content: "";
   opacity: 0.2;
   top: 0;
@@ -141,7 +144,12 @@
 }
 
 .remember-div {
+  /* border: 1px solid darkblue; */
   display: flex;
+}
+
+.remember-div p {
+  margin-bottom: 0;
 }
 
 .remember-text {
