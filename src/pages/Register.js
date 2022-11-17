@@ -2,8 +2,67 @@ import React, { Component, Fragment } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/Register.module.css";
+import Swal from "sweetalert2";
+import Axios from "axios";
+import withNavigate from "../helpers/withNavigate";
 
-class Register extends Component {
+class Registers extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hidden: true,
+      email: "",
+      password: "",
+      role: "customer",
+    };
+    this.toggleShow = this.toggleShow.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    document.title = "Login";
+  }
+
+  toggleShow() {
+    this.setState({ hidden: !this.state.hidden });
+  }
+
+  handleChange(event, field) {
+    this.setState({ [field]: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const url = `http://localhost:8090/raz/auth/register`;
+    const data = {
+      email: this.state.email,
+      password: this.state.password,
+      role: this.state.role,
+    };
+    Axios.post(url, data)
+      .then((res) => {
+        Swal.fire({
+          title: "Register Success",
+          timer: 2000,
+          showConfirmButton: false,
+          timerProgressBar: true,
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            // this.props.navigate("/home");
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          title: "Password or email is not valid",
+          showConfirmButton: false,
+          timer: 1000,
+        });
+      });
+  }
+
   render() {
     return (
       <Fragment>
@@ -34,11 +93,15 @@ class Register extends Component {
                   className={styles["aside-right-input-1"]}
                   type="text"
                   placeholder="Email address*"
+                  value={this.state.email}
+                  onChange={(event) => this.handleChange(event, "email")}
                 />
                 <input
                   className={styles["aside-right-input-2"]}
-                  type="text"
+                  type="password"
                   placeholder="Password *"
+                  value={this.state.password}
+                  onChange={(event) => this.handleChange(event, "password")}
                 />
                 <div className={styles["remember-div"]}>
                   <input type="checkbox" />
@@ -46,7 +109,9 @@ class Register extends Component {
                   <input type="checkbox" />
                   <p className={styles["remember-text"]}>I'm seller</p>
                 </div>
-                <button className={styles["button"]}>Register</button>
+                <form onSubmit={this.handleSubmit}>
+                  <button className={styles["button"]}>Register</button>
+                </form>
               </aside>
             </section>
             <Footer />
@@ -56,5 +121,7 @@ class Register extends Component {
     );
   }
 }
+
+const Register = withNavigate(Registers);
 
 export default Register;
