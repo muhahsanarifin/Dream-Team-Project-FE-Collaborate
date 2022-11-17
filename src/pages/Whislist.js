@@ -31,8 +31,6 @@ class Whislist extends Component {
               </div>
               <div className={styles['content-border-botom']}></div>
               <CardWhislist />
-              <CardWhislist />
-              <CardWhislist />
             </div>
           </section>
         </main>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import Header from "../components/Header";
 
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
 
 import styles from "../styles/Home.module.css";
 
@@ -16,7 +16,7 @@ import japaneseStyleBlueCeramic from "../assets/raz-retangle-4.png";
 
 import japanesePlateFloral from "../assets/raz-retangle-5.png";
 
-import modernFloorLamp from "../assets/raz-retangle-6.png"
+import modernFloorLamp from "../assets/raz-retangle-6.png";
 
 export class Home extends Component {
   render() {
