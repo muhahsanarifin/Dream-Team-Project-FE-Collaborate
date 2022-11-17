@@ -27,10 +27,12 @@ class Header extends Component {
             <p className={styles["header-center-text"]}>BLOG</p>
           </div>
           <div className={styles["header-right"]}>
-            <img className={styles["image-1"]} src={mag} alt="img" />
-            <img className={styles["image-2"]} src={love} alt="img" />
-            <img className={styles["image-3"]} src={cart} alt="img" />
-            <div className={styles["header-right-menu"]}>
+            <span className={styles["header-right-menu"]}>
+              <img className={styles["image-1"]} src={mag} alt="img" />
+              <img className={styles["image-2"]} src={love} alt="img" />
+              <img className={styles["image-3"]} src={cart} alt="img" />
+            </span>
+            <div className={styles["header-right-toggle"]}>
               <img className={styles["menu-1"]} src={bar1} alt="img" />
               <img className={styles["menu-2"]} src={bar2} alt="img" />
               <img className={styles["menu-3"]} src={bar1} alt="img" />
