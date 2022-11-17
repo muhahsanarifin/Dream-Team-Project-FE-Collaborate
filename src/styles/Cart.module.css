@@ -1,3 +1,13 @@
+.main-2 {
+  background-color: #bcbaba;
+}
+
+.main {
+  background-color: #ffffff;
+  max-width: 1440px;
+  margin: auto;
+}
+
 .section-1 {
   position: relative;
   padding-top: 40px;
