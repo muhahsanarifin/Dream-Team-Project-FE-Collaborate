@@ -83,6 +83,7 @@
   font-size: 32px;
   line-height: 36.8px;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .section-2-aside-left-header-2 {
@@ -91,6 +92,7 @@
   font-size: 32px;
   line-height: 36.8px;
   margin-bottom: 80px;
+  cursor: pointer;
 }
 
 .line {
@@ -146,6 +148,7 @@
 .remember-div {
   display: flex;
   margin-bottom: 33px;
+  align-items: center;
 }
 
 .remember-div p {
@@ -159,4 +162,18 @@
   color: #4a4141;
   margin-left: 8px;
   margin-right: 38px;
+}
+
+.radio {
+  box-sizing: border-box;
+  appearance: none;
+  background: white;
+  outline: 1px solid #979797;
+  border: 3px solid white;
+  width: 16px;
+  height: 16px;
+}
+
+input[type="radio"]:checked {
+  background: #333;
 }

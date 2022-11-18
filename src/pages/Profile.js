@@ -2,6 +2,9 @@ import React, { Component, Fragment } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/Profile.module.css";
+import Swal from "sweetalert2";
+import Axios from "axios";
+import withNavigate from "../helpers/withNavigate";
 
 import profile from "../assets/profile.png";
 import edit from "../assets/edit.png";
@@ -9,7 +12,43 @@ import editwhite from "../assets/edit-white.png";
 import editb from "../assets/editb.png";
 import logout from "../assets/logout.png";
 
-class Profile extends Component {
+class Profiles extends Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
+    const config = {
+      headers: {
+        "x-access-token": localStorage.getItem("token"),
+      },
+    };
+    Axios.delete(url, config)
+      .then((res) => {
+        Swal.fire({
+          title: "Logout Success!",
+          timer: 2000,
+          showConfirmButton: false,
+          timerProgressBar: true,
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            this.props.navigate("/login");
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          title: "Logout Failed!",
+          showConfirmButton: false,
+          timer: 1000,
+        });
+      });
+  }
+
   render() {
     return (
       <Fragment>
@@ -75,10 +114,12 @@ class Profile extends Component {
                   <img className={styles[""]} src={editb} alt="img" />
                 </div>
               </div>
-              <button className={styles["logout"]}>
-                <img className={styles[""]} src={logout} alt="img" />
-                <p>Logout</p>
-              </button>
+              <form onSubmit={this.handleSubmit}>
+                <button className={styles["logout"]}>
+                  <img className={styles[""]} src={logout} alt="img" />
+                  <p>Logout</p>
+                </button>
+              </form>
             </section>
             <Footer />
           </main>
@@ -87,5 +128,7 @@ class Profile extends Component {
     );
   }
 }
+
+const Profile = withNavigate(Profiles);
 
 export default Profile;

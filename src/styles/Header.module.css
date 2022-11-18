@@ -38,6 +38,7 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 20px;
+  cursor: pointer;
 }
 
 .header-right {
@@ -94,6 +95,15 @@
   /* border: 1px solid darkorange; */
   width: 24px;
   height: 24px;
+}
+
+.image-1, .image-2, .image-3 {
+  cursor: pointer;
+  z-index: 1;
+}
+
+.header-right-toggle {
+  cursor: pointer;
 }
 
 /* || Responsive */
