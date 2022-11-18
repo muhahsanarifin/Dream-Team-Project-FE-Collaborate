@@ -89,6 +89,7 @@
   font-size: 32px;
   line-height: 36.8px;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .section-2-aside-left-header-2 {
@@ -97,6 +98,7 @@
   font-size: 32px;
   line-height: 36.8px;
   margin-top: 58px;
+  cursor: pointer;
 }
 
 .section-2-aside-right-header {
@@ -141,6 +143,7 @@
   font-size: 14px;
   line-height: 16.1px;
   margin-bottom: 46px;
+  cursor: pointer;
 }
 
 .remember-div {
