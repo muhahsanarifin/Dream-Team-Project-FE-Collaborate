@@ -8,6 +8,7 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Tracking from "./pages/tracking";
 import TrackingDetail from "./pages/TrackingDetail";
+import ProfileSeller from "./pages/ProfileSeller";
 
 const router = createBrowserRouter([
   { path: "/login", element: <Login /> },
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
   { path: "/checkout", element: <Checkout /> },
   { path: "/tracking", element: <Tracking /> },
   { path: "/tracking/detail", element: <TrackingDetail /> },
+  { path: "/profile/seller", element: <ProfileSeller /> },
 ]);
 
 export default router;
