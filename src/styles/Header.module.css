@@ -97,6 +97,15 @@
   height: 24px;
 }
 
+.image-1, .image-2, .image-3 {
+  cursor: pointer;
+  z-index: 1;
+}
+
+.header-right-toggle {
+  cursor: pointer;
+}
+
 /* || Responsive */
 @media all and (min-width: 768px) and (max-width: 1024px) {
   .main {

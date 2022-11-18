@@ -34,7 +34,7 @@ class Registers extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const url = `http://localhost:8090/raz/auth/register`;
+    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/register`;
     const data = {
       email: this.state.email,
       password: this.state.password,
@@ -49,7 +49,7 @@ class Registers extends Component {
           timerProgressBar: true,
         }).then((result) => {
           if (result.dismiss === Swal.DismissReason.timer) {
-            // this.props.navigate("/home");
+            this.props.navigate("/");
           }
         });
       })
