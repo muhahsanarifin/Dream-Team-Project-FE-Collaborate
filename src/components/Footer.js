@@ -82,7 +82,7 @@ class Footer extends Component {
               </div>
             </aside>
           </section>
-          <p className={styles["copy"]}>© 2019 RAZ Store All rights reserved</p>
+          <p className={styles["copy"]}>© 2022 RAZ Store All rights reserved</p>
         </main>
       </Fragment>
     );
