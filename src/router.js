@@ -22,8 +22,9 @@ const router = createBrowserRouter([
   { path: "/tracking", element: <Tracking /> },
   { path: "/tracking/detail", element: <TrackingDetail /> },
   { path: "/profile/seller", element: <ProfileSeller /> },
-  { path: "/profile/product", element: <MyProduct /> },
-  { path: "/profile/product/selling", element: <SellingProduct /> },
+  { path: "/profile/seller/product", element: <MyProduct /> },
+  { path: "/profile/seller/product/selling", element: <SellingProduct /> },
+  { path: "/profile/seller/order", element: <SellingProduct /> },
 ]);
 
 export default router;

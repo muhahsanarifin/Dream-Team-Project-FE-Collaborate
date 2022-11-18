@@ -31,22 +31,33 @@ class MyProducts extends Component {
                 >
                   Profile
                 </p>
-                <div>
-                  <div className={styles["nav-div-1"]}>
-                    <p>My Product</p>{" "}
+                <div
+                  onClick={() => {
+                    this.props.navigate("/profile/seller/product");
+                  }}
+                >
+                  <div className={styles["nav-div-2"]}>
+                    <p>My Product</p>
                     <img className={styles["chev"]} src={chev} alt="img" />
                   </div>
                   <div className={styles["nav-line"]}></div>
                 </div>
                 <p
-                  className={styles["nav-div-2"]}
+                  className={styles["nav-div-1"]}
                   onClick={() => {
-                    this.props.navigate("/profile/product/selling");
+                    this.props.navigate("/profile/seller/product/selling");
                   }}
                 >
                   Selling Product
                 </p>
-                <p className={styles["nav-div-2"]}>My Order</p>
+                <p
+                  className={styles["nav-div-2"]}
+                  onClick={() => {
+                    this.props.navigate("/profile/seller/product/oder");
+                  }}
+                >
+                  My Order
+                </p>
               </div>
               <table className={styles["table"]}>
                 <tr className={styles["tr-top"]}>

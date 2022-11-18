@@ -64,22 +64,41 @@ class ProfileSellers extends Component {
             </section>
             <section className={styles["section-2"]}>
               <div className={styles["profile-nav"]}>
-                <div>
-                  <p className={styles["nav-div-1"]}>Profile</p>
-                  <div className={styles["nav-line"]}></div>
-                </div>
+                <p
+                  className={styles["nav-div-2"]}
+                  onClick={() => {
+                    this.props.navigate("/profile/seller");
+                  }}
+                >
+                  Profile
+                </p>
                 <div
                   onClick={() => {
-                    this.props.navigate("/profile/product");
+                    this.props.navigate("/profile/seller/product");
                   }}
                 >
                   <div className={styles["nav-div-2"]}>
-                    <p>My Product</p>{" "}
+                    <p>My Product</p>
                     <img className={styles["chev"]} src={chev} alt="img" />
                   </div>
+                  <div className={styles["nav-line"]}></div>
                 </div>
-                <p className={styles["nav-div-2"]}>Selling Product</p>
-                <p className={styles["nav-div-2"]}>My Order</p>
+                <p
+                  className={styles["nav-div-1"]}
+                  onClick={() => {
+                    this.props.navigate("/profile/seller/product/selling");
+                  }}
+                >
+                  Selling Product
+                </p>
+                <p
+                  className={styles["nav-div-2"]}
+                  onClick={() => {
+                    this.props.navigate("/profile/seller/product/oder");
+                  }}
+                >
+                  My Order
+                </p>
               </div>
               <div className={styles["profile-div"]}>
                 <div className={styles["profile-image-div"]}>

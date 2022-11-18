@@ -8,7 +8,7 @@ import chev from "../assets/chevrongrey.png";
 import product from "../assets/product4.png";
 import add from "../assets/add.png";
 
-class SellingProducts extends Component {
+class MyOrderSellers extends Component {
   render() {
     return (
       <Fragment>
@@ -120,6 +120,6 @@ class SellingProducts extends Component {
   }
 }
 
-const SellingProduct = withNavigate(SellingProducts);
+const MyOrderSeller = withNavigate(MyOrderSellers);
 
-export default SellingProduct;
+export default MyOrderSeller;
