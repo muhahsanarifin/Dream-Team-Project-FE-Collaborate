@@ -38,7 +38,14 @@ class MyProducts extends Component {
                   </div>
                   <div className={styles["nav-line"]}></div>
                 </div>
-                <p className={styles["nav-div-2"]}>Selling Product</p>
+                <p
+                  className={styles["nav-div-2"]}
+                  onClick={() => {
+                    this.props.navigate("/profile/product/selling");
+                  }}
+                >
+                  Selling Product
+                </p>
                 <p className={styles["nav-div-2"]}>My Order</p>
               </div>
               <table className={styles["table"]}>
