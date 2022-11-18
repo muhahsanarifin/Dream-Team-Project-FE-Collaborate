@@ -12,6 +12,7 @@ import ProfileSeller from "./pages/ProfileSeller";
 import MyProduct from "./pages/MyProduct";
 import SellingProduct from "./pages/SellingProduct";
 import MyOrderSeller from "./pages/MyOrderSeller";
+import FAQ from "./pages/FAQ";
 
 const router = createBrowserRouter([
   { path: "/login", element: <Login /> },
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
   { path: "/profile/seller/product", element: <MyProduct /> },
   { path: "/profile/seller/product/selling", element: <SellingProduct /> },
   { path: "/profile/seller/order", element: <MyOrderSeller /> },
+  { path: "/FAQ", element: <FAQ /> },
 ]);
 
 export default router;

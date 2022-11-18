@@ -64,75 +64,98 @@
 }
 
 .section-2 {
-  padding-left: 440px;
-  padding-right: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 81px;
+  padding-left: 140px;
+  padding-right: 140px;
   padding-bottom: 120px;
-  padding-top: 80px;
 }
 
-.self {
+.cart-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #979797;
+  margin-bottom: 25px;
+}
+
+.question-line {
+  width: 73px;
+  height: 1px;
+  border: 2px solid #d8d8d8;
+}
+
+.question-div {
+  display: flex;
+  align-items: center;
+  column-gap: 69px;
+  margin-bottom: 78px;
+}
+
+.question-header {
   font-weight: 400;
   font-size: 32px;
   line-height: 37px;
   color: #1a1a1a;
-  margin-bottom: 46px;
 }
 
-.input-1 {
-  width: 100%;
-  height: 70px;
-  background: #ffffff;
-  border: 1px solid #cecece;
-  padding-left: 20px;
-  margin-bottom: 10px;
+.aside-left-header {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #262626;
+  margin-bottom: 28px;
 }
 
-.input-2 {
-  width: 100%;
-  height: 70px;
-  background: #ffffff;
-  border: 1px solid #cecece;
-  padding-left: 35px;
-  margin-bottom: 40px;
+.aside-left-text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 28px;
+  color: #262626;
 }
 
-.code-div {
+.faq-div-1 {
   display: flex;
-  align-items: center;
-  column-gap: 21px;
-  border: 1px solid #cecece;
-  height: 70px;
-  padding-left: 24px;
-  padding-right: 16px;
-}
-
-.phone-div {
-  display: flex;
-}
-
-.payment-div {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  background: #ffffff;
-  border: 1px solid #cecece;
-  padding-left: 24px;
-  padding-right: 33px;
-  height: 70px;
-  margin-bottom: 33px;
+  margin-bottom: 96px;
+  column-gap: 160px;
 }
 
-.payment-content-div {
+.faq-div-2 {
   display: flex;
-  column-gap: 40px;
+  justify-content: space-between;
+  margin-bottom: 101px;
+  column-gap: 160px;
 }
 
-.checkout-btn {
-  width: 125px;
-  height: 50px;
-  background: #1a1a1a;
+.faq-div-3 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 100px;
+  column-gap: 160px;
+}
+
+.help-header {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 41px;
+  color: #1a1a1a;
+  margin-bottom: 31px;
+}
+
+.contact-btn {
+  width: 220px;
+  height: 60px;
+  background: #212121;
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
   color: #ffffff;
+  border: none;
 }
