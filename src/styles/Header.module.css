@@ -66,19 +66,19 @@
   /* border: 1px solid darkblue; */
   align-self: flex-end;
   height: 4px;
-  width: 22px;
+  width: 14px;
 }
 
 .menu-2 {
   /* border: 1px solid darkred; */
   height: 4px;
-  width: 44px;
+  width: 28px;
 }
 
 .menu-3 {
   /* border: 1px solid darkgoldenrod; */
   height: 4px;
-  width: 22px;
+  width: 14px;
 }
 
 .image-1 {
@@ -152,13 +152,13 @@
   }
 
   .menu-2 {
-    border: 1px solid darkred;
+    /* border: 1px solid darkred; */
     height: 4px;
     width: 30px;
   }
 
   .menu-3 {
-    border: 1px solid darkgoldenrod;
+    /* border: 1px solid darkgoldenrod; */
     height: 4px;
     width: 10px;
   }
