@@ -148,6 +148,7 @@
 .remember-div {
   display: flex;
   margin-bottom: 33px;
+  align-items: center;
 }
 
 .remember-div p {
