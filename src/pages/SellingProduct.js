@@ -40,20 +40,22 @@ class SellingProducts extends Component {
                     <p>My Product</p>
                     <img className={styles["chev"]} src={chev} alt="img" />
                   </div>
+                </div>
+                <div>
+                  <p
+                    className={styles["nav-div-1"]}
+                    onClick={() => {
+                      this.props.navigate("/profile/seller/product/selling");
+                    }}
+                  >
+                    Selling Product
+                  </p>
                   <div className={styles["nav-line"]}></div>
                 </div>
                 <p
-                  className={styles["nav-div-1"]}
-                  onClick={() => {
-                    this.props.navigate("/profile/seller/product/selling");
-                  }}
-                >
-                  Selling Product
-                </p>
-                <p
                   className={styles["nav-div-2"]}
                   onClick={() => {
-                    this.props.navigate("/profile/seller/product/oder");
+                    this.props.navigate("/profile/seller/order");
                   }}
                 >
                   My Order

@@ -16,7 +16,7 @@ class MyProducts extends Component {
           <main className={styles["main"]}>
             <Header />
             <section className={styles["section-1"]}>
-              <h1 className={styles["section-1-header"]}>Profile</h1>
+              <h1 className={styles["section-1-header"]}>My Product</h1>
               <p className={styles["section-1-text"]}>
                 See your notifications for the latest updates
               </p>
@@ -36,14 +36,14 @@ class MyProducts extends Component {
                     this.props.navigate("/profile/seller/product");
                   }}
                 >
-                  <div className={styles["nav-div-2"]}>
+                  <div className={styles["nav-div-1"]}>
                     <p>My Product</p>
                     <img className={styles["chev"]} src={chev} alt="img" />
                   </div>
                   <div className={styles["nav-line"]}></div>
                 </div>
                 <p
-                  className={styles["nav-div-1"]}
+                  className={styles["nav-div-2"]}
                   onClick={() => {
                     this.props.navigate("/profile/seller/product/selling");
                   }}
@@ -53,7 +53,7 @@ class MyProducts extends Component {
                 <p
                   className={styles["nav-div-2"]}
                   onClick={() => {
-                    this.props.navigate("/profile/seller/product/oder");
+                    this.props.navigate("/profile/seller/order");
                   }}
                 >
                   My Order

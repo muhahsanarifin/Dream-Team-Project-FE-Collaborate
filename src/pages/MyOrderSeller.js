@@ -1,12 +1,13 @@
 import React, { Component, Fragment } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import styles from "../styles/SellingProduct.module.css";
+import styles from "../styles/MyOrderSeller.module.css";
 import withNavigate from "../helpers/withNavigate";
 
 import chev from "../assets/chevrongrey.png";
-import product from "../assets/product4.png";
-import add from "../assets/add.png";
+import product1 from "../assets/product-picture-1.png";
+import product2 from "../assets/product2.png";
+import check from "../assets/check.png";
 
 class MyOrderSellers extends Component {
   render() {
@@ -16,7 +17,7 @@ class MyOrderSellers extends Component {
           <main className={styles["main"]}>
             <Header />
             <section className={styles["section-1"]}>
-              <h1 className={styles["section-1-header"]}>Selling Product</h1>
+              <h1 className={styles["section-1-header"]}>My Order</h1>
               <p className={styles["section-1-text"]}>
                 See your notifications for the latest updates
               </p>
@@ -40,77 +41,78 @@ class MyOrderSellers extends Component {
                     <p>My Product</p>
                     <img className={styles["chev"]} src={chev} alt="img" />
                   </div>
-                  <div className={styles["nav-line"]}></div>
                 </div>
                 <p
-                  className={styles["nav-div-1"]}
+                  className={styles["nav-div-2"]}
                   onClick={() => {
                     this.props.navigate("/profile/seller/product/selling");
                   }}
                 >
                   Selling Product
                 </p>
-                <p
-                  className={styles["nav-div-2"]}
-                  onClick={() => {
-                    this.props.navigate("/profile/seller/product/oder");
-                  }}
-                >
-                  My Order
-                </p>
+                <div>
+                  <p
+                    className={styles["nav-div-1"]}
+                    onClick={() => {
+                      this.props.navigate("/profile/seller/order");
+                    }}
+                  >
+                    My Order
+                  </p>
+                  <div className={styles["nav-line"]}></div>
+                </div>
               </div>
-              <section className={styles["product-section"]}>
-                <h1 className={styles["sell-header-1"]}>Inventory</h1>
-                <input
-                  className={styles["input-1"]}
-                  type="text"
-                  placeholder="Name of goods *"
-                />
-                <input
-                  className={styles["input-2"]}
-                  type="text"
-                  placeholder="Description Product *"
-                />
-                <h1 className={styles["sell-header-1"]}>Item Details</h1>
-                <input
-                  className={styles["input-1"]}
-                  type="text"
-                  placeholder="Unit price *"
-                />
-                <input
-                  className={styles["input-1"]}
-                  type="text"
-                  placeholder="Unit Stock *"
-                />
-                <p className={styles["sell-text-1"]}>Stock Condition</p>
-                <div className={styles["condition-div"]}>
-                  <div className={styles["condition-subdiv"]}>
-                    <input
-                      className={styles["radio"]}
-                      type="radio"
-                      name="condition"
+              <table className={styles["table"]}>
+                <tr>
+                  <th className={styles["th-top-text-1"]}>PRODUCTS</th>
+                  <th></th>
+                  <th className={styles["th-top-text-1"]}>PRICE</th>
+                  <th className={styles["th-top-text-1"]}>QUANTITY</th>
+                  <th className={styles["th-top-text-1"]}>STATUS ORDER</th>
+                  <th className={styles["th-top-text-1"]}>TOTAL</th>
+                </tr>
+                <tr>
+                  <th>
+                    <img
+                      className={styles["table-img"]}
+                      src={product1}
+                      alt="img"
                     />
-                    <p className={styles["sell-text-2"]}>New Product</p>
-                  </div>
-                  <div className={styles["condition-subdiv"]}>
-                    <input
-                      className={styles["radio"]}
-                      type="radio"
-                      name="condition"
+                  </th>
+                  <th className={styles["th-text-1"]}>
+                    Fabric Mid Century Chair
+                  </th>
+                  <th className={styles["th-text-2"]}>$10.50</th>
+                  <th className={styles["th-text-3"]}>02</th>
+                  <th>
+                    <div className={styles["th-text-4"]}>
+                      <img src={check} alt="img" />
+                      Sent
+                    </div>
+                  </th>
+                  <th className={styles["th-text-5"]}>$21.00</th>
+                </tr>
+                <tr>
+                  <th>
+                    <img
+                      className={styles["table-img"]}
+                      src={product2}
+                      alt="img"
                     />
-                    <p className={styles["sell-text-2"]}>Second Product</p>
-                  </div>
-                </div>
-                <h1 className={styles["sell-header-1"]}>Photo of Goods</h1>
-                <div className={styles["product-div"]}>
-                  <img src={product} alt="img" />
-                  <div className={styles["add-div"]}>
-                    <img src={add} alt="img" />
-                    <p className={styles["add-text"]}>Add more image</p>
-                  </div>
-                </div>
-                <button className={styles["sell-btn"]}>Sell Product</button>
-              </section>
+                  </th>
+                  <th className={styles["th-text-1"]}>Chair in Dark Grey</th>
+                  <th className={styles["th-text-2"]}>$10.50</th>
+                  <th className={styles["th-text-3"]}>01</th>
+                  <th>
+                    <div className={styles["th-text-4"]}>
+                      <img src={check} alt="img" />
+                      Processed
+                    </div>
+                  </th>
+                  <th className={styles["th-text-5"]}>$10.50</th>
+                </tr>
+              </table>
+              <div className={styles["line"]}></div>
             </section>
             <Footer />
           </main>

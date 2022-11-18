@@ -64,14 +64,17 @@ class ProfileSellers extends Component {
             </section>
             <section className={styles["section-2"]}>
               <div className={styles["profile-nav"]}>
-                <p
-                  className={styles["nav-div-2"]}
-                  onClick={() => {
-                    this.props.navigate("/profile/seller");
-                  }}
-                >
-                  Profile
-                </p>
+                <div>
+                  <p
+                    className={styles["nav-div-1"]}
+                    onClick={() => {
+                      this.props.navigate("/profile/seller");
+                    }}
+                  >
+                    Profile
+                  </p>
+                  <div className={styles["nav-line"]}></div>
+                </div>
                 <div
                   onClick={() => {
                     this.props.navigate("/profile/seller/product");
@@ -81,10 +84,9 @@ class ProfileSellers extends Component {
                     <p>My Product</p>
                     <img className={styles["chev"]} src={chev} alt="img" />
                   </div>
-                  <div className={styles["nav-line"]}></div>
                 </div>
                 <p
-                  className={styles["nav-div-1"]}
+                  className={styles["nav-div-2"]}
                   onClick={() => {
                     this.props.navigate("/profile/seller/product/selling");
                   }}
@@ -94,7 +96,7 @@ class ProfileSellers extends Component {
                 <p
                   className={styles["nav-div-2"]}
                   onClick={() => {
-                    this.props.navigate("/profile/seller/product/oder");
+                    this.props.navigate("/profile/seller/order");
                   }}
                 >
                   My Order
