@@ -78,6 +78,15 @@
   height: 200px;
 }
 
+.link-btn-bth {
+  text-decoration: none;
+  color: var(--nf-font-color);
+}
+
+.link-btn-bth:hover {
+  color: var(--nf-second-font-color);
+}
+
 @media all and (max-width: 480px) {
   .main {
     padding: 0 1rem;

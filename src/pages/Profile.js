@@ -36,6 +36,7 @@ class Profiles extends Component {
         }).then((result) => {
           if (result.dismiss === Swal.DismissReason.timer) {
             this.props.navigate("/login");
+            localStorage.clear();
           }
         });
       })
