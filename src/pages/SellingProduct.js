@@ -16,7 +16,7 @@ class SellingProducts extends Component {
           <main className={styles["main"]}>
             <Header />
             <section className={styles["section-1"]}>
-              <h1 className={styles["section-1-header"]}>Profile</h1>
+              <h1 className={styles["section-1-header"]}>Selling Product</h1>
               <p className={styles["section-1-text"]}>
                 See your notifications for the latest updates
               </p>
