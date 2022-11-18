@@ -9,6 +9,7 @@ import Checkout from "./pages/Checkout";
 import Tracking from "./pages/tracking";
 import TrackingDetail from "./pages/TrackingDetail";
 import ProfileSeller from "./pages/ProfileSeller";
+import MyProduct from "./pages/MyProduct";
 
 const router = createBrowserRouter([
   { path: "/login", element: <Login /> },
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
   { path: "/tracking", element: <Tracking /> },
   { path: "/tracking/detail", element: <TrackingDetail /> },
   { path: "/profile/seller", element: <ProfileSeller /> },
+  { path: "/profile/product", element: <MyProduct /> },
 ]);
 
 export default router;

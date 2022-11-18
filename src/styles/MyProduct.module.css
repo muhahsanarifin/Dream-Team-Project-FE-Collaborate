@@ -178,3 +178,77 @@
   width: 16px;
   height: 8px;
 }
+
+.delete-btn {
+  width: 200px;
+  height: 60px;
+  background: #d94141;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  color: #ffffff;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 10px 10px;
+}
+
+.table-text-1 {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #1a1a1a;
+  padding-top: 28px;
+  padding-bottom: 21px;
+  text-align: left;
+}
+
+.tr-top {
+  border-top: 1px solid #d7d7d7;
+  border-bottom: 1pt solid #d7d7d7;
+}
+
+.table-img {
+  text-align: left;
+}
+
+.product-th {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.table-text-2 {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #1a1a1a;
+  text-align: left;
+}
+
+.table-text-3 {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  line-height: 14px;
+  color: #262626;
+  text-align: left;
+  vertical-align: center;
+}
+
+.table-text-4 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  color: #1a1a1a;
+}
+
+.check {
+  margin-right: 6.5px;
+}
+
+.delete-div {
+  text-align: right;
+}

@@ -11,7 +11,7 @@ import edit from "../assets/edit.png";
 import editwhite from "../assets/edit-white.png";
 import editb from "../assets/editb.png";
 import logout from "../assets/logout.png";
-import chev from "../assets/chevron.png";
+import chev from "../assets/chevrongrey.png";
 
 class ProfileSellers extends Component {
   constructor(props) {
@@ -64,9 +64,19 @@ class ProfileSellers extends Component {
             </section>
             <section className={styles["section-2"]}>
               <div className={styles["profile-nav"]}>
-                <p className={styles["nav-div-1"]}>Profile</p>
-                <div className={styles["nav-div-2"]}>
-                  <p>My Product</p> <img src={chev} alt="img" />
+                <div>
+                  <p className={styles["nav-div-1"]}>Profile</p>
+                  <div className={styles["nav-line"]}></div>
+                </div>
+                <div
+                  onClick={() => {
+                    this.props.navigate("/profile/product");
+                  }}
+                >
+                  <div className={styles["nav-div-2"]}>
+                    <p>My Product</p>{" "}
+                    <img className={styles["chev"]} src={chev} alt="img" />
+                  </div>
                 </div>
                 <p className={styles["nav-div-2"]}>Selling Product</p>
                 <p className={styles["nav-div-2"]}>My Order</p>
