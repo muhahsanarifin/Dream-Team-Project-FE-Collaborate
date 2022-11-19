@@ -17,6 +17,7 @@ import MyOrderSeller from "./pages/MyOrderSeller";
 import FAQ from "./pages/FAQ";
 import Favorite from "./pages/Favorite";
 import NotFound from "./pages/NotFound";
+import AboutUs from "./pages/AboutUs";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home />, errorElement: <NotFound /> },
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
   { path: "/profile/seller/order", element: <MyOrderSeller /> },
   { path: "/FAQ", element: <FAQ /> },
   { path: "/favorite", element: <Favorite /> },
+  { path: "/aboutus", element: <AboutUs /> },
 ]);
 
 export default router;
