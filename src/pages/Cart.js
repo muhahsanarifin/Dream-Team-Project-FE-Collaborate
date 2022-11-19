@@ -28,54 +28,68 @@ class Cart extends Component {
               <aside className={styles["aside-left"]}>
                 <table className={styles["table"]}>
                   <tr>
+                    <th></th>
                     <th className={styles["header-th-1"]}>PRODUCTS</th>
+                    <th></th>
                     <th className={styles["header-th-2"]}>PRICE</th>
                     <th className={styles["header-th-3"]}>QUANTITY</th>
                     <th className={styles["header-th-4"]}>TOTAL</th>
                   </tr>
-                  <tr>
-                    <th className={styles["product-th"]}>
+                  <tr className={styles["product-tr"]}>
+                    <th>
                       <img
                         className={styles["remove"]}
                         src={remove}
                         alt="img"
                       />
+                    </th>
+                    <th>
                       <img
                         className={styles["product-image"]}
                         src={product1}
                         alt="img"
                       />
+                    </th>
+                    <th className={styles["product-th"]}>
                       <p className={styles["cart-text"]}>
                         Fabric Mid Century Chair
                       </p>
                     </th>
                     <th className={styles["th-price"]}>$10.50</th>
-                    <th className={styles["count-th"]}>
-                      <p className={styles["counter-p"]}>-</p>
-                      <p className={styles["amount-p"]}>02</p>
-                      <p className={styles["counter-p"]}>+</p>
+                    <th>
+                      <div className={styles["count-th"]}>
+                        <p className={styles["counter-p"]}>-</p>
+                        <p className={styles["amount-p"]}>02</p>
+                        <p className={styles["counter-p"]}>+</p>
+                      </div>
                     </th>
                     <th className={styles["total-text"]}>$21.00</th>
                   </tr>
                   <tr>
-                    <th className={styles["product-th"]}>
+                    <th>
                       <img
                         className={styles["remove"]}
                         src={remove}
                         alt="img"
                       />
+                    </th>
+                    <th>
                       <img
                         className={styles["product-image"]}
                         src={product2}
                         alt="img"
                       />
+                    </th>
+                    <th className={styles["product-th"]}>
                       <p className={styles["cart-text"]}>Chair in Dark Grey</p>
                     </th>
                     <th className={styles["th-price"]}>$10.50</th>
-                    <th className={styles["count-th"]}>
-                      <p className={styles["counter-p"]}>-</p>
-                      <p className={styles["amount-p"]}>01</p>
-                      <p className={styles["counter-p"]}>+</p>
+                    <th>
+                      <div className={styles["count-th"]}>
+                        <p className={styles["counter-p"]}>-</p>
+                        <p className={styles["amount-p"]}>01</p>
+                        <p className={styles["counter-p"]}>+</p>
+                      </div>
                     </th>
                     <th className={styles["total-text"]}>$10.50</th>
                   </tr>
