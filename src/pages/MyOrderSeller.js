@@ -86,7 +86,7 @@ class MyOrderSellers extends Component {
                   <th className={styles["th-text-3"]}>02</th>
                   <th>
                     <div className={styles["th-text-4"]}>
-                      <img src={check} alt="img" />
+                      <img className={styles["check"]} src={check} alt="img" />
                       Sent
                     </div>
                   </th>
@@ -105,7 +105,7 @@ class MyOrderSellers extends Component {
                   <th className={styles["th-text-3"]}>01</th>
                   <th>
                     <div className={styles["th-text-4"]}>
-                      <img src={check} alt="img" />
+                      <img className={styles["check"]} src={check} alt="img" />
                       Processed
                     </div>
                   </th>
