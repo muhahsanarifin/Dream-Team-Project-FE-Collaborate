@@ -4,7 +4,7 @@
 
 .main {
   background-color: #ffffff;
-  max-width: 1440px;
+  /* max-width: 1440px; */
   margin: auto;
 }
 
@@ -37,6 +37,8 @@
 
 .section-1::after {
   background-image: url("../assets/login-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   content: "";
   opacity: 0.2;
   top: 0;
@@ -109,7 +111,6 @@
   line-height: 16px;
   color: #ffffff;
   border: none;
-  margin-top: 80px;
 }
 
 .line {
