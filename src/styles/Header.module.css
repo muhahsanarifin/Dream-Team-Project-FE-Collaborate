@@ -6,13 +6,19 @@
 }
 
 .main {
-  position: relative;
   /* border: 1px solid darkgoldenrod; */
+  position: relative;
   padding: 30px 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+/* .display-main {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+} */
 
 .header-center {
   /* border: 1px solid darkblue; */
