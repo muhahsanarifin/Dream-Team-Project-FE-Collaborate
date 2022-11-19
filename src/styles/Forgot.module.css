@@ -33,6 +33,8 @@
 
 .section-1::after {
   background-image: url("../assets/login-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   content: "";
   opacity: 0.2;
   top: 0;
