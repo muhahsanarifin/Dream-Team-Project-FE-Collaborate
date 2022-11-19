@@ -33,12 +33,12 @@ class Logins extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const url = `http://localhost:8090/raz/auth/login`;
+    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}/raz/auth/login`;
     const data = { email: this.state.email, password: this.state.password };
     Axios.post(url, data)
       .then((res) => {
         localStorage.setItem("token", res.data.data.token);
-        console.log(res.data);
+        // console.log(res.data);
         Swal.fire({
           title: "Login Success",
           timer: 2000,
@@ -46,7 +46,7 @@ class Logins extends Component {
           timerProgressBar: true,
         }).then((result) => {
           if (result.dismiss === Swal.DismissReason.timer) {
-            // this.props.navigate("/home");
+            this.props.navigate("/");
           }
         });
       })

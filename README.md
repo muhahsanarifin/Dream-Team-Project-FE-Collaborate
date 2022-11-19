@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -67,4 +67,121 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
+
+
+<a id="readme-top"></a>
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="#">
+    <img src="./src/assets/dream-team-logo-white.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h2 align="center">Dream Team</h2>
+
+  <p align="center">
+    <a href="#">View Demo</a>
+    ·
+    <a href="#">Report Bug</a>
+    ·
+    <a href="#">Request Feature</a>
+  </p>
+</div>
+
+## Built With
+
+<p align="left">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=react,javascript,html,css" />
+  </a>
+</p>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ABOUT THE PROJECT -->
+# About The Project 
+
+<!-- GETTING STARTED -->
+# Getting Started
+
+<!-- 
+## Prerequisites
+-->
+
+## Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Rama-z/Dream_Team_Project_1.git
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- USAGE -->
+# Usage
+
+## npm start
+
+Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes. You may also see any lint errors in the console.
+
+## npm test
+
+Launches the test runner in the interactive watch mode. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+## npm run eject
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- ROADMAP -->
+<!-- # Roadmap
+
+- [x] Add Changelog
+- [x] Add back to top links
+- [ ] Add Additional Templates w/ Examples
+- [ ] Add "components" document to easily copy & paste sections of the readme
+- [ ] Multi-language Support
+    - [ ] Chinese
+    - [ ] Spanish -->
+
+<!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+
+
+
+<!-- CONTRIBUTING -->
+# Contributing
+
+![GitHub contributors](https://img.shields.io/github/contributors/Rama-z/Dream_Team_Project_1?style=flat-square) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/Rama-z/Dream_Team_Project_1?style=flat-square)
+
+
+1. Fork the Project
+2. Create your new Branch ( `git checkout -b ...` )
+3. Commit your Changes ( `git commit -m '...'` )
+4. Push to the Branch ( `git push origin ...` )
+5. Open a Pull Request
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- CONTACT -->
+<!-- # Contact
+
+Your Name - []() -->
+
+<!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+
+
+
+<p align="center"> <samp><i>&copy; 2022 dreamteam</i></samp> </p>

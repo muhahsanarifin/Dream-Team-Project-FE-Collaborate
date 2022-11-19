@@ -1,77 +1,247 @@
 .header-left {
+  /* border: 1px solid red; */
   font-weight: 700;
   font-size: 45px;
   line-height: 51px;
 }
 
 .main {
-  padding-top: 50px;
-  padding-bottom: 71px;
-  padding-left: 80px;
-  padding-right: 80px;
+  /* border: 1px solid darkgoldenrod; */
+  position: relative;
+  padding: 30px 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* .display-main {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+} */
+
 .header-center {
+  /* border: 1px solid darkblue; */
   display: flex;
   column-gap: 50px;
 }
 
 .header-center-div {
+  /* border: 1px solid darkcyan; */
   display: flex;
   column-gap: 10px;
   align-items: center;
 }
 
 .chevron {
+  /* border: 1px solid darkgoldenrod; */
   width: 8px;
   height: 4px;
 }
 
 .header-center-text {
+  /* border: 1px solid darkblue; */
   font-weight: 700;
   font-size: 18px;
   line-height: 20px;
+  cursor: pointer;
 }
 
 .header-right {
+  /* border: 1px solid darkmagenta; */
   display: flex;
   column-gap: 60px;
 }
 
-.header-right-menu {
+.header-right-toggle {
+  /* border: 1px solid darkorchid; */
+  position: relative;
   display: flex;
   flex-direction: column;
   row-gap: 10px;
 }
 
+.header-right-menu {
+  /* border: 1px solid darkblue; */
+  display: flex;
+  flex-direction: row;
+  column-gap: 1rem;
+}
+
 .menu-1 {
+  /* border: 1px solid darkblue; */
   align-self: flex-end;
   height: 4px;
-  width: 22px;
+  width: 14px;
 }
 
 .menu-2 {
+  /* border: 1px solid darkred; */
   height: 4px;
-  width: 44px;
+  width: 28px;
 }
 
 .menu-3 {
+  /* border: 1px solid darkgoldenrod; */
   height: 4px;
-  width: 22px;
+  width: 14px;
 }
 
 .image-1 {
+  /* border: 1px solid darkblue; */
   width: 23px;
   height: 23px;
 }
 .image-2 {
+  /* border: 1px solid darkgreen; */
   width: 22px;
   height: 21px;
 }
 .image-3 {
+  /* border: 1px solid darkorange; */
   width: 24px;
   height: 24px;
+}
+
+.image-1,
+.image-2,
+.image-3 {
+  cursor: pointer;
+  z-index: 1;
+}
+
+.header-right-toggle {
+  cursor: pointer;
+}
+
+/* || Responsive */
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  .main {
+    padding: 1rem 1rem;
+  }
+  .header-right {
+    /* border: 1px solid darkmagenta; */
+    display: flex;
+    column-gap: 24px;
+  }
+
+  .menu-1 {
+    /* border: 1px solid darkblue; */
+    align-self: flex-end;
+    height: 4px;
+    width: 15px;
+  }
+
+  .menu-2 {
+    /* border: 1px solid darkred; */
+    height: 4px;
+    width: 30px;
+  }
+
+  .menu-3 {
+    /* border: 1px solid darkgoldenrod; */
+    height: 4px;
+    width: 15px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+  .header-right {
+    /* border: 1px solid darkmagenta; */
+    display: flex;
+    column-gap: 28px;
+  }
+
+  .menu-1 {
+    /* border: 1px solid darkblue; */
+    align-self: flex-end;
+    height: 4px;
+    width: 10px;
+  }
+
+  .menu-2 {
+    /* border: 1px solid darkred; */
+    height: 4px;
+    width: 30px;
+  }
+
+  .menu-3 {
+    /* border: 1px solid darkgoldenrod; */
+    height: 4px;
+    width: 10px;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .menu-1 {
+    /* border: 1px solid darkblue; */
+    align-self: flex-end;
+    height: 4px;
+    width: 8px;
+  }
+
+  .menu-2 {
+    /* border: 1px solid darkred; */
+    height: 4px;
+    width: 28px;
+  }
+
+  .menu-3 {
+    /* border: 1px solid darkgoldenrod; */
+    height: 4px;
+    width: 8px;
+  }
+
+  .header-left {
+    position: relative;
+    /* border: 1px solid red; */
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 51px;
+  }
+
+  .header-center {
+    display: flex;
+    column-gap: 0.8rem;
+    z-index: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .header-center p {
+    margin-bottom: 0;
+    font-size: 12px;
+  }
+
+  .header-right-menu {
+    /* border: 1px solid darkblue; */
+    top: 4.5rem;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 1;
+    padding: 0.6rem 0.6rem;
+    border-radius: 0.2rem;
+    background-color: #ffffff;
+  }
+
+  .main {
+    padding: 0 1.5rem;
+  }
+
+  .image-1 {
+    /* border: 1px solid darkblue; */
+    width: 18px;
+    height: 18px;
+  }
+  .image-2 {
+    /* border: 1px solid darkgreen; */
+    width: 18px;
+    height: 18px;
+  }
+  .image-3 {
+    /* border: 1px solid darkorange; */
+    width: 18px;
+    height: 18px;
+  }
 }
