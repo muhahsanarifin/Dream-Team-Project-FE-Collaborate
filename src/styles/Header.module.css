@@ -65,7 +65,7 @@
   /* border: 1px solid darkblue; */
   display: flex;
   flex-direction: row;
-  column-gap: 1rem;
+  column-gap: 2.5rem;
 }
 
 .menu-1 {
