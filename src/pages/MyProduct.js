@@ -69,7 +69,11 @@ class MyProducts extends Component {
                 <tr>
                   <th className={styles["product-th"]}>
                     <div className={styles["table-img"]}>
-                      <img src={product} alt="img" />
+                      <img
+                        className={styles["product-img"]}
+                        src={product}
+                        alt="img"
+                      />
                     </div>
                   </th>
                   <th className={styles["table-text-2"]}>
@@ -91,7 +95,11 @@ class MyProducts extends Component {
                 <tr>
                   <th className={styles["product-th"]}>
                     <div className={styles["table-img"]}>
-                      <img src={product} alt="img" />
+                      <img
+                        className={styles["product-img"]}
+                        src={product}
+                        alt="img"
+                      />
                     </div>
                   </th>
                   <th className={styles["table-text-2"]}>
@@ -113,7 +121,11 @@ class MyProducts extends Component {
                 <tr>
                   <th className={styles["product-th"]}>
                     <div className={styles["table-img"]}>
-                      <img src={product} alt="img" />
+                      <img
+                        className={styles["product-img"]}
+                        src={product}
+                        alt="img"
+                      />
                     </div>
                   </th>
                   <th className={styles["table-text-2"]}>
