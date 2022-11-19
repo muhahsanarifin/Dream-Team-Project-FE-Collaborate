@@ -7,6 +7,7 @@ import meet1 from "../assets/meet1.png";
 import meet2 from "../assets/meet2.png";
 import meet3 from "../assets/meet3.png";
 import bottom1 from "../assets/bottom1.png";
+import about1 from "../assets/about1.png";
 
 class AboutUs extends Component {
   render() {
@@ -57,7 +58,13 @@ class AboutUs extends Component {
                   </p>
                 </aside>
                 <aside>
-                  <div className={styles["about-image-div-1"]}></div>
+                  <div className={styles["about-image-div-1"]}>
+                    <img
+                      className={styles["about-img"]}
+                      src={about1}
+                      alt="img"
+                    />
+                  </div>
                 </aside>
               </div>
               <div>
