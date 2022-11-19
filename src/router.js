@@ -28,6 +28,7 @@ const router = createBrowserRouter([
   { path: "/profile/seller/product/selling", element: <SellingProduct /> },
   { path: "/profile/seller/order", element: <MyOrderSeller /> },
   { path: "/FAQ", element: <FAQ /> },
+  { path: "/FAQ", element: <FAQ /> },
 ]);
 
 export default router;
