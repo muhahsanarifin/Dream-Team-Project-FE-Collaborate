@@ -8,11 +8,12 @@ import Profile from './pages/Profile';
 import Notification from './pages/Notification';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
-import Tracking from './pages/Tracking';
+import Tracking from './pages/tracking';
 import TrackingDetail from './pages/TrackingDetail';
 import Favorite from './pages/Favorite';
 import Whislist from './pages/Whislist';
 import NotFound from './pages/NotFound';
+import Blog from './pages/Blog';
 
 const router = createBrowserRouter([
   { path: '/', element: <Home />, errorElement: <NotFound /> },
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
   { path: '/tracking/detail', element: <TrackingDetail /> },
   { path: '/favorite', element: <Favorite /> },
   { path: '/whislist', element: <Whislist /> },
+  { path: '/blog', element: <Blog /> },
 ]);
 
 export default router;
