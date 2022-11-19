@@ -12,7 +12,7 @@ class Header extends Component {
   render() {
     return (
       <Fragment>
-        <main className={styles["main"]}>
+        <main className={`${styles["main"]} ${styles["display-main"]}`}>
           <h1 className={styles["header-left"]}>RAZ</h1>
           <div className={styles["header-center"]}>
             <p className={styles["header-center-text"]}>HOME</p>
