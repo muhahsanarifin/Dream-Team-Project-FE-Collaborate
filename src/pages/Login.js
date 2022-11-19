@@ -5,6 +5,8 @@ import styles from "../styles/Login.module.css";
 import Swal from "sweetalert2";
 import Axios from "axios";
 import withNavigate from "../helpers/withNavigate";
+// import authActions from "../redux/action/auth";
+// import { connect } from "react-redux";
 
 class Logins extends Component {
   constructor(props) {
@@ -32,7 +34,15 @@ class Logins extends Component {
   }
 
   handleSubmit(event) {
+    console.log(this.props);
     event.preventDefault();
+    const body = {
+      email: this.state.email,
+      password: this.state.password
+    }
+    console.log(body);
+    // return (this.props.dispatch(authActions.loginThunk(body, () => this.props.navigate("/"))))
+
     const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/login`;
     const data = { email: this.state.email, password: this.state.password };
     Axios.post(url, data)
@@ -122,6 +132,13 @@ class Logins extends Component {
     );
   }
 }
+
+// const mapStateToProps = (reduxState) => {
+//   return {
+//     auth: reduxState.auth
+//   };
+// };
+
 
 const Login = withNavigate(Logins);
 
