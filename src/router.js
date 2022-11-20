@@ -13,6 +13,7 @@ import TrackingDetail from "./pages/TrackingDetail";
 import Favorite from "./pages/Favorite";
 import Whislist from "./pages/Whislist";
 import NotFound from "./pages/NotFound";
+import Products from "./pages/Products";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home />, errorElement: <NotFound /> },
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
   { path: "/register", element: <Register /> },
   { path: "/forgot", element: <Forgot /> },
   { path: "/profile", element: <Profile /> },
+  { path: "/products", element: <Products /> },
   { path: "/notification", element: <Notification /> },
   { path: "/cart", element: <Cart /> },
   { path: "/checkout", element: <Checkout /> },
