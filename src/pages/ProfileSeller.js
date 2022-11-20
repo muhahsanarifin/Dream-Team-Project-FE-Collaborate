@@ -21,7 +21,7 @@ class ProfileSellers extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const url = `http://localhost:8090/raz/auth/logout`;
+    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
     const config = {
       headers: {
         "x-access-token": localStorage.getItem("token"),
