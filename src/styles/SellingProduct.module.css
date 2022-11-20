@@ -1,0 +1,202 @@
+.main-2 {
+  background-color: #bcbaba;
+}
+
+.main {
+  background-color: white;
+  /* max-width: 1440px; */
+  margin: auto;
+}
+
+.section-1 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 74px;
+  padding-bottom: 74px;
+}
+
+.section-1::after {
+  background-image: url("../assets/login-background.png");
+  background-image: url("../assets/login-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  content: "";
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+.section-1-header {
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 64.39px;
+  margin-bottom: 20px;
+}
+
+.section-1-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18.4px;
+}
+
+.profile-nav {
+  display: flex;
+  column-gap: 80px;
+  margin-bottom: 100px;
+}
+
+.section-2 {
+  padding-left: 140px;
+  padding-right: 140px;
+  padding-bottom: 120px;
+  padding-top: 91px;
+}
+
+.nav-div-1 {
+  display: flex;
+  align-items: center;
+  column-gap: 14px;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 37px;
+  color: #1a1a1a;
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+
+.nav-div-2 {
+  display: flex;
+  align-items: center;
+  column-gap: 14px;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 37px;
+  color: #b4b4b4;
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+
+.nav-line {
+  width: 80px;
+  border: 2px solid #c2c2c2;
+  background: #c2c2c2;
+}
+
+.chev {
+  width: 16px;
+  height: 8px;
+}
+
+.sell-header-1 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #1a1a1a;
+  margin-bottom: 40px;
+}
+
+.input-1 {
+  width: 100%;
+  height: 70px;
+  background: #ffffff;
+  border: 1px solid #cecece;
+  padding-left: 20px;
+  margin-bottom: 40px;
+}
+
+.input-2 {
+  width: 100%;
+  height: 163px;
+  background: #ffffff;
+  border: 1px solid #cecece;
+  padding-left: 20px;
+  margin-bottom: 80px;
+}
+
+.sell-text-1 {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 28px;
+  color: #4d4d4d;
+  margin-bottom: 20px;
+}
+
+.condition-div {
+  display: flex;
+  column-gap: 43px;
+  margin-bottom: 80px;
+}
+
+.condition-subdiv {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.sell-text-2 {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 28px;
+  color: #4d4d4d;
+}
+
+.radio {
+  box-sizing: border-box;
+  appearance: none;
+  background: white;
+  outline: 1px solid #979797;
+  border: 3px solid white;
+  width: 16px;
+  height: 16px;
+}
+
+input[type="radio"]:checked {
+  background: #1a1a1a;
+}
+
+.product-div {
+  display: flex;
+  column-gap: 20px;
+  margin-bottom: 80px;
+}
+
+.add-div {
+  padding-top: 80px;
+  display: flex;
+  row-gap: 32px;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  border: 1px dashed #cecece;
+  width: 200px;
+  height: 200px;
+}
+
+.add-text {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 28px;
+  color: #4d4d4d;
+}
+
+.sell-btn {
+  width: 157px;
+  height: 50px;
+  background: #1a1a1a;
+  border: none;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ffffff;
+}
+
+.product-section {
+  margin-left: 300px;
+  margin-right: 300px;
+}

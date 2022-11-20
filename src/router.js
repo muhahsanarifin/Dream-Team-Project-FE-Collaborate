@@ -5,16 +5,21 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Forgot from './pages/Forgot';
 import Profile from './pages/Profile';
+import Products from './pages/Products';
 import Notification from './pages/Notification';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import Tracking from './pages/tracking';
 import TrackingDetail from './pages/TrackingDetail';
-import Favorite from './pages/Favorite';
-import Whislist from './pages/Whislist';
-import NotFound from './pages/NotFound';
+import ProfileSeller from './pages/ProfileSeller';
+import MyProduct from './pages/MyProduct';
+import SellingProduct from './pages/SellingProduct';
+import MyOrderSeller from './pages/MyOrderSeller';
+import FAQ from './pages/FAQ';
 import Blog from './pages/Blog';
 import BlogDetail from './pages/BlogDetail';
+import Favorite from './pages/Favorite';
+import NotFound from './pages/NotFound';
 
 const router = createBrowserRouter([
   { path: '/', element: <Home />, errorElement: <NotFound /> },
@@ -22,15 +27,20 @@ const router = createBrowserRouter([
   { path: '/register', element: <Register /> },
   { path: '/forgot', element: <Forgot /> },
   { path: '/profile', element: <Profile /> },
+  { path: '/products', element: <Products /> },
   { path: '/notification', element: <Notification /> },
   { path: '/cart', element: <Cart /> },
   { path: '/checkout', element: <Checkout /> },
   { path: '/tracking', element: <Tracking /> },
   { path: '/tracking/detail', element: <TrackingDetail /> },
+  { path: '/profile/seller', element: <ProfileSeller /> },
+  { path: '/profile/seller/product', element: <MyProduct /> },
+  { path: '/profile/seller/product/selling', element: <SellingProduct /> },
+  { path: '/profile/seller/order', element: <MyOrderSeller /> },
+  { path: '/FAQ', element: <FAQ /> },
   { path: '/favorite', element: <Favorite /> },
-  { path: '/whislist', element: <Whislist /> },
   { path: '/blog', element: <Blog /> },
-  { path: '/blogdetail', element: <BlogDetail /> },
+  { path: '/blog/detail', element: <BlogDetail /> },
 ]);
 
 export default router;
