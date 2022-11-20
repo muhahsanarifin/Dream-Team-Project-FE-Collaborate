@@ -30,12 +30,18 @@ class Header extends Component {
               </span>
               <img className={styles["chevron"]} src={chev} alt="img" />
               <ul className={styles["header-center-div__contents"]}>
-                <Link to={`/`}>
+                <Link to={`/`} className={styles["link"]}>
                   <li>About Us</li>
                 </Link>
-                <li>Contact Us</li>
-                <li>Coming Soon</li>
-                <li>404 Page</li>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>Contact Us</li>
+                </Link>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>Coming Soon</li>
+                </Link>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>404 Page</li>
+                </Link>
                 <Link to={`/faq`} className={styles["link"]}>
                   <li>FAQ Page</li>
                 </Link>
