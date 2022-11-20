@@ -29,7 +29,7 @@ import icon_rachel from '../assets/icon_rachel.png';
 import img_chair from '../assets/img_chair.png';
 import img_matress from '../assets/img_matress.png';
 
-function BlogDetail() {
+const BlogDetail = () => {
   return (
     <>
       <Header />

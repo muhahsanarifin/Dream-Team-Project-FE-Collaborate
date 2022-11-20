@@ -30,7 +30,9 @@ class Header extends Component {
               </span>
               <img className={styles["chevron"]} src={chev} alt="img" />
               <ul className={styles["header-center-div__contents"]}>
-                <li>About Us</li>
+                <Link to={`/`}>
+                  <li>About Us</li>
+                </Link>
                 <li>Contact Us</li>
                 <li>Coming Soon</li>
                 <li>404 Page</li>
@@ -50,16 +52,16 @@ class Header extends Component {
                 <Link to={`/products`} className={styles["link"]}>
                   <li>Products</li>
                 </Link>
-                <Link to={`/products`} className={styles["link"]}>
+                <Link to={`/`} className={styles["link"]}>
                   <li>Shopping Chart</li>
                 </Link>
-                <Link to={`/products`} className={styles["link"]}>
+                <Link to={`/`} className={styles["link"]}>
                   <li>Checkout</li>
                 </Link>
-                <Link to={`/products`} className={styles["link"]}>
+                <Link to={`/`} className={styles["link"]}>
                   <li>My Account</li>
                 </Link>
-                <Link to={`/products`} className={styles["link"]}>
+                <Link to={`/`} className={styles["link"]}>
                   <li>Order racking</li>
                 </Link>
               </ul>
@@ -85,10 +87,10 @@ class Header extends Component {
                 <Link to={`/register`} className={styles["link"]}>
                   <li>Register</li>
                 </Link>
-                <Link to={`/register`} className={styles["link"]}>
+                <Link to={`/`} className={styles["link"]}>
                   <li>Chat</li>
                 </Link>
-                <Link to={`/register`} className={styles["link"]}>
+                <Link to={`/notification`} className={styles["link"]}>
                   <li>Notification</li>
                 </Link>
               </ul>

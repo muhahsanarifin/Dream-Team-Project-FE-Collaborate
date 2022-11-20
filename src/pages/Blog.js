@@ -19,7 +19,7 @@ import Icon_time from '../assets/Icon_time.png';
 import icon_tag from '../assets/icon_tag.png';
 import img_matress from '../assets/img_matress.png';
 
-function Blog() {
+const Blog = () => {
   return (
     <>
       <Header />

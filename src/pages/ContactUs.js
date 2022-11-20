@@ -10,7 +10,7 @@ import styles from '../styles/ContactUs.module.css';
 //import image
 import Icon_map from '../assets/Icon_map.png';
 
-function ContactUs() {
+const ContactUs = () => {
   return (
     <>
       <Header />

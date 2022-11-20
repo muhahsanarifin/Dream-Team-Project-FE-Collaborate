@@ -28,9 +28,9 @@ yarn-error.log*
 #note
 note.txt
 
-#ProdcutDetail.js
-src/pages/ProductDetail.js
-src/styles/ProductDetail.module.css
+# #ProdcutDetail.js
+# src/pages/ProductDetail.js
+# src/styles/ProductDetail.module.css
 
 src/pages/Whislist.js
 src/styles/Whislist.module.css
