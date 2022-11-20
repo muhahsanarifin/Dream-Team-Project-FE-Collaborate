@@ -11,9 +11,9 @@ class Cart extends Component {
   render() {
     return (
       <Fragment>
+        <Header />
         <main className={styles["main-2"]}>
           <main className={styles["main"]}>
-            <Header />
             <section className={styles["section-1"]}>
               <div className={styles["section-1-nav"]}>
                 <p className={styles["section-1-text"]}>Cart</p>
@@ -133,9 +133,9 @@ class Cart extends Component {
                 </button>
               </aside>
             </section>
-            <Footer />
           </main>
         </main>
+        <Footer />
       </Fragment>
     );
   }
