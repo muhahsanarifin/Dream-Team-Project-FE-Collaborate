@@ -9,7 +9,7 @@ import styles from '../styles/CardWhislist.module.css';
 //import image
 import icon_kursi from '../assets/icon_kursi.png';
 
-function CardProduct() {
+const CardProduct = () => {
   const onChange = (e) => {
     console.log(`checked = ${e.target.checked}`);
   };

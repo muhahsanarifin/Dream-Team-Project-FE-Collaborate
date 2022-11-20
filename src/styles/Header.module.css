@@ -26,25 +26,91 @@
   column-gap: 50px;
 }
 
+.header-center__link {
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+.header-center__link:hover {
+  color: #1a1a1a;
+}
+
 .header-center-div {
-  /* border: 1px solid darkcyan; */
+  /* border: 1px solid darkblue; */
+  position: relative;
   display: flex;
   column-gap: 10px;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.header-center-div-shop {
+  position: relative;
+  /* border: 1px solid darkblue; */
+}
+
+.header-center-div__contents {
+  display: none;
+}
+
+.header-center-div-shop:hover .header-center-div__contents,
+.header-center-div-page:hover .header-center-div__contents {
+  /* border: 1px solid darkblue; */
+  position: absolute;
+  top: 2rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-radius: 4px;
+  z-index: 1;
+  background: #1a1a1a;
+  width: fit-content;
+}
+
+.header-center-div__contents li {
+  /* border: 1px solid darkblue; */
+  margin-bottom: 0;
+  color: white;
+  font-weight: 400;
+  cursor: pointer;
+  min-width: 7.5rem;
+  list-style: none;
+  font-size: 16px;
 }
 
 .chevron {
-  /* border: 1px solid darkgoldenrod; */
+  position: relative;
+  top: 0.5rem;
   width: 8px;
   height: 4px;
 }
 
 .header-center-text {
   /* border: 1px solid darkblue; */
+  position: relative;
   font-weight: 700;
   font-size: 18px;
   line-height: 20px;
   cursor: pointer;
+  padding: 0.2rem 0;
+}
+
+/* .header-center-text::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 3px solid #1a1a1a;
+} */
+
+.header-center span:hover .header-center-text::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 3px solid #1a1a1a;
 }
 
 .header-right {
@@ -65,7 +131,7 @@
   /* border: 1px solid darkblue; */
   display: flex;
   flex-direction: row;
-  column-gap: 1rem;
+  column-gap: 2.5rem;
 }
 
 .menu-1 {
@@ -111,11 +177,49 @@
 }
 
 .header-right-toggle {
+  /* border: 1px solid darkblue; */
+  padding: 0.2rem 0;
+  position: relative;
   cursor: pointer;
+}
+
+.header-right-toggle__contents {
+  display: none;
+}
+
+.header-right-toggle:hover .header-right-toggle__contents {
+  /* border: 1px solid darkblue; */
+  position: absolute;
+  right: 0;
+  top: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 4px;
+  z-index: 1;
+  background: #1a1a1a;
+}
+
+.header-right-toggle__contents li {
+  /* border: 1px solid darkblue; */
+  margin-bottom: 0;
+  color: white;
+  font-weight: 400;
+  list-style: none;
+  font-size: 16px;
+}
+
+.link {
+  text-decoration: none;
 }
 
 /* || Responsive */
 @media all and (min-width: 768px) and (max-width: 1024px) {
+  .header-right-toggle:hover .header-right-toggle__contents {
+    right: 0;
+  }
+
   .main {
     padding: 1rem 1rem;
   }
@@ -123,6 +227,14 @@
     /* border: 1px solid darkmagenta; */
     display: flex;
     column-gap: 24px;
+  }
+
+  .header-left {
+    /* border: 1px solid red; */
+    position: relative;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 51px;
   }
 
   .menu-1 {
@@ -146,10 +258,26 @@
 }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
+  .header-right-toggle:hover .header-right-toggle__contents {
+    right: 0;
+  }
+
   .header-right {
     /* border: 1px solid darkmagenta; */
     display: flex;
-    column-gap: 28px;
+    column-gap: 26px;
+  }
+
+  .header-left {
+    /* border: 1px solid red; */
+    position: relative;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 51px;
+  }
+
+  .header-right-menu {
+    column-gap: 2rem;
   }
 
   .menu-1 {
@@ -173,6 +301,30 @@
 }
 
 @media all and (max-width: 480px) {
+  .header-center-div-shop:hover .header-center-div__contents,
+  .header-center-div-page:hover .header-center-div__contents {
+    top: 1.3rem;
+  }
+
+  .header-center-div-shop:hover .header-center-div__contents li {
+    min-width: 5rem;
+    font-size: 10px;
+  }
+
+  .header-center-div-page:hover .header-center-div__contents li {
+    min-width: 5rem;
+    font-size: 10px;
+  }
+
+  .header-right-toggle:hover .header-right-toggle__contents {
+    top: 2.5rem;
+    right: 0;
+  }
+
+  .header-right-toggle:hover .header-right-toggle__contents li {
+    font-size: 10px;
+  }
+
   .menu-1 {
     /* border: 1px solid darkblue; */
     align-self: flex-end;
@@ -196,11 +348,12 @@
     position: relative;
     /* border: 1px solid red; */
     font-weight: 700;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 51px;
   }
 
   .header-center {
+    /* border: 1px solid darkblue; */
     display: flex;
     column-gap: 0.8rem;
     z-index: 1;
