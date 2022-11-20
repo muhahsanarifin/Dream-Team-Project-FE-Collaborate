@@ -5,15 +5,18 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Forgot from "./pages/Forgot";
 import Profile from "./pages/Profile";
+import Products from "./pages/Products";
 import Notification from "./pages/Notification";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Tracking from "./pages/tracking";
 import TrackingDetail from "./pages/TrackingDetail";
-import Favorite from "./pages/Favorite";
-import Whislist from "./pages/Whislist";
+import ProfileSeller from "./pages/ProfileSeller";
+import MyProduct from "./pages/MyProduct";
+import SellingProduct from "./pages/SellingProduct";
+import MyOrderSeller from "./pages/MyOrderSeller";
+import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
-import Products from "./pages/Products";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home />, errorElement: <NotFound /> },
@@ -27,8 +30,11 @@ const router = createBrowserRouter([
   { path: "/checkout", element: <Checkout /> },
   { path: "/tracking", element: <Tracking /> },
   { path: "/tracking/detail", element: <TrackingDetail /> },
-  { path: "/favorite", element: <Favorite /> },
-  { path: "/whislist", element: <Whislist /> },
+  { path: "/profile/seller", element: <ProfileSeller /> },
+  { path: "/profile/seller/product", element: <MyProduct /> },
+  { path: "/profile/seller/product/selling", element: <SellingProduct /> },
+  { path: "/profile/seller/order", element: <MyOrderSeller /> },
+  { path: "/FAQ", element: <FAQ /> },
 ]);
 
 export default router;
