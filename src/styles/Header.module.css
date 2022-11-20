@@ -26,11 +26,51 @@
   column-gap: 50px;
 }
 
+.header-center__link {
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+.header-center__link:hover {
+  color: #1a1a1a;
+}
+
 .header-center-div {
-  /* border: 1px solid darkcyan; */
+  position: relative;
   display: flex;
   column-gap: 10px;
   align-items: center;
+}
+
+.header-center-div-shop {
+  position: relative;
+  /* border: 1px solid darkblue; */
+} 
+
+.header-center-div__contents {
+  display: none;
+}
+
+.header-center-div-shop:hover .header-center-div__contents {
+  /* border: 1px solid darkblue; */
+  position: absolute;
+  top: 2rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-radius: 4px;
+  z-index: 1;
+  background: #1a1a1a;
+  width: 7.5rem;
+}
+
+.header-center-div__contents p {
+  /* border: 1px solid darkblue; */
+  margin-bottom: 0;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .chevron {
@@ -65,7 +105,7 @@
   /* border: 1px solid darkblue; */
   display: flex;
   flex-direction: row;
-  column-gap: 1rem;
+  column-gap: 2.5rem;
 }
 
 .menu-1 {
@@ -111,11 +151,45 @@
 }
 
 .header-right-toggle {
+  /* border: 1px solid darkblue; */
+  position: relative;
   cursor: pointer;
+}
+
+.header-right-toggle__contents {
+  display: none;
+}
+
+.header-right-toggle:hover .header-right-toggle__contents {
+  /* border: 1px solid darkblue; */
+  position: absolute;
+  top: 2.05rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  border-radius: 4px;
+  z-index: 1;
+  background: #1a1a1a;
+}
+
+.header-right-toggle__contents p {
+  /* border: 1px solid darkblue; */
+  margin-bottom: 0;
+  color: white;
+  font-weight: 700;
+}
+
+.link {
+  text-decoration: none;
 }
 
 /* || Responsive */
 @media all and (min-width: 768px) and (max-width: 1024px) {
+  .header-right-toggle:hover .header-right-toggle__contents {
+    right: 0;
+  }
+
   .main {
     padding: 1rem 1rem;
   }
@@ -146,10 +220,18 @@
 }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
+  .header-right-toggle:hover .header-right-toggle__contents {
+    right: 0;
+  }
+
   .header-right {
     /* border: 1px solid darkmagenta; */
     display: flex;
-    column-gap: 28px;
+    column-gap: 26px;
+  }
+
+  .header-right-menu {
+    column-gap: 2rem;
   }
 
   .menu-1 {
@@ -173,6 +255,10 @@
 }
 
 @media all and (max-width: 480px) {
+  .header-right-toggle:hover .header-right-toggle__contents {
+    right: 0;
+  }
+
   .menu-1 {
     /* border: 1px solid darkblue; */
     align-self: flex-end;
