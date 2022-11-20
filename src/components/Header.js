@@ -20,9 +20,16 @@ class Header extends Component {
             <Link to={`/`} className={styles["header-center__link"]}>
               <p className={styles["header-center-text"]}>HOME</p>
             </Link>
-            <div className={styles["header-center-div"]}>
+            <div
+              className={`${styles["header-center-div"]} ${styles["header-center-div-page"]}`}
+            >
               <p className={styles["header-center-text"]}>PAGES</p>
               <img className={styles["chevron"]} src={chev} alt="img" />
+              <span className={styles["header-center-div__contents"]}>
+                <Link to={`/faq`} className={styles["link"]}>
+                  <p>FAQ</p>
+                </Link>
+              </span>
             </div>
             <div
               className={`${styles["header-center-div"]} ${styles["header-center-div-shop"]}`}
@@ -31,7 +38,7 @@ class Header extends Component {
               <img className={styles["chevron"]} src={chev} alt="img" />
               <span className={styles["header-center-div__contents"]}>
                 <Link to={`/products`} className={styles["link"]}>
-                  <p>Orders</p>
+                  <p>Products</p>
                 </Link>
                 <p>My Product</p>
               </span>
