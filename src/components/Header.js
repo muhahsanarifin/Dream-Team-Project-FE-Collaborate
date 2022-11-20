@@ -52,9 +52,9 @@ class Header extends Component {
                 <Link to={`/login`} className={styles["link"]}>
                   <p>Login</p>
                 </Link>
-                {/* <Link to={`/profile`} className={styles["link"]}>
+                <Link to={`/profile`} className={styles["link"]}>
                   <p>Profile</p>
-                </Link> */}
+                </Link>
               </span>
             </div>
           </div>
