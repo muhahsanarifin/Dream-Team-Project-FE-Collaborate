@@ -72,9 +72,11 @@ class Header extends Component {
                 </Link>
               </ul>
             </div>
-            <span>
-              <p className={styles["header-center-text"]}>BLOG</p>
-            </span>
+            <Link to={`/blog`} className={styles["header-center__link"]}>
+              <span>
+                <p className={styles["header-center-text"]}>BLOG</p>
+              </span>
+            </Link>
           </div>
           <div className={styles["header-right"]}>
             <span className={styles["header-right-menu"]}>
