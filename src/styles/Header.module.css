@@ -149,7 +149,11 @@
   .header-right {
     /* border: 1px solid darkmagenta; */
     display: flex;
-    column-gap: 28px;
+    column-gap: 26px;
+  }
+
+  .header-right-menu {
+    column-gap: 2rem;
   }
 
   .menu-1 {
