@@ -116,23 +116,88 @@
 }
 
 .color__list-brown {
-  accent-color: brown;
+  position: relative;
+  visibility: hidden;
+}
+
+.color__list-brown::after {
+  visibility: visible;
+  position: absolute;
+  content: "";
+  background: brown;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
 }
 
 .color__list-blue {
-  accent-color: blue;
+  visibility: hidden;
 }
+
+.color__list-blue::after {
+  visibility: visible;
+  position: absolute;
+  content: "";
+  background: blue;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+}
+
 .color__list-black {
-  accent-color: black;
+  visibility: hidden;
 }
+
+.color__list-black::after {
+  visibility: visible;
+  position: absolute;
+  content: "";
+  background: black;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+}
+
 .color__list-purple {
-  accent-color: purple;
+  visibility: hidden;
 }
+
+.color__list-purple::after {
+  visibility: visible;
+  position: absolute;
+  content: "";
+  background: purple;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+}
+
 .color__list-green {
-  accent-color: green;
+  visibility: hidden;
 }
+
+.color__list-green::after {
+  visibility: visible;
+  position: absolute;
+  content: "";
+  background: green;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+}
+
 .color__list-yellow {
-  accent-color: yellow;
+  visibility: hidden;
+}
+
+.color__list-yellow::after {
+  visibility: visible;
+  position: absolute;
+  content: "";
+  background: yellow;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
 }
 
 .categories__list li {
