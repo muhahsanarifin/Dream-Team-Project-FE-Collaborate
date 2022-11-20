@@ -278,7 +278,7 @@
 .sorting {
   display: flex;
   flex-direction: row;
-  /* border: 1px solid darkorange; */
+  border: 1px solid darkorange;
 }
 
 .sorting label {
