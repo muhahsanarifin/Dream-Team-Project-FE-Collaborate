@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from 'react-router-dom';
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -16,6 +16,9 @@ import ProfileSeller from "./pages/ProfileSeller";
 import MyProduct from "./pages/MyProduct";
 import SellingProduct from "./pages/SellingProduct";
 import MyOrderSeller from "./pages/MyOrderSeller";
+import Blog from "./pages/Blog";
+import BlogDetail from "./pages/BlogDetail";
+import Contact from "./pages/ContactUs";
 import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 
@@ -36,6 +39,9 @@ const router = createBrowserRouter([
   { path: "/profile/seller/product", element: <MyProduct /> },
   { path: "/profile/seller/product/selling", element: <SellingProduct /> },
   { path: "/profile/seller/order", element: <MyOrderSeller /> },
+  { path: "/contact", element: <Contact /> },
+  { path: "/blog", element: <Blog /> },
+  { path: "/blog/detail", element: <BlogDetail /> },
   { path: "/FAQ", element: <FAQ /> },
 ]);
 
