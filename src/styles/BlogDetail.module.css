@@ -94,6 +94,7 @@
 
 .input_search {
   border: none;
+  outline: none;
 }
 .icon_search {
   cursor: pointer;
@@ -110,9 +111,9 @@
 }
 
 .content_categories {
+  /* border: 1px solid black; */
   margin-top: 19px;
   height: 390px;
-  /* border: 1px solid black; */
 }
 
 .brand_all {
@@ -321,7 +322,7 @@
   padding-top: 99px;
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: flex-end;
   gap: 32px;
 }
 
