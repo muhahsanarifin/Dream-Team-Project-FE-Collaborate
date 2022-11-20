@@ -14,6 +14,7 @@ import Favorite from './pages/Favorite';
 import Whislist from './pages/Whislist';
 import NotFound from './pages/NotFound';
 import Blog from './pages/Blog';
+import BlogDetail from './pages/BlogDetail';
 
 const router = createBrowserRouter([
   { path: '/', element: <Home />, errorElement: <NotFound /> },
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
   { path: '/favorite', element: <Favorite /> },
   { path: '/whislist', element: <Whislist /> },
   { path: '/blog', element: <Blog /> },
+  { path: '/blogdetail', element: <BlogDetail /> },
 ]);
 
 export default router;
