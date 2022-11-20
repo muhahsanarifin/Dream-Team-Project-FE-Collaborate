@@ -4,7 +4,7 @@
 
 .main {
   background-color: white;
-  /* max-width: 1440px; */
+  max-width: 1440px;
   margin: auto;
 }
 
@@ -57,6 +57,7 @@
 }
 
 .profile-top-header {
+  border: none;
   font-weight: 700;
   font-size: 24px;
   line-height: 27.6px;
@@ -78,6 +79,11 @@
 
 .profile-image-div {
   position: relative;
+}
+
+.edit {
+  border: none;
+  background-color: transparent;
 }
 
 .profile-image-edit {
@@ -124,10 +130,30 @@
   line-height: 37px;
 }
 
+.section-3-subdiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-3-form {
+  display: flex;
+  align-items: center;
+}
 .section-3-text {
+  border: none;
   font-weight: 400;
   font-size: 24px;
   line-height: 27.6px;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.none {
+  display: none;
 }
 
 .section-3-edit {
@@ -139,6 +165,8 @@
   display: flex;
   column-gap: 11px;
   cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 
 .section-3-edit p {
@@ -186,7 +214,7 @@
     column-gap: 10px;
     justify-content: center;
     align-items: center;
-    width: 180px;
+    width: 110px;
     height: 70px;
     background-color: #d94141;
     border: none;
