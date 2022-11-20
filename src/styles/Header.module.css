@@ -45,13 +45,14 @@
 .header-center-div-shop {
   position: relative;
   /* border: 1px solid darkblue; */
-} 
+}
 
 .header-center-div__contents {
   display: none;
 }
 
-.header-center-div-shop:hover .header-center-div__contents {
+.header-center-div-shop:hover .header-center-div__contents,
+.header-center-div-page:hover .header-center-div__contents {
   /* border: 1px solid darkblue; */
   position: absolute;
   top: 2rem;
@@ -62,7 +63,7 @@
   border-radius: 4px;
   z-index: 1;
   background: #1a1a1a;
-  width: 7.5rem;
+  width: fit-content;
 }
 
 .header-center-div__contents p {
@@ -71,6 +72,7 @@
   color: white;
   font-weight: 700;
   cursor: pointer;
+  min-width: 5.8rem;
 }
 
 .chevron {
@@ -151,7 +153,7 @@
 }
 
 .header-right-toggle {
-  /* border: 1px solid darkblue; */
+  padding: 0.2rem 0;
   position: relative;
   cursor: pointer;
 }
@@ -163,7 +165,7 @@
 .header-right-toggle:hover .header-right-toggle__contents {
   /* border: 1px solid darkblue; */
   position: absolute;
-  top: 2.05rem;
+  top: 2.3rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -255,7 +257,21 @@
 }
 
 @media all and (max-width: 480px) {
+  .header-center-div-shop:hover .header-center-div__contents,
+  .header-center-div-page:hover .header-center-div__contents {
+    top: 1.3rem;
+  }
+
+  .header-center-div-shop:hover .header-center-div__contents p {
+    min-width: 4.2rem;
+  }
+
+  .header-center-div-page:hover .header-center-div__contents p  {
+    min-width: 2.2rem;
+  }
+
   .header-right-toggle:hover .header-right-toggle__contents {
+    top: 2.5rem;
     right: 0;
   }
 
@@ -287,6 +303,7 @@
   }
 
   .header-center {
+    /* border: 1px solid darkblue; */
     display: flex;
     column-gap: 0.8rem;
     z-index: 1;
