@@ -115,12 +115,15 @@ class Profiles extends Component {
                   <img className={styles[""]} src={editb} alt="img" />
                 </div>
               </div>
-              <form onSubmit={this.handleSubmit}>
-                <button className={styles["logout"]}>
-                  <img className={styles[""]} src={logout} alt="img" />
-                  <p>Logout</p>
-                </button>
-              </form>
+              <div className={styles["btn-div"]}>
+                <form onSubmit={this.handleSubmit}>
+                  <button className={styles["logout"]}>
+                    <img className={styles[""]} src={logout} alt="img" />
+                    <p>Logout</p>
+                  </button>
+                </form>
+                <button className={styles["logout"]}>Edit Password</button>
+              </div>
             </section>
             <Footer />
           </main>
