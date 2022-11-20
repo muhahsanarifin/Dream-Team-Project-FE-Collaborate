@@ -71,7 +71,9 @@
 
 .profile-top-header-div {
   display: flex;
+  flex-direction: row;
   column-gap: 20px;
+  align-items: center;
 }
 
 .profile-image-div {
@@ -88,6 +90,17 @@
   top: 40px;
   left: 12px;
   column-gap: 11px;
+}
+
+.profile-image-edit img,
+.profile-top-header-div img,
+.section-3-edit img {
+  width: 18px;
+  height: 18px;
+}
+
+.profile-image-edit p {
+  margin-bottom: 0;
 }
 
 .section-3-div {
@@ -122,6 +135,10 @@
   column-gap: 11px;
 }
 
+.section-3-edit p {
+  margin-bottom: 0;
+}
+
 .logout {
   display: flex;
   column-gap: 10px;
@@ -137,6 +154,10 @@
   font-size: 16px;
   line-height: 18.4px;
   cursor: pointer;
+}
+
+.logout p {
+  margin-bottom: 0;
 }
 
 .profile-nav {
