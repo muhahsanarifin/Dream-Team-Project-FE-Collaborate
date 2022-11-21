@@ -3,7 +3,7 @@ import Product from "../components/CardProduct";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import LoadingAnimation from "../components/Loading";
-// import chair from "../assets/chair.png";
+import CardCategory from "../components/CardCategory";
 import styles from "../styles/Products.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../redux/action/product";
@@ -27,6 +27,7 @@ const Products = () => {
   const totalData = useSelector((state) => state.products.meta.totalData);
   const isLoading = useSelector((state) => state.products.isLoading);
   const isRejected = useSelector((state) => state.products.isError);
+  const categories = useSelector((state) => state.categories.categories);
   const getQuery = useQuery();
   const [searchParams, setSearchParams] = useSearchParams();
   const [query, setQuery] = useState({
@@ -68,20 +69,7 @@ const Products = () => {
     dispacth(categoriesActions.getCategoriesThunk());
   }, [dispacth]);
 
-  // useEffect(() => {
-  //   const url = {
-  //     categoriId: "",
-  //   };
-  //   dispacth(productActions.getProductThunk({ ...url, categoriId: "1" }));
-  //   dispacth(productActions.getProductThunk({ ...url, categoriId: "2" }));
-  //   dispacth(productActions.getProductThunk({ ...url, categoriId: "3" }));
-  //   dispacth(productActions.getProductThunk({ ...url, categoriId: "4" }));
-  //   dispacth(productActions.getProductThunk({ ...url, categoriId: "5" }));
-  //   dispacth(productActions.getProductThunk({ ...url, categoriId: "6" }));
-  //   dispacth(productActions.getProductThunk({ ...url, categoriId: "7" }));
-  //   dispacth(productActions.getProductThunk({ ...url, categoriId: "8" }));
-  //   dispacth(productActions.getProductThunk({ ...url, categoriId: "9" }));
-  // }, [dispacth]);
+
 
   return (
     <>
@@ -99,8 +87,22 @@ const Products = () => {
           <aside className={styles["left-side-section"]}>
             <span className={styles["categories"]}>
               <h3>Categories</h3>
+              <div>
+              <div className={styles["content"]}>
+                  {categories?.map((e) => (
+                    <CardCategory
+                      name={e.category}
+                      unit={e.total_product}
+                      id={e.id}
+                      key={e.id}
+                      setQuery={setQuery}
+                      querys={query}
+                    />
+                  ))}
+                </div>
+                </div>
               <ul className={styles["categories__list"]}>
-                <li>
+                { /*<li>
                   <p
                     className={styles["categories__list_1"]}
                     onClick={() => {
@@ -234,7 +236,7 @@ const Products = () => {
                     Wallets
                   </p>
                   <p>11</p>
-                </li>
+                  </li> */}
               </ul>
             </span>
             <div className={styles["price"]}>

@@ -1,11 +1,11 @@
 import axios from "axios";
 
-// const baseUrl = process.env.REACT_APP_DT_BACKEND_HOST;
-const baseUrl = 'https://dream-team-project-be.vercel.app/';
+const baseUrl = `http://localhost:8090/`;
+// const baseUrl = 'https://dream-team-project-be.vercel.app/';
 
 
 // const baseUrl2 = `http://localhost:8090/`
-console.log(process.env.REACT_APP_DT_BACKEND_HOST);
+// console.log(process.env.REACT_APP_DT_BACKEND_HOST);
 
 const axiosRequest = (method, url, data, params) => {
   return axios({
@@ -35,7 +35,7 @@ export const getData = (url) => {
 };
 
 export const getCategories = (data) => {
-  return axiosRequest("GET", "/categories", data);
+  return axiosRequest("GET", "raz/product/category/", data);
 };
 
 
