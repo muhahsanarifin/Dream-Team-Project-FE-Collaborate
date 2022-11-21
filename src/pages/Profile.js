@@ -32,11 +32,7 @@ class Profiles extends Component {
     document.title = "Profile";
     const token = localStorage.getItem("token");
     const info = jwt(token);
-<<<<<<< HEAD
-    const url = `https://dream-team-project-be.vercel.app/raz/users/profile`;
-=======
     const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/users/profile`;
->>>>>>> origin/branch-ahsan
     const config = {
       headers: {
         "x-access-token": localStorage.getItem("token"),
@@ -66,17 +62,10 @@ class Profiles extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-<<<<<<< HEAD
-    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;;
-    const config = {
-      headers: {
-        "x-access-token": localStorage.getItem("token"),
-=======
     const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
     const config = {
       headers: {
         "x-access-token": localStorage.getItem("token")
->>>>>>> origin/branch-ahsan
       },
     };
     Axios.delete(url, config)
@@ -105,11 +94,7 @@ class Profiles extends Component {
 
   handleSubmit2(event) {
     event.preventDefault();
-<<<<<<< HEAD
-    const url = `https://dream-team-project-be.vercel.app/raz/users/profile/edit`;
-=======
     const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/users/profile/edit`;
->>>>>>> origin/branch-ahsan
     const formdata = new FormData();
     // const body = {
     //   username: this.state.username,
