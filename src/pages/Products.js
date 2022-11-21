@@ -149,7 +149,7 @@ const Products = () => {
               <span className={styles["info__pages"]}>
                 <p>Showing 1-6 of 39 Results</p>
               </span>
-              <span className={styles["sorting"]}>
+              {/* <span className={styles["sorting"]}>
                 <label>sort by</label>
                 <select>
                   <optgroup label="Price">
@@ -161,7 +161,7 @@ const Products = () => {
                     <option value="">Oldest</option>
                   </optgroup>
                 </select>
-              </span>
+              </span> */}
             </span>
             <span className={styles["product-lists"]}>
               {/* <span className={styles["product"]}>

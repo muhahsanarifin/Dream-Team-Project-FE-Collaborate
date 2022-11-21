@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import CardWhislist from '../components/CardWhislist';
 
-function Favorite() {
+const Favorite = () => {
   return (
     <>
       <Header />

@@ -10,9 +10,9 @@ class Checkout extends Component {
   render() {
     return (
       <Fragment>
+        <Header />
         <main className={styles["main-2"]}>
           <main className={styles["main"]}>
-            <Header />
             <section className={styles["section-1"]}>
               <div className={styles["section-1-nav"]}>
                 <p className={styles["section-1-text"]}>Cart</p>
@@ -56,9 +56,9 @@ class Checkout extends Component {
               </div>
               <button className={styles["checkout-btn"]}>Check Out</button>
             </section>
-            <Footer />
           </main>
         </main>
+        <Footer />
       </Fragment>
     );
   }
