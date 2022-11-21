@@ -528,8 +528,8 @@ const Products = () => {
                 <LoadingAnimation />
               ) : isRejected ? (
                 <div>
-                  <p className={`${styles["tengah"]}`}>Product Not Found</p>
-                  <p className={`${styles["tengah"]}`}>404</p>
+                  <p className={`${styles["not-found"]}`}>Product Not Found</p>
+                  <p className={`${styles["not-found"]}`}>404</p>
                 </div>
               ) : (
                 products.map((e, idx) => (
