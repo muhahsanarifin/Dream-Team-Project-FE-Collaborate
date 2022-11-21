@@ -34,6 +34,9 @@ export const getData = (url) => {
   return axios.get(urls);
 };
 
+export const getCategories = (data) => {
+  return axiosRequest("GET", "/categories", data);
+};
 
 
 // export const logout = (token) => {
