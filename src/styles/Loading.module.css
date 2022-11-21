@@ -57,9 +57,8 @@
   left: 56px;
   animation-delay: -1.6s;
 }
-.tengah {
+.middle {
   margin: auto;
-  margin-left: 30rem;
 }
 @keyframes lds-grid {
   0%,
@@ -70,3 +69,4 @@
     opacity: 0.5;
   }
 }
+

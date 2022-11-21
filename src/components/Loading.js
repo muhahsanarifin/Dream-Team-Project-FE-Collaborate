@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "../styles/Loading.module.css";
 
-function Loading() {
+const Loading = () => {
   return (
-    <div className={`${styles["tengah"]}`}>
+    <div className={`${styles["middle"]}`}>
       <div className={styles["lds-grid"]}>
         <div></div>
         <div></div>

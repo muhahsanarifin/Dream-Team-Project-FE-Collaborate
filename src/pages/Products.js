@@ -468,7 +468,7 @@ const Products = () => {
               </span>
               <div className={styles["sort-dropdown"]}>
                 <p onClick={dropdownHandler}>
-                  Sort by <span>&#8704;</span>
+                  Sort by <span>{`▽`}</span>
                 </p>
               </div>
               {show && (
