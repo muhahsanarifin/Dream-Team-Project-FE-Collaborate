@@ -11,6 +11,13 @@ import bar1 from "../assets/menu-1.png";
 import bar2 from "../assets/menu-2.png";
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pages: "none",
+      shop: "none",
+    };
+  }
   render() {
     return (
       <Fragment>
@@ -25,11 +32,20 @@ class Header extends Component {
             <div
               className={`${styles["header-center-div"]} ${styles["header-center-div-page"]}`}
             >
-              <span>
+              <span
+                onClick={() => {
+                  this.state.pages === "none"
+                    ? this.setState({ pages: "block" })
+                    : this.setState({ pages: "none" });
+                }}
+              >
                 <p className={styles["header-center-text"]}>PAGES</p>
               </span>
               <img className={styles["chevron"]} src={chev} alt="img" />
-              <ul className={styles["header-center-div__contents"]}>
+              <ul
+                style={{ display: this.state.pages }}
+                className={styles["header-center-div__contents"]}
+              >
                 <Link to={`/aboutus`} className={styles["link"]}>
                   <li>About Us</li>
                 </Link>
@@ -44,11 +60,20 @@ class Header extends Component {
             <div
               className={`${styles["header-center-div"]} ${styles["header-center-div-shop"]}`}
             >
-              <span>
+              <span
+                onClick={() => {
+                  this.state.shop === "none"
+                    ? this.setState({ shop: "block" })
+                    : this.setState({ shop: "none" });
+                }}
+              >
                 <p className={styles["header-center-text"]}>SHOP</p>
               </span>
               <img className={styles["chevron"]} src={chev} alt="img" />
-              <ul className={styles["header-center-div__contents"]}>
+              <ul
+                style={{ display: this.state.shop }}
+                className={styles["header-center-div__contents"]}
+              >
                 <Link to={`/products`} className={styles["link"]}>
                   <li>Products</li>
                 </Link>
