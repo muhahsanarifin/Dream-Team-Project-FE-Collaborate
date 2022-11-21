@@ -16,4 +16,5 @@ export const actionStrings = {
   counterUp: "COUNTER_UP",
   counterDown: "COUNTER_DOWN",
   counterReset: "COUNTER_RESET",
+  getCategories: "GET_CATEGORIES",
 };

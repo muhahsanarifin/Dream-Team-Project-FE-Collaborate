@@ -7,6 +7,7 @@ import LoadingAnimation from "../components/Loading";
 import styles from "../styles/Products.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../redux/action/product";
+import categoriesActions from "../redux/action/categories";
 import {
   createSearchParams,
   useLocation,
@@ -60,6 +61,10 @@ const Products = () => {
     console.log(query);
     dispacth(productActions.getProductThunk(query));
   }, [dispacth, query, searchParams]);
+
+  useEffect(() => {
+    dispacth(categoriesActions.getCategoriesThunk());
+  }, [dispacth]);
 
   // useEffect(() => {
   //   const url = {

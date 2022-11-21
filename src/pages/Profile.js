@@ -62,12 +62,10 @@ class Profiles extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
-    const dataUser = localStorage.getItem("data-user");
-    const { token } = JSON.parse(dataUser);
+    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;;
     const config = {
       headers: {
-        "x-access-token": token,
+        "x-access-token": localStorage.getItem("token"),
       },
     };
     Axios.delete(url, config)

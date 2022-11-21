@@ -73,6 +73,7 @@
   display: flex;
   flex-direction: row;
   gap: 7rem;
+  padding-left: 6%;
 }
 
 .content_left {
@@ -536,7 +537,9 @@
   padding-bottom: 15px;
   justify-content: center;
 }
-.img_relate {
+.img_relate,
+.img_chair,
+.img_matress {
   width: 380px;
   height: 249px;
 }
@@ -546,7 +549,9 @@
   flex-direction: column;
 }
 
-.text_interior {
+.text_interior,
+.text_beatiful,
+.text_furniture {
   padding-top: 10px;
   font-family: "Arimo";
   font-style: normal;
@@ -554,7 +559,9 @@
   font-size: 20px;
 }
 
-.text_relate {
+.text_relate,
+.text_relate_corner,
+.text_relate_vintage {
   display: flex;
   font-family: "Arimo";
   font-style: normal;
@@ -564,7 +571,9 @@
   gap: 6px;
 }
 
-.text_kids {
+.text_kids,
+.text_kids_corner,
+.text_kids_vintage {
   display: flex;
   width: 121px;
   font-family: "Arimo";
@@ -595,4 +604,480 @@
 
 .point:hover {
   background-color: black;
+}
+
+@media only screen and (max-width: 768px) {
+  .content_all {
+    gap: 3rem;
+    padding-left: 0;
+  }
+  .content {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .text_blog {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    font-weight: 400;
+    font-size: 26px;
+    padding-left: 0;
+  }
+  .blog {
+    font-family: 'Arimo';
+    padding-top: 60px;
+    font-size: 46px;
+  }
+  .text {
+    font-size: 22px;
+  }
+  .content_left {
+    width: 33%;
+    height: 100%;
+  }
+  .content_right {
+    width: 67%;
+    padding-bottom: 40px;
+  }
+  .search {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .brand_all {
+    font-size: 20px;
+  }
+  .recent_news {
+    padding-top: 36px;
+  }
+  .content_border_tags {
+    width: 119px;
+    height: 30px;
+    font-size: 20px;
+  }
+  .content_border_zuka {
+    width: 119px;
+    height: 30px;
+    font-size: 20px;
+  }
+  .content_border_online {
+    width: 119px;
+    height: 30px;
+    font-size: 20px;
+  }
+  .icon_banner {
+    width: 244px;
+    height: 200px;
+  }
+  .img_freshii,
+  .img_kitchen {
+    width: 463px;
+    height: 300px;
+  }
+  .text_shop {
+    padding-top: 20px;
+    font-family: 'Arimo';
+  }
+  .content_text_time {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .describe_interior {
+    font-size: 20px;
+  }
+  .content_scandinavian {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .text_scan,
+  .text_hubert,
+  .describe_interior_text {
+    font-size: 20px;
+  }
+  .content_luxury {
+    padding-top: 24px;
+    gap: 1rem;
+  }
+  .line_left {
+    width: 1px;
+    height: 140px;
+  }
+  .share_whith {
+    padding-top: 5px;
+    font-size: 20px;
+  }
+  .text-time,
+  .text-time-right {
+    font-size: 15px;
+  }
+  .text-recent {
+    font-size: 18px;
+  }
+  .prev_post {
+    justify-content: space-around;
+    padding-top: 30px;
+  }
+  .paginasi {
+    font-size: 16px;
+  }
+  .content_post {
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .content_post_right {
+    padding-right: 7px;
+  }
+  .border_comment {
+    height: 100%;
+    width: 99%;
+  }
+  .content_img_comment {
+    gap: 10px;
+    padding: 10px 24px;
+  }
+  .content_img_comment_right {
+    gap: 10px;
+    padding: 10px 0px 0px 54px;
+  }
+  .line_bani {
+    border-bottom: 3px solid #e12070;
+    width: 32px;
+    height: 1px;
+    padding-top: 80px;
+  }
+  .leave_comment {
+    padding-top: 26px;
+    font-size: 30px;
+  }
+  .text_address {
+    font-size: 16px;
+    line-height: 25px;
+  }
+  .content_comment {
+    flex-direction: column;
+    gap: 22px;
+  }
+  .input_text {
+    width: 91%;
+    height: 55px;
+  }
+
+  .input_comment {
+    width: 91%;
+    height: 170px;
+  }
+  .send {
+    width: 220px;
+    height: 50px px;
+    border-radius: 8px;
+  }
+  .relate_post {
+    padding-left: 285px;
+  }
+
+  .text_kids_corner,
+  .text_beatiful,
+  .text_relate_corner,
+  .img_chair,
+  .text_furniture,
+  .text_relate_vintage,
+  .text_kids_vintage,
+  .img_matress {
+    display: none;
+  }
+  .img_relate_post {
+    gap: 0;
+  }
+  .img_relate {
+    width: 100%;
+    height: 366px;
+  }
+  .text_interior {
+    font-size: 26px;
+    text-align: center;
+  }
+  .content_text_time {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .text_relate {
+    font-size: 15px;
+  }
+  .text_kids {
+    width: 166px;
+    font-size: 15px;
+  }
+  .content_point {
+    padding-top: 44px;
+    padding-bottom: 50px;
+  }
+  .point {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+@media only screen and (max-width: 428px) {
+  .content {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .text_blog {
+    position: absolute;
+    top: 16px;
+    left: 22px;
+    font-weight: 400;
+    font-size: 14px;
+    padding-left: 0;
+  }
+  .blog {
+    font-size: 29px;
+    font-weight: 400;
+    padding-top: 57px;
+    font-family: "'Arimo'";
+  }
+
+  .content_all {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+    padding-left: 0;
+  }
+
+  .content_left {
+    width: 100%;
+    height: 100%;
+  }
+  .search {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 60px;
+    padding-left: 14px;
+    border: 1px solid #c8c8c8;
+  }
+  .icon_search {
+    margin-top: 18px;
+    margin-right: 36px;
+    width: 15px;
+    height: 15px;
+  }
+  .categories {
+    padding-top: 30px;
+    font-weight: 700;
+    font-size: 26px;
+  }
+  .brand_all {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 0;
+    font-size: 20px;
+  }
+  .recent_news {
+    padding-top: 30px;
+    font-weight: 700;
+    font-size: 26px;
+  }
+  .content_recent_news {
+    display: flex;
+    flex-direction: column;
+    padding-top: 46px;
+    gap: 32px;
+  }
+  .text-recent {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .text-time {
+    padding-top: 6px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #3e3e3e;
+  }
+  .archives {
+    padding-top: 50px;
+    font-weight: 700;
+    font-size: 26px;
+  }
+  .select_month {
+    gap: 14rem;
+    font-size: 17px;
+    height: 50px;
+  }
+  .tags {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-size: 26px;
+  }
+  .content_tags {
+    justify-content: center;
+    gap: 7.5px;
+  }
+  .content_border_tags {
+    width: 129px;
+    font-size: 20px;
+  }
+  .content_border_zuka {
+    width: 129px;
+    font-size: 20px;
+  }
+  .content_border_online {
+    width: 129px;
+    font-size: 20px;
+  }
+  .icon_banner {
+    display: none;
+  }
+  .content_right {
+    width: 100%;
+    padding-bottom: 30px;
+  }
+  .img_freshii,
+  .play,
+  .img_relate,
+  .img_kitchen {
+    width: 100%;
+    height: 280px;
+  }
+  .text_shop {
+    padding-top: 20px;
+    font-size: 26px;
+    font-weight: 700;
+  }
+  .text_tag {
+    gap: 4px;
+    font-size: 16px;
+  }
+  .content_text_time {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 46px;
+  }
+  .describe_interior {
+    font-size: 20px;
+  }
+  .content_scandinavian {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .text_Scandinavian {
+    font-weight: 700;
+    font-family: 'arimo';
+    font-size: 26px;
+  }
+  .text_scan,
+  .text_hubert,
+  .describe_interior_text,
+  .text-recent {
+    font-size: 20px;
+  }
+  .content_luxury {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: row;
+  }
+  .line_left {
+    display: none;
+  }
+  .share_whith {
+    padding-top: 3px;
+    font-size: 20px;
+  }
+  .content_post {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .text-time,
+  .text-time-right,
+  .paginasi,
+  .text_address {
+    font-size: 16px;
+  }
+  .paginasi {
+    padding-top: 30px;
+  }
+  .comment {
+    padding-top: 60px;
+  }
+  .border_comment {
+    height: 100%;
+  }
+  .content_img_comment {
+    gap: 4px;
+    padding: 20px 10px;
+  }
+  .content_img_comment_right {
+    gap: 5px;
+    padding: 5px 0px 0px 54px;
+  }
+  .line_bani {
+    border-bottom: 3px solid #e12070;
+    width: 32px;
+    height: 1px;
+    padding-top: 79px;
+  }
+  .content_comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 26px;
+    padding-top: 14px;
+  }
+  .input_text {
+    width: 100%;
+    height: 50px;
+  }
+  .input_comment {
+    width: 100%;
+    height: 160px;
+  }
+  .send {
+    width: 270px;
+    height: 60px;
+    border-radius: 10px;
+  }
+  .img_relate_post {
+    display: block;
+  }
+  .text_relate_corner,
+  .text_relate_vintage,
+  .text_kids_corner,
+  .text_kids_vintage,
+  .img_matress,
+  .img_chair,
+  .text_beatiful,
+  .text_furniture {
+    display: none;
+  }
+  .text_interior {
+    padding-top: 26px;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+  }
+  .content_text_time {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding-left: 43px;
+  }
 }
