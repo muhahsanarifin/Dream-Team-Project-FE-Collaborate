@@ -29,7 +29,7 @@ function Productdetail() {
   const image = useSelector((state) => state.products.productsDetails.images)
   const price = useSelector((state) => state.products.productsDetails.price)
   const sold = useSelector((state) => state.products.productsDetails.sold)
-  const stock = useSelector((state) => state.products.productsDetails.stock)
+  const stock = useSelector((state) => state.products.productsDetails.stock)    
   console.log(">>>>>>>>>>>>>>>>>>>>", stock);
   console.log(image);
   // const fetchData = async () => {

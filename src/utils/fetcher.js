@@ -7,7 +7,7 @@ console.log(process.env.REACT_APP_DT_BACKEND_HOST);
 const axiosRequest = (method, url, data, params) => {
   return axios({
     method,
-    url: `${baseUrl2}${url}`,
+    url: `${baseUrl}${url}`,
     data,
     params,
   });
