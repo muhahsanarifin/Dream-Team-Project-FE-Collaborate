@@ -40,16 +40,17 @@ const Products = () => {
   });
   const endItem =
     Number(query.page) === 1 && totalData > Number(query.limit)
-      ? query.limit 
+      ? query.limit
       : Number(query.page) === 1 && totalData < Number(query.limit)
       ? totalData
-      : Number(query.page) !== 1 && totalData < Number(query.limit) * Number(query.page)
+      : Number(query.page) !== 1 &&
+        totalData < Number(query.limit) * Number(query.page)
       ? totalData
-      : Number(query.limit) * Number(query.page)
-  const inItem = 
-    Number(query.page) === 1 
-      ? 1 
-      : (Number(query.limit) * (Number(query.page) - 1)) + 1 
+      : Number(query.limit) * Number(query.page);
+  const inItem =
+    Number(query.page) === 1
+      ? 1
+      : Number(query.limit) * (Number(query.page) - 1) + 1;
   const dropdownHandler = () => {
     setShow(!show);
   };
@@ -518,17 +519,6 @@ const Products = () => {
                 <p className={styles["title"]}>Coaster 506222-CO Loveseat</p>
                 <p className={styles["price"]}>$765.99</p>
               </span>*/}
-<<<<<<< HEAD
-              {products.map((product, idx) => (
-                <Product
-                  title={product.product_name}
-                  price={product.price}
-                  img={product.image}
-                  id={product.id}
-                  key={idx}
-                />
-              ))}
-=======
               {isLoading ? (
                 <LoadingAnimation />
               ) : isRejected ? (
@@ -547,7 +537,6 @@ const Products = () => {
                   />
                 ))
               )}
->>>>>>> 3aa5e8d22987e121748e62a2af70c1bde1d94b96
             </span>
             <span className={styles["paginations"]}>
               <ul>
