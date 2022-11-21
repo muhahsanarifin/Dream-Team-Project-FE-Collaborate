@@ -7,7 +7,7 @@ console.log(process.env.REACT_APP_DT_BACKEND_HOST);
 const axiosRequest = (method, url, data, params) => {
   return axios({
     method,
-    url: `${baseUrl}${url}`,
+    url: `${baseUrl2}${url}`,
     data,
     params,
   });
@@ -20,13 +20,13 @@ export const login = (data) => {
 export const getProduct = (data) => {
   return axios({
     method: "GET",
-    url: `${baseUrl2}raz/product`,
+    url: `${baseUrl}raz/product`,
     data,
   });
 };
 
 export const getData = (url) => {
-  const urls = baseUrl2 + url
+  const urls = baseUrl + url
   return axios.get(urls);
 };
 
