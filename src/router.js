@@ -7,11 +7,7 @@ import Forgot from "./pages/Forgot";
 import Profile from "./pages/Profile";
 import Products from "./pages/Products";
 // import ProductsDetails from "./pages/ProductDetailsTest";
-<<<<<<< HEAD
 import ProductDetail from "./pages/ProductDetail";
-=======
-import ProductDetail from "./pages/ProductDetail"
->>>>>>> 3aa5e8d22987e121748e62a2af70c1bde1d94b96
 import Notification from "./pages/Notification";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
