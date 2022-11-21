@@ -70,7 +70,7 @@
 .header-center-div__contents li {
   /* border: 1px solid darkblue; */
   margin-bottom: 0;
-  color: white;
+  color: #ffffff;
   font-weight: 400;
   cursor: pointer;
   min-width: 7.5rem;
@@ -204,7 +204,7 @@
 .header-right-toggle__contents li {
   /* border: 1px solid darkblue; */
   margin-bottom: 0;
-  color: white;
+  color: #ffffff;
   font-weight: 400;
   list-style: none;
   font-size: 16px;

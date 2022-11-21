@@ -1,10 +1,9 @@
 .main-2 {
-  background-color: #bcbaba;
+  background-color: #ffffff;
 }
 
 .main {
-  background-color: white;
-  /* max-width: 1440px; */
+  max-width: 1440px;
   margin: auto;
 }
 
@@ -149,9 +148,9 @@
 .radio {
   box-sizing: border-box;
   appearance: none;
-  background: white;
+  background: #ffffff;
   outline: 1px solid #979797;
-  border: 3px solid white;
+  border: 3px solid #ffffff;
   width: 16px;
   height: 16px;
 }

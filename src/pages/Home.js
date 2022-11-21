@@ -19,14 +19,13 @@ import japanesePlateFloral from "../assets/raz-retangle-5.png";
 import modernFloorLamp from "../assets/raz-retangle-6.png";
 
 const Home = () => {
-
   // const getDataUser = localStorage.getItem("data-user"); // » Get Data User «
   // console.log("data user", JSON.parse(getDataUser));
   // const {role, token} = getDataUser.JSON.parse(getDataUser);
   return (
     <>
-      <Header />
       <main className={[styles["main"]]}>
+        <Header />
         <section className={`${styles["section"]} ${styles["fist-section"]}`}>
           <h1 className={styles["title"]}>Minimal Furniture Store</h1>
           <p className={styles["description"]}>
@@ -148,8 +147,8 @@ const Home = () => {
             </span>
           </span>
         </section>
+        <Footer />
       </main>
-      <Footer />
     </>
   );
 };

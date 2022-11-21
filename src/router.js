@@ -6,12 +6,12 @@ import Register from "./pages/Register";
 import Forgot from "./pages/Forgot";
 import Profile from "./pages/Profile";
 import Products from "./pages/Products";
-import ProductsDetails from "./pages/ProductDetailsTest";
+// import ProductsDetails from "./pages/ProductDetailsTest";
 import ProductDetail from "./pages/ProductDetail"
 import Notification from "./pages/Notification";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
-import Tracking from "./pages/tracking";
+import Tracking from "./pages/Tracking";
 import TrackingDetail from "./pages/TrackingDetail";
 import ProfileSeller from "./pages/ProfileSeller";
 import MyProduct from "./pages/MyProduct";
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
   { path: "/contact", element: <Contact /> },
   { path: "/blog", element: <Blog /> },
   { path: "/blog/detail", element: <BlogDetail /> },
-  { path: "/FAQ", element: <FAQ /> },
+  { path: "/faq", element: <FAQ /> },
 ]);
 
 export default router;

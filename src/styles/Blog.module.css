@@ -7,6 +7,11 @@
   font-family: 'Arimo', sans-serif;
 }
 
+.main {
+  max-width: 1440px;
+  margin: auto;
+}
+
 .content {
   /* border: 1px solid darkblue; */
   display: flex;
@@ -33,17 +38,17 @@
 }
 
 .text_blog {
-  /* border: 1px solid darkblue; */
   padding-left: 80px;
   font-family: 'Arimo';
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 16x;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 .text_blog_row {
-  padding-left: 20px;
-  color: #919191;
+  padding-left: 0;
 }
 .blog {
   /* border: 1px solid red; */

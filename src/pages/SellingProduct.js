@@ -12,9 +12,9 @@ class SellingProducts extends Component {
   render() {
     return (
       <Fragment>
-        <Header />
         <main className={styles["main-2"]}>
           <main className={styles["main"]}>
+            <Header />
             <section className={styles["section-1"]}>
               <h1 className={styles["section-1-header"]}>Selling Product</h1>
               <p className={styles["section-1-text"]}>
@@ -114,9 +114,9 @@ class SellingProducts extends Component {
                 <button className={styles["sell-btn"]}>Sell Product</button>
               </section>
             </section>
+            <Footer />
           </main>
         </main>
-        <Footer />
       </Fragment>
     );
   }

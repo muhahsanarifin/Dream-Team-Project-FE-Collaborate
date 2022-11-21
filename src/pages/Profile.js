@@ -13,7 +13,6 @@ import editb from "../assets/editb.png";
 import logout from "../assets/logout.png";
 
 class Profiles extends Component {
-
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,8 +21,8 @@ class Profiles extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
-     const dataUser = localStorage.getItem("data-user");
-     const { token } = JSON.parse(dataUser);
+    const dataUser = localStorage.getItem("data-user");
+    const { token } = JSON.parse(dataUser);
     const config = {
       headers: {
         "x-access-token": token,
@@ -56,9 +55,9 @@ class Profiles extends Component {
   render() {
     return (
       <Fragment>
-        <Header />
         <main className={styles["main-2"]}>
           <main className={styles["main"]}>
+            <Header />
             <section className={styles["section-1"]}>
               <h1 className={styles["section-1-header"]}>Profile</h1>
               <p className={styles["section-1-text"]}>
@@ -125,9 +124,9 @@ class Profiles extends Component {
                 </button>
               </form>
             </section>
+            <Footer />
           </main>
         </main>
-        <Footer />
       </Fragment>
     );
   }

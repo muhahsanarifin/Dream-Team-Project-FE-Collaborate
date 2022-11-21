@@ -22,8 +22,8 @@ const Products = () => {
 
   return (
     <>
-      <Header />
       <main className={styles["main"]}>
+        <Header />
         <section className={styles["carousel"]}>
           <p>Carousel Soon</p>
         </section>
@@ -169,12 +169,12 @@ const Products = () => {
                 <p className={styles["title"]}>Coaster 506222-CO Loveseat</p>
                 <p className={styles["price"]}>$765.99</p>
               </span>*/}
-              {products.map((e, idx) => (
+              {products.map((product, idx) => (
                 <Product
-                  title={e.product_name}
-                  price={e.price}
-                  img={e.image}
-                  id={e.id}
+                  title={product.product_name}
+                  price={product.price}
+                  img={product.image}
+                  id={product.id}
                   key={idx}
                 />
               ))}
@@ -190,8 +190,8 @@ const Products = () => {
             </span>
           </div>
         </section>
+        <Footer />
       </main>
-      <Footer />
     </>
   );
 };

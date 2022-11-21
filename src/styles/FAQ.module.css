@@ -1,15 +1,13 @@
 .main-2 {
-  background-color: #bcbaba;
+  background-color: #ffffff;
 }
 
 .main {
-  background-color: #ffffff;
-  /* max-width: 1440px; */
-  /* margin: auto; */
+  max-width: 1440px;
+  margin: auto;
 }
 
 .section-1 {
-  /* border: 1px solid darkblue; */
   position: relative;
   padding-top: 40px;
   padding-bottom: 74px;
@@ -18,26 +16,24 @@
 }
 
 .section-1-nav {
-  /* border: 1px solid darkblue; */
   display: flex;
   column-gap: 20px;
-  padding-bottom: 16px;
 }
 
 .section-1-text {
-  /* border: 1px solid darkblue; */
   font-weight: 400;
   font-size: 16px;
   line-height: 18px;
   color: #1a1a1a;
+  margin-bottom: 0;
 }
 
 .section-1-arrow {
-  /* border: 1px solid darkblue; */
   font-weight: 400;
   font-size: 16px;
   line-height: 18px;
   color: #919191;
+  margin-bottom: 0;
 }
 
 .section-1::after {
@@ -55,16 +51,15 @@
 }
 
 .section-1-header {
-  /* border: 1px solid darkred; */
   text-align: center;
   font-weight: 400;
   font-size: 56px;
   line-height: 64.39px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+  margin-bottom: 0;
 }
 
 .section-1-text {
-  /* border: 1px solid darkgoldenrod; */
   text-align: center;
   font-weight: 400;
   font-size: 16px;
@@ -72,7 +67,6 @@
 }
 
 .section-2 {
-  /* border: 1px solid darkgreen; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,7 +77,6 @@
 }
 
 .cart-div {
-  /* border: 1px solid darkorange; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,7 +89,6 @@
 }
 
 .question-line {
-  /* border: 1px solid darkgreen; */
   width: 73px;
   height: 1px;
   border: 2px solid #d8d8d8;
@@ -104,7 +96,6 @@
 }
 
 .question-div {
-  /* border: 1px solid darkgreen; */
   display: flex;
   align-items: center;
   column-gap: 69px;
@@ -112,7 +103,6 @@
 }
 
 .question-header {
-  /* border: 1px solid darkgreen; */
   font-weight: 400;
   font-size: 32px;
   line-height: 37px;
@@ -120,7 +110,6 @@
 }
 
 .aside-left-header {
-  /* border: 1px solid darkgreen; */
   font-weight: 400;
   font-size: 24px;
   line-height: 28px;
@@ -129,7 +118,6 @@
 }
 
 .aside-left-text {
-  /* border: 1px solid darkgreen; */
   font-weight: 400;
   font-size: 14px;
   line-height: 28px;
@@ -137,7 +125,6 @@
 }
 
 .faq-div-1 {
-  /* border: 1px solid darkgreen; */
   display: flex;
   justify-content: space-between;
   margin-bottom: 96px;
@@ -145,7 +132,6 @@
 }
 
 .faq-div-2 {
-  /* border: 1px solid darkgreen; */
   display: flex;
   justify-content: space-between;
   margin-bottom: 101px;
@@ -153,7 +139,6 @@
 }
 
 .faq-div-3 {
-  /* border: 1px solid darkgreen; */
   display: flex;
   justify-content: space-between;
   margin-bottom: 100px;
@@ -161,7 +146,6 @@
 }
 
 .help-header {
-  /* border: 1px solid darkgreen; */
   font-weight: 400;
   font-size: 36px;
   line-height: 41px;
@@ -170,7 +154,6 @@
 }
 
 .contact-btn {
-  /* border: 1px solid darkgreen; */
   width: 220px;
   height: 60px;
   background: #212121;
@@ -195,7 +178,13 @@
 
 @media all and (max-width: 480px) {
   .aside-left-header {
-    font-size: 18px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .aside-left-text {
+    font-size: 12px;
+    line-height: 18px;
   }
 
   .question-header {
@@ -208,17 +197,14 @@
   }
 
   .faq-div-1 {
-    /* border: 1px solid darkblue; */
     gap: 2rem;
   }
 
   .faq-div-2 {
-    /* border: 1px solid darkblue; */
     gap: 2rem;
   }
 
   .faq-div-3 {
-    /* border: 1px solid darkblue; */
     gap: 2rem;
   }
 
@@ -227,7 +213,6 @@
   }
 
   .section-1-text {
-    /* border: 1px solid darkblue; */
     font-size: 12px;
   }
 
@@ -238,5 +223,9 @@
 
   .section-1-header {
     font-size: 28px;
+  }
+
+  .section-1-nav {
+    padding: 0 1rem;
   }
 }

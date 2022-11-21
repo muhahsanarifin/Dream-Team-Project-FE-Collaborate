@@ -1,10 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Montserrat:wght@100;400;700&family=Playfair+Display:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Montserrat:wght@100;400;700&family=Playfair+Display:wght@400;700&display=swap");
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
+}
+
+.main {
+  max-width: 1440px;
+  margin: auto;
 }
 
 .content {
@@ -19,10 +24,10 @@
 
 .content ::after {
   /* border: 1px solid darkblue; */
-  background-image: url('../assets/login-background.png');
+  background-image: url("../assets/login-background.png");
   background-repeat: no-repeat;
   background-size: cover;
-  content: '';
+  content: "";
   opacity: 0.1;
   top: 0;
   left: 0;
@@ -34,7 +39,7 @@
 
 .text_blog {
   padding-left: 80px;
-  font-family: 'Arimo';
+  font-family: "Arimo";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -169,7 +174,7 @@
   flex-direction: row;
   gap: 7rem;
   font-size: 14px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   margin-top: 30px;
   padding: 12px 0px 0px 20px;
   height: 50px;
@@ -277,7 +282,7 @@
 }
 .text_Scandinavian {
   font-weight: 400;
-  font-family: 'arimo';
+  font-family: "arimo";
   font-size: 32px;
 }
 .text_scan {
@@ -312,10 +317,10 @@
   font-weight: 400;
   font-size: 46px;
   line-height: 51px;
-  font-family: 'Playfair Display';
+  font-family: "Playfair Display";
 }
 .text_hubert {
-  font-family: 'arimo';
+  font-family: "arimo";
   font-weight: 400;
   font-size: 16px;
 }
@@ -334,7 +339,7 @@
 
 .share_whith {
   padding-top: 10px;
-  font-family: 'arimo';
+  font-family: "arimo";
   font-weight: 400;
   font-size: 16px;
   color: #535353;
@@ -384,7 +389,7 @@
 
 .paginasi {
   cursor: pointer;
-  font-family: 'arimo';
+  font-family: "arimo";
   font-weight: 700;
   font-size: 10px;
   line-height: 20px;
@@ -392,7 +397,7 @@
 }
 
 .comment {
-  font-family: 'arimo';
+  font-family: "arimo";
   font-weight: 400;
   font-size: 32px;
   padding-top: 100px;
@@ -416,7 +421,7 @@
 }
 
 .text_comment {
-  font-family: 'Playfair Display';
+  font-family: "Playfair Display";
   font-weight: 400;
   font-size: 16px;
   line-height: 28px;
@@ -424,7 +429,7 @@
 }
 
 .text_time_comment {
-  font-family: 'Arimo';
+  font-family: "Arimo";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -432,7 +437,7 @@
   color: #989898;
 }
 .text_reply {
-  font-family: 'Arimo';
+  font-family: "Arimo";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -466,14 +471,14 @@
 
 .leave_comment {
   padding-top: 50px;
-  font-family: 'Arimo';
+  font-family: "Arimo";
   font-style: normal;
   font-weight: 400;
   font-size: 32px;
 }
 
 .text_address {
-  font-family: 'Arimo';
+  font-family: "Arimo";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -515,7 +520,7 @@
 .relate_post {
   padding-left: 100px;
   padding-bottom: 30px;
-  font-family: 'Arimo';
+  font-family: "Arimo";
   font-style: normal;
   font-weight: 400;
   font-size: 36px;
@@ -540,7 +545,7 @@
 
 .text_interior {
   padding-top: 10px;
-  font-family: 'Arimo';
+  font-family: "Arimo";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -548,7 +553,7 @@
 
 .text_relate {
   display: flex;
-  font-family: 'Arimo';
+  font-family: "Arimo";
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
@@ -559,7 +564,7 @@
 .text_kids {
   display: flex;
   width: 121px;
-  font-family: 'Arimo';
+  font-family: "Arimo";
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
