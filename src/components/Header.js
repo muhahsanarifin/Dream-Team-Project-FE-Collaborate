@@ -30,7 +30,9 @@ class Header extends Component {
               </span>
               <img className={styles["chevron"]} src={chev} alt="img" />
               <ul className={styles["header-center-div__contents"]}>
-                <li>About Us</li>
+                <Link to={`/aboutus`} className={styles["link"]}>
+                  <li>About Us</li>
+                </Link>
                 <li>Contact Us</li>
                 <li>Coming Soon</li>
                 <li>404 Page</li>
@@ -50,17 +52,17 @@ class Header extends Component {
                 <Link to={`/products`} className={styles["link"]}>
                   <li>Products</li>
                 </Link>
-                <Link to={`/products`} className={styles["link"]}>
+                <Link to={`/cart`} className={styles["link"]}>
                   <li>Shopping Chart</li>
                 </Link>
-                <Link to={`/products`} className={styles["link"]}>
+                <Link to={`/checkout`} className={styles["link"]}>
                   <li>Checkout</li>
                 </Link>
-                <Link to={`/products`} className={styles["link"]}>
+                <Link to={`/profile`} className={styles["link"]}>
                   <li>My Account</li>
                 </Link>
-                <Link to={`/products`} className={styles["link"]}>
-                  <li>Order racking</li>
+                <Link to={`/tracking`} className={styles["link"]}>
+                  <li>Order Tracking</li>
                 </Link>
               </ul>
             </div>
@@ -72,7 +74,9 @@ class Header extends Component {
             <span className={styles["header-right-menu"]}>
               <img className={styles["image-1"]} src={mag} alt="img" />
               <img className={styles["image-2"]} src={love} alt="img" />
-              <img className={styles["image-3"]} src={cart} alt="img" />
+              <Link to={`/cart`} className={styles["link"]}>
+                <img className={styles["image-3"]} src={cart} alt="img" />
+              </Link>
             </span>
             <div className={styles["header-right-toggle"]}>
               <img className={styles["menu-1"]} src={bar1} alt="img" />
@@ -85,10 +89,10 @@ class Header extends Component {
                 <Link to={`/register`} className={styles["link"]}>
                   <li>Register</li>
                 </Link>
-                <Link to={`/register`} className={styles["link"]}>
+                <Link to={`/chat`} className={styles["link"]}>
                   <li>Chat</li>
                 </Link>
-                <Link to={`/register`} className={styles["link"]}>
+                <Link to={`/notification`} className={styles["link"]}>
                   <li>Notification</li>
                 </Link>
               </ul>
