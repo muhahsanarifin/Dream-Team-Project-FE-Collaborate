@@ -50,7 +50,11 @@ class Logins extends Component {
       .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.data.data.token);
+<<<<<<< HEAD
         // console.log(res.data);
+=======
+        localStorage.setItem("role", res.data.data.role);
+>>>>>>> origin/branch-ahsan
         Swal.fire({
           title: "Login Success",
           timer: 2000,
