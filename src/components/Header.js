@@ -49,14 +49,6 @@ class Header extends Component {
                 <Link to={`/aboutus`} className={styles["link"]}>
                   <li>About Us</li>
                 </Link>
-                <li>Contact Us</li>
-                <li>Coming Soon</li>
-                <li>404 Page</li>
-              </ul>
-              <ul className={styles["header-center-div__contents"]}>
-                <Link to={`/`} className={styles["link"]}>
-                  <li>About Us</li>
-                </Link>
                 <Link to={`/`} className={styles["link"]}>
                   <li>Contact Us</li>
                 </Link>

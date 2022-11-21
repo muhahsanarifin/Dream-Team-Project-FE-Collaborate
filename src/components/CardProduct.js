@@ -18,7 +18,11 @@ const CardProduct = ({ img, title, price, id }) => {
           className={styles["product__img"]}
         />
         <p className={styles["title"]}>{title}</p>
+<<<<<<< HEAD
         <p className={styles["price"]}>Rp {price}</p>
+=======
+        <p className={styles["price"]}>RP {price}</p>
+>>>>>>> 3aa5e8d22987e121748e62a2af70c1bde1d94b96
       </span>
     </>
   );
