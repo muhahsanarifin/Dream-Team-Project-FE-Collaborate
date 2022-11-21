@@ -30,6 +30,10 @@ class SellingProducts extends Component {
     this.handleSubmit2 = this.handleSubmit2.bind(this);
   }
 
+  componentDidMount() {
+    document.title = "Selling Product";
+  }
+
   handleChange(event, field) {
     this.setState({ [field]: event.target.value });
   }
