@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { Link , useNavigate , useParams } from "react-router-dom";
 
 // import css
-import css from "../styles/ProductDetails.module.css";
+import css from "../styles/ProductDetailsTest.module.css";
 
 // import components
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import CardProductDetail from "../components/CardProductDetail";
+import CardProductDetail from "../components/CardProductDetailTest";
 import counterActions from "../redux/action/counterProduct";
 // import image
 // import list_product_1 from "../assets/Mask (1).png";
