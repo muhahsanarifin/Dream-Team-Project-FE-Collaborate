@@ -72,9 +72,9 @@
   gap: 1.5rem;
 }
 
-/* .categories {
+.categories {
   border: 1px solid darkred;
-} */
+}
 
 .categories__list {
   /* border: 1px solid darkblue; */
@@ -101,6 +101,7 @@
 }
 
 .brand__list li input[type="checkbox"] {
+  border: 1px solid darkblue;
   width: 14px;
   height: 14px;
   accent-color: var(--p-checkbox-color);

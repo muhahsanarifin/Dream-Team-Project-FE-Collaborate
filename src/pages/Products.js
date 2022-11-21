@@ -246,7 +246,7 @@ const Products = () => {
               <ul className={styles["brand__list"]}>
                 <li>
                   <input
-                    type="radio"
+                    type="checkbox"
                     name="brandId"
                     onClick={() => {
                       setQuery({
@@ -260,7 +260,7 @@ const Products = () => {
                 </li>
                 <li>
                   <input
-                    type="radio"
+                    type="checkbox"
                     name="brandId"
                     onClick={() => {
                       setQuery({
@@ -274,7 +274,7 @@ const Products = () => {
                 </li>
                 <li>
                   <input
-                    type="radio"
+                    type="checkbox"
                     name="brandId"
                     onClick={() => {
                       setQuery({
@@ -288,7 +288,7 @@ const Products = () => {
                 </li>
                 <li>
                   <input
-                    type="radio"
+                    type="checkbox"
                     name="brandId"
                     onClick={() => {
                       setQuery({
@@ -302,7 +302,7 @@ const Products = () => {
                 </li>
                 <li>
                   <input
-                    type="radio"
+                    type="checkbox"
                     name="brandId"
                     onClick={() => {
                       setQuery({
