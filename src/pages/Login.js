@@ -36,18 +36,19 @@ class Logins extends Component {
   handleSubmit(event) {
     console.log(this.props);
     event.preventDefault();
-    const body = {
-      email: this.state.email,
-      password: this.state.password
-    }
-    console.log(body);
+    // const url = `https://dream-team-project-be.vercel.app/raz/auth/login`;
+    // const body = {
+    //   email: this.state.email,
+    //   password: this.state.password
+    // }
+    // console.log(body);
     // return (this.props.dispatch(authActions.loginThunk(body, () => this.props.navigate("/"))))
 
     const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/login`;
     const data = { email: this.state.email, password: this.state.password };
     Axios.post(url, data)
       .then((res) => {
-        console.log(res)
+        console.log(res);
         localStorage.setItem("token", res.data.data.token);
         console.log(res.data);
         Swal.fire({
@@ -139,7 +140,6 @@ class Logins extends Component {
 //     auth: reduxState.auth
 //   };
 // };
-
 
 const Login = withNavigate(Logins);
 

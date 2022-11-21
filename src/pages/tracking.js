@@ -24,7 +24,7 @@ class Tracking extends Component {
             </section>
             <section className={styles["section-2"]}>
               <aside className={styles["aside-left"]}>
-                <img src={map} alt="img" />
+                <img className={styles["map"]} src={map} alt="img" />
               </aside>
               <aside className={styles["aside-right"]}>
                 <p className={styles["aside-right-text"]}>

@@ -26,6 +26,8 @@
 .main {
   /* border: 1px solid rebeccapurple; */
   padding: 0 1rem;
+  max-width: 1440px;
+  margin: auto;
 }
 
 .carousel {
@@ -79,6 +81,12 @@
 .categories__list {
   /* border: 1px solid darkblue; */
   padding-left: 0;
+}
+
+.categories__list_1 {
+  /* border: 1px solid darkblue; */
+  /* padding-left: 0; */
+  cursor: pointer;
 }
 
 .brand__list {

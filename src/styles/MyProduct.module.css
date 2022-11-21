@@ -256,3 +256,87 @@
 .delete-div {
   text-align: right;
 }
+
+@media (max-width: 768px) {
+  .section-2 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 45.5px;
+  }
+
+  .profile-nav {
+    column-gap: 0px;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+
+  .nav-div-1 {
+    font-size: 16px;
+    padding-bottom: 0px;
+  }
+
+  .nav-div-2 {
+    font-size: 16px;
+    padding-bottom: 0px;
+  }
+
+  .nav-line {
+    width: 40px;
+  }
+
+  .product-img {
+    width: 68px;
+    height: auto;
+    padding-right: 10px;
+  }
+
+  .table-text-1 {
+    padding-right: 10px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21px;
+    color: #1a1a1a;
+    padding-top: 28px;
+    padding-bottom: 21px;
+    text-align: left;
+  }
+
+  .table-text-2 {
+    padding-right: 10px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #1a1a1a;
+    text-align: left;
+  }
+
+  .table-text-3 {
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    line-height: 14px;
+    color: #262626;
+    text-align: left;
+    vertical-align: center;
+  }
+
+  .table-text-4 {
+    padding-right: 10px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 21px;
+    color: #1a1a1a;
+  }
+
+  .delete-btn {
+    width: 100px;
+    height: 40px;
+    background: #d94141;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    color: #ffffff;
+  }
+}
