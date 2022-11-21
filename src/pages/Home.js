@@ -21,16 +21,18 @@ import modernFloorLamp from "../assets/raz-retangle-6.png";
 const Home = () => {
   const role = localStorage.getItem("role"); // Get role user
   console.log(role);
+  const token = localStorage.getItem("token");
 
   return (
     <>
       <main className={[styles["main"]]}>
-        {role === "customer" ? (
+        {token === null ? (
+          <Header display={`none`} />
+        ) : role === "customer" ? (
           <Header linkToProfile={`/profile`} />
         ) : (
           <Header linkToProfile={`/profile/seller`} />
         )}
-
         <section className={`${styles["section"]} ${styles["fist-section"]}`}>
           <h1 className={styles["title"]}>Minimal Furniture Store</h1>
           <p className={styles["description"]}>
