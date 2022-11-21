@@ -18,25 +18,65 @@ class Header extends Component {
           <h1 className={styles["header-left"]}>RAZ</h1>
           <div className={styles["header-center"]}>
             <Link to={`/`} className={styles["header-center__link"]}>
-              <p className={styles["header-center-text"]}>HOME</p>
+              <span>
+                <p className={styles["header-center-text"]}>HOME</p>
+              </span>
             </Link>
-            <div className={styles["header-center-div"]}>
-              <p className={styles["header-center-text"]}>PAGES</p>
+            <div
+              className={`${styles["header-center-div"]} ${styles["header-center-div-page"]}`}
+            >
+              <span>
+                <p className={styles["header-center-text"]}>PAGES</p>
+              </span>
               <img className={styles["chevron"]} src={chev} alt="img" />
+              <ul className={styles["header-center-div__contents"]}>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>About Us</li>
+                </Link>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>Contact Us</li>
+                </Link>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>Coming Soon</li>
+                </Link>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>404 Page</li>
+                </Link>
+                <Link to={`/faq`} className={styles["link"]}>
+                  <li>FAQ Page</li>
+                </Link>
+              </ul>
             </div>
             <div
               className={`${styles["header-center-div"]} ${styles["header-center-div-shop"]}`}
             >
-              <p className={styles["header-center-text"]}>SHOP</p>
-              <img className={styles["chevron"]} src={chev} alt="img" />
-              <span className={styles["header-center-div__contents"]}>
-                <Link to={`/products`} className={styles["link"]}>
-                  <p>Orders</p>
-                </Link>
-                <p>My Product</p>
+              <span>
+                <p className={styles["header-center-text"]}>SHOP</p>
               </span>
+              <img className={styles["chevron"]} src={chev} alt="img" />
+              <ul className={styles["header-center-div__contents"]}>
+                <Link to={`/products`} className={styles["link"]}>
+                  <li>Products</li>
+                </Link>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>Shopping Chart</li>
+                </Link>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>Checkout</li>
+                </Link>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>My Account</li>
+                </Link>
+                <Link to={`/tracking`} className={styles["link"]}>
+                  <li>Order Tracking</li>
+                </Link>
+              </ul>
             </div>
-            <p className={styles["header-center-text"]}>BLOG</p>
+            <Link to={`/blog`} className={styles["header-center__link"]}>
+              <span>
+                <p className={styles["header-center-text"]}>BLOG</p>
+              </span>
+            </Link>
           </div>
           <div className={styles["header-right"]}>
             <span className={styles["header-right-menu"]}>
@@ -48,14 +88,20 @@ class Header extends Component {
               <img className={styles["menu-1"]} src={bar1} alt="img" />
               <img className={styles["menu-2"]} src={bar2} alt="img" />
               <img className={styles["menu-3"]} src={bar1} alt="img" />
-              <span className={`${styles["header-right-toggle__contents"]}`}>
+              <ul className={`${styles["header-right-toggle__contents"]}`}>
                 <Link to={`/login`} className={styles["link"]}>
-                  <p>Login</p>
+                  <li>Login</li>
                 </Link>
-                <Link to={`/profile`} className={styles["link"]}>
-                  <p>Profile</p>
+                <Link to={`/register`} className={styles["link"]}>
+                  <li>Register</li>
                 </Link>
-              </span>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>Chat</li>
+                </Link>
+                <Link to={`/notification`} className={styles["link"]}>
+                  <li>Notification</li>
+                </Link>
+              </ul>
             </div>
           </div>
         </main>

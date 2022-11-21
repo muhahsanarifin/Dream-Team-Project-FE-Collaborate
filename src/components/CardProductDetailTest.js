@@ -1,6 +1,6 @@
 import React from 'react'
 
-import css from '../styles/CardProductDetails.module.css'
+import css from '../styles/CardProductDetailsTest.module.css'
 
 import list_product_3 from '../assets/Mask.png'
 import { useSelector } from 'react-redux'

@@ -47,8 +47,9 @@ class Logins extends Component {
     const data = { email: this.state.email, password: this.state.password };
     Axios.post(url, data)
       .then((res) => {
+        console.log(res)
         localStorage.setItem("token", res.data.data.token);
-        // console.log(res.data);
+        console.log(res.data);
         Swal.fire({
           title: "Login Success",
           timer: 2000,
