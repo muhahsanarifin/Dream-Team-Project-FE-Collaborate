@@ -1,4 +1,4 @@
-export const ACTION_STRING = {
+export const actionStrings = {
   authLogin: "AUTH_LOGIN",
   authLogout: "AUTH_LOGOUT",
   register: "REGISTER",
@@ -13,4 +13,7 @@ export const ACTION_STRING = {
   getProfile: "_GET_PROFILE",
   updateProfile: "_UPDATE_PROFILE",
   getPromos: "_GET_PROMOS",
+  counterUp: "COUNTER_UP",
+  counterDown: "COUNTER_DOWN",
+  counterReset: "COUNTER_RESET",
 };

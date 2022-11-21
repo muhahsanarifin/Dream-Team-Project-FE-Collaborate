@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import Forgot from "./pages/Forgot";
 import Profile from "./pages/Profile";
 import Products from "./pages/Products";
+import ProductsDetails from "./pages/ProductDetailsTest";
 import ProductDetail from "./pages/ProductDetail"
 import Notification from "./pages/Notification";
 import Cart from "./pages/Cart";
@@ -29,7 +30,8 @@ const router = createBrowserRouter([
   { path: "/forgot", element: <Forgot /> },
   { path: "/profile", element: <Profile /> },
   { path: "/products", element: <Products /> },
-  { path: "/product/detail", element: <ProductDetail /> }, // Change using params
+  // { path: "/products/:id", element: <ProductsDetails /> },
+  { path: "/products/detail/:id", element: <ProductDetail /> }, // Change using params
   { path: "/notification", element: <Notification /> },
   { path: "/cart", element: <Cart /> },
   { path: "/checkout", element: <Checkout /> },

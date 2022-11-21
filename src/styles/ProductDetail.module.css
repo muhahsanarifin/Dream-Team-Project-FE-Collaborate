@@ -21,9 +21,9 @@
 }
 
 .main {
-  border: 1px solid darkblue;
-  /* max-width: 1440px; */
-  /* margin: auto; */
+  /* border: 1px solid darkblue; */
+  max-width: 1440px;
+  margin: auto;
   padding: 1rem;
 }
 
@@ -91,9 +91,9 @@
   margin-bottom: 0;
 }
 
-.ratings {
-  /* border: 1px solid darkgoldenrod; */
-}
+/* .ratings { 
+  border: 1px solid darkgoldenrod; 
+ } */
 
 .price-and-sold-history {
   /* border: 1px solid darkblue; */

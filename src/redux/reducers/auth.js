@@ -1,5 +1,5 @@
 import { ActionType } from "redux-promise-middleware";
-import { ACTION_STRING } from "../actions/actionStrings";
+import { actionStrings } from "../action/actionStrings";
 
 const initialState = {
   isError: false,
@@ -16,7 +16,7 @@ const initialState = {
 
 const authReducer = (prevState = initialState, { type, payload }) => {
   const { Pending, Rejected, Fulfilled } = ActionType;
-  const { authLogin, authLogout, authReset } = ACTION_STRING;
+  const { authLogin, authLogout, authReset } = actionStrings;
 
   switch (type) {
     case authLogin.concat("_", Pending):
