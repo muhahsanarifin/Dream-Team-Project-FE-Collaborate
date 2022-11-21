@@ -82,8 +82,8 @@ const Products = () => {
 
   return (
     <>
-      <Header />
       <main className={styles["main"]}>
+        <Header />
         <section className={styles["carousel"]}>
           <p>Carousel Soon</p>
         </section>
@@ -618,8 +618,8 @@ const Products = () => {
             </span>
           </div>
         </section>
+        <Footer />
       </main>
-      <Footer />
     </>
   );
 };

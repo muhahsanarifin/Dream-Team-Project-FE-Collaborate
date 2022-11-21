@@ -1,10 +1,9 @@
 .main-2 {
-  background-color: #bcbaba;
+  background-color: #ffffff;
 }
 
 .main {
-  background-color: white;
-  /* max-width: 1440px; */
+  max-width: 1440px;
   margin: auto;
 }
 
@@ -83,7 +82,7 @@
 
 .profile-image-edit {
   display: flex;
-  color: white;
+  color: #ffffff;
   font-weight: 700;
   font-size: 18px;
   line-height: 20.7px;
@@ -135,7 +134,7 @@
   background-color: #d94141;
   border: none;
   margin-top: 40px;
-  color: white;
+  color: #ffffff;
   font-weight: 700;
   font-size: 16px;
   line-height: 18.4px;
