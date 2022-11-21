@@ -67,8 +67,8 @@ class Header extends Component {
                 <Link to={`/`} className={styles["link"]}>
                   <li>My Account</li>
                 </Link>
-                <Link to={`/`} className={styles["link"]}>
-                  <li>Order racking</li>
+                <Link to={`/tracking`} className={styles["link"]}>
+                  <li>Order Tracking</li>
                 </Link>
               </ul>
             </div>
