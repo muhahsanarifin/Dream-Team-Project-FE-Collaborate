@@ -73,16 +73,19 @@
 }
 
 .product-th {
-  display: flex;
-  align-items: center;
-  padding-left: 31px;
+  padding-left: 61px;
+  padding-right: 66px;
+  padding-bottom: 50px;
+}
+
+.product-image {
   padding-bottom: 50px;
 }
 
 .header-th-1 {
   padding-bottom: 60px;
-  padding-right: 261px;
-  padding-left: 70px;
+  /* padding-right: 261px; */
+  /* padding-left: 70px; */
   font-weight: 400;
   font-size: 11px;
   line-height: 13px;
@@ -92,10 +95,7 @@
 
 .remove {
   margin-right: 31px;
-}
-
-.product-image {
-  margin-right: 61px;
+  padding-bottom: 50px;
 }
 
 .header-th-2 {
@@ -318,4 +318,100 @@
   line-height: 28px;
   color: #8d8d8d;
   margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .section-1 {
+    position: relative;
+    padding-top: 40px;
+    padding-bottom: 74px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .section-2 {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 120px;
+    padding-top: 80px;
+  }
+
+  .count-th {
+    display: flex;
+    justify-content: space-evenly;
+    column-gap: 0px;
+    padding-bottom: 50px;
+  }
+
+  .product-th {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 50px;
+  }
+
+  .header-th-1 {
+    padding-bottom: 60px;
+    /* padding-right: 261px; */
+    padding-right: 10px;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    letter-spacing: 0.916667px;
+    color: #8d8d8d;
+  }
+
+  .header-th-2 {
+    padding-bottom: 60px;
+    padding-right: 10px;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    letter-spacing: 0.916667px;
+    color: #8d8d8d;
+  }
+
+  .header-th-3 {
+    padding-bottom: 60px;
+    padding-right: 10px;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    letter-spacing: 0.916667px;
+    color: #8d8d8d;
+  }
+
+  .header-th-4 {
+    padding-bottom: 60px;
+    padding-right: 0px;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    letter-spacing: 0.916667px;
+    color: #8d8d8d;
+  }
+
+  .cart-bottom-div {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    justify-content: space-between;
+    margin-top: 40px;
+    width: 100%;
+  }
+
+  .aside-left {
+    max-width: 800px;
+    padding-right: 0px;
+  }
+
+  .cart-text {
+    padding-right: 10px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #1a1a1a;
+  }
 }

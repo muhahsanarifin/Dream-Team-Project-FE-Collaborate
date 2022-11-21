@@ -105,9 +105,13 @@ class SellingProducts extends Component {
                 </div>
                 <h1 className={styles["sell-header-1"]}>Photo of Goods</h1>
                 <div className={styles["product-div"]}>
-                  <img src={product} alt="img" />
+                  <img
+                    className={styles["product-img"]}
+                    src={product}
+                    alt="img"
+                  />
                   <div className={styles["add-div"]}>
-                    <img src={add} alt="img" />
+                    <img className={styles["add"]} src={add} alt="img" />
                     <p className={styles["add-text"]}>Add more image</p>
                   </div>
                 </div>

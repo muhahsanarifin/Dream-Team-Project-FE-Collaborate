@@ -80,6 +80,12 @@
   padding-left: 0;
 }
 
+.categories__list_1 {
+  /* border: 1px solid darkblue; */
+  /* padding-left: 0; */
+  cursor: pointer;
+}
+
 .brand__list {
   /* border: 1px solid red; */
   padding-left: 0;

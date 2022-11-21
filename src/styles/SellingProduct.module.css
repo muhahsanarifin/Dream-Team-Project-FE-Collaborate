@@ -199,3 +199,61 @@ input[type="radio"]:checked {
   margin-left: 300px;
   margin-right: 300px;
 }
+
+@media (max-width: 768px) {
+  .section-1-header {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 64.39px;
+    margin-bottom: 20px;
+  }
+  .section-2 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 45.5px;
+  }
+
+  .profile-nav {
+    column-gap: 0px;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+
+  .nav-div-1 {
+    font-size: 16px;
+    padding-bottom: 0px;
+  }
+
+  .nav-div-2 {
+    font-size: 16px;
+    padding-bottom: 0px;
+  }
+
+  .nav-line {
+    width: 40px;
+  }
+
+  .product-section {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .product-div {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    margin-bottom: 80px;
+  }
+
+  .product-img {
+    width: 40%;
+    height: auto;
+  }
+
+  .add-div {
+    padding-top: 50px;
+    row-gap: 26px;
+    width: 40%;
+    height: auto;
+  }
+}

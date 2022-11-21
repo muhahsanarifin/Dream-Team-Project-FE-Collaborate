@@ -7,7 +7,7 @@ import styles from "../styles/Products.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../redux/action/product";
 
-const Products = () => {
+const Products = ({setSearchParams}) => {
   const dispacth = useDispatch();
   const products = useSelector((state) => state.products.products);
   console.log(products);
@@ -38,39 +38,39 @@ const Products = () => {
               <h3>Categories</h3>
               <ul className={styles["categories__list"]}>
                 <li>
-                  <p>Accessories</p>
+                  <p className={styles["categories__list_1"]}>Accessories</p>
                   <p>5</p>
                 </li>
                 <li>
-                  <p>Brands</p>
+                  <p className={styles["categories__list_1"]}>Brands</p>
                   <p>15</p>
                 </li>
                 <li>
-                  <p>Clothing</p>
+                  <p className={styles["categories__list_1"]}>Clothing</p>
                   <p>3</p>
                 </li>
                 <li>
-                  <p>Fashion</p>
+                  <p className={styles["categories__list_1"]}>Fashion</p>
                   <p>8</p>
                 </li>
                 <li>
-                  <p>Furniture</p>
+                  <p className={styles["categories__list_1"]}>Furniture</p>
                   <p>9</p>
                 </li>
                 <li>
-                  <p>Men</p>
+                  <p className={styles["categories__list_1"]}>Men</p>
                   <p>6</p>
                 </li>
                 <li>
-                  <p>Women</p>
+                  <p className={styles["categories__list_1"]}>Women</p>
                   <p>8</p>
                 </li>
                 <li>
-                  <p>Shoes</p>
+                  <p className={styles["categories__list_1"]}>Shoes</p>
                   <p>10</p>
                 </li>
                 <li>
-                  <p>Wallets</p>
+                  <p className={styles["categories__list_1"]}>Wallets</p>
                   <p>11</p>
                 </li>
               </ul>

@@ -11,6 +11,8 @@
   padding-left: 80px;
   padding-right: 80px;
   padding-bottom: 8px;
+  max-width: 1440px;
+  margin: auto;
 }
 
 .icon {

@@ -159,3 +159,64 @@
   border: 1px solid #dbdbdb;
   margin-top: 9px;
 }
+
+@media (max-width: 768px) {
+  .section-2 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .profile-nav {
+    column-gap: 0px;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+
+  .nav-div-1 {
+    font-size: 16px;
+    padding-bottom: 0px;
+  }
+
+  .nav-div-2 {
+    font-size: 16px;
+    padding-bottom: 0px;
+  }
+
+  .nav-line {
+    width: 40px;
+  }
+
+  .section-2 {
+    padding-top: 45.5px;
+  }
+
+  .th-text-1 {
+    font-size: 8px;
+  }
+  .th-text-2 {
+    font-size: 8px;
+  }
+  .th-text-3 {
+    text-align: center;
+    font-size: 8px;
+  }
+  .th-text-4 {
+    justify-content: flex-start;
+    font-size: 8px;
+  }
+  .th-text-5 {
+    font-size: 8px;
+  }
+
+  .th-top-text-1 {
+    font-size: 6px;
+  }
+
+  .table-img {
+    width: 50%;
+  }
+
+  .check {
+    width: 12.5%;
+  }
+}

@@ -33,23 +33,29 @@ const Cart = () => {
               <aside className={styles["aside-left"]}>
                 <table className={styles["table"]}>
                   <tr>
+                    <th></th>
                     <th className={styles["header-th-1"]}>PRODUCTS</th>
+                    <th></th>
                     <th className={styles["header-th-2"]}>PRICE</th>
                     <th className={styles["header-th-3"]}>QUANTITY</th>
                     <th className={styles["header-th-4"]}>TOTAL</th>
                   </tr>
-                  <tr>
-                    <th className={styles["product-th"]}>
+                  <tr className={styles["product-tr"]}>
+                    <th>
                       <img
                         className={styles["remove"]}
                         src={remove}
                         alt="img"
                       />
+                    </th>
+                    <th>
                       <img
                         className={styles["product-image"]}
                         src={image[0]}
                         alt="img"
                       />
+                    </th>
+                    <th className={styles["product-th"]}>
                       <p className={styles["cart-text"]}>
                         Fabric Mid Century Chair
                       </p>
