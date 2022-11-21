@@ -7,6 +7,34 @@
   margin: auto;
 }
 
+.section-cart {
+  padding-top: 80px;
+  padding-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-empty-text-1 {
+  margin-top: 40px;
+  margin-bottom: 9px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 37px;
+  color: #1a1a1a;
+}
+
+.cart-empty-text-2 {
+  width: 570px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 37px;
+  color: #4d4d4d;
+}
+
 .section-1 {
   position: relative;
   padding-top: 40px;

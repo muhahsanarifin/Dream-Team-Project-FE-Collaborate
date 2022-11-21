@@ -16,6 +16,7 @@ class Header extends Component {
     this.state = {
       pages: "none",
       shop: "none",
+      menu: "none",
     };
   }
   render() {
@@ -111,11 +112,21 @@ class Header extends Component {
                 <img className={styles["image-3"]} src={cart} alt="img" />
               </Link>
             </span>
-            <div className={styles["header-right-toggle"]}>
+            <div
+              onClick={() => {
+                this.state.menu === "none"
+                  ? this.setState({ menu: "block" })
+                  : this.setState({ menu: "none" });
+              }}
+              className={styles["header-right-toggle"]}
+            >
               <img className={styles["menu-1"]} src={bar1} alt="img" />
               <img className={styles["menu-2"]} src={bar2} alt="img" />
               <img className={styles["menu-3"]} src={bar1} alt="img" />
-              <ul className={`${styles["header-right-toggle__contents"]}`}>
+              <ul
+                style={{ display: this.state.menu }}
+                className={`${styles["header-right-toggle__contents"]}`}
+              >
                 <Link to={`/login`} className={styles["link"]}>
                   <li>Login</li>
                 </Link>
