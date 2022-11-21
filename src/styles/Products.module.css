@@ -359,6 +359,47 @@
   color: var(--p-main-color);
 }
 
+.sort-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sort-dropdown p {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.sort-dropdown p span {
+  color: #919191;
+}
+
+.dropdown-list {
+  position: absolute;
+  right: 4.5rem;
+  bottom: 2rem;
+  display: flex;
+  max-width: fit-content;
+  background-color: #1a1a1a;
+}
+
+.dropdown-list ol {
+  margin: 0;
+  padding: 1rem;
+}
+
+.dropdown-list ol li {
+  list-style: none;
+  color: #919191;
+}
+
+.dropdown-list ol li:hover {
+  color: white;
+  cursor: pointer;
+}
+
 /* || Responsive */
 @media all and (min-width: 768px) and (max-width: 1024px) {
   .info {
@@ -440,6 +481,10 @@
     grid-gap: 1rem;
     min-height: 100vh;
     justify-content: center;
+  }
+
+  .dropdown-list {
+    right: 2.5rem;
   }
 }
 

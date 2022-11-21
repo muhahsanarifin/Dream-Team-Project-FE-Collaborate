@@ -6,7 +6,7 @@ import Register from "./pages/Register";
 import Forgot from "./pages/Forgot";
 import Profile from "./pages/Profile";
 import Products from "./pages/Products";
-import ProductsDetails from "./pages/ProductDetailsTest";
+// import ProductsDetails from "./pages/ProductDetailsTest";
 import ProductDetail from "./pages/ProductDetail"
 import Notification from "./pages/Notification";
 import Cart from "./pages/Cart";

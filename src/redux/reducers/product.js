@@ -3,6 +3,7 @@ import { actionStrings } from "../action/actionStrings";
 
 const initialState = {
   products: [],
+  meta: [],
   productDetails: [],
   isError: false,
   isLoading: false,
@@ -49,6 +50,7 @@ const productReducer = (prevState = initialState, { type, payload }) => {
         isError: false,
         isFulfilled: true,
         products: payload.data.data,
+        meta: payload.data.meta,
       };
       case getDetailProduct.concat("_", Fulfilled):
       return {
