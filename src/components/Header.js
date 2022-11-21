@@ -130,10 +130,18 @@ class Header extends Component {
                 <Link to={`/login`} className={styles["link"]}>
                   <li>Login</li>
                 </Link>
-                <Link to={`/register`} className={styles["link"]}>
+                <Link
+                  to={`/register`}
+                  className={styles["link"]}
+                  style={{ display: this.props.displayRegister }}
+                >
                   <li>Register</li>
                 </Link>
-                <Link to={this.props.linkToProfile} className={styles["link"]} style={{display: this.props.display}}>
+                <Link
+                  to={this.props.linkToProfile}
+                  className={styles["link"]}
+                  style={{ display: this.props.displayProfile }}
+                >
                   <li>Profile</li>
                 </Link>
                 <Link to={`/chat`} className={styles["link"]}>
