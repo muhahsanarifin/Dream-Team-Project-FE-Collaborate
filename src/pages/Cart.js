@@ -14,7 +14,7 @@ const Cart = () => {
   const cartData = useSelector((state) => state.cart.data);
   // const image = useSelector((state) => state.products.productsDetails.images)
   const counter = useSelector((state) => state.counter.number);
-  const price = useSelector((state) => state.products.productsDetails.price);
+  const price = 1;
   const onClickHandler = (action) => {
     dispatch(action);
   };
@@ -42,13 +42,15 @@ const Cart = () => {
             </p>
           </section>
           {cartData.length === 0 ? (
-            <section>
+            <section className={styles["section-cart"]}>
               <section>
                 <img src={cartEmpty} alt=""></img>
               </section>
               <div>
-                <p>Your Cart is Empty</p>
-                <p>
+                <p className={styles["cart-empty-text-1"]}>
+                  Your Cart is Empty
+                </p>
+                <p className={styles["cart-empty-text-2"]}>
                   Donec nunc nunc, gravida vitae diam vel, varius interdum erat.
                   Quisque a nunc vel diam auctor commodo. urabitur blandit ultri
                 </p>

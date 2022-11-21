@@ -28,11 +28,9 @@ class Notification extends Component {
                   See your notifications for the latest updates
                 </p>
               </div>
-              <div className="d-flex justify-content-center py-5">
-                <div className={`${styles["content-left"]} col-4`}>
-                  <div
-                    className={`${styles["content-left-border"]} d-flex ps-4 pt-3 `}
-                  >
+              <div className={styles['content_chat']}>
+                <div className={`${styles['content-left']} col-4`}>
+                  <div className={`${styles['content-left-border']} d-flex ps-4 pt-3 `}>
                     <img src={icon_sifa} alt="icon_sifa" />
                     <img
                       className={styles["icon_online"]}
