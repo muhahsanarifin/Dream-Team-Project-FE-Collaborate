@@ -7,6 +7,11 @@
   font-family: 'Arimo', sans-serif;
 }
 
+.main {
+  max-width: 1440px;
+  margin: auto;
+}
+
 .content {
   /* border: 1px solid darkblue; */
   display: flex;
@@ -33,17 +38,17 @@
 }
 
 .text_blog {
-  /* border: 1px solid darkblue; */
   padding-left: 80px;
   font-family: 'Arimo';
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 16x;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 .text_blog_row {
-  padding-left: 20px;
-  color: #919191;
+  padding-left: 0;
 }
 .blog {
   /* border: 1px solid red; */
@@ -204,7 +209,7 @@
 
 .content_border_tags:hover {
   background: black;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
 }
 .content_border_zuka {
@@ -217,7 +222,7 @@
 
 .content_border_zuka:hover {
   background: black;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
 }
 .content_border_online {
@@ -229,7 +234,7 @@
 
 .content_border_online:hover {
   background: black;
-  color: white;
+  color: #ffffff;
 }
 
 .img_banner {
@@ -244,10 +249,13 @@
 
 .content_text_time {
   display: flex;
+  flex-direction: row;
+  align-items: center;
   gap: 1rem;
 }
 
 .text_tag {
+  align-items: center;
   display: flex;
   gap: 8px;
 }
@@ -307,14 +315,14 @@
   font-size: 25px;
   border-radius: 50px;
   border: 1px solid black;
-  background-color: whitesmoke;
+  background-color: #ffffff;
   border: none;
 }
 
 .icon_play:hover {
   cursor: pointer;
   background-color: black;
-  color: white;
+  color: #ffffff;
 }
 
 .content_pc {
@@ -340,14 +348,14 @@
   height: 50px;
   font-weight: 700;
   border: 1px solid black;
-  background-color: white;
+  background-color: #ffffff;
   border: none;
 }
 
 .border_left_row:hover {
   cursor: pointer;
   background-color: black;
-  color: white;
+  color: #ffffff;
 }
 
 .border_right_row {
@@ -357,14 +365,14 @@
   height: 50px;
   font-weight: 700;
   border: 1px solid black;
-  background-color: white;
+  background-color: #ffffff;
   border: none;
 }
 
 .border_right_row:hover {
   cursor: pointer;
   background-color: black;
-  color: white;
+  color: #ffffff;
 }
 
 .content_design {
@@ -436,5 +444,5 @@
 .border_scroll:hover {
   cursor: pointer;
   background-color: black;
-  color: white;
+  color: #ffffff;
 }

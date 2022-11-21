@@ -22,8 +22,8 @@ import img_matress from "../assets/img_matress.png";
 const Blog = () => {
   return (
     <>
-      <Header />
-      <main>
+      <main className={styles["main"]}>
+        <Header />
         <section>
           <div>
             <div className={`${styles["content"]}`}>
@@ -340,8 +340,8 @@ const Blog = () => {
             </div>
           </div>
         </section>
+        <Footer />
       </main>
-      <Footer />
     </>
   );
 };
