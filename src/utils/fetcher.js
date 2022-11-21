@@ -38,6 +38,12 @@ export const getCategories = (data) => {
   return axiosRequest("GET", "raz/product/category/", data);
 };
 
+export const getRelatedProduct = (url) => {
+  const urls = baseUrl + url
+  return axios.get(urls);
+};
+
+
 
 // export const logout = (token) => {
 //   return axios({

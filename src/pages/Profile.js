@@ -102,6 +102,7 @@ class Profiles extends Component {
     //   store_description: this.state.desc,
     //   image: this.state.file,
     // };
+    console.log(this.state);
     formdata.append("username", this.state.username);
     formdata.append("gender", this.state.gender);
     formdata.append("store_description", this.state.desc);
