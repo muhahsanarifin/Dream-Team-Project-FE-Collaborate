@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link , useNavigate , useParams } from "react-router-dom";
 
 // import css
@@ -13,7 +13,7 @@ import counterActions from "../redux/action/counterProduct";
 // import list_product_1 from "../assets/Mask (1).png";
 // import list_product_2 from "../assets/Mask.png";
 import hot_label from "../assets/add.png";
-import { getData } from "../utils/fetcher";
+// import { getData } from "../utils/fetcher";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../redux/action/product";
 
@@ -46,7 +46,7 @@ function Productdetail() {
 
   useEffect(() => {
     dispatch(productActions.getProductDetailThunk(id));
-  }, [dispatch])
+  }, [dispatch, id])
   
   // useEffect(() => {
   //   fetchData();

@@ -4,8 +4,6 @@ import Footer from "../components/Footer";
 import styles from "../styles/Cart.module.css";
 
 import remove from "../assets/remove.png";
-// import product1 from "../assets/product-picture-1.png";
-// import product2 from "../assets/product2.png";
 import { useDispatch, useSelector } from "react-redux";
 import counterActions from "../redux/action/counterProduct";
 const Cart = () => {
