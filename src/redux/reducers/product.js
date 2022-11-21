@@ -3,6 +3,7 @@ import { actionStrings } from "../action/actionStrings";
 
 const initialState = {
   products: [],
+  sellerProducts: [],
   productsDetails: {
     brand: "",
     category: "",
@@ -25,7 +26,7 @@ const initialState = {
 
 const productReducer = (prevState = initialState, { type, payload }) => {
   const { Pending, Rejected, Fulfilled } = ActionType;
-  const { getProducts, getDetailProduct, getRelatedProduct } = actionStrings;
+  const { getProducts, getDetailProduct, getRelatedProduct, getSellerProduct } = actionStrings;
   console.log(payload);
   switch (type) {
     case getProducts.concat("_", Pending):
@@ -51,6 +52,14 @@ const productReducer = (prevState = initialState, { type, payload }) => {
         isError: false,
         isFulfilled: false,
       };
+    
+    case getSellerProduct.concat("_", Pending):
+      return {
+        ...prevState,
+        isLoading: true,
+        isError: false,
+        isFulfilled: false,
+      };
 
     case getProducts.concat("_", Rejected):
       return {
@@ -68,6 +77,14 @@ const productReducer = (prevState = initialState, { type, payload }) => {
         isFulfilled: false,
       };
     
+    case getSellerProduct.concat("_", Rejected):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: true,
+        isFulfilled: false,
+      };
+
     case getDetailProduct.concat("_", Rejected):
       return {
         ...prevState,
@@ -105,6 +122,15 @@ const productReducer = (prevState = initialState, { type, payload }) => {
         productsDetails: payload.data.data,
       };
 
+      case getSellerProduct.concat("_", Fulfilled):
+        return {
+          ...prevState,
+          isLoading: false,
+          isError: false,
+          isFulfilled: true,
+          sellerProducts: payload.data.data,
+        };
+      
     default:
       return prevState;
   }

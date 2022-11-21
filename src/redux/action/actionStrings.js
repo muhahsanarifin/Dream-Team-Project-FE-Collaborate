@@ -19,5 +19,6 @@ export const actionStrings = {
   addCart: "ADD_CART",
   deleteCart: "ADD_CART",
   getCategories: "GET_CATEGORIES",
-  getRelatedProduct: "GET_RELATED_PRODUCT"
+  getRelatedProduct: "GET_RELATED_PRODUCT",
+  getSellerProduct: "GET_SELLER_PRODUCT"
 };

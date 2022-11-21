@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const baseUrl = `http://localhost:8090/`;
-// const baseUrl = 'https://dream-team-project-be.vercel.app/';
+// const baseUrl = `http://localhost:8090/`;
+const baseUrl = 'https://dream-team-project-be.vercel.app/';
 
 
 // const baseUrl2 = `http://localhost:8090/`
@@ -43,6 +43,14 @@ export const getRelatedProduct = (url) => {
   return axios.get(urls);
 };
 
+export const getSellerProduct = (token, params) => {
+  return axios({
+    method: "GET",
+    url: `${baseUrl}/profile/product/seller`,
+    headers: { "x-access-token": token },
+    params,
+  });
+};
 
 
 // export const logout = (token) => {

@@ -19,6 +19,7 @@ class Header extends Component {
       menu: "none",
     };
   }
+  
   render() {
     return (
       <Fragment>

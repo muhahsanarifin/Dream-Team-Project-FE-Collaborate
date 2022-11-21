@@ -1,5 +1,5 @@
 import { ActionType } from "redux-promise-middleware";
-import { getProduct, getData } from "../../utils/fetcher";
+import { getProduct, getData, getSellerProduct } from "../../utils/fetcher";
 import { actionStrings } from "./actionStrings";
 
 const { Pending, Rejected, Fulfilled } = ActionType;
@@ -13,6 +13,10 @@ const getProductDetailPending = () => ({
 });
 
 const getRelatedProductPending = () => ({
+  type: actionStrings.getRelatedProduct.concat("_", Pending),
+});
+
+const getSellerProductPending = () => ({
   type: actionStrings.getRelatedProduct.concat("_", Pending),
 });
 
@@ -31,6 +35,11 @@ const getRelatedProductRejected = (error) => ({
   payload: { error },
 });
 
+const getSellerProductRejected = (error) => ({
+  type: actionStrings.getRelatedProduct.concat("_", Rejected),
+  payload: { error },
+});
+
 const getProductFulfilled = (data) => ({
   type: actionStrings.getProducts.concat("_", Fulfilled),
   payload: { data },
@@ -42,6 +51,11 @@ const getProductDetailFulfilled = (data) => ({
 });
 
 const getRelatedProductFulfilled = (data) => ({
+  type: actionStrings.getRelatedProduct.concat("_", Fulfilled),
+  payload: { data },
+});
+
+const getSellerProductFulfilled = (data) => ({
   type: actionStrings.getRelatedProduct.concat("_", Fulfilled),
   payload: { data },
 });
@@ -70,6 +84,19 @@ const getProductDetailThunk = (id) => {
   };
 };
 
+const getSellerProductThunk = (token, params) => {
+  return async (dispacth) => {
+    try {
+      dispacth(getSellerProductPending());
+      const result = await getSellerProduct(token, params);
+      dispacth(getSellerProductFulfilled(result.data));
+    } catch (error) {
+      dispacth(getSellerProductRejected(error));
+    }
+  };
+};
+
+
 const getRelatedProductThunk = (id) => {
   return async (dispacth) => {
     try {
@@ -87,6 +114,7 @@ const productActions = {
   getProductThunk,
   getProductDetailThunk,
   getRelatedProductThunk,
+  getSellerProductThunk,
 };
 
 export default productActions;

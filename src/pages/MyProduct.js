@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/MyProduct.module.css";
@@ -6,9 +6,30 @@ import styles from "../styles/MyProduct.module.css";
 import product from "../assets/product3.png";
 import chev from "../assets/chevron.png";
 import check from "../assets/check.png";
-import { useNavigate } from "react-router-dom";
+import { createSearchParams, useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import productActions from "../redux/action/product";
 
 const MyProducts = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const sellerProducts = useSelector((state) => state.products.products);
+  const isLoading = useSelector((state) => state.products.isLoading);
+  const isRejected = useSelector((state) => state.products.isError);
+  const categories = useSelector((state) => state.categories.categories);
+  const token = localStorage.getItem("token")
+  const useQuery = () => {
+    const { search } = useLocation();
+    return useMemo(() => new URLSearchParams(search), [search]);
+  };
+  const getQuery = useQuery();
+  
+  const dispatch = useDispatch()
+  useEffect(() => {
+    const urlSearchParams = createSearchParams({ ...query });
+    setSearchParams(urlSearchParams);
+    dispatch(productActions.getSellerProductThunk(token, params))
+  })
+
   const navigate = useNavigate()
     return (
       <>
@@ -65,58 +86,6 @@ const MyProducts = () => {
                   <th></th>
                   <th className={styles["table-text-1"]}>Stock Status</th>
                   <th className={styles["table-text-1"]}>Price</th>
-                </tr>
-                <tr>
-                  <th className={styles["product-th"]}>
-                    <div className={styles["table-img"]}>
-                      <img
-                        className={styles["product-img"]}
-                        src={product}
-                        alt="img"
-                      />
-                    </div>
-                  </th>
-                  <th className={styles["table-text-2"]}>
-                    Dining Side Chair in Beige
-                  </th>
-                  <th>
-                    <div className={styles["table-text-3"]}>
-                      <img className={styles["check"]} src={check} alt="img" />
-                      10 Stock
-                    </div>
-                  </th>
-                  <th className={styles["table-text-4"]}>$765.99</th>
-                  <th>
-                    <div className={styles["delete-div"]}>
-                      <button className={styles["delete-btn"]}>Delete</button>
-                    </div>
-                  </th>
-                </tr>
-                <tr>
-                  <th className={styles["product-th"]}>
-                    <div className={styles["table-img"]}>
-                      <img
-                        className={styles["product-img"]}
-                        src={product}
-                        alt="img"
-                      />
-                    </div>
-                  </th>
-                  <th className={styles["table-text-2"]}>
-                    Eugene Accent Table 18.9 inches Espresso
-                  </th>
-                  <th>
-                    <div className={styles["table-text-3"]}>
-                      <img className={styles["check"]} src={check} alt="img" />
-                      10 Stock
-                    </div>
-                  </th>
-                  <th className={styles["table-text-4"]}>$765.99</th>
-                  <th>
-                    <div className={styles["delete-div"]}>
-                      <button className={styles["delete-btn"]}>Delete</button>
-                    </div>
-                  </th>
                 </tr>
                 <tr>
                   <th className={styles["product-th"]}>

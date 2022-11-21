@@ -21,13 +21,11 @@ const useQuery = () => {
 
 const Products = () => {
   const [show, setShow] = useState(false);
-  
   const dispacth = useDispatch();
   const products = useSelector((state) => state.products.products);
   const isLoading = useSelector((state) => state.products.isLoading);
   const isRejected = useSelector((state) => state.products.isError);
   const categories = useSelector((state) => state.categories.categories);
-  
   const getQuery = useQuery();
   const [searchParams, setSearchParams] = useSearchParams();
   const [query, setQuery] = useState({
