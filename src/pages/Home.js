@@ -20,8 +20,9 @@ import modernFloorLamp from "../assets/raz-retangle-6.png";
 
 const Home = () => {
 
-  // const getDataUser = localStorage.getItem(); // » Get Data User «
-  // const {} = getDataUser.JSON.parse(getDataUser);
+  // const getDataUser = localStorage.getItem("data-user"); // » Get Data User «
+  // console.log("data user", JSON.parse(getDataUser));
+  // const {role, token} = getDataUser.JSON.parse(getDataUser);
   return (
     <>
       <Header />

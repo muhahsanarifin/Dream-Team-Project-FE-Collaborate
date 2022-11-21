@@ -48,7 +48,8 @@ class Logins extends Component {
     Axios.post(url, data)
       .then((res) => {
         console.log(res)
-        localStorage.setItem("token", res.data.data.token);
+        const dataUser= JSON.stringify(res.data.data)
+        localStorage.setItem("data-user", dataUser);
         console.log(res.data);
         Swal.fire({
           title: "Login Success",

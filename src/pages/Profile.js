@@ -13,6 +13,7 @@ import editb from "../assets/editb.png";
 import logout from "../assets/logout.png";
 
 class Profiles extends Component {
+
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,9 +22,11 @@ class Profiles extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
+     const dataUser = localStorage.getItem("data-user");
+     const { token } = JSON.parse(dataUser);
     const config = {
       headers: {
-        "x-access-token": localStorage.getItem("token"),
+        "x-access-token": token,
       },
     };
     Axios.delete(url, config)
