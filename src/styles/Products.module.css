@@ -357,6 +357,7 @@
 }
 
 .sort-dropdown {
+  border: 1px solid darkblue;
   position: relative;
   display: flex;
   align-items: center;
@@ -374,9 +375,10 @@
 }
 
 .dropdown-list {
+  border: 1px solid darkblue;
   position: absolute;
-  right: 4.5rem;
-  bottom: 2rem;
+  right: 2rem;
+  bottom: 0;
   display: flex;
   max-width: fit-content;
   background-color: #1a1a1a;
@@ -405,11 +407,9 @@
   display: inline;
 }
 
-.tengah {
-  font-family: "Alegreya", sans-serif;
-  font-size: 80px;
-  margin: 0 auto;
-  margin-left: 10rem;
+.not-found {
+  font-family: "Arimo", sans-serif;
+  font-size: 40px;
   text-align: center;
 }
 /* || Responsive */
