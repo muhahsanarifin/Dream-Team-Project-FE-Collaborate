@@ -27,6 +27,10 @@ function Productdetail() {
   // const [image, setImage] = useState([])
   const dispatch = useDispatch();
   const image = useSelector((state) => state.products.productsDetails.images)
+  const price = useSelector((state) => state.products.productsDetails.price)
+  const sold = useSelector((state) => state.products.productsDetails.sold)
+  const stock = useSelector((state) => state.products.productsDetails.stock)    
+  console.log(">>>>>>>>>>>>>>>>>>>>", stock);
   console.log(image);
   // const fetchData = async () => {
   //   try {
@@ -109,10 +113,10 @@ function Productdetail() {
           <span className={`${css.view}`}>2 (reviews)</span>
         </div>
         <div className={`${css.detail_price}`}>
-          <span className={`${css.detail_price_price}`}>$765.99</span>
+          <span className={`${css.detail_price_price}`}>{price}</span>
           <i className="fa-regular fa-circle-check"></i>
           <span className={`${css.detail_price_stock}`}>
-            19 Sold / 40 In Stock
+            {sold} Sold / {stock} In Stock
           </span>
         </div>
         <div className={`${css.detail_desc}`}>

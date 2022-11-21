@@ -6,14 +6,24 @@ import styles from "../styles/Cart.module.css";
 import remove from "../assets/remove.png";
 import { useDispatch, useSelector } from "react-redux";
 import counterActions from "../redux/action/counterProduct";
+import cart from "../redux/action/cart";
 const Cart = () => {
     const dispatch = useDispatch()  
+    
+    const cartData = useSelector((state) => state.cart.data);
     const image = useSelector((state) => state.products.productsDetails.images)
     const counter = useSelector((state) => state.counter.number)
     const price = useSelector((state) => state.products.productsDetails.price)
     const onClickHandler = (action) => {
       dispatch(action);
     };
+   const handleDelete = (id) => {
+    console.log(id);
+    let temp = [...cartData]
+    temp.splice(id,1)
+    console.log(temp);
+    dispatch(cart.addCartThunk(temp));
+   }
     return (
       <>
         <Header />
@@ -40,34 +50,39 @@ const Cart = () => {
                     <th className={styles["header-th-3"]}>QUANTITY</th>
                     <th className={styles["header-th-4"]}>TOTAL</th>
                   </tr>
-                  <tr className={styles["product-tr"]}>
+                  {cartData.length>0&& cartData.map((item,index)=>{
+                    return(
+                      <tr className={styles["product-tr"]} key={index}>
                     <th>
                       <img
                         className={styles["remove"]}
                         src={remove}
                         alt="img"
+                        onClick={()=>handleDelete(index)}
                       />
                     </th>
                     <th>
                       <img
                         className={styles["product-image"]}
-                        src={image[0]}
+                        src={item.image}
                         alt="img"
                       />
                     </th>
                     <th className={styles["product-th"]}>
                       <p className={styles["cart-text"]}>
-                        Fabric Mid Century Chair
+                        {item.product_name}
                       </p>
                     </th>
-                    <th className={styles["th-price"]}>{price}</th>
+                    <th className={styles["th-price"]}>{item.price}</th>
                     <th className={styles["count-th"]}>
                       <p onClick={() => onClickHandler(counterActions.counterDown())} className={styles["counter-p"]}>-</p>
-                      <p className={styles["amount-p"]}>{counter}</p>
+                      <p className={styles["amount-p"]}>{item.quantity}</p>
                       <p onClick={() => onClickHandler(counterActions.counterUp())} className={styles["counter-p"]}>+</p>
                     </th>
-                    <th className={styles["total-text"]}>{counter * price}</th>
+                    <th className={styles["total-text"]}>{item.total_price}</th>
                   </tr>
+                    )
+                  })}
                 </table>
                 <div className={styles["line"]}></div>
                 <div className={styles["cart-bottom-div"]}>

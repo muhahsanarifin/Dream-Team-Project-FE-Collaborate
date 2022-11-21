@@ -3,8 +3,21 @@ import { actionStrings } from "../action/actionStrings";
 
 const initialState = {
   products: [],
+  productsDetails: {
+    brand: "",
+    category: "",
+    color: "",
+    description_product: "",
+    id: null,
+    images: [],
+    price: null,
+    product_name: "",
+    size: "",
+    sold: null,
+    stock: null,
+  },
   meta: [],
-  productDetails: [],
+  // productDetails: [],
   isError: false,
   isLoading: false,
   isFulfilled: false,
@@ -31,7 +44,7 @@ const productReducer = (prevState = initialState, { type, payload }) => {
         isError: false,
         isFulfilled: false,
       };
-      case getDetailProduct.concat("_", Pending):
+    case getDetailProduct.concat("_", Pending):
       return {
         ...prevState,
         isLoading: true,
@@ -61,7 +74,7 @@ const productReducer = (prevState = initialState, { type, payload }) => {
         products: payload.data.data,
         meta: payload.data.meta,
       };
-      case getDetailProduct.concat("_", Fulfilled):
+    case getDetailProduct.concat("_", Fulfilled):
       return {
         ...prevState,
         isLoading: false,

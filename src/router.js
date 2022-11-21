@@ -32,8 +32,8 @@ const router = createBrowserRouter([
   { path: "/forgot", element: <Forgot /> },
   { path: "/profile", element: <Profile /> },
   { path: "/products", element: <Products /> },
-  // { path: "/products/:id", element: <ProductsDetails /> },
-  { path: "/products/detail/:id", element: <ProductDetail /> }, // Change using params
+  // { path: "/products/:id", element: <ProductsDetails /> }, // product detail test
+  { path: "/products/:id", element: <ProductDetail /> }, // Change using params
   { path: "/notification", element: <Notification /> },
   { path: "/cart", element: <Cart /> },
   { path: "/checkout", element: <Checkout /> },
