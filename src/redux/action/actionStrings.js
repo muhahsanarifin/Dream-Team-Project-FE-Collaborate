@@ -17,6 +17,6 @@ export const actionStrings = {
   counterDown: "COUNTER_DOWN",
   counterReset: "COUNTER_RESET",
   addCart: "ADD_CART",
-  deleteCart: "ADD_CART",
+  dataCheckout: "DATA_CHECKOUT",
   getCategories: "GET_CATEGORIES",
 };

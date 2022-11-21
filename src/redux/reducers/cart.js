@@ -2,6 +2,7 @@ import {actionStrings} from "../action/actionStrings";
 
 const initialState = {
   data: [],
+  checkout:{}
 };
 
 const cartReducer = (prevState = initialState, { type, payload }) => {
@@ -13,10 +14,10 @@ const cartReducer = (prevState = initialState, { type, payload }) => {
         ...prevState,
         data: payload.data,
       };
-    case actionStrings.deleteCart:
+    case actionStrings.dataCheckout:
       return {
         ...prevState,
-        data: payload,
+        checkout: payload.data,
       };
     default:
       return prevState;

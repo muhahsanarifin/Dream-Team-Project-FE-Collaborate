@@ -5,6 +5,18 @@ const addCartAction = (data) => ({
     payload: { data },
   });
 
+  const dataCheckoutAction = (data) => ({
+    type: actionStrings.dataCheckout,
+    payload: { data },
+  });
+
+  const dataCheckoutThunk = (payload) => {
+    return async (dispacth) => {
+        dispacth(dataCheckoutAction(payload));
+    };
+  };
+
+
 
   const addCartThunk = (payload) => {
     return async (dispacth) => {
@@ -13,6 +25,7 @@ const addCartAction = (data) => ({
   };
   const cart = {
     addCartThunk,
+    dataCheckoutThunk
   };
   
 export default cart;

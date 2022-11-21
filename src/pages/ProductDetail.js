@@ -47,7 +47,7 @@ const ProductDetail = () => {
   };
 
   const handleAddCart = () => {
-    const filter = cartData.filter((item)=>item.id===productDetail.id)
+    const filter = cartData.filter((item)=>item.product_id===productDetail.id)
     if(filter.length>0){
       return  Swal.fire({
         title: "product sudah dalam keranjang",
@@ -60,10 +60,11 @@ const ProductDetail = () => {
     const quantity = counters;
     const total_price = price * quantity;
     const data = {
-      id: productDetail.id,
+      product_id: productDetail.id,
       image: image[0],
       product_name: productDetail.product_name,
       price: productDetail.price,
+      seller_id: productDetail.user_id,
       quantity: counters,
       total_price: total_price,
     }
