@@ -42,16 +42,17 @@ const Products = () => {
   });
   const endItem =
     Number(query.page) === 1 && totalData > Number(query.limit)
-      ? query.limit 
+      ? query.limit
       : Number(query.page) === 1 && totalData < Number(query.limit)
       ? totalData
-      : Number(query.page) !== 1 && totalData < Number(query.limit) * Number(query.page)
+      : Number(query.page) !== 1 &&
+        totalData < Number(query.limit) * Number(query.page)
       ? totalData
-      : Number(query.limit) * Number(query.page)
-  const inItem = 
-    Number(query.page) === 1 
-      ? 1 
-      : (Number(query.limit) * (Number(query.page) - 1)) + 1 
+      : Number(query.limit) * Number(query.page);
+  const inItem =
+    Number(query.page) === 1
+      ? 1
+      : Number(query.limit) * (Number(query.page) - 1) + 1;
   const dropdownHandler = () => {
     setShow(!show);
   };
