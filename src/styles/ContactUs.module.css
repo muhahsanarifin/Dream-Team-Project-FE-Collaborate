@@ -89,3 +89,76 @@
   color: white;
   font-size: 14px;
 }
+
+@media only screen and (max-width: 768px) {
+  .content_title {
+    left: 226px;
+    top: 120px;
+    font-size: 56px;
+    line-height: 0px;
+  }
+  .content_second {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    padding: 20px 10px;
+    gap: 3rem;
+  }
+
+  .content_input {
+    margin-top: 30px;
+    margin-right: 0px;
+    height: 100%;
+    width: 100%;
+  }
+  .contact_label {
+    font-size: 20px;
+  }
+  .contact_left {
+    left: 20px;
+    top: 24px;
+    font-size: 20px;
+  }
+  .img_map {
+    width: 107%;
+    height: 100%;
+  }
+  .send_message {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 428px) {
+  .content {
+    height: 240px;
+    margin-bottom: 70px;
+  }
+  .content_second {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 4rem;
+    padding: 40px 10px;
+  }
+
+  .contact_left {
+    left: 23px;
+    top: 23px;
+    font-size: 18px;
+  }
+  .content_title {
+    left: 36px;
+    font-size: 50px;
+    line-height: 0;
+    top: 106px;
+  }
+  .content_input {
+    margin-top: 0;
+    margin-right: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .img_map {
+    width: 58%;
+    height: 100%;
+  }
+}
