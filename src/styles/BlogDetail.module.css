@@ -42,15 +42,17 @@
   font-family: "Arimo";
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 16x;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
+
 .text_blog_detail {
-  padding-left: 20px;
+  padding-left: 0;
 }
 .text_blog_row {
-  padding-left: 20px;
-  color: #919191;
+  padding-left: 0;
 }
 .blog {
   /* border: 1px solid red; */
@@ -208,7 +210,7 @@
 
 .content_border_tags:hover {
   background: black;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
 }
 .content_border_zuka {
@@ -221,7 +223,7 @@
 
 .content_border_zuka:hover {
   background: black;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
 }
 .content_border_online {
@@ -233,7 +235,7 @@
 
 .content_border_online:hover {
   background: black;
-  color: white;
+  color: #ffffff;
 }
 
 .img_banner {
@@ -478,6 +480,7 @@
 }
 
 .text_address {
+  padding: 0.5rem 0;
   font-family: "Arimo";
   font-style: normal;
   font-weight: 400;
@@ -514,7 +517,7 @@
   width: 170px;
   height: 50px;
   background-color: black;
-  color: white;
+  color: #ffffff;
 }
 
 .relate_post {

@@ -155,6 +155,8 @@
   margin-bottom: 10px;
 }
 
+/* || Responsive */
+
 @media (max-width: 768px) {
   .section-1 {
     position: relative;

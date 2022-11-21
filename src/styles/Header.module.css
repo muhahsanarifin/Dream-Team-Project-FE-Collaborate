@@ -58,7 +58,7 @@
 .header-center-div-page:hover .header-center-div__contents {
   /* border: 1px solid darkblue; */
   position: absolute;
-  top: 2rem;
+  top: 1.8rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;

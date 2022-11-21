@@ -13,6 +13,7 @@
 .product__img {
   width: 200px;
   height: 260px;
+  cursor: pointer;
 }
 .title {
   font-size: 18px;
