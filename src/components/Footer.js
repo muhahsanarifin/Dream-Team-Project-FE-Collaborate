@@ -7,7 +7,7 @@ import youtube from "../assets/youtube.png";
 import drib from "../assets/dribbble.png";
 import mail from "../assets/mail.png";
 import phone from "../assets/phone.png";
-import clock from "../assets/clock.png";
+import clock from "../assets/clock-white.png";
 
 class Footer extends Component {
   render() {

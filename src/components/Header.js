@@ -30,10 +30,18 @@ class Header extends Component {
               </span>
               <img className={styles["chevron"]} src={chev} alt="img" />
               <ul className={styles["header-center-div__contents"]}>
-                <li>About Us</li>
-                <li>Contact Us</li>
-                <li>Coming Soon</li>
-                <li>404 Page</li>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>About Us</li>
+                </Link>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>Contact Us</li>
+                </Link>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>Coming Soon</li>
+                </Link>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>404 Page</li>
+                </Link>
                 <Link to={`/faq`} className={styles["link"]}>
                   <li>FAQ Page</li>
                 </Link>
@@ -50,23 +58,25 @@ class Header extends Component {
                 <Link to={`/products`} className={styles["link"]}>
                   <li>Products</li>
                 </Link>
-                <Link to={`/products`} className={styles["link"]}>
+                <Link to={`/`} className={styles["link"]}>
                   <li>Shopping Chart</li>
                 </Link>
-                <Link to={`/products`} className={styles["link"]}>
+                <Link to={`/`} className={styles["link"]}>
                   <li>Checkout</li>
                 </Link>
-                <Link to={`/products`} className={styles["link"]}>
+                <Link to={`/`} className={styles["link"]}>
                   <li>My Account</li>
                 </Link>
-                <Link to={`/products`} className={styles["link"]}>
-                  <li>Order racking</li>
+                <Link to={`/tracking`} className={styles["link"]}>
+                  <li>Order Tracking</li>
                 </Link>
               </ul>
             </div>
-            <span>
-              <p className={styles["header-center-text"]}>BLOG</p>
-            </span>
+            <Link to={`/blog`} className={styles["header-center__link"]}>
+              <span>
+                <p className={styles["header-center-text"]}>BLOG</p>
+              </span>
+            </Link>
           </div>
           <div className={styles["header-right"]}>
             <span className={styles["header-right-menu"]}>
@@ -85,10 +95,10 @@ class Header extends Component {
                 <Link to={`/register`} className={styles["link"]}>
                   <li>Register</li>
                 </Link>
-                <Link to={`/register`} className={styles["link"]}>
+                <Link to={`/`} className={styles["link"]}>
                   <li>Chat</li>
                 </Link>
-                <Link to={`/register`} className={styles["link"]}>
+                <Link to={`/notification`} className={styles["link"]}>
                   <li>Notification</li>
                 </Link>
               </ul>
