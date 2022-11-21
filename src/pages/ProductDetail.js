@@ -5,20 +5,30 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/ProductDetail.module.css";
 import Heart from "../assets/love-white.png";
-import delivery_fast from "../assets/delivery-fast.png"
-import measurement from "../assets/measurement.png"
-import pin_check from "../assets/pin-check.png"
+import delivery_fast from "../assets/delivery-fast.png";
+import measurement from "../assets/measurement.png";
+import pin_check from "../assets/pin-check.png";
+import iconFb from "../assets/1.png";
+import iconTwit from "../assets/2.png";
+import iconYt from "../assets/3.png";
 
-import CardProductDetail from "../components/CardProductDetailTest";
 import counterActions from "../redux/action/counterProduct";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../redux/action/product";
+import cart from "../redux/action/cart";
+import Swal from "sweetalert2";
 
 const ProductDetail = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const counters = useSelector((state) => state.counter.number);
+  const cartData = useSelector((state) => state.cart.data);
+  console.log('asdasdsadsasad',cartData);
   const image = useSelector((state) => state.products.productsDetails.images);
+  const category = useSelector(
+    (state) => state.products.productsDetails.categories
+  );
   const productDetail = useSelector((state) => state.products.productsDetails);
 
   const rupiah = (number) => {
@@ -36,6 +46,40 @@ const ProductDetail = () => {
     // console.log(counter);
   };
 
+  const handleAddCart = () => {
+    const filter = cartData.filter((item)=>item.id===productDetail.id)
+    if(filter.length>0){
+      return  Swal.fire({
+        title: "product sudah dalam keranjang",
+        timer: 2000,
+        showConfirmButton: false,
+        timerProgressBar: true,
+      })
+    }
+    const {price} = productDetail;
+    const quantity = counters;
+    const total_price = price * quantity;
+    const data = {
+      id: productDetail.id,
+      image: image[0],
+      product_name: productDetail.product_name,
+      price: productDetail.price,
+      quantity: counters,
+      total_price: total_price,
+    }
+    const body = [...cartData,data] 
+    console.log('body',body);
+    // const body = []
+  dispatch(cart.addCartThunk(body));
+    // console.log(counter);
+    return  Swal.fire({
+      title: "success add to cart",
+      timer: 2000,
+      showConfirmButton: false,
+      timerProgressBar: true,
+    })
+  };
+
   useEffect(() => {
     dispatch(productActions.getProductDetailThunk(id));
   }, [dispatch, id]);
@@ -51,8 +95,10 @@ const ProductDetail = () => {
             <p>Shop Right Sidebar</p>
             <p>{`>`}</p>
             <p>Product</p>
+            <button onClick={()=> navigate('/cart')}>cart</button>
           </span>
         </section>
+        
         <section className={styles["product-detail"]}>
           <span className={styles["product-detail__images"]}>
             <ul className={styles["product-detail__images-left-side"]}>
@@ -87,7 +133,9 @@ const ProductDetail = () => {
             <span className={styles["ratings"]}>{`2 (review)`}</span>
             <span className={styles["price-and-sold-history"]}>
               <p className={styles["price"]}>{rupiah(productDetail.price)}</p>
-              <p className={styles["sold"]}>{productDetail.sold} Sold / {productDetail.stock} In Stock</p>
+              <p className={styles["sold"]}>
+                {productDetail.sold} Sold / {productDetail.stock} In Stock
+              </p>
             </span>
             <p className={styles[["description"]]}>
               {productDetail.description_product}
@@ -104,7 +152,7 @@ const ProductDetail = () => {
                 +
               </li>
             </ul>
-            <button className={styles["add-to-cart"]}> Add to cart</button>
+            <button onClick={handleAddCart} className={styles["add-to-cart"]}> Add to cart</button>
             <span className={styles["favorites"]}>
               <img src={Heart} alt={``} />
             </span>
@@ -115,7 +163,17 @@ const ProductDetail = () => {
           </span>
           <span className={styles["details"]}>
             <p>SKU: N/A</p>
-            <p>Categories: {productDetail.category}</p>
+            <p>
+              Categories:
+              {category.length > 0 &&
+                category.map((item, index, array) => {
+                  if (category.length - 1 === index) {
+                    return item;
+                  } else {
+                    return ` ${item}, `;
+                  }
+                })}
+            </p>
             <p>Tag: Furniture, Chair, Scandinavian, Modern</p>
             <p>Product ID: {productDetail.id}</p>
           </span>
@@ -137,9 +195,9 @@ const ProductDetail = () => {
             </ul>
           </span>
           <span className={styles["medias"]}>
-            <img src={``} alt={``} />
-            <img src={``} alt={``} />
-            <img src={``} alt={``} />
+            <img src={iconFb} alt={`facebook`} />
+            <img src={iconTwit} alt={`twitter`} />
+            <img src={iconYt} alt={`youtube`} />
           </span>
         </section>
         <section>
@@ -153,7 +211,7 @@ const ProductDetail = () => {
             </ul>
           </span>
           <span className={styles["images-description"]}>
-            <img src={``} alt={``} />
+            <img src={image[0]} alt={``} />
             <span>
               <p>
                 Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at
@@ -224,7 +282,6 @@ const ProductDetail = () => {
             </ul>
           </span>
         </section>
-        <CardProductDetail />
       </main>
       <Footer />
     </>
