@@ -52,9 +52,9 @@ class Notification extends Component {
                 <div className={`${styles['content-right']} col-6`}>
                   <div className={`${styles['content-right-border']} d-flex ps-4 pt-3 `}>
                     <img src={icon_Aisya} alt="icon_Aisya" />
-                    <img className={styles['icon_online']} src={icon_online} alt="icon_online" />
+                    <img className={styles['icon_online-aisya']} src={icon_online} alt="icon_online" />
                     <div className={styles['name']}>Syifa Guys</div>
-                    <div className={styles['online']}>online</div>
+                    <div className={styles['online_aisya']}>online</div>
                   </div>
                   <div className={`${styles['content-right-botom']} d-flex ps-4 pt-3 `}>
                     <p className={styles['message']}>White your message</p>
