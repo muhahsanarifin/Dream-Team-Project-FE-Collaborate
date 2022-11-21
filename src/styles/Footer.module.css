@@ -11,6 +11,8 @@
   padding-left: 80px;
   padding-right: 80px;
   padding-bottom: 8px;
+  max-width: 1440px;
+  margin: auto;
 }
 
 .icon {
@@ -25,12 +27,14 @@
 }
 
 .icon-img {
+  height: 18px;
+  width: 18px;
   opacity: 1;
 }
 
 .aside-left-header-1 {
   /* border: 1px solid darkblue; */
-  color: white;
+  color: #ffffff;
   font: 700;
   font-size: 60px;
   line-height: 68.99px;
@@ -57,7 +61,7 @@
 }
 
 .aside-center-header {
-  color: white;
+  color: #ffffff;
   margin-bottom: 37px;
   font-weight: 700;
   font-size: 18px;

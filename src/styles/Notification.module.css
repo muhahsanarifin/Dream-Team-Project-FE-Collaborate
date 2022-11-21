@@ -8,6 +8,11 @@
   font-family: "Arimo", sans-serif;
 }
 
+.main {
+  max-width: 1440px;
+  margin: auto;
+}
+
 .content {
   /* border: 1px solid darkblue; */
   display: flex;

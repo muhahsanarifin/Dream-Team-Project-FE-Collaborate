@@ -6,15 +6,20 @@ import Register from "./pages/Register";
 import Forgot from "./pages/Forgot";
 import Profile from "./pages/Profile";
 import Products from "./pages/Products";
+// import ProductsDetails from "./pages/ProductDetailsTest";
+import ProductDetail from "./pages/ProductDetail";
 import Notification from "./pages/Notification";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
-import Tracking from "./pages/tracking";
+import Tracking from "./pages/Tracking";
 import TrackingDetail from "./pages/TrackingDetail";
 import ProfileSeller from "./pages/ProfileSeller";
 import MyProduct from "./pages/MyProduct";
 import SellingProduct from "./pages/SellingProduct";
 import MyOrderSeller from "./pages/MyOrderSeller";
+import Blog from "./pages/Blog";
+import BlogDetail from "./pages/BlogDetail";
+import Contact from "./pages/ContactUs";
 import FAQ from "./pages/FAQ";
 import Favorite from "./pages/Favorite";
 import NotFound from "./pages/NotFound";
@@ -27,6 +32,8 @@ const router = createBrowserRouter([
   { path: "/forgot", element: <Forgot /> },
   { path: "/profile", element: <Profile /> },
   { path: "/products", element: <Products /> },
+  // { path: "/products/:id", element: <ProductsDetails /> },
+  { path: "/products/detail/:id", element: <ProductDetail /> }, // Change using params
   { path: "/notification", element: <Notification /> },
   { path: "/cart", element: <Cart /> },
   { path: "/checkout", element: <Checkout /> },
@@ -36,7 +43,10 @@ const router = createBrowserRouter([
   { path: "/profile/seller/product", element: <MyProduct /> },
   { path: "/profile/seller/product/selling", element: <SellingProduct /> },
   { path: "/profile/seller/order", element: <MyOrderSeller /> },
-  { path: "/FAQ", element: <FAQ /> },
+  { path: "/contact", element: <Contact /> },
+  { path: "/blog", element: <Blog /> },
+  { path: "/blog/detail", element: <BlogDetail /> },
+  { path: "/faq", element: <FAQ /> },
   { path: "/favorite", element: <Favorite /> },
   { path: "/aboutus", element: <AboutUs /> },
 ]);

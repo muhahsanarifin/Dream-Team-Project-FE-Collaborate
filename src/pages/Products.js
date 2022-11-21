@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Product from "../components/CardProduct";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import chair from "../assets/chair.png";
+// import chair from "../assets/chair.png";
 import styles from "../styles/Products.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import productActions from "../redux/action/product";
 
-const Products = () => {
+const Products = ({setSearchParams}) => {
+  const dispacth = useDispatch();
+  const products = useSelector((state) => state.products.products);
+  console.log(products);
+  // const [show, setShow] = useState(false);
+  // const dropdownHandler = () => {
+  //   setShow(!show);
+  // };
+
+  useEffect(() => {
+    dispacth(productActions.getProductThunk());
+  }, [dispacth]);
+
   return (
     <>
-      <Header />
       <main className={styles["main"]}>
+        <Header />
         <section className={styles["carousel"]}>
           <p>Carousel Soon</p>
         </section>
@@ -24,49 +38,49 @@ const Products = () => {
               <h3>Categories</h3>
               <ul className={styles["categories__list"]}>
                 <li>
-                  <p>Accessories</p>
+                  <p className={styles["categories__list_1"]}>Accessories</p>
                   <p>5</p>
                 </li>
                 <li>
-                  <p>Brands</p>
+                  <p className={styles["categories__list_1"]}>Brands</p>
                   <p>15</p>
                 </li>
                 <li>
-                  <p>Clothing</p>
+                  <p className={styles["categories__list_1"]}>Clothing</p>
                   <p>3</p>
                 </li>
                 <li>
-                  <p>Fashion</p>
+                  <p className={styles["categories__list_1"]}>Fashion</p>
                   <p>8</p>
                 </li>
                 <li>
-                  <p>Furniture</p>
+                  <p className={styles["categories__list_1"]}>Furniture</p>
                   <p>9</p>
                 </li>
                 <li>
-                  <p>Men</p>
+                  <p className={styles["categories__list_1"]}>Men</p>
                   <p>6</p>
                 </li>
                 <li>
-                  <p>Women</p>
+                  <p className={styles["categories__list_1"]}>Women</p>
                   <p>8</p>
                 </li>
                 <li>
-                  <p>Shoes</p>
+                  <p className={styles["categories__list_1"]}>Shoes</p>
                   <p>10</p>
                 </li>
                 <li>
-                  <p>Wallets</p>
+                  <p className={styles["categories__list_1"]}>Wallets</p>
                   <p>11</p>
                 </li>
               </ul>
             </span>
-            <span className={styles["price"]}>
+            <div className={styles["price"]}>
               <h3>Price</h3>
               <p>Price $39 - $159</p>
               <span></span>
               <button>Filter</button>
-            </span>
+            </div>
             <span className={styles["brands"]}>
               <h3>Brands</h3>
               <ul className={styles["brand__list"]}>
@@ -155,31 +169,15 @@ const Products = () => {
                 <p className={styles["title"]}>Coaster 506222-CO Loveseat</p>
                 <p className={styles["price"]}>$765.99</p>
               </span>*/}
-              <Product
-                img={chair}
-                title={`Coaster 506222-CO Loveseat`}
-                price={`$765.99`}
-              />
-              <Product
-                img={chair}
-                title={`Coaster 506222-CO Loveseat`}
-                price={`$765.99`}
-              />
-              <Product
-                img={chair}
-                title={`Coaster 506222-CO Loveseat`}
-                price={`$765.99`}
-              />
-              <Product
-                img={chair}
-                title={`Coaster 506222-CO Loveseat`}
-                price={`$765.99`}
-              />
-              <Product
-                img={chair}
-                title={`Coaster 506222-CO Loveseat`}
-                price={`$765.99`}
-              />
+              {products.map((product, idx) => (
+                <Product
+                  title={product.product_name}
+                  price={product.price}
+                  img={product.image}
+                  id={product.id}
+                  key={idx}
+                />
+              ))}
             </span>
             <span className={styles["paginations"]}>
               <ul>
@@ -192,8 +190,8 @@ const Products = () => {
             </span>
           </div>
         </section>
+        <Footer />
       </main>
-      <Footer />
     </>
   );
 };

@@ -1,16 +1,21 @@
-import React, { Component, Fragment } from "react";
+import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/Cart.module.css";
 
 import remove from "../assets/remove.png";
-import product1 from "../assets/product-picture-1.png";
-import product2 from "../assets/product2.png";
-
-class Cart extends Component {
-  render() {
+import { useDispatch, useSelector } from "react-redux";
+import counterActions from "../redux/action/counterProduct";
+const Cart = () => {
+    const dispatch = useDispatch()  
+    const image = useSelector((state) => state.products.productsDetails.images)
+    const counter = useSelector((state) => state.counter.number)
+    const price = useSelector((state) => state.products.productsDetails.price)
+    const onClickHandler = (action) => {
+      dispatch(action);
+    };
     return (
-      <Fragment>
+      <>
         <Header />
         <main className={styles["main-2"]}>
           <main className={styles["main"]}>
@@ -46,7 +51,7 @@ class Cart extends Component {
                     <th>
                       <img
                         className={styles["product-image"]}
-                        src={product1}
+                        src={image[0]}
                         alt="img"
                       />
                     </th>
@@ -55,43 +60,13 @@ class Cart extends Component {
                         Fabric Mid Century Chair
                       </p>
                     </th>
-                    <th className={styles["th-price"]}>$10.50</th>
-                    <th>
-                      <div className={styles["count-th"]}>
-                        <p className={styles["counter-p"]}>-</p>
-                        <p className={styles["amount-p"]}>02</p>
-                        <p className={styles["counter-p"]}>+</p>
-                      </div>
+                    <th className={styles["th-price"]}>{price}</th>
+                    <th className={styles["count-th"]}>
+                      <p onClick={() => onClickHandler(counterActions.counterDown())} className={styles["counter-p"]}>-</p>
+                      <p className={styles["amount-p"]}>{counter}</p>
+                      <p onClick={() => onClickHandler(counterActions.counterUp())} className={styles["counter-p"]}>+</p>
                     </th>
-                    <th className={styles["total-text"]}>$21.00</th>
-                  </tr>
-                  <tr>
-                    <th>
-                      <img
-                        className={styles["remove"]}
-                        src={remove}
-                        alt="img"
-                      />
-                    </th>
-                    <th>
-                      <img
-                        className={styles["product-image"]}
-                        src={product2}
-                        alt="img"
-                      />
-                    </th>
-                    <th className={styles["product-th"]}>
-                      <p className={styles["cart-text"]}>Chair in Dark Grey</p>
-                    </th>
-                    <th className={styles["th-price"]}>$10.50</th>
-                    <th>
-                      <div className={styles["count-th"]}>
-                        <p className={styles["counter-p"]}>-</p>
-                        <p className={styles["amount-p"]}>01</p>
-                        <p className={styles["counter-p"]}>+</p>
-                      </div>
-                    </th>
-                    <th className={styles["total-text"]}>$10.50</th>
+                    <th className={styles["total-text"]}>{counter * price}</th>
                   </tr>
                 </table>
                 <div className={styles["line"]}></div>
@@ -117,7 +92,7 @@ class Cart extends Component {
                   <h1 className={styles["cart-total-header-1"]}>Cart Total</h1>
                   <div className={styles["subtotal-div"]}>
                     <p className={styles["cart-total-header-2"]}>Subtotal</p>
-                    <p className={styles["cart-total-header-2"]}>$125</p>
+                    <p className={styles["cart-total-header-2"]}>{counter * price}</p>
                   </div>
                   <div className={styles["shipping-div"]}>
                     <p className={styles["cart-total-header-2"]}>Shipping</p>
@@ -139,7 +114,7 @@ class Cart extends Component {
                   <div className={styles["line-2"]}></div>
                   <div className={styles["total-div"]}>
                     <p className={styles["cart-total-header-2"]}>Total Price</p>
-                    <p className={styles["cart-total-header"]}>$125</p>
+                    <p className={styles["cart-total-header"]}>{counter * price}</p>
                   </div>
                 </div>
                 <button className={styles["proceed-button"]}>
@@ -150,9 +125,9 @@ class Cart extends Component {
           </main>
         </main>
         <Footer />
-      </Fragment>
-    );
+      </>
+    )
   }
-}
+
 
 export default Cart;

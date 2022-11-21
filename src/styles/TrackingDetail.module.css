@@ -1,10 +1,9 @@
 .main-2 {
-  background-color: #bcbaba;
+  background-color: #ffffff;
 }
 
 .main {
-  background-color: #ffffff;
-  /* max-width: 1440px; */
+  max-width: 1440px;
   margin: auto;
 }
 
@@ -155,6 +154,8 @@
   margin-left: 20px;
   margin-bottom: 10px;
 }
+
+/* || Responsive */
 
 @media (max-width: 768px) {
   .section-1 {

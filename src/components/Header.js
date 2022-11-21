@@ -52,6 +52,20 @@ class Header extends Component {
                 <li>Contact Us</li>
                 <li>Coming Soon</li>
                 <li>404 Page</li>
+              </ul>
+              <ul className={styles["header-center-div__contents"]}>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>About Us</li>
+                </Link>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>Contact Us</li>
+                </Link>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>Coming Soon</li>
+                </Link>
+                <Link to={`/`} className={styles["link"]}>
+                  <li>404 Page</li>
+                </Link>
                 <Link to={`/faq`} className={styles["link"]}>
                   <li>FAQ Page</li>
                 </Link>
@@ -91,9 +105,11 @@ class Header extends Component {
                 </Link>
               </ul>
             </div>
-            <span>
-              <p className={styles["header-center-text"]}>BLOG</p>
-            </span>
+            <Link to={`/blog`} className={styles["header-center__link"]}>
+              <span>
+                <p className={styles["header-center-text"]}>BLOG</p>
+              </span>
+            </Link>
           </div>
           <div className={styles["header-right"]}>
             <span className={styles["header-right-menu"]}>

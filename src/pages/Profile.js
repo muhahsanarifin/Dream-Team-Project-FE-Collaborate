@@ -62,10 +62,12 @@ class Profiles extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const url = `https://dream-team-project-be.vercel.app/raz/auth/logout`;
+    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
+    const dataUser = localStorage.getItem("data-user");
+    const { token } = JSON.parse(dataUser);
     const config = {
       headers: {
-        "x-access-token": localStorage.getItem("token"),
+        "x-access-token": token,
       },
     };
     Axios.delete(url, config)
@@ -149,9 +151,9 @@ class Profiles extends Component {
   render() {
     return (
       <Fragment>
-        <Header />
         <main className={styles["main-2"]}>
           <main className={styles["main"]}>
+            <Header />
             <section className={styles["section-1"]}>
               <h1 className={styles["section-1-header"]}>Profile</h1>
               <p className={styles["section-1-text"]}>
@@ -279,9 +281,9 @@ class Profiles extends Component {
                 <button className={styles["logout"]}>Edit Password</button>
               </div>
             </section>
+            <Footer />
           </main>
         </main>
-        <Footer />
       </Fragment>
     );
   }

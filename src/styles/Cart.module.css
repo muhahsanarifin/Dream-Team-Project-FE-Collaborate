@@ -1,10 +1,9 @@
 .main-2 {
-  background-color: #bcbaba;
+  background-color: #ffffff;
 }
 
 .main {
-  background-color: #ffffff;
-  /* max-width: 1440px; */
+  max-width: 1440px;
   margin: auto;
 }
 
@@ -156,6 +155,7 @@
   font-size: 16px;
   line-height: 20px;
   color: #4a4141;
+  cursor: pointer;
 }
 
 .amount-p {
