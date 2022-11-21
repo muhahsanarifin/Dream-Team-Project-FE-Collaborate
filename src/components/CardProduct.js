@@ -1,24 +1,27 @@
-import React from 'react'
-import { useNavigate } from 'react-router';
+import React from "react";
+import { useNavigate } from "react-router";
 
-import styles from "../styles/CardProduct.module.css"
+import styles from "../styles/CardProduct.module.css";
 
-const CardProduct = ({img, title, price, id}) => {
-  const navigate = useNavigate()
+const CardProduct = ({ img, title, price, id }) => {
+  const navigate = useNavigate();
   const detailsProduct = () => {
-    navigate(`/products/${id}`)
-  }
+    navigate(`/products/${id}`);
+  };
   return (
     <>
       <span className={styles["product"]}>
-        <img 
-        onClick={detailsProduct}
-        src={img} alt="" className={styles["product__img"]} />
+        <img
+          onClick={detailsProduct}
+          src={img}
+          alt=""
+          className={styles["product__img"]}
+        />
         <p className={styles["title"]}>{title}</p>
-        <p className={styles["price"]}>{price}</p>
+        <p className={styles["price"]}>RP {price}</p>
       </span>
     </>
   );
-}
+};
 
-export default CardProduct
+export default CardProduct;

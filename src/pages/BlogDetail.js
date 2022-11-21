@@ -1,39 +1,39 @@
-import React from 'react';
+import React from "react";
 
 //import css
-import styles from '../styles/BlogDetail.module.css';
+import styles from "../styles/BlogDetail.module.css";
 
 //import components
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 //import image
-import icon_search from '../assets/icon_search.png';
-import icon_phone from '../assets/icon_phone.png';
-import icon_laptop from '../assets/icon_laptop.png';
-import icon_donat from '../assets/icon_donat.png';
-import icon_pijar from '../assets/icon_pijar.png';
-import icon_banner from '../assets/icon_banner.png';
-import img_freshii from '../assets/img_freshii.png';
-import icon_time from '../assets/clock.png';
-import icon_tag from '../assets/icon_tag.png';
-import img_kitchen from '../assets/img_kitchen.png';
-import icon_facebook from '../assets/icon_facebook.png';
-import icon_twitter from '../assets/icon_twitter.png';
-import icon_youtube from '../assets/icon-youtube.png';
-import icon_basket from '../assets/icon_basket.png';
-import icon_hana from '../assets/icon_hana.png';
-import icon_bani from '../assets/icon_bani.png';
-import icon_hani from '../assets/icon_hani.png';
-import icon_rachel from '../assets/icon_rachel.png';
-import img_chair from '../assets/img_chair.png';
-import img_matress from '../assets/img_matress.png';
+import icon_search from "../assets/icon_search.png";
+import icon_phone from "../assets/icon_phone.png";
+import icon_laptop from "../assets/icon_laptop.png";
+import icon_donat from "../assets/icon_donat.png";
+import icon_pijar from "../assets/icon_pijar.png";
+import icon_banner from "../assets/icon_banner.png";
+import img_freshii from "../assets/img_freshii.png";
+import icon_time from "../assets/clock.png";
+import icon_tag from "../assets/icon_tag.png";
+import img_kitchen from "../assets/img_kitchen.png";
+import icon_facebook from "../assets/icon_facebook.png";
+import icon_twitter from "../assets/icon_twitter.png";
+import icon_youtube from "../assets/icon-youtube.png";
+import icon_basket from "../assets/icon_basket.png";
+import icon_hana from "../assets/icon_hana.png";
+import icon_bani from "../assets/icon_bani.png";
+import icon_hani from "../assets/icon_hani.png";
+import icon_rachel from "../assets/icon_rachel.png";
+import img_chair from "../assets/img_chair.png";
+import img_matress from "../assets/img_matress.png";
 
 const BlogDetail = () => {
   return (
     <>
-      <Header />
-      <main>
+      <main className={styles["main"]}>
+        <Header />
         <section>
           <div>
             <div className={`${styles["content"]}`}>
@@ -542,10 +542,10 @@ const BlogDetail = () => {
             <div className={styles["point"]}></div>
           </div>
         </section>
+        <Footer />
       </main>
-      <Footer />
     </>
   );
-}
+};
 
 export default BlogDetail;

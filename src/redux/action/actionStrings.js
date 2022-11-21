@@ -18,4 +18,5 @@ export const actionStrings = {
   counterReset: "COUNTER_RESET",
   addCart: "ADD_CART",
   deleteCart: "ADD_CART",
+  getCategories: "GET_CATEGORIES",
 };

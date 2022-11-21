@@ -16,9 +16,20 @@ const initialState = {
     sold: null,
     stock: null,
   },
+  meta: [],
+  // productDetails: [],
   isError: false,
   isLoading: false,
   isFulfilled: false,
+  count1: [],
+  count2: [],
+  count3: [],
+  count4: [],
+  count5: [],
+  count6: [],
+  count7: [],
+  count8: [],
+  count9: [],
 };
 
 const productReducer = (prevState = initialState, { type, payload }) => {
@@ -61,6 +72,7 @@ const productReducer = (prevState = initialState, { type, payload }) => {
         isError: false,
         isFulfilled: true,
         products: payload.data.data,
+        meta: payload.data.meta,
       };
     case getDetailProduct.concat("_", Fulfilled):
       return {
