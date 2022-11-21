@@ -25,6 +25,9 @@ const Cart = () => {
     console.log(temp);
     dispatch(cart.addCartThunk(temp));
   };
+
+  
+
   return (
     <>
       <Header />
