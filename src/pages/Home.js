@@ -25,16 +25,15 @@ import modernFloorLamp from "../assets/raz-retangle-6.png";
 const Home = () => {
   // const navigate = useNavigate();
 
+  // « Get Role & Token»
   const role = localStorage.getItem("role");
   const token = localStorage.getItem("token");
-
-
 
   return (
     <>
       <main className={[styles["main"]]}>
         {token === null ? (
-          <Header displayProfile={`none`}/>
+          <Header displayProfile={`none`} />
         ) : role === "seller" ? (
           <Header linkToProfile={`/profile/seller`} displayRegister={`none`} />
         ) : (
