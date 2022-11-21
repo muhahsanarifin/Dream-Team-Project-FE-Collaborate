@@ -127,19 +127,11 @@ class Header extends Component {
                 style={{ display: this.state.menu }}
                 className={`${styles["header-right-toggle__contents"]}`}
               >
-              {}
                 <Link to={`/login`} className={styles["link"]}>
                   <li>Login</li>
                 </Link>
                 <Link to={`/register`} className={styles["link"]}>
                   <li>Register</li>
-                </Link>
-
-                <Link to={`/chat`} className={styles["link"]}>
-                  <li>Chat</li>
-                </Link>
-                <Link to={`/notification`} className={styles["link"]}>
-                  <li>Notification</li>
                 </Link>
                 <Link to={`/chat`} className={styles["link"]}>
                   <li>Chat</li>
