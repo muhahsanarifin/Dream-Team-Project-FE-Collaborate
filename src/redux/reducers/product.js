@@ -8,6 +8,15 @@ const initialState = {
   isError: false,
   isLoading: false,
   isFulfilled: false,
+  count1: [],
+  count2: [],
+  count3: [],
+  count4: [],
+  count5: [],
+  count6: [],
+  count7: [],
+  count8: [],
+  count9: [],
 };
 
 const productReducer = (prevState = initialState, { type, payload }) => {
