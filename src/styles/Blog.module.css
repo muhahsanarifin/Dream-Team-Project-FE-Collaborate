@@ -22,7 +22,7 @@
   background-image: url('../assets/login-background.png');
   background-repeat: no-repeat;
   background-size: cover;
-  content: "";
+  content: '';
   opacity: 0.2;
   top: 0;
   left: 0;
@@ -38,7 +38,7 @@
   font-family: 'Arimo';
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 20px;
   line-height: 18px;
 }
 .text_blog_row {
@@ -50,7 +50,7 @@
   text-align: center;
   font-size: 56px;
   font-weight: 400;
-  padding: 25px 0;
+  /* padding: 25px 0; */
 }
 .text {
   /* border: 1px solid darkblue; */
@@ -64,6 +64,7 @@
   display: flex;
   flex-direction: row;
   gap: 7rem;
+  padding-left: 6%;
 }
 
 .content_left {
@@ -88,7 +89,7 @@
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 14px;
-  border: 1px solid #C8C8C8;
+  border: 1px solid #c8c8c8;
 }
 
 .input_search {
@@ -274,6 +275,7 @@
 }
 
 .text_more {
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -437,4 +439,316 @@
   cursor: pointer;
   background-color: black;
   color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  .content_all {
+    gap: 3rem;
+    padding-left: 0;
+  }
+  .content {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .text_blog {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    font-weight: 400;
+    font-size: 26px;
+    padding-left: 0;
+  }
+  .blog {
+    font-family: 'Arimo';
+    padding-top: 40px;
+  }
+  .content_left {
+    width: 33%;
+    height: 100%;
+  }
+  .content_right {
+    width: 67%;
+    padding-bottom: 40px;
+  }
+  .search {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .brand_all {
+    font-size: 20px;
+  }
+  .recent_news {
+    padding-top: 36px;
+  }
+  .content_border_tags {
+    width: 119px;
+    height: 30px;
+    font-size: 20px;
+  }
+  .content_border_zuka {
+    width: 119px;
+    height: 30px;
+    font-size: 20px;
+  }
+  .content_border_online {
+    width: 119px;
+    height: 30px;
+    font-size: 20px;
+  }
+  .img_freshii,
+  .play,
+  .img_matress,
+  .content_pc {
+    width: 462px;
+    height: 300px;
+  }
+  .text_shop {
+    padding-top: 20px;
+    font-family: 'Arimo';
+  }
+  .content_text_time {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .content_describe {
+    font-size: 20px;
+  }
+  .text_more {
+    font-size: 18px;
+  }
+  .line {
+    width: 350px;
+    margin-top: 12px;
+  }
+  .icon_pc {
+    margin-top: 144px;
+    gap: 21rem;
+  }
+  .icon_play {
+    margin-top: 115px;
+  }
+  .content_design {
+    margin-top: 20px;
+    height: 260px;
+    width: 100%;
+  }
+  .text_design {
+    padding-left: 26px;
+  }
+  .line_joshua {
+    margin-top: 10px;
+    width: 48px;
+    height: 1px;
+    border: 2px solid black;
+  }
+  .text_joshua {
+    left: 110px;
+    top: -4px;
+    font-size: 20px;
+  }
+  .photo {
+    font-size: 30px;
+    line-height: 28px;
+  }
+  .border_scroll {
+    margin-top: 30px;
+  }
+}
+
+@media only screen and (max-width: 428px) {
+  .content {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .text_blog {
+    position: absolute;
+    top: 9px;
+    left: 22px;
+    font-weight: 400;
+    font-size: 18px;
+    padding-left: 0;
+  }
+  .blog {
+    font-size: 40px;
+    font-weight: 400;
+    padding-top: 26px;
+    font-family: "'Arimo'";
+  }
+
+  .content_all {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+    padding-left: 0;
+  }
+
+  .content_left {
+    width: 100%;
+    height: 100%;
+  }
+  .search {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 60px;
+    padding-left: 14px;
+    border: 1px solid #c8c8c8;
+  }
+  .icon_search {
+    margin-top: 18px;
+    margin-right: 36px;
+    width: 15px;
+    height: 15px;
+  }
+  .categories {
+    padding-top: 30px;
+    font-weight: 700;
+    font-size: 26px;
+  }
+  .brand_all {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 0;
+    font-size: 20px;
+  }
+  .recent_news {
+    padding-top: 30px;
+    font-weight: 700;
+    font-size: 26px;
+  }
+  .content_recent_news {
+    display: flex;
+    flex-direction: column;
+    padding-top: 46px;
+    gap: 32px;
+  }
+  .text-recent {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .text-time {
+    padding-top: 6px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #3e3e3e;
+  }
+  .archives {
+    padding-top: 50px;
+    font-weight: 700;
+    font-size: 26px;
+  }
+  .select_month {
+    gap: 14rem;
+    font-size: 17px;
+    height: 50px;
+  }
+  .tags {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-size: 26px;
+  }
+  .content_tags {
+    justify-content: center;
+    gap: 7.5px;
+  }
+  .content_border_tags {
+    width: 129px;
+    font-size: 20px;
+  }
+  .content_border_zuka {
+    width: 129px;
+    font-size: 20px;
+  }
+  .content_border_online {
+    width: 129px;
+    font-size: 20px;
+  }
+  .icon_banner {
+    display: none;
+  }
+  .content_right {
+    width: 100%;
+    padding-bottom: 30px;
+  }
+  .img_freshii,
+  .play,
+  .content_pc,
+  .img_matress {
+    width: 100%;
+    height: 280px;
+  }
+  .text_shop {
+    padding-top: 20px;
+    font-size: 26px;
+    font-weight: 700;
+  }
+  .text_tag {
+    gap: 4px;
+    font-size: 16px;
+  }
+  .content_text_time {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 46px;
+  }
+  .content_describe {
+    font-size: 20px;
+  }
+  .text_more {
+    font-size: 20px;
+  }
+  .line {
+    width: 285px;
+    margin-top: 14px;
+  }
+  .icon_play {
+    margin-top: 108px;
+  }
+  .content_design {
+    margin-top: 20px;
+    width: 100%;
+    height: 300px;
+  }
+  .text_design {
+    padding-left: 0;
+    padding-top: 37px;
+    font-weight: 700;
+    font-size: 34px;
+  }
+  .text_joshua {
+    font-size: 20px;
+    top: 0px;
+  }
+  .line_joshua {
+    margin-left: 46px;
+    margin-top: 13px;
+    width: 35px;
+    height: 1px;
+    border-bottom: 2px solid black;
+  }
+  .scroll {
+    justify-content: center;
+    gap: 0.8rem;
+  }
+  .border_scroll {
+    margin-top: 30px;
+  }
+  .photo {
+    font-weight: 700;
+    font-size: 26px;
+  }
+  .icon_pc {
+    margin-top: 129px;
+    gap: 17rem;
+  }
 }

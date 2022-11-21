@@ -1,6 +1,6 @@
 @font-face {
   font-family: Arimo;
-  src: url("../assets/Arimo/static/Arimo-Regular.ttf") format("truetype");
+  src: url('../assets/Arimo/static/Arimo-Regular.ttf') format('truetype');
 }
 
 *,
@@ -9,7 +9,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: "Arimo";
+  font-family: 'Arimo';
 }
 
 .main-2 {
@@ -32,10 +32,10 @@
 }
 
 .section-1::after {
-  background-image: url("../assets/login-background.png");
+  background-image: url('../assets/login-background.png');
   background-repeat: no-repeat;
   background-size: cover;
-  content: "";
+  content: '';
   opacity: 0.2;
   top: 0;
   left: 0;
@@ -174,12 +174,12 @@
   height: 16px;
 }
 
-input[type="radio"]:checked {
+input[type='radio']:checked {
   background: #333;
 }
 
 /* || Responsive */
-@media all and (min-width: 768px) and (max-width: 1024px) {
+/* @media all and (min-width: 768px) and (max-width: 1024px) {
   .section-1-header {
     font-size: 24px;
     font-weight: 800;
@@ -228,16 +228,48 @@ input[type="radio"]:checked {
   .aside-right-input-2 {
     max-width: 25rem;
   }
-}
+} */
+/* @media only screen and (max-width: 768px) {
+  .section-1-header {
+    font-size: 34px;
+    font-weight: 700;
+  }
+  .section-1-text {
+    font-size: 20px;
+  }
+  .section-2 {
+    display: flex;
+    flex-direction: row;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 120px;
+    padding-top: 80px;
+  }
+  .section-2-aside-left {
+    position: relative;
+  }
+  .section-2-aside-left-header-2 {
+    position: absolute;
+    top: 56px;
+  }
+  .line {
+    margin-top: 70px;
+  }
+  .section-2-aside-right {
+    position: relative;
+    left: -100px;
+    top: 123px;
+  }
+} */
 
-@media all and (min-width: 480px) and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .section-2-aside-left-header {
     font-size: 24px;
     font-weight: 800;
   }
 
   .section-2-aside-right-header {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 800;
   }
 
@@ -252,7 +284,7 @@ input[type="radio"]:checked {
   }
 
   .section-1-header {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 800;
   }
 
@@ -278,7 +310,12 @@ input[type="radio"]:checked {
 
   .aside-right-input-1,
   .aside-right-input-2 {
-    max-width: 20rem;
+    max-width: 99%;
+  }
+  .button {
+    width: 100%;
+    height: 60px;
+    font-size: 20px;
   }
 }
 
@@ -339,5 +376,9 @@ input[type="radio"]:checked {
 
   .line {
     display: none;
+  }
+  .button {
+    width: 100%;
+    font-size: 16px;
   }
 }
