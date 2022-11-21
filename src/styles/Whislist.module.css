@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Poppins:wght@400;500;700;900&family=Rubik:wght@400;500;700&display=swap');
+
+.content {
+  height: 230px;
+  /* background-color: gainsboro; */
+}
+
+.whislist {
+  padding-top: 40px;
+  padding-left: 84px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.arrow {
+  padding-left: 20px;
+  color: #919191;
+}
+.content-whislist {
+  text-align: center;
+  font-size: 50px;
+}
+.text {
+  text-align: center;
+}
+
+.line-top {
+  text-align: center;
+  width: 100%;
+  margin-top: 80px;
+  opacity: 30%;
+  padding-bottom: 20px;
+  border-top: 1px solid black;
+}
+
+.text-product {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.text-price {
+  padding-right: 380px;
+}
+.text-stock {
+  padding-left: 260px;
+}
+
+.content-border-botom {
+  opacity: 30%;
+  border-bottom: 1px solid black;
+  padding-top: 20px;
+  margin-bottom: 40px;
+}

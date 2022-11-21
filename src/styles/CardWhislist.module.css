@@ -1,0 +1,49 @@
+.content-product {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 40px;
+}
+
+.name_product {
+  position: absolute;
+  left: 210px;
+  top: 74px;
+}
+
+.icon_ceklis {
+  position: absolute;
+  left: 540px;
+  top: 76px;
+}
+
+.stock {
+  position: absolute;
+  left: 560px;
+  top: 76px;
+  font-size: 14px;
+}
+
+.price {
+  position: absolute;
+  left: 876px;
+  top: 74px;
+  font-weight: 700;
+}
+.cart {
+  position: absolute;
+  width: 140px;
+  height: 40px;
+  left: 1160px;
+  top: 68px;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+}
+
+.icon_product {
+  height: 172px;
+  width: 170px;
+}

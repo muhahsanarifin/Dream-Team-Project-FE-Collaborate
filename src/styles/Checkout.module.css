@@ -1,0 +1,145 @@
+.main-2 {
+  background-color: #bcbaba;
+}
+
+.main {
+  background-color: #ffffff;
+  /* max-width: 1440px; */
+  margin: auto;
+}
+
+.section-1 {
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: 74px;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.section-1-nav {
+  display: flex;
+  column-gap: 20px;
+  padding-bottom: 16px;
+}
+
+.section-1-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #1a1a1a;
+}
+
+.section-1-arrow {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #919191;
+}
+
+.section-1::after {
+  background-image: url("../assets/login-background.png");
+  content: "";
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+.section-1-header {
+  text-align: center;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 64.39px;
+  margin-bottom: 20px;
+}
+
+.section-1-text {
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18.4px;
+}
+
+.section-2 {
+  padding-left: 440px;
+  padding-right: 440px;
+  padding-bottom: 120px;
+  padding-top: 80px;
+}
+
+.self {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 37px;
+  color: #1a1a1a;
+  margin-bottom: 46px;
+}
+
+.input-1 {
+  width: 100%;
+  height: 70px;
+  background: #ffffff;
+  border: 1px solid #cecece;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.input-2 {
+  width: 100%;
+  height: 70px;
+  background: #ffffff;
+  border: 1px solid #cecece;
+  padding-left: 35px;
+  margin-bottom: 40px;
+}
+
+.code-div {
+  display: flex;
+  align-items: center;
+  column-gap: 21px;
+  border: 1px solid #cecece;
+  height: 70px;
+  padding-left: 24px;
+  padding-right: 16px;
+}
+
+.phone-div {
+  display: flex;
+}
+
+.payment-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1px solid #cecece;
+  padding-left: 24px;
+  padding-right: 33px;
+  height: 70px;
+  margin-bottom: 33px;
+}
+
+.payment-content-div {
+  display: flex;
+  column-gap: 40px;
+}
+
+.checkout-btn {
+  width: 125px;
+  height: 50px;
+  background: #1a1a1a;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .section-2 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
