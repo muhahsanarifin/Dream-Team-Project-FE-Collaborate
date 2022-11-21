@@ -1,5 +1,9 @@
 import React from "react";
 
+// import { useNavigate } from "react-router";
+
+// import { useState, useEffect } from "react";
+
 import Header from "../components/Header";
 
 import Footer from "../components/Footer";
@@ -19,13 +23,23 @@ import japanesePlateFloral from "../assets/raz-retangle-5.png";
 import modernFloorLamp from "../assets/raz-retangle-6.png";
 
 const Home = () => {
-  // const getDataUser = localStorage.getItem("data-user"); // » Get Data User «
-  // console.log("data user", JSON.parse(getDataUser));
-  // const {role, token} = getDataUser.JSON.parse(getDataUser);
+  // const navigate = useNavigate();
+
+  const role = localStorage.getItem("role");
+  const token = localStorage.getItem("token");
+
+
+
   return (
     <>
       <main className={[styles["main"]]}>
-        <Header />
+        {token === null ? (
+          <Header displayProfile={`none`}/>
+        ) : role === "seller" ? (
+          <Header linkToProfile={`/profile/seller`} displayRegister={`none`} />
+        ) : (
+          <Header linkToProfile={`/profile`} displayRegister={`none`} />
+        )}
         <section className={`${styles["section"]} ${styles["fist-section"]}`}>
           <h1 className={styles["title"]}>Minimal Furniture Store</h1>
           <p className={styles["description"]}>
