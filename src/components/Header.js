@@ -11,6 +11,13 @@ import bar1 from "../assets/menu-1.png";
 import bar2 from "../assets/menu-2.png";
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pages: "none",
+      shop: "none",
+    };
+  }
   render() {
     return (
       <Fragment>
@@ -25,12 +32,21 @@ class Header extends Component {
             <div
               className={`${styles["header-center-div"]} ${styles["header-center-div-page"]}`}
             >
-              <span>
+              <span
+                onClick={() => {
+                  this.state.pages === "none"
+                    ? this.setState({ pages: "block" })
+                    : this.setState({ pages: "none" });
+                }}
+              >
                 <p className={styles["header-center-text"]}>PAGES</p>
               </span>
               <img className={styles["chevron"]} src={chev} alt="img" />
-              <ul className={styles["header-center-div__contents"]}>
-                <Link to={`/`} className={styles["link"]}>
+              <ul
+                style={{ display: this.state.pages }}
+                className={styles["header-center-div__contents"]}
+              >
+                <Link to={`/aboutus`} className={styles["link"]}>
                   <li>About Us</li>
                 </Link>
                 <Link to={`/`} className={styles["link"]}>
@@ -50,21 +66,30 @@ class Header extends Component {
             <div
               className={`${styles["header-center-div"]} ${styles["header-center-div-shop"]}`}
             >
-              <span>
+              <span
+                onClick={() => {
+                  this.state.shop === "none"
+                    ? this.setState({ shop: "block" })
+                    : this.setState({ shop: "none" });
+                }}
+              >
                 <p className={styles["header-center-text"]}>SHOP</p>
               </span>
               <img className={styles["chevron"]} src={chev} alt="img" />
-              <ul className={styles["header-center-div__contents"]}>
+              <ul
+                style={{ display: this.state.shop }}
+                className={styles["header-center-div__contents"]}
+              >
                 <Link to={`/products`} className={styles["link"]}>
                   <li>Products</li>
                 </Link>
-                <Link to={`/`} className={styles["link"]}>
+                <Link to={`/cart`} className={styles["link"]}>
                   <li>Shopping Chart</li>
                 </Link>
                 <Link to={`/checkout`} className={styles["link"]}>
                   <li>Checkout</li>
                 </Link>
-                <Link to={`/`} className={styles["link"]}>
+                <Link to={`/profile`} className={styles["link"]}>
                   <li>My Account</li>
                 </Link>
                 <Link to={`/tracking`} className={styles["link"]}>
@@ -82,7 +107,9 @@ class Header extends Component {
             <span className={styles["header-right-menu"]}>
               <img className={styles["image-1"]} src={mag} alt="img" />
               <img className={styles["image-2"]} src={love} alt="img" />
-              <img className={styles["image-3"]} src={cart} alt="img" />
+              <Link to={`/cart`} className={styles["link"]}>
+                <img className={styles["image-3"]} src={cart} alt="img" />
+              </Link>
             </span>
             <div className={styles["header-right-toggle"]}>
               <img className={styles["menu-1"]} src={bar1} alt="img" />
@@ -95,7 +122,7 @@ class Header extends Component {
                 <Link to={`/register`} className={styles["link"]}>
                   <li>Register</li>
                 </Link>
-                <Link to={`/`} className={styles["link"]}>
+                <Link to={`/chat`} className={styles["link"]}>
                   <li>Chat</li>
                 </Link>
                 <Link to={`/notification`} className={styles["link"]}>

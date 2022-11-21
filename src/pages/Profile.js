@@ -32,7 +32,7 @@ class Profiles extends Component {
     document.title = "Profile";
     const token = localStorage.getItem("token");
     const info = jwt(token);
-    const url = `http://localhost:8090/raz/users/profile`;
+    const url = `https://dream-team-project-be.vercel.app/raz/users/profile`;
     const config = {
       headers: {
         "x-access-token": localStorage.getItem("token"),
@@ -94,7 +94,7 @@ class Profiles extends Component {
 
   handleSubmit2(event) {
     event.preventDefault();
-    const url = `http://localhost:8090/raz/users/profile/edit`;
+    const url = `https://dream-team-project-be.vercel.app/raz/users/profile/edit`;
     const formdata = new FormData();
     // const body = {
     //   username: this.state.username,
@@ -195,8 +195,8 @@ class Profiles extends Component {
                       <input
                         className={styles["profile-top-header"]}
                         type="text"
-                        value={this.state.username}
                         placeholder="Input your display name"
+                        value={this.state.username}
                         onChange={(event) =>
                           this.handleChange(event, "username")
                         }
@@ -271,7 +271,7 @@ class Profiles extends Component {
               </div>
               <div className={styles["btn-div"]}>
                 <form onSubmit={this.handleSubmit}>
-                  <button className={styles["logout"]}>
+                  <button type="submit" className={styles["logout"]}>
                     <img className={styles[""]} src={logout} alt="img" />
                     <p>Logout</p>
                   </button>
