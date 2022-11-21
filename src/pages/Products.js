@@ -21,6 +21,7 @@ const useQuery = () => {
 
 const Products = () => {
   const [show, setShow] = useState(false);
+  
   const dispacth = useDispatch();
   const products = useSelector((state) => state.products.products);
   const totalData = useSelector((state) => state.products.meta.totalData);
@@ -59,6 +60,7 @@ const Products = () => {
     const urlSearchParams = createSearchParams({ ...query });
     setSearchParams(urlSearchParams);
     console.log(query);
+    
     dispacth(productActions.getProductThunk(query));
   }, [dispacth, query, searchParams]);
 
