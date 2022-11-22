@@ -32,7 +32,7 @@ class Profiles extends Component {
     document.title = "Profile";
     const token = localStorage.getItem("token");
     const info = jwt(token);
-    const url = `https://dream-team-project-be.vercel.app/raz/users/profile`;
+    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/users/profile`;
     const config = {
       headers: {
         "x-access-token": localStorage.getItem("token"),
@@ -62,10 +62,10 @@ class Profiles extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;;
+    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
     const config = {
       headers: {
-        "x-access-token": localStorage.getItem("token"),
+        "x-access-token": localStorage.getItem("token")
       },
     };
     Axios.delete(url, config)
@@ -94,7 +94,7 @@ class Profiles extends Component {
 
   handleSubmit2(event) {
     event.preventDefault();
-    const url = `https://dream-team-project-be.vercel.app/raz/users/profile/edit`;
+    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/users/profile/edit`;
     const formdata = new FormData();
     // const body = {
     //   username: this.state.username,
@@ -102,6 +102,7 @@ class Profiles extends Component {
     //   store_description: this.state.desc,
     //   image: this.state.file,
     // };
+    console.log(this.state);
     formdata.append("username", this.state.username);
     formdata.append("gender", this.state.gender);
     formdata.append("store_description", this.state.desc);

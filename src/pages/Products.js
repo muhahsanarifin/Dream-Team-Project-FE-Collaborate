@@ -3,7 +3,7 @@ import Product from "../components/CardProduct";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import LoadingAnimation from "../components/Loading";
-// import chair from "../assets/chair.png";
+import CardCategory from "../components/CardCategory";
 import styles from "../styles/Products.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../redux/action/product";
@@ -24,9 +24,10 @@ const Products = () => {
   
   const dispacth = useDispatch();
   const products = useSelector((state) => state.products.products);
-  const totalData = useSelector((state) => state.products.meta.totalData);
   const isLoading = useSelector((state) => state.products.isLoading);
   const isRejected = useSelector((state) => state.products.isError);
+  const categories = useSelector((state) => state.categories.categories);
+  
   const getQuery = useQuery();
   const [searchParams, setSearchParams] = useSearchParams();
   const [query, setQuery] = useState({
@@ -40,6 +41,8 @@ const Products = () => {
     page: getQuery.get("page") || 1,
     limit: getQuery.get("limit") || 9,
   });
+  const totalDataFake = useSelector((state) => state.products.products ? state.products.products.length :  state.products.meta.totalData);
+  const totalData =  useSelector((state) => totalDataFake ? state.products.meta.totalData : 1) 
   const endItem =
     Number(query.page) === 1 && totalData > Number(query.limit)
       ? query.limit
@@ -60,7 +63,6 @@ const Products = () => {
     const urlSearchParams = createSearchParams({ ...query });
     setSearchParams(urlSearchParams);
     console.log(query);
-    
     dispacth(productActions.getProductThunk(query));
   }, [dispacth, query, searchParams]);
 
@@ -68,20 +70,7 @@ const Products = () => {
     dispacth(categoriesActions.getCategoriesThunk());
   }, [dispacth]);
 
-  // useEffect(() => {
-  //   const url = {
-  //     categoriId: "",
-  //   };
-  //   dispacth(productActions.getProductThunk({ ...url, categoriId: "1" }));
-  //   dispacth(productActions.getProductThunk({ ...url, categoriId: "2" }));
-  //   dispacth(productActions.getProductThunk({ ...url, categoriId: "3" }));
-  //   dispacth(productActions.getProductThunk({ ...url, categoriId: "4" }));
-  //   dispacth(productActions.getProductThunk({ ...url, categoriId: "5" }));
-  //   dispacth(productActions.getProductThunk({ ...url, categoriId: "6" }));
-  //   dispacth(productActions.getProductThunk({ ...url, categoriId: "7" }));
-  //   dispacth(productActions.getProductThunk({ ...url, categoriId: "8" }));
-  //   dispacth(productActions.getProductThunk({ ...url, categoriId: "9" }));
-  // }, [dispacth]);
+
 
   return (
     <>
@@ -99,142 +88,21 @@ const Products = () => {
           <aside className={styles["left-side-section"]}>
             <span className={styles["categories"]}>
               <h3>Categories</h3>
+              <div>
+              <div className={styles["content"]}>
+                  {categories?.map((e) => (
+                    <CardCategory
+                      name={e.category}
+                      unit={e.total_product}
+                      id={e.id}
+                      key={e.id}
+                      setQuery={setQuery}
+                      querys={query}
+                    />
+                  ))}
+                </div>
+                </div>
               <ul className={styles["categories__list"]}>
-                <li>
-                  <p
-                    className={styles["categories__list_1"]}
-                    onClick={() => {
-                      setQuery({
-                        ...query,
-                        categoryId: "1",
-                        page: "1",
-                      });
-                    }}
-                  >
-                    Accessories
-                  </p>
-                  <p>{}</p>
-                </li>
-                <li>
-                  <p
-                    className={styles["categories__list_1"]}
-                    onClick={() => {
-                      setQuery({
-                        ...query,
-                        categoryId: "2",
-                        page: "1",
-                      });
-                    }}
-                  >
-                    Brands
-                  </p>
-                  <p>{}</p>
-                </li>
-                <li>
-                  <p
-                    className={styles["categories__list_1"]}
-                    onClick={() => {
-                      setQuery({
-                        ...query,
-                        categoryId: "3",
-                        page: "1",
-                      });
-                    }}
-                  >
-                    Clothing
-                  </p>
-                  <p>3</p>
-                </li>
-                <li>
-                  <p
-                    className={styles["categories__list_1"]}
-                    onClick={() => {
-                      setQuery({
-                        ...query,
-                        categoryId: "4",
-                        page: "1",
-                      });
-                    }}
-                  >
-                    Fashion
-                  </p>
-                  <p>8</p>
-                </li>
-                <li>
-                  <p
-                    className={styles["categories__list_1"]}
-                    onClick={() => {
-                      setQuery({
-                        ...query,
-                        categoryId: "5",
-                        page: "1",
-                      });
-                    }}
-                  >
-                    Furniture
-                  </p>
-                  <p>9</p>
-                </li>
-                <li>
-                  <p
-                    className={styles["categories__list_1"]}
-                    onClick={() => {
-                      setQuery({
-                        ...query,
-                        categoryId: "6",
-                        page: "1",
-                      });
-                    }}
-                  >
-                    Men
-                  </p>
-                  <p>6</p>
-                </li>
-                <li>
-                  <p
-                    className={styles["categories__list_1"]}
-                    onClick={() => {
-                      setQuery({
-                        ...query,
-                        categoryId: "7",
-                        page: "1",
-                      });
-                    }}
-                  >
-                    Women
-                  </p>
-                  <p>8</p>
-                </li>
-                <li>
-                  <p
-                    className={styles["categories__list_1"]}
-                    onClick={() => {
-                      setQuery({
-                        ...query,
-                        categoryId: "8",
-                        page: "1",
-                      });
-                    }}
-                  >
-                    Shoes
-                  </p>
-                  <p>10</p>
-                </li>
-                <li>
-                  <p
-                    className={styles["categories__list_1"]}
-                    onClick={() => {
-                      setQuery({
-                        ...query,
-                        categoryId: "9",
-                        page: "1",
-                      });
-                    }}
-                  >
-                    Wallets
-                  </p>
-                  <p>11</p>
-                </li>
               </ul>
             </span>
             <div className={styles["price"]}>
@@ -472,60 +340,56 @@ const Products = () => {
                 <p onClick={dropdownHandler}>
                   Sort by <span>{`▽`}</span>
                 </p>
+                {show && (
+                  <div className={styles["dropdown-list"]}>
+                    <ol>
+                      <li
+                        onClick={() => {
+                          setQuery({
+                            ...query,
+                            sort: "oldest",
+                          });
+                        }}
+                      >
+                        oldest
+                      </li>
+                      <li
+                        onClick={() => {
+                          setQuery({
+                            ...query,
+                            sort: "newest",
+                          });
+                        }}
+                      >
+                        newest
+                      </li>
+                      <li
+                        onClick={() => {
+                          setQuery({
+                            ...query,
+                            sort: "priciest",
+                          });
+                        }}
+                      >
+                        priciest
+                      </li>
+                      <li
+                        onClick={() => {
+                          setQuery({
+                            ...query,
+                            sort: "cheapest",
+                          });
+                        }}
+                      >
+                        cheapest
+                      </li>
+                    </ol>
+                  </div>
+                )}
               </div>
-              {show && (
-                <div className={styles["dropdown-list"]}>
-                  <ol>
-                    <li
-                      onClick={() => {
-                        setQuery({
-                          ...query,
-                          sort: "oldest",
-                        });
-                      }}
-                    >
-                      oldest
-                    </li>
-                    <li
-                      onClick={() => {
-                        setQuery({
-                          ...query,
-                          sort: "newest",
-                        });
-                      }}
-                    >
-                      newest
-                    </li>
-                    <li
-                      onClick={() => {
-                        setQuery({
-                          ...query,
-                          sort: "priciest",
-                        });
-                      }}
-                    >
-                      priciest
-                    </li>
-                    <li
-                      onClick={() => {
-                        setQuery({
-                          ...query,
-                          sort: "cheapest",
-                        });
-                      }}
-                    >
-                      cheapest
-                    </li>
-                  </ol>
-                </div>
-              )}
+              
             </span>
             <span className={styles["product-lists"]}>
-              {/* <span className={styles["product"]}>
-                <img src={chair} alt="" className={styles["product__img"]} />
-                <p className={styles["title"]}>Coaster 506222-CO Loveseat</p>
-                <p className={styles["price"]}>$765.99</p>
-              </span>*/}
               {isLoading ? (
                 <LoadingAnimation />
               ) : isRejected ? (

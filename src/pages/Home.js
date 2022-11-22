@@ -1,5 +1,9 @@
 import React from "react";
 
+// import { useNavigate } from "react-router";
+
+// import { useState, useEffect } from "react";
+
 import Header from "../components/Header";
 
 import Footer from "../components/Footer";
@@ -21,7 +25,7 @@ import modernFloorLamp from "../assets/raz-retangle-6.png";
 const Home = () => {
   const role = localStorage.getItem("role"); // Get role user
   console.log(role);
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token"); // Get token user
 
   return (
     <>

@@ -142,13 +142,6 @@ class Header extends Component {
                 >
                   <li>Register</li>
                 </Link>
-                <Link
-                  to={this.props.linkToProfile}
-                  className={styles["link"]}
-                  style={{ display: this.props.displayProfile }}
-                >
-                  <li>Profile</li>
-                </Link>
                 <Link to={`/chat`} className={styles["link"]}>
                   <li>Chat</li>
                 </Link>
@@ -174,4 +167,4 @@ class Header extends Component {
   }
 }
 
-export default withNavigate(Header);
+export default Header;

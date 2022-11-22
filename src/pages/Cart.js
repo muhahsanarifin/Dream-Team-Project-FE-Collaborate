@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/Cart.module.css";
@@ -6,18 +6,19 @@ import cartEmpty from "../assets/shopping-cart.png";
 
 import remove from "../assets/remove.png";
 import { useDispatch, useSelector } from "react-redux";
-import counterActions from "../redux/action/counterProduct";
+// import counterActions from "../redux/action/counterProduct";
 import cart from "../redux/action/cart";
 const Cart = () => {
   const dispatch = useDispatch();
 
   const cartData = useSelector((state) => state.cart.data);
   // const image = useSelector((state) => state.products.productsDetails.images)
-  const counter = useSelector((state) => state.counter.number);
+  // const counter = useSelector((state) => state.counter.number);
+  const [counter, setCounter] = useState()
   const price = 1;
-  const onClickHandler = (action) => {
-    dispatch(action);
-  };
+  // const onClickHandler = (action) => {
+  //   dispatch(action);
+  // };
   const handleDelete = (id) => {
     console.log(id);
     let temp = [...cartData];
@@ -95,7 +96,7 @@ const Cart = () => {
                         <th className={styles["count-th"]}>
                           <p
                             onClick={() =>
-                              onClickHandler(counterActions.counterDown())
+                              setCounter(counter - 1)
                             }
                             className={styles["counter-p"]}
                           >
@@ -104,7 +105,7 @@ const Cart = () => {
                           <p className={styles["amount-p"]}>{item.quantity}</p>
                           <p
                             onClick={() =>
-                              onClickHandler(counterActions.counterUp())
+                              setCounter(counter + 1)
                             }
                             className={styles["counter-p"]}
                           >

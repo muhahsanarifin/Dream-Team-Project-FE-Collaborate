@@ -1,5 +1,5 @@
 import { ActionType } from "redux-promise-middleware";
-import { ACTION_STRING } from "../actions/actionStrings";
+import { actionStrings } from "../action/actionStrings";
 
 const initialState = {
   categories: [],
@@ -10,7 +10,7 @@ const initialState = {
 
 const categoriesReducer = (prevState = initialState, { type, payload }) => {
   const { Pending, Rejected, Fulfilled } = ActionType;
-  const { getCategories } = ACTION_STRING;
+  const { getCategories } = actionStrings;
 
   switch (type) {
     case getCategories.concat("_", Pending):
