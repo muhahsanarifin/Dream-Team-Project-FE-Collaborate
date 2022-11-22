@@ -24,6 +24,7 @@ import FAQ from "./pages/FAQ";
 import Favorite from "./pages/Favorite";
 import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
+import ComingSoon from "./pages/ComingSoon"
 
 const router = createBrowserRouter([
   { path: "/", element: <Home />, errorElement: <NotFound /> },
@@ -49,6 +50,7 @@ const router = createBrowserRouter([
   { path: "/faq", element: <FAQ /> },
   { path: "/favorite", element: <Favorite /> },
   { path: "/aboutus", element: <AboutUs /> },
+  { path: "/soon", element: <ComingSoon /> },
 ]);
 
 export default router;

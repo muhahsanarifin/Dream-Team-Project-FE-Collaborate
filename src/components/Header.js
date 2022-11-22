@@ -55,7 +55,7 @@ class Header extends Component {
                 <Link to={`/`} className={styles["link"]}>
                   <li>Contact Us</li>
                 </Link>
-                <Link to={`/`} className={styles["link"]}>
+                <Link to={`/soon`} className={styles["link"]}>
                   <li>Coming Soon</li>
                 </Link>
                 <Link to={`/faq`} className={styles["link"]}>

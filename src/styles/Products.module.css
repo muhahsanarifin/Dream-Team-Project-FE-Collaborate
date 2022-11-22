@@ -31,12 +31,13 @@
 }
 
 .carousel {
-  border: 1px solid var(--p-btn-bg-color);
+  /* border: 1px solid var(--p-btn-bg-color); */
   height: 50vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  font-weight: 800;
 }
 
 .carousel p {

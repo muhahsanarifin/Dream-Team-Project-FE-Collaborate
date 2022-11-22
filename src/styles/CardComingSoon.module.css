@@ -1,0 +1,53 @@
+.sub-main {
+  /* border: 1px solid darkblue; */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.title {
+  /* border: 1px solid darkred; */
+  font-size: 54px;
+}
+
+.email {
+  position: relative;
+  /* border: 1px soild darkblue; */
+  display: flex;
+  flex-direction: row;
+}
+.email input[type="text"] {
+  outline: none;
+  border: none;
+  flex: 1;
+  font-weight: 800;
+}
+
+.email p {
+  /* border: 1px solid darkblue; */
+  width: fit-content;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* || Responsive */
+@media all and (min-width: 768px) and (max-width: 1024px) {
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+  .title {
+    align-self: center;
+    font-size: 46px;
+    max-width: 30rem;
+    text-align: center;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .title {
+    align-self: center;
+    font-size: 24px;
+    max-width: 15rem;
+    text-align: center;
+  }
+}
