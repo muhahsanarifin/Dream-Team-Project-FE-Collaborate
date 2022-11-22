@@ -39,8 +39,8 @@ const Products = () => {
     page: getQuery.get("page") || 1,
     limit: getQuery.get("limit") || 9,
   });
-  const totalDataFake = useSelector((state) => state.products.products ? state.products.products.length :  state.products.meta.totalData);
-  const totalData =  useSelector((state) => totalDataFake ? state.products.meta.totalData : 1) 
+  const totalDataFake = useSelector((state) => state.products.products ? state.products.products.length :  state.products.meta?.totalData);
+  const totalData =  useSelector((state) => totalDataFake ? state.products.meta?.totalData : 1) 
   const endItem =
     Number(query.page) === 1 && totalData > Number(query.limit)
       ? query.limit

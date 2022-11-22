@@ -95,7 +95,7 @@ const Cart = () => {
               Buy everything in your cart now!
             </p>
           </section>
-          {cartData.length === 0 ? (
+          {cartData?.length === 0 ? (
             <section className={styles["section-cart"]}>
               <section>
                 <img src={cartEmpty} alt=""></img>
@@ -120,7 +120,7 @@ const Cart = () => {
                     <th className={styles["header-th-3"]}>QUANTITY</th>
                     <th className={styles["header-th-4"]}>TOTAL</th>
                   </tr>
-                  {cartData.map((item, index) => {
+                  {cartData?.map((item, index) => {
                     return (
                       <tr className={styles["product-tr"]} key={index}>
                         <th>

@@ -34,12 +34,10 @@ export const getData = (url) => {
   return axios.get(urls);
 };
 export const createTransaction = (body) => {
-  const dataUser = JSON.parse(localStorage.getItem("data-user"));
-  const token = dataUser.token
-  console.log(token);
+  const dataUser = localStorage.getItem("token");
   const urls = baseUrl + 'raz/transaction/create'
   return axios.post(urls,body,{headers: {
-    "x-access-token": token,
+    "x-access-token": dataUser,
   }});
 };
 

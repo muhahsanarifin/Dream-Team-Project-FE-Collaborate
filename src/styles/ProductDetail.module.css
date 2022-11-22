@@ -74,8 +74,8 @@
 }
 
 .product-detail__images-right-side img {
-  width: 990px;
-  height: 805px;
+  width: 700px;
+  height: auto;
 }
 
 .product-detail__descriptions {
@@ -255,6 +255,11 @@
   flex-direction: row;
   gap: 2rem;
   overflow: scroll;
+}
+
+.list_product_1 {
+  max-width: 10px;
+  height: auto;
 }
 
 .prodcut {
