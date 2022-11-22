@@ -381,16 +381,9 @@
 }
 
 .dropdown-list {
-<<<<<<< HEAD
   position: absolute;
   right: 3.5rem;
   bottom: -0.5rem;
-=======
-  /* border: 1px solid darkblue; */
-  position: absolute;
-  /* left: 1rem; */
-  top: 1rem;
->>>>>>> 52bab5d01bcae20df0c57761e8f788772cfc255c
   display: flex;
   max-width: fit-content;
   background-color: #1a1a1a;
