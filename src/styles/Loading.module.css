@@ -59,7 +59,7 @@
 }
 .tengah {
   margin: auto;
-  margin-left: 30rem;
+  margin-left: 0rem;
 }
 @keyframes lds-grid {
   0%,

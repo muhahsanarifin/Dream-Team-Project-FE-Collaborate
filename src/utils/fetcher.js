@@ -33,6 +33,8 @@ export const getData = (url) => {
   const urls = baseUrl + url
   return axios.get(urls);
 };
+
+
 export const createTransaction = (body) => {
   const dataUser = localStorage.getItem("token");
   const urls = baseUrl + 'raz/transaction/create'

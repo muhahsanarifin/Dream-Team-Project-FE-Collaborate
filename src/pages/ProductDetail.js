@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -19,6 +19,7 @@ import cart from "../redux/action/cart";
 import Swal from "sweetalert2";
 
 const ProductDetail = () => {
+  const navigate = useNavigate() 
   const dispatch = useDispatch();
   const [counter, setCounter] = useState(0);
   // const counters = useSelector((state) => state.counter.number);
@@ -247,13 +248,16 @@ const ProductDetail = () => {
                   <li className={styles["prodcut"]}>
                     <div>
                       <img
+                      onClick={() => {
+                        navigate(`/products/${item.id}`)
+                      }}
                         src={item.image}
                         alt={`related2`}
                         className={styles["related-prodcut__image"]}
                       />
                       <span className={styles["product_description"]}>
                         <h3>{item.product_name}</h3>
-                        <p>Rp. {item.price}</p>
+                        <p>Rp.{item.price}</p>
                       </span>
                     </div>
                   </li>
