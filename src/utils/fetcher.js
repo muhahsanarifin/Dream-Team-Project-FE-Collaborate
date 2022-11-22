@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const baseUrl = `http://localhost:8090/`;
-// const baseUrl = 'https://dream-team-project-be.vercel.app/';
+// const baseUrl = `http://localhost:8090/`;
+const baseUrl = 'https://dream-team-project-be.vercel.app/';
 
 
 // const baseUrl2 = `http://localhost:8090/`
@@ -34,6 +34,15 @@ export const getData = (url) => {
   return axios.get(urls);
 };
 
+
+export const createTransaction = (body) => {
+  const dataUser = localStorage.getItem("token");
+  const urls = baseUrl + 'raz/transaction/create'
+  return axios.post(urls,body,{headers: {
+    "x-access-token": dataUser,
+  }});
+};
+
 export const getCategories = (data) => {
   return axiosRequest("GET", "raz/product/category/", data);
 };
@@ -43,7 +52,23 @@ export const getRelatedProduct = (url) => {
   return axios.get(urls);
 };
 
+export const getSellerProduct = (token, params) => {
+  return axios({
+    method: "GET",
+    url: `${baseUrl}raz/product/seller`,
+    headers: { "x-access-token": token },
+    params,
+  });
+};
 
+export const deleteSellerProduct = (token, params) => {
+  return axios({
+    method: "UPDATE",
+    url: `${baseUrl}raz/product/seller`,
+    headers: { "x-access-token": token },
+    params,
+  });
+};
 
 // export const logout = (token) => {
 //   return axios({

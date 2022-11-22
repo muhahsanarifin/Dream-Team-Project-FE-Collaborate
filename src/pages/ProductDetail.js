@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -19,6 +19,7 @@ import cart from "../redux/action/cart";
 import Swal from "sweetalert2";
 
 const ProductDetail = () => {
+  const navigate = useNavigate() 
   const dispatch = useDispatch();
   const [counter, setCounter] = useState(0);
   // const counters = useSelector((state) => state.counter.number);
@@ -48,8 +49,10 @@ const ProductDetail = () => {
   // };
 
   const handleAddCart = () => {
-    const filter = cartData.filter((item) => item.id === productDetail.id);
-    if (filter.length > 0) {
+    const filter = cartData.filter(
+      (item) => item.product_id === productDetail.id
+    );
+    if (filter?.length > 0) {
       return Swal.fire({
         title: "product sudah dalam keranjang",
         timer: 2000,
@@ -62,10 +65,11 @@ const ProductDetail = () => {
     const quantity = counter;
     const total_price = price * quantity;
     const data = {
-      id: productDetail.id,
+      product_id: productDetail.id,
       image: image[0],
       product_name: productDetail.product_name,
       price: productDetail.price,
+      seller_id: productDetail.user_id,
       quantity: counter,
       total_price: total_price,
     };
@@ -106,12 +110,12 @@ const ProductDetail = () => {
 
         <section className={styles["product-detail"]}>
           <span className={styles["product-detail__images"]}>
-            <ul className={styles["product-detail__images-left-side"]}>
-              {image.length > 0 &&
-                image.map((item, index) => {
-                  return <img src={item} alt="list_product_1" />;
-                })}
-            </ul>
+            <div className={styles["product-detail__images-left-side"]}>
+            {image?.length > 0 &&
+              image?.map((item, index) => {
+                return <img src={item} alt="list_product_1" />
+              })}
+            </div>
             <span className={styles["product-detail__images-right-side"]}>
               <img src={image[0]} alt={`list_product`} />
             </span>
@@ -163,9 +167,9 @@ const ProductDetail = () => {
             <p>SKU: N/A</p>
             <p>
               Categories:
-              {category.length > 0 &&
-                category.map((item, index, array) => {
-                  if (category.length - 1 === index) {
+              {category?.length > 0 &&
+                category?.map((item, index, array) => {
+                  if (category?.length - 1 === index) {
                     return item;
                   } else {
                     return ` ${item}, `;
@@ -238,19 +242,22 @@ const ProductDetail = () => {
         <section className={styles["related-prodcuts"]}>
           <h3 className={styles["related-prodcuts-title"]}>Related Prodcuts</h3>
           <ul className={styles["related-prodcuts__list"]}>
-            {relatedProduct.length > 0 &&
-              relatedProduct.map((item, index) => {
+            {relatedProduct?.length > 0 &&
+              relatedProduct?.map((item, index) => {
                 return (
                   <li className={styles["prodcut"]}>
                     <div>
                       <img
+                      onClick={() => {
+                        navigate(`/products/${item.id}`)
+                      }}
                         src={item.image}
                         alt={`related2`}
                         className={styles["related-prodcut__image"]}
                       />
                       <span className={styles["product_description"]}>
                         <h3>{item.product_name}</h3>
-                        <p>Rp. {item.price}</p>
+                        <p>Rp.{item.price}</p>
                       </span>
                     </div>
                   </li>

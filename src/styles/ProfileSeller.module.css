@@ -15,7 +15,9 @@
   padding-top: 74px;
   padding-bottom: 74px;
 }
-
+.none {
+  display: none;
+}
 .section-1::after {
   background-image: url("../assets/login-background.png");
   background-image: url("../assets/login-background.png");
@@ -201,6 +203,244 @@
 .chev {
   width: 16px;
   height: 8px;
+}
+.main-2 {
+  background-color: #ffffff;
+}
+
+.main {
+  max-width: 1440px;
+  margin: auto;
+}
+
+.section-1 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 74px;
+  padding-bottom: 74px;
+}
+
+.section-1::after {
+  background-image: url("../assets/login-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  content: "";
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+.section-1-header {
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 64.39px;
+  margin-bottom: 20px;
+}
+
+.section-1-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18.4px;
+}
+
+.section-2 {
+  padding-left: 140px;
+  padding-right: 140px;
+  padding-bottom: 120px;
+  padding-top: 91px;
+}
+
+.profile-div {
+  display: flex;
+  column-gap: 40px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.profile-top-header {
+  border: none;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 27.6px;
+}
+
+.profile-top-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 37px;
+  color: #4d4d4d;
+}
+
+.profile-top-header-div {
+  /* border: 1px solid darkblue; */
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+}
+
+.profile-image-div {
+  position: relative;
+}
+
+.edit {
+  border: none;
+  background-color: transparent;
+}
+
+.profile-image-edit {
+  display: flex;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20.7px;
+  position: absolute;
+  top: 40px;
+  left: 12px;
+  column-gap: 11px;
+}
+
+.profile-image-edit img,
+.profile-top-header-div img,
+.section-3-edit img {
+  width: 18px;
+  height: 18px;
+}
+
+.section-3-div {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.section-3-div:nth-child(2),
+.section-3-div:nth-child(4) {
+  border: 1px solid#D1D1D1;
+}
+
+.section-3-div:nth-child(3) {
+  border-left: 1px solid #d1d1d1;
+  border-right: 1px solid #d1d1d1;
+}
+
+.section-3-label {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 37px;
+}
+
+.section-3-subdiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-3-form {
+  display: flex;
+  align-items: center;
+}
+.section-3-text {
+  border: none;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 27.6px;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.none {
+  display: none;
+}
+
+.section-3-edit {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20.7px;
+  display: flex;
+  column-gap: 11px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.section-3-edit p {
+  margin-bottom: 0;
+}
+
+.logout {
+  /* border: 1px solid darkblue; */
+  display: flex;
+  column-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 210px;
+  height: 70px;
+  background-color: #d94141;
+  border: none;
+  margin-top: 40px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18.4px;
+  cursor: pointer;
+}
+
+.logout p {
+  margin-bottom: 0;
+}
+
+.btn-div {
+  display: flex;
+  column-gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .section-2 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 120px;
+    padding-top: 91px;
+  }
+
+  .logout {
+    /* border: 1px solid darkblue; */
+    display: flex;
+    column-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 110px;
+    height: 70px;
+    background-color: #d94141;
+    border: none;
+    margin-top: 40px;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18.4px;
+    cursor: pointer;
+  }
+
+  .section-3-div {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
 }
 
 @media (max-width: 768px) {

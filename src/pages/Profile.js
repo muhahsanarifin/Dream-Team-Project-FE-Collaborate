@@ -1,17 +1,17 @@
-import React, { Component, Fragment } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import styles from "../styles/Profile.module.css";
-import Swal from "sweetalert2";
-import Axios from "axios";
-import withNavigate from "../helpers/withNavigate";
-import jwt from "jwt-decode";
+import React, { Component, Fragment } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import styles from '../styles/Profile.module.css';
+import Swal from 'sweetalert2';
+import Axios from 'axios';
+import withNavigate from '../helpers/withNavigate';
+import jwt from 'jwt-decode';
 
-import def from "../assets/default.png";
-import edit from "../assets/edit.png";
+import def from '../assets/default.png';
+import edit from '../assets/edit.png';
 // import editwhite from "../assets/edit-white.png";
-import editb from "../assets/editb.png";
-import logout from "../assets/logout.png";
+import editb from '../assets/editb.png';
+import logout from '../assets/logout.png';
 
 class Profiles extends Component {
   constructor(props) {
@@ -29,13 +29,13 @@ class Profiles extends Component {
   }
 
   componentDidMount() {
-    document.title = "Profile";
-    const token = localStorage.getItem("token");
+    document.title = 'Profile';
+    const token = localStorage.getItem('token');
     const info = jwt(token);
     const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/users/profile`;
     const config = {
       headers: {
-        "x-access-token": localStorage.getItem("token"),
+        'x-access-token': localStorage.getItem('token'),
       },
     };
     Axios.get(url, config)
@@ -65,19 +65,19 @@ class Profiles extends Component {
     const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
     const config = {
       headers: {
-        "x-access-token": localStorage.getItem("token")
+        'x-access-token': localStorage.getItem('token'),
       },
     };
     Axios.delete(url, config)
       .then((res) => {
         Swal.fire({
-          title: "Logout Success!",
+          title: 'Logout Success!',
           timer: 2000,
           showConfirmButton: false,
           timerProgressBar: true,
         }).then((result) => {
           if (result.dismiss === Swal.DismissReason.timer) {
-            this.props.navigate("/login");
+            this.props.navigate('/login');
             localStorage.clear();
           }
         });
@@ -85,7 +85,7 @@ class Profiles extends Component {
       .catch((err) => {
         console.log(err);
         Swal.fire({
-          title: "Logout Failed!",
+          title: 'Logout Failed!',
           showConfirmButton: false,
           timer: 1000,
         });
@@ -96,12 +96,6 @@ class Profiles extends Component {
     event.preventDefault();
     const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/users/profile/edit`;
     const formdata = new FormData();
-    // const body = {
-    //   username: this.state.username,
-    //   gender: this.state.gender,
-    //   store_description: this.state.desc,
-    //   image: this.state.file,
-    // };
     console.log(this.state);
     formdata.append("username", this.state.username);
     formdata.append("gender", this.state.gender);
@@ -110,13 +104,13 @@ class Profiles extends Component {
     const body = formdata;
     const config = {
       headers: {
-        "x-access-token": localStorage.getItem("token"),
+        'x-access-token': localStorage.getItem('token'),
       },
     };
     Axios.patch(url, body, config)
       .then((res) => {
         Swal.fire({
-          title: "Data changed successfully!",
+          title: 'Data changed successfully!',
           timer: 2000,
           showConfirmButton: false,
         }).then((result) => {
@@ -129,7 +123,7 @@ class Profiles extends Component {
       .catch((err) => {
         console.log(err);
         Swal.fire({
-          title: "Data not valid!",
+          title: 'Data not valid!',
           showConfirmButton: false,
           timer: 1000,
         });
@@ -150,14 +144,12 @@ class Profiles extends Component {
   render() {
     return (
       <Fragment>
-        <main className={styles["main-2"]}>
-          <main className={styles["main"]}>
+        <main className={styles['main-2']}>
+          <main className={styles['main']}>
             <Header />
-            <section className={styles["section-1"]}>
-              <h1 className={styles["section-1-header"]}>Profile</h1>
-              <p className={styles["section-1-text"]}>
-                See your notifications for the latest updates
-              </p>
+            <section className={styles['section-1']}>
+              <h1 className={styles['section-1-header']}>Profile</h1>
+              <p className={styles['section-1-text']}>See your notifications for the latest updates</p>
             </section>
             <section className={styles["section-2"]}>
               <div className={styles["profile-div"]}>
@@ -175,15 +167,11 @@ class Profiles extends Component {
                       alt="img"
                     />
                   )}
-                  {/* <label for="upload" className={styles["profile-image-edit"]}>
-                    <p>EDIT</p>
-                    <img className={styles[""]} src={editwhite} alt="img" />
-                  </label> */}
                   <input
                     type="file"
                     name="file"
                     id="upload"
-                    className={styles["none"]}
+                    className={styles['none']}
                     onChange={(event) => {
                       this.handleFile(event);
                       // console.log(event);
@@ -191,93 +179,61 @@ class Profiles extends Component {
                   />
                 </label>
                 <div>
-                  <div className={styles["profile-top-header-div"]}>
+                  <div className={styles['profile-top-header-div']}>
                     <h1>
-                      <input
-                        className={styles["profile-top-header"]}
-                        type="text"
-                        placeholder="Input your display name"
-                        value={this.state.username}
-                        onChange={(event) =>
-                          this.handleChange(event, "username")
-                        }
-                      />
+                      <input className={styles['profile-top-header']} type="text" placeholder="Input your display name" value={this.state.username} onChange={(event) => this.handleChange(event, 'username')} />
                     </h1>
                     <form onSubmit={this.handleSubmit2}>
-                      <button className={styles["edit"]} type="submit">
-                        <img className={styles[""]} src={edit} alt="img" />
+                      <button className={styles['edit']} type="submit">
+                        <img className={styles['']} src={edit} alt="img" />
                       </button>
                     </form>
                   </div>
-                  <p className={styles["profile-top-text"]}>
-                    as {this.state.role}
-                  </p>
+                  <p className={styles['profile-top-text']}>as {this.state.role}</p>
                 </div>
               </div>
-              <div className={styles["section-3-div"]}>
-                <div className={styles["section-3-subdiv"]}>
-                  <label className={styles["section-3-label"]}>Gender</label>
-                  <input
-                    className={styles["section-3-text"]}
-                    type="text"
-                    value={this.state.gender}
-                    placeholder="Input your gender"
-                    onChange={(event) => this.handleChange(event, "gender")}
-                  />
+              <div className={styles['section-3-div']}>
+                <div className={styles['section-3-subdiv']}>
+                  <label className={styles['section-3-label']}>Gender</label>
+                  <input className={styles['section-3-text']} type="text" value={this.state.gender} placeholder="Input your gender" onChange={(event) => this.handleChange(event, 'gender')} />
                 </div>
-                <form
-                  className={styles["section-3-form"]}
-                  onSubmit={this.handleSubmit2}
-                >
-                  <button type="submit" className={styles["section-3-edit"]}>
+                <form className={styles['section-3-form']} onSubmit={this.handleSubmit2}>
+                  <button type="submit" className={styles['section-3-edit']}>
                     <p>EDIT</p>
-                    <img className={styles[""]} src={editb} alt="img" />
+                    <img className={styles['']} src={editb} alt="img" />
                   </button>
                 </form>
               </div>
-              <div className={styles["section-3-div"]}>
+              <div className={styles['section-3-div']}>
                 <div>
-                  <label className={styles["section-3-label"]}>
-                    Your Email
-                  </label>
-                  <p className={styles["section-3-text"]}>{this.state.email}</p>
+                  <label className={styles['section-3-label']}>Your Email</label>
+                  <p className={styles['section-3-text']}>{this.state.email}</p>
                 </div>
-                <div className={styles["section-3-edit"]}>
+                <div className={styles['section-3-edit']}>
                   <p>EDIT</p>
-                  <img className={styles[""]} src={editb} alt="img" />
+                  <img className={styles['']} src={editb} alt="img" />
                 </div>
               </div>
-              <div className={styles["section-3-div"]}>
-                <div className={styles["section-3-subdiv"]}>
-                  <label className={styles["section-3-label"]}>
-                    Store Description
-                  </label>
-                  <input
-                    className={styles["section-3-text"]}
-                    type="text"
-                    value={this.state.desc}
-                    placeholder="Input your store description"
-                    onChange={(event) => this.handleChange(event, "desc")}
-                  />
+              <div className={styles['section-3-div']}>
+                <div className={styles['section-3-subdiv']}>
+                  <label className={styles['section-3-label']}>Store Description</label>
+                  <input className={styles['section-3-text']} type="text" value={this.state.desc} placeholder="Input your store description" onChange={(event) => this.handleChange(event, 'desc')} />
                 </div>
-                <form
-                  className={styles["section-3-form"]}
-                  onSubmit={this.handleSubmit2}
-                >
-                  <button type="submit" className={styles["section-3-edit"]}>
+                <form className={styles['section-3-form']} onSubmit={this.handleSubmit2}>
+                  <button type="submit" className={styles['section-3-edit']}>
                     <p>EDIT</p>
-                    <img className={styles[""]} src={editb} alt="img" />
+                    <img className={styles['']} src={editb} alt="img" />
                   </button>
                 </form>
               </div>
-              <div className={styles["btn-div"]}>
+              <div className={styles['btn-div']}>
                 <form onSubmit={this.handleSubmit}>
-                  <button type="submit" className={styles["logout"]}>
-                    <img className={styles[""]} src={logout} alt="img" />
+                  <button type="submit" className={styles['logout']}>
+                    <img className={styles['']} src={logout} alt="img" />
                     <p>Logout</p>
                   </button>
                 </form>
-                <button className={styles["logout"]}>Edit Password</button>
+                <button className={styles['logout']}>Edit Password</button>
               </div>
             </section>
             <Footer />

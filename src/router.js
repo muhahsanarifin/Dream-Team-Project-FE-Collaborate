@@ -1,11 +1,11 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from 'react-router-dom';
 
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Forgot from "./pages/Forgot";
-import Profile from "./pages/Profile";
-import Products from "./pages/Products";
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Forgot from './pages/Forgot';
+import Profile from './pages/Profile';
+import Products from './pages/Products';
 // import ProductsDetails from "./pages/ProductDetailsTest";
 import ProductDetail from "./pages/ProductDetail";
 import Notification from "./pages/Notification";
@@ -27,12 +27,12 @@ import AboutUs from "./pages/AboutUs";
 import ComingSoon from "./pages/ComingSoon"
 
 const router = createBrowserRouter([
-  { path: "/", element: <Home />, errorElement: <NotFound /> },
-  { path: "/login", element: <Login /> },
-  { path: "/register", element: <Register /> },
-  { path: "/forgot", element: <Forgot /> },
-  { path: "/profile", element: <Profile /> },
-  { path: "/products", element: <Products /> },
+  { path: '/', element: <Home />, errorElement: <NotFound /> },
+  { path: '/login', element: <Login /> },
+  { path: '/register', element: <Register /> },
+  { path: '/forgot', element: <Forgot /> },
+  { path: '/profile', element: <Profile /> },
+  { path: '/products', element: <Products /> },
   // { path: "/products/:id", element: <ProductsDetails /> }, // product detail test
   { path: "/products/:id", element: <ProductDetail /> }, // Change using params
   { path: "/notification", element: <Notification /> },

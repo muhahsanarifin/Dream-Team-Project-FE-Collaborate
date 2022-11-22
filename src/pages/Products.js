@@ -23,13 +23,11 @@ const useQuery = () => {
 
 const Products = () => {
   const [show, setShow] = useState(false);
-  
   const dispacth = useDispatch();
   const products = useSelector((state) => state.products.products);
   const isLoading = useSelector((state) => state.products.isLoading);
   const isRejected = useSelector((state) => state.products.isError);
   const categories = useSelector((state) => state.categories.categories);
-  
   const getQuery = useQuery();
   const [searchParams, setSearchParams] = useSearchParams();
   const [query, setQuery] = useState({
@@ -43,8 +41,8 @@ const Products = () => {
     page: getQuery.get("page") || 1,
     limit: getQuery.get("limit") || 9,
   });
-  const totalDataFake = useSelector((state) => state.products.products ? state.products.products.length :  state.products.meta.totalData);
-  const totalData =  useSelector((state) => totalDataFake ? state.products.meta.totalData : 1) 
+  const totalDataFake = useSelector((state) => state.products.products ? state.products.products.length :  state.products.meta?.totalData);
+  const totalData =  useSelector((state) => totalDataFake ? state.products.meta?.totalData : 1) 
   const endItem =
     Number(query.page) === 1 && totalData > Number(query.limit)
       ? query.limit
