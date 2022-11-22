@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Forgot from './pages/Forgot';
-import Profile from './pages/Profile';
+// import Profile from './pages/Profile';
 import Products from './pages/Products';
 // import ProductsDetails from "./pages/ProductDetailsTest";
 import ProductDetail from './pages/ProductDetail';
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
   { path: '/login', element: <Login /> },
   { path: '/register', element: <Register /> },
   { path: '/forgot', element: <Forgot /> },
-  { path: '/profile', element: <Profile /> },
+  { path: '/profile', element: <ProfileSeller /> },
   { path: '/products', element: <Products /> },
   // { path: "/products/:id", element: <ProductsDetails /> }, // product detail test
   { path: '/products/:id', element: <ProductDetail /> }, // Change using params
