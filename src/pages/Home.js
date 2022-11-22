@@ -23,21 +23,27 @@ import japanesePlateFloral from "../assets/raz-retangle-5.png";
 import modernFloorLamp from "../assets/raz-retangle-6.png";
 
 const Home = () => {
-  // const navigate = useNavigate();
-
-  // « Get Role & Token»
-  const role = localStorage.getItem("role");
-  const token = localStorage.getItem("token");
+  const role = localStorage.getItem("role"); // Get role user
+  const token = localStorage.getItem("token"); // Get token user
 
   return (
     <>
       <main className={[styles["main"]]}>
         {token === null ? (
-          <Header displayProfile={`none`} />
-        ) : role === "seller" ? (
-          <Header linkToProfile={`/profile/seller`} displayRegister={`none`} />
+          <Header displayProfile={`none`} displayLogout={`none`} />
+        ) : role === "customer" ? (
+          <Header
+            linkToProfile={`/profile`}
+            displayRegister={`none`}
+            displayLogin={`none`}
+            displayLogout={`none`}
+          />
         ) : (
-          <Header linkToProfile={`/profile`} displayRegister={`none`} />
+          <Header
+            linkToProfile={`/profile/seller`}
+            displayRegister={`none`}
+            displayLogin={`none`}
+          />
         )}
         <section className={`${styles["section"]} ${styles["fist-section"]}`}>
           <h1 className={styles["title"]}>Minimal Furniture Store</h1>

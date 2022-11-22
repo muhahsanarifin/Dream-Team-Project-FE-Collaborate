@@ -31,12 +31,13 @@
 }
 
 .carousel {
-  border: 1px solid var(--p-btn-bg-color);
+  /* border: 1px solid var(--p-btn-bg-color); */
   height: 50vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  font-weight: 800;
 }
 
 .carousel p {
@@ -73,7 +74,7 @@
 }
 
 /* .categories {
-  border: 1px solid darkred; 
+  border: 1px solid darkred;
 } */
 
 .categories__list {
@@ -309,6 +310,7 @@
 }
 
 .product-lists {
+  position: relative;
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 2rem;
@@ -367,7 +369,8 @@
 .sort-dropdown p {
   margin: 0;
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .sort-dropdown p span {
@@ -375,10 +378,9 @@
 }
 
 .dropdown-list {
-  /* border: 1px solid darkblue; */
   position: absolute;
-  /* left: 1rem; */
-  top: 1rem;
+  right: 3.5rem;
+  bottom: -0.5rem;
   display: flex;
   max-width: fit-content;
   background-color: #1a1a1a;

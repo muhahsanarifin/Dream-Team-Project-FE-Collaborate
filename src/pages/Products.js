@@ -8,11 +8,13 @@ import styles from "../styles/Products.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../redux/action/product";
 import categoriesActions from "../redux/action/categories";
+import cardComingSoon from "../components/CardComingSoon";
 import {
   createSearchParams,
   useLocation,
   useSearchParams,
 } from "react-router-dom";
+import CardComingSoon from "../components/CardComingSoon";
 
 const useQuery = () => {
   const { search } = useLocation();
@@ -75,7 +77,8 @@ const Products = () => {
       <main className={styles["main"]}>
         <Header />
         <section className={styles["carousel"]}>
-          <p>Carousel Soon</p>
+          {/* <p>Carousel Soon...</p> */}
+          <CardComingSoon/>
         </section>
         <section className={styles["breadcrumb"]}>
           <p>Shop</p>
@@ -336,7 +339,7 @@ const Products = () => {
               </span>
               <div className={styles["sort-dropdown"]}>
                 <p onClick={dropdownHandler}>
-                  Sort by <span>&#8704;</span>
+                  Sort by <span>{`▽`}</span>
                 </p>
                 {show && (
                   <div className={styles["dropdown-list"]}>

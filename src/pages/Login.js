@@ -50,8 +50,8 @@ class Logins extends Component {
       .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.data.data.token);
-        localStorage.setItem("userId", res.data.data.user_id);
-        localStorage.setItem("roles", res.data.data.role);
+        localStorage.setItem("role", res.data.data.role);
+        // console.log(res.data);
         Swal.fire({
           title: "Login Success",
           timer: 2000,
