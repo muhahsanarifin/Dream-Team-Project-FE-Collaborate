@@ -1,10 +1,10 @@
 import axios from "axios";
 
-// const baseUrl = `http://localhost:8090/`;
+// const baseUrl = http://localhost:8090/;
 const baseUrl = 'https://dream-team-project-be.vercel.app/';
 
 
-// const baseUrl2 = `http://localhost:8090/`
+// const baseUrl2 = http://localhost:8090/
 // console.log(process.env.REACT_APP_DT_BACKEND_HOST);
 
 const axiosRequest = (method, url, data, params) => {
@@ -73,7 +73,7 @@ export const deleteSellerProduct = (token, params) => {
 // export const logout = (token) => {
 //   return axios({
 //     method: "DELETE",
-//     url: `${baseUrl}/auth/logout`,
+//     url: ${baseUrl}/auth/logout,
 //     headers: { "x-access-token": token },
 //   });
 // };

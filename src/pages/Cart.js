@@ -48,7 +48,7 @@ const Cart = () => {
   const subtotal = () => {
     let temp = 0;
     cartData.map((item, idx) => {
-      return temp += item.price;
+      return temp += item.total_price;
     });
     const value = rupiah(temp);
     return value;
@@ -58,21 +58,21 @@ const Cart = () => {
     console.log(e.target.value === 1);
     let temp = 0;
     cartData.map((item, idx) => {
-      return temp += item.price;
+      return temp += item.total_price;
     });
 
     let total = temp ;
     console.log(body.shipping_method_id);
     if (e.target.value === 1){
-      total += 10000
+      total += 10000;
     }
     const value = rupiah(total);
-    setBody({ ...body, shipping_method_id: e.target.value,total_price:total, total_priceString:value, sub_total:temp });
+    setBody({ ...body, shipping_method_id: e.target.value, total_price:total, total_priceString:value, sub_total:temp });
   };
 
   const handleCheckout =()=>{
     if(body.total_price===null){
-      return alert('belom diitung')
+      return alert('Belum dihitung')
     }
     console.log(body);
     dispatch(cart.dataCheckoutThunk(body));
