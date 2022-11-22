@@ -12,6 +12,7 @@ import img_zanuar from '../assets/img_zanuar.jpg';
 import img_rofiq from '../assets/img_rofiq.jpg';
 import img_dian from '../assets/img_dian.jpeg';
 import img_ahsan from '../assets/img_ahsan.jpg';
+import img_arsyad from '../assets/img_arsyad.jpg';
 
 class AboutUs extends Component {
   render() {
@@ -113,7 +114,7 @@ class AboutUs extends Component {
                     <p className={styles['meet-text-1']}>Front End Developer</p>
                   </div>
                   <div>
-                    <img className={styles['meet-img']} src={meet3} alt="img" />
+                    <img className={styles['meet-img']} src={img_arsyad} alt="img" />
                     <h1 className={styles['meet-header-2']}>Muhammad Arsyad</h1>
                     <p className={styles['meet-text-1']}>Front End Developer</p>
                   </div>

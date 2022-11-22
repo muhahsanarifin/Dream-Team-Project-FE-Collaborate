@@ -37,10 +37,10 @@
 }
 
 .section-1::after {
-  background-image: url("../assets/login-background.png");
+  background-image: url('../assets/login-background.png');
   background-repeat: no-repeat;
   background-size: cover;
-  content: "";
+  content: '';
   opacity: 0.2;
   top: 0;
   left: 0;
@@ -143,6 +143,12 @@
 .payment-content-div img {
   width: 62px;
   height: 20px;
+}
+.drop_pay {
+  cursor: pointer;
+  width: 120px;
+  height: 30px;
+  border: 1px solid #cecece;
 }
 
 @media (max-width: 768px) {
