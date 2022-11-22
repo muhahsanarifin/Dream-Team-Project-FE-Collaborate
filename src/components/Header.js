@@ -2,7 +2,8 @@ import React, { Component, Fragment } from "react";
 import styles from "../styles/Header.module.css";
 
 import { Link } from "react-router-dom";
-
+import Swal from "sweetalert2";
+import Axios from "axios";
 import mag from "../assets/mag.png";
 import love from "../assets/love.png";
 import cart from "../assets/cart.png";
@@ -56,9 +57,6 @@ class Header extends Component {
                 </Link>
                 <Link to={`/`} className={styles["link"]}>
                   <li>Coming Soon</li>
-                </Link>
-                <Link to={`/`} className={styles["link"]}>
-                  <li>404 Page</li>
                 </Link>
                 <Link to={`/faq`} className={styles["link"]}>
                   <li>FAQ Page</li>
@@ -139,7 +137,9 @@ class Header extends Component {
                   to={`/register`}
                   className={styles["link"]}
                   style={{ display: this.props.displayRegister }}
-                ></Link>
+                >
+                  <li>Register</li>
+                </Link>
                 <Link
                   to={this.props.linkToProfile}
                   className={styles["link"]}
@@ -157,8 +157,37 @@ class Header extends Component {
                   className={styles["link"]}
                   style={{ display: this.props.displayLogout }}
                   onClick={() => {
-                    localStorage.removeItem("token");
-                    this.props.navigate("/login");
+                    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
+                    const config = {
+                      headers: {
+                        "x-access-token": localStorage.getItem("token"),
+                      },
+                    };
+                    Axios.delete(url, config)
+                      .then((res) => {
+                        Swal.fire({
+                          title: "Logout Success!",
+                          timer: 2000,
+                          showConfirmButton: false,
+                          timerProgressBar: true,
+                        }).then((result) => {
+                          if (result.dismiss === Swal.DismissReason.timer) {
+                            this.props.navigate("/login");
+                            localStorage.clear();
+                          }
+                        });
+                      })
+                      .catch((err) => {
+                        console.log(err);
+                        Swal.fire({
+                          title: "Logout Failed!",
+                          showConfirmButton: false,
+                          timer: 1000,
+                        });
+                      });
+
+                    // localStorage.removeItem("token");
+                    // this.props.navigate("/login");
                   }}
                 >
                   Logout

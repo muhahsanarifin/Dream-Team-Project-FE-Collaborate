@@ -77,7 +77,7 @@ const Products = () => {
       <main className={styles["main"]}>
         <Header />
         <section className={styles["carousel"]}>
-          <p>Carousel Soon</p>
+          <p>Carousel Soon...</p>
         </section>
         <section className={styles["breadcrumb"]}>
           <p>Shop</p>
