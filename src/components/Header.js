@@ -9,6 +9,7 @@ import cart from "../assets/cart.png";
 import chev from "../assets/chevron.png";
 import bar1 from "../assets/menu-1.png";
 import bar2 from "../assets/menu-2.png";
+import withNavigate from "../helpers/withNavigate";
 
 class Header extends Component {
   constructor(props) {
@@ -127,7 +128,11 @@ class Header extends Component {
                 style={{ display: this.state.menu }}
                 className={`${styles["header-right-toggle__contents"]}`}
               >
-                <Link to={`/login`} className={styles["link"]}>
+                <Link
+                  to={`/login`}
+                  className={styles["link"]}
+                  style={{ display: this.props.displayLogin }}
+                >
                   <li>Login</li>
                 </Link>
                 <Link
@@ -150,6 +155,16 @@ class Header extends Component {
                 <Link to={`/notification`} className={styles["link"]}>
                   <li>Notification</li>
                 </Link>
+                <li
+                  className={styles["link"]}
+                  style={{ display: this.props.displayLogout }}
+                  onClick={() => {
+                    localStorage.removeItem("token");
+                    this.props.navigate("/login");
+                  }}
+                >
+                  Logout
+                </li>
               </ul>
             </div>
           </div>
@@ -159,4 +174,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default withNavigate(Header);

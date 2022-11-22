@@ -27,11 +27,20 @@ const Home = () => {
     <>
       <main className={[styles["main"]]}>
         {token === null ? (
-          <Header displayRegister={`none`} displayProfile={`none`}/>
+          <Header displayProfile={`none`} displayLogout={`none`} />
         ) : role === "customer" ? (
-          <Header linkToProfile={`/profile`} displayRegister={`none`} />
+          <Header
+            linkToProfile={`/profile`}
+            displayRegister={`none`}
+            displayLogin={`none`}
+            displayLogout={`none`}
+          />
         ) : (
-          <Header linkToProfile={`/profile/seller`} displayRegister={`none`} />
+          <Header
+            linkToProfile={`/profile/seller`}
+            displayRegister={`none`}
+            displayLogin={`none`}
+          />
         )}
         <section className={`${styles["section"]} ${styles["fist-section"]}`}>
           <h1 className={styles["title"]}>Minimal Furniture Store</h1>
