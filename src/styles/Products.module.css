@@ -379,8 +379,8 @@
 
 .dropdown-list {
   position: absolute;
-  right: 3.5rem;
-  bottom: -0.5rem;
+  right: 0rem;
+  top: 2rem;
   display: flex;
   max-width: fit-content;
   background-color: #1a1a1a;
