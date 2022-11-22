@@ -3,22 +3,32 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/Cart.module.css";
 import cartEmpty from "../assets/shopping-cart.png";
-
+import counterActions from "../redux/action/counterProduct"
 import remove from "../assets/remove.png";
 import { useDispatch, useSelector } from "react-redux";
 // import counterActions from "../redux/action/counterProduct";
 import cart from "../redux/action/cart";
+import { useNavigate } from "react-router-dom";
+
 const Cart = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate()
   const cartData = useSelector((state) => state.cart.data);
   // const image = useSelector((state) => state.products.productsDetails.images)
   // const counter = useSelector((state) => state.counter.number);
-  const [counter, setCounter] = useState()
-  const price = 1;
-  // const onClickHandler = (action) => {
-  //   dispatch(action);
-  // };
+  // const price = useSelector((state) => state.products.productsDetails.price);
+  const onClickHandler = (action) => {
+    dispatch(action);
+  };
+
+  const [body, setBody] = useState({
+    shipping_method_id: 1,
+    total_price:null,
+    total_priceString :'',
+    sub_total:null
+  });
+
+
   const handleDelete = (id) => {
     console.log(id);
     let temp = [...cartData];
@@ -26,6 +36,49 @@ const Cart = () => {
     console.log(temp);
     dispatch(cart.addCartThunk(temp));
   };
+
+  const rupiah = (number) => {
+    if (number) {
+      return `IDR ${number
+        .toString()
+        .replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")}`;
+    }
+  };
+
+  const subtotal = () => {
+    let temp = 0;
+    cartData.map((item, idx) => {
+      return temp += item.price;
+    });
+    const value = rupiah(temp);
+    return value;
+  };
+
+  const handleShipping_method = (e) => {
+    console.log(e.target.value === 1);
+    let temp = 0;
+    cartData.map((item, idx) => {
+      return temp += item.price;
+    });
+
+    let total = temp ;
+    console.log(body.shipping_method_id);
+    if (e.target.value === 1){
+      total += 10000
+    }
+    const value = rupiah(total);
+    setBody({ ...body, shipping_method_id: e.target.value,total_price:total, total_priceString:value, sub_total:temp });
+  };
+
+  const handleCheckout =()=>{
+    if(body.total_price===null){
+      return alert('belom diitung')
+    }
+    console.log(body);
+    dispatch(cart.dataCheckoutThunk(body));
+    navigate('/checkout')
+  }
+  
 
   return (
     <>
@@ -43,15 +96,13 @@ const Cart = () => {
             </p>
           </section>
           {cartData.length === 0 ? (
-            <section className={styles["section-cart"]}>
+            <section>
               <section>
                 <img src={cartEmpty} alt=""></img>
               </section>
               <div>
-                <p className={styles["cart-empty-text-1"]}>
-                  Your Cart is Empty
-                </p>
-                <p className={styles["cart-empty-text-2"]}>
+                <p>Your Cart is Empty</p>
+                <p>
                   Donec nunc nunc, gravida vitae diam vel, varius interdum erat.
                   Quisque a nunc vel diam auctor commodo. urabitur blandit ultri
                 </p>
@@ -96,7 +147,7 @@ const Cart = () => {
                         <th className={styles["count-th"]}>
                           <p
                             onClick={() =>
-                              setCounter(counter - 1)
+                              onClickHandler(counterActions.counterDown())
                             }
                             className={styles["counter-p"]}
                           >
@@ -105,7 +156,7 @@ const Cart = () => {
                           <p className={styles["amount-p"]}>{item.quantity}</p>
                           <p
                             onClick={() =>
-                              setCounter(counter + 1)
+                              onClickHandler(counterActions.counterUp())
                             }
                             className={styles["counter-p"]}
                           >
@@ -143,22 +194,40 @@ const Cart = () => {
                   <div className={styles["subtotal-div"]}>
                     <p className={styles["cart-total-header-2"]}>Subtotal</p>
                     <p className={styles["cart-total-header-2"]}>
-                      {counter * price}
+                      {subtotal()}
                     </p>
                   </div>
                   <div className={styles["shipping-div"]}>
                     <p className={styles["cart-total-header-2"]}>Shipping</p>
                     <div>
                       <div className={styles["shipping-choose"]}>
-                        <div className={styles["shipping-btn"]}></div>
+                        <input
+                          className={styles["shipping-btn"]}
+                          type="radio"
+                          onChange={handleShipping_method}
+                          value={1}
+                          name="shippping_method_id"
+                        ></input>
                         <p className={styles["choose-text"]}>Flate rate: $10</p>
                       </div>
                       <div className={styles["shipping-choose"]}>
-                        <div className={styles["shipping-btn"]}></div>
+                        <input
+                          className={styles["shipping-btn"]}
+                          type="radio"
+                          onChange={handleShipping_method}
+                          value={2}
+                          name="shippping_method_id"
+                        ></input>
                         <p className={styles["choose-text"]}>Free shipping</p>
                       </div>
                       <div className={styles["shipping-choose"]}>
-                        <div className={styles["shipping-btn"]}></div>
+                        <input
+                          className={styles["shipping-btn"]}
+                          type="radio"
+                          onChange={handleShipping_method}
+                          value={3}
+                          name="shippping_method_id"
+                        ></input>
                         <p className={styles["choose-text"]}>Local pickup</p>
                       </div>
                     </div>
@@ -167,11 +236,11 @@ const Cart = () => {
                   <div className={styles["total-div"]}>
                     <p className={styles["cart-total-header-2"]}>Total Price</p>
                     <p className={styles["cart-total-header"]}>
-                      {counter * price}
+                    {body.total_priceString}
                     </p>
                   </div>
                 </div>
-                <button className={styles["proceed-button"]}>
+                <button className={styles["proceed-button"]} onClick={handleCheckout}>
                   Proceed To Check Out
                 </button>
               </aside>

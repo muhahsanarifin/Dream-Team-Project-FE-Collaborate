@@ -96,12 +96,6 @@ class Profiles extends Component {
     event.preventDefault();
     const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/users/profile/edit`;
     const formdata = new FormData();
-    // const body = {
-    //   username: this.state.username,
-    //   gender: this.state.gender,
-    //   store_description: this.state.desc,
-    //   image: this.state.file,
-    // };
     console.log(this.state);
     formdata.append("username", this.state.username);
     formdata.append("gender", this.state.gender);
@@ -175,10 +169,6 @@ class Profiles extends Component {
                       alt="img"
                     />
                   )}
-                  {/* <label for="upload" className={styles["profile-image-edit"]}>
-                    <p>EDIT</p>
-                    <img className={styles[""]} src={editwhite} alt="img" />
-                  </label> */}
                   <input
                     type="file"
                     name="file"

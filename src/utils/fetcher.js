@@ -33,6 +33,15 @@ export const getData = (url) => {
   const urls = baseUrl + url
   return axios.get(urls);
 };
+export const createTransaction = (body) => {
+  const dataUser = JSON.parse(localStorage.getItem("data-user"));
+  const token = dataUser.token
+  console.log(token);
+  const urls = baseUrl + 'raz/transaction/create'
+  return axios.post(urls,body,{headers: {
+    "x-access-token": token,
+  }});
+};
 
 export const getCategories = (data) => {
   return axiosRequest("GET", "raz/product/category/", data);
@@ -46,12 +55,20 @@ export const getRelatedProduct = (url) => {
 export const getSellerProduct = (token, params) => {
   return axios({
     method: "GET",
-    url: `${baseUrl}/profile/product/seller`,
+    url: `${baseUrl}raz/product/seller`,
     headers: { "x-access-token": token },
     params,
   });
 };
 
+export const deleteSellerProduct = (token, params) => {
+  return axios({
+    method: "UPDATE",
+    url: `${baseUrl}raz/product/seller`,
+    headers: { "x-access-token": token },
+    params,
+  });
+};
 
 // export const logout = (token) => {
 //   return axios({

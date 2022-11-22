@@ -5,7 +5,7 @@ import styles from "../styles/ProfileSeller.module.css";
 import Swal from "sweetalert2";
 import Axios from "axios";
 import withNavigate from "../helpers/withNavigate";
-
+import jwt from "jwt-decode";
 import profile from "../assets/profile.png";
 import edit from "../assets/edit.png";
 import editwhite from "../assets/edit-white.png";
@@ -16,7 +16,44 @@ import chev from "../assets/chevrongrey.png";
 class ProfileSellers extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      username: undefined,
+      role: undefined,
+      gender: undefined,
+      email: undefined,
+      file: undefined,
+      image: undefined,
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit2 = this.handleSubmit2.bind(this);
+  }
+
+  componentDidMount() {
+    document.title = "Profile";
+    const token = localStorage.getItem("token");
+    const info = jwt(token);
+    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/users/profile`;
+    const config = {
+      headers: {
+        "x-access-token": localStorage.getItem("token"),
+      },
+    };
+    Axios.get(url, config)
+      .then((res) => {
+        console.log(res.data.data[0]);
+        this.setState({
+          username: res.data.data[0].username,
+          role: res.data.data[0].role,
+          gender: res.data.data[0].gender,
+          email: res.data.data[0].email,
+          desc: res.data.data[0].store_description,
+          image: res.data.data[0].image,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log(info);
   }
 
   handleSubmit(event) {
@@ -49,6 +86,58 @@ class ProfileSellers extends Component {
           timer: 1000,
         });
       });
+  }
+
+  handleChange(event, field) {
+    this.setState({ [field]: event.target.value });
+  }
+
+  handleSubmit2(event) {
+    event.preventDefault();
+    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/users/profile/edit`;
+    const formdata = new FormData();
+    console.log(this.state);
+    formdata.append("username", this.state.username);
+    formdata.append("gender", this.state.gender);
+    formdata.append("store_description", this.state.desc);
+    formdata.append("image", this.state.file);
+    const body = formdata;
+    const config = {
+      headers: {
+        "x-access-token": localStorage.getItem("token"),
+      },
+    };
+    Axios.patch(url, body, config)
+      .then((res) => {
+        Swal.fire({
+          title: "Data changed successfully!",
+          timer: 2000,
+          showConfirmButton: false,
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            window.location.reload();
+          }
+        });
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          title: "Data not valid!",
+          showConfirmButton: false,
+          timer: 1000,
+        });
+      });
+  }
+  handleFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      this.setState({
+        image: URL.createObjectURL(event.target.files[0]),
+      });
+    }
+    this.setState({
+      file: event.target.files[0],
+    });
   }
 
   render() {
@@ -103,76 +192,125 @@ class ProfileSellers extends Component {
                   My Order
                 </p>
               </div>
-              <div className={styles["profile-div"]}>
-                <div className={styles["profile-image-div"]}>
-                  <img className={styles[""]} src={profile} alt="img" />
-                  <div className={styles["profile-image-edit"]}>
+              <section className={styles["section-2"]}>
+                <div className={styles["profile-div"]}>
+                  <label for="upload" className={styles["profile-image-div"]}>
+                    {this.state.image ? (
+                      <img
+                        className={styles["profile-image"]}
+                        src={this.state.image}
+                        alt="img"
+                      />
+                    ) : (
+                      <img
+                        className={styles["profile-image"]}
+                        src={edit}
+                        alt="img"
+                      />
+                    )}
+                    <input
+                      type="file"
+                      name="file"
+                      id="upload"
+                      className={styles["none"]}
+                      onChange={(event) => {
+                        this.handleFile(event);
+                        // console.log(event);
+                      }}
+                    />
+                  </label>
+                  <div>
+                    <div className={styles["profile-top-header-div"]}>
+                      <h1>
+                        <input
+                          className={styles["profile-top-header"]}
+                          type="text"
+                          placeholder="Input your display name"
+                          value={this.state.username}
+                          onChange={(event) =>
+                            this.handleChange(event, "username")
+                          }
+                        />
+                      </h1>
+                      <form onSubmit={this.handleSubmit2}>
+                        <button className={styles["edit"]} type="submit">
+                          <img className={styles[""]} src={edit} alt="img" />
+                        </button>
+                      </form>
+                    </div>
+                    <p className={styles["profile-top-text"]}>
+                      as {this.state.role}
+                    </p>
+                  </div>
+                </div>
+                <div className={styles["section-3-div"]}>
+                  <div className={styles["section-3-subdiv"]}>
+                    <label className={styles["section-3-label"]}>Gender</label>
+                    <input
+                      className={styles["section-3-text"]}
+                      type="text"
+                      value={this.state.gender}
+                      placeholder="Input your gender"
+                      onChange={(event) => this.handleChange(event, "gender")}
+                    />
+                  </div>
+                  <form
+                    className={styles["section-3-form"]}
+                    onSubmit={this.handleSubmit2}
+                  >
+                    <button type="submit" className={styles["section-3-edit"]}>
+                      <p>EDIT</p>
+                      <img className={styles[""]} src={editb} alt="img" />
+                    </button>
+                  </form>
+                </div>
+                <div className={styles["section-3-div"]}>
+                  <div>
+                    <label className={styles["section-3-label"]}>
+                      Your Email
+                    </label>
+                    <p className={styles["section-3-text"]}>
+                      {this.state.email}
+                    </p>
+                  </div>
+                  <div className={styles["section-3-edit"]}>
                     <p>EDIT</p>
-                    <img className={styles[""]} src={editwhite} alt="img" />
+                    <img className={styles[""]} src={editb} alt="img" />
                   </div>
                 </div>
-                <div>
-                  <div className={styles["profile-top-header-div"]}>
-                    <h1 className={styles["profile-top-header"]}>Syifa</h1>
-                    <img className={styles[""]} src={edit} alt="img" />
+                <div className={styles["section-3-div"]}>
+                  <div className={styles["section-3-subdiv"]}>
+                    <label className={styles["section-3-label"]}>
+                      Store Description
+                    </label>
+                    <input
+                      className={styles["section-3-text"]}
+                      type="text"
+                      value={this.state.desc}
+                      placeholder="Input your store description"
+                      onChange={(event) => this.handleChange(event, "desc")}
+                    />
                   </div>
-                  <p className={styles["profile-top-text"]}>as Seller</p>
+                  <form
+                    className={styles["section-3-form"]}
+                    onSubmit={this.handleSubmit2}
+                  >
+                    <button type="submit" className={styles["section-3-edit"]}>
+                      <p>EDIT</p>
+                      <img className={styles[""]} src={editb} alt="img" />
+                    </button>
+                  </form>
                 </div>
-              </div>
-              <div className={styles["section-3-div"]}>
-                <div>
-                  <label className={styles["section-3-label"]}>Gender</label>
-                  <p className={styles["section-3-text"]}>Female</p>
+                <div className={styles["btn-div"]}>
+                  <form onSubmit={this.handleSubmit}>
+                    <button type="submit" className={styles["logout"]}>
+                      <img className={styles[""]} src={logout} alt="img" />
+                      <p>Logout</p>
+                    </button>
+                  </form>
+                  <button className={styles["logout"]}>Edit Password</button>
                 </div>
-                <div className={styles["section-3-edit"]}>
-                  <p>EDIT</p>
-                  <img className={styles[""]} src={editb} alt="img" />
-                </div>
-              </div>
-              <div className={styles["section-3-div"]}>
-                <div>
-                  <label className={styles["section-3-label"]}>
-                    Your Email
-                  </label>
-                  <p className={styles["section-3-text"]}>syifa@gamil.com</p>
-                </div>
-                <div className={styles["section-3-edit"]}>
-                  <p>EDIT</p>
-                  <img className={styles[""]} src={editb} alt="img" />
-                </div>
-              </div>
-              <div className={styles["section-3-div"]}>
-                <div>
-                  <label className={styles["section-3-label"]}>
-                    Store Name
-                  </label>
-                  <p className={styles["section-3-text"]}>Apple Store</p>
-                </div>
-                <div className={styles["section-3-edit"]}>
-                  <p>EDIT</p>
-                  <img className={styles[""]} src={editb} alt="img" />
-                </div>
-              </div>
-              <div className={styles["section-3-div"]}>
-                <div>
-                  <label className={styles["section-3-label"]}>
-                    Store Description
-                  </label>
-                  <p className={styles["section-3-text"]}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                </div>
-                <div className={styles["section-3-edit"]}>
-                  <p>EDIT</p>
-                  <img className={styles[""]} src={editb} alt="img" />
-                </div>
-              </div>
-              <form onSubmit={this.handleSubmit}>
-                <button className={styles["logout"]}>
-                  <img className={styles[""]} src={logout} alt="img" />
-                  <p>Logout</p>
-                </button>
-              </form>
+              </section>
             </section>
             <Footer />
           </main>

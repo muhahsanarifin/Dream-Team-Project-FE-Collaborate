@@ -103,15 +103,15 @@ const productReducer = (prevState = initialState, { type, payload }) => {
         meta: payload.data.meta,
       };
     
-      case getRelatedProduct.concat("_", Fulfilled):
-        return {
-          ...prevState,
-          isLoading: false,
-          isError: false,
-          isFulfilled: true,
-          productRelated: payload.data.data,
-          meta: payload.data.meta,
-        };
+    case getRelatedProduct.concat("_", Fulfilled):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: false,
+        isFulfilled: true,
+        productRelated: payload.data.data,
+        meta: payload.data.meta,
+      };
 
     case getDetailProduct.concat("_", Fulfilled):
       return {

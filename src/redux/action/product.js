@@ -17,7 +17,7 @@ const getRelatedProductPending = () => ({
 });
 
 const getSellerProductPending = () => ({
-  type: actionStrings.getRelatedProduct.concat("_", Pending),
+  type: actionStrings.getSellerProduct.concat("_", Pending),
 });
 
 const getProductRejected = (error) => ({
@@ -36,7 +36,7 @@ const getRelatedProductRejected = (error) => ({
 });
 
 const getSellerProductRejected = (error) => ({
-  type: actionStrings.getRelatedProduct.concat("_", Rejected),
+  type: actionStrings.getSellerProduct.concat("_", Rejected),
   payload: { error },
 });
 
@@ -56,7 +56,7 @@ const getRelatedProductFulfilled = (data) => ({
 });
 
 const getSellerProductFulfilled = (data) => ({
-  type: actionStrings.getRelatedProduct.concat("_", Fulfilled),
+  type: actionStrings.getSellerProduct.concat("_", Fulfilled),
   payload: { data },
 });
 
