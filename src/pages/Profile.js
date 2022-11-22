@@ -32,7 +32,7 @@ class Profiles extends Component {
     document.title = "Profile";
     const token = localStorage.getItem("token");
     const info = jwt(token);
-    const url = `http://localhost:8090/raz/users/profile`;
+    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/users/profile`;
     const config = {
       headers: {
         "x-access-token": localStorage.getItem("token"),
@@ -63,11 +63,9 @@ class Profiles extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
-    const dataUser = localStorage.getItem("data-user");
-    const { token } = JSON.parse(dataUser);
     const config = {
       headers: {
-        "x-access-token": token,
+        "x-access-token": localStorage.getItem("token")
       },
     };
     Axios.delete(url, config)
@@ -96,7 +94,7 @@ class Profiles extends Component {
 
   handleSubmit2(event) {
     event.preventDefault();
-    const url = `http://localhost:8090/raz/users/profile/edit`;
+    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/users/profile/edit`;
     const formdata = new FormData();
     // const body = {
     //   username: this.state.username,
@@ -104,6 +102,7 @@ class Profiles extends Component {
     //   store_description: this.state.desc,
     //   image: this.state.file,
     // };
+    console.log(this.state);
     formdata.append("username", this.state.username);
     formdata.append("gender", this.state.gender);
     formdata.append("store_description", this.state.desc);
@@ -197,8 +196,8 @@ class Profiles extends Component {
                       <input
                         className={styles["profile-top-header"]}
                         type="text"
-                        value={this.state.username}
                         placeholder="Input your display name"
+                        value={this.state.username}
                         onChange={(event) =>
                           this.handleChange(event, "username")
                         }
@@ -273,7 +272,7 @@ class Profiles extends Component {
               </div>
               <div className={styles["btn-div"]}>
                 <form onSubmit={this.handleSubmit}>
-                  <button className={styles["logout"]}>
+                  <button type="submit" className={styles["logout"]}>
                     <img className={styles[""]} src={logout} alt="img" />
                     <p>Logout</p>
                   </button>

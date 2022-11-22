@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -12,7 +12,7 @@ import iconFb from "../assets/1.png";
 import iconTwit from "../assets/2.png";
 import iconYt from "../assets/3.png";
 
-import counterActions from "../redux/action/counterProduct";
+// import counterActions from "../redux/action/counterProduct";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../redux/action/product";
 import cart from "../redux/action/cart";
@@ -20,16 +20,17 @@ import Swal from "sweetalert2";
 
 const ProductDetail = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
-
-  const counters = useSelector((state) => state.counter.number);
+  const [counter, setCounter] = useState(0);
+  // const counters = useSelector((state) => state.counter.number);
   const cartData = useSelector((state) => state.cart.data);
-  console.log('asdasdsadsasad',cartData);
   const image = useSelector((state) => state.products.productsDetails.images);
   const category = useSelector(
     (state) => state.products.productsDetails.categories
   );
   const productDetail = useSelector((state) => state.products.productsDetails);
+  const relatedProduct = useSelector((state) => state.products.productRelated);
+
+  console.log(relatedProduct);
 
   const rupiah = (number) => {
     if (number) {
@@ -41,23 +42,26 @@ const ProductDetail = () => {
 
   const { id } = useParams();
 
-  const onClickHandler = (action) => {
-    dispatch(action);
-    // console.log(counter);
-  };
+  // const onClickHandler = (action) => {
+  //   dispatch(action);
+  //   console.log(counter);
+  // };
 
   const handleAddCart = () => {
-    const filter = cartData.filter((item)=>item.product_id===productDetail.id)
-    if(filter.length>0){
-      return  Swal.fire({
+    const filter = cartData.filter(
+      (item) => item.product_id === productDetail.id
+    );
+    if (filter?.length > 0) {
+      return Swal.fire({
         title: "product sudah dalam keranjang",
         timer: 2000,
         showConfirmButton: false,
         timerProgressBar: true,
-      })
+      });
     }
-    const {price} = productDetail;
-    const quantity = counters;
+
+    const { price } = productDetail;
+    const quantity = counter;
     const total_price = price * quantity;
     const data = {
       product_id: productDetail.id,
@@ -65,24 +69,28 @@ const ProductDetail = () => {
       product_name: productDetail.product_name,
       price: productDetail.price,
       seller_id: productDetail.user_id,
-      quantity: counters,
+      quantity: counter,
       total_price: total_price,
-    }
-    const body = [...cartData,data] 
-    console.log('body',body);
-    // const body = []
-  dispatch(cart.addCartThunk(body));
-    // console.log(counter);
-    return  Swal.fire({
+    };
+
+    const body = [...cartData, data];
+    console.log("body", body);
+    dispatch(cart.addCartThunk(body));
+
+    return Swal.fire({
       title: "success add to cart",
       timer: 2000,
       showConfirmButton: false,
       timerProgressBar: true,
-    })
+    });
   };
 
   useEffect(() => {
     dispatch(productActions.getProductDetailThunk(id));
+  }, [dispatch, id]);
+
+  useEffect(() => {
+    dispatch(productActions.getRelatedProductThunk(id));
   }, [dispatch, id]);
 
   return (
@@ -96,33 +104,17 @@ const ProductDetail = () => {
             <p>Shop Right Sidebar</p>
             <p>{`>`}</p>
             <p>Product</p>
-            <button onClick={()=> navigate('/cart')}>cart</button>
           </span>
         </section>
-        
+
         <section className={styles["product-detail"]}>
           <span className={styles["product-detail__images"]}>
-            <ul className={styles["product-detail__images-left-side"]}>
-              {/* <li>
-                <img src={``} alt={``} />
-              </li>
-              <li>
-                <img src={``} alt={``} />
-              </li>
-              <li>
-                <img src={``} alt={``} />
-              </li>
-              <li>
-                <img src={``} alt={``} />
-              </li>
-              <li>
-                <img src={``} alt={``} />
-              </li> */}
-              {image.length > 0 &&
-                image.map((item, index) => {
-                  return <img src={item} alt="list_product_1" />;
-                })}
-            </ul>
+            <div className={styles["product-detail__images-left-side"]}>
+            {image?.length > 0 &&
+              image?.map((item, index) => {
+                return <img src={item} alt="list_product_1" />
+              })}
+            </div>
             <span className={styles["product-detail__images-right-side"]}>
               <img src={image[0]} alt={`list_product`} />
             </span>
@@ -142,18 +134,26 @@ const ProductDetail = () => {
               {productDetail.description_product}
             </p>
           </span>
-
           <span className={styles["components"]}>
             <ul className={styles["qty"]}>
-              <li onClick={() => onClickHandler(counterActions.counterDown())}>
+              <li
+                onClick={() => setCounter(counter - 1)}
+                className={`${styles["pointer"]}`}
+              >
                 -
               </li>
-              <li>{counters}</li>
-              <li onClick={() => onClickHandler(counterActions.counterUp())}>
+              <li>{counter}</li>
+              <li
+                onClick={() => setCounter(counter + 1)}
+                className={`${styles["pointer"]}`}
+              >
                 +
               </li>
             </ul>
-            <button onClick={handleAddCart} className={styles["add-to-cart"]}> Add to cart</button>
+            <button onClick={handleAddCart} className={styles["add-to-cart"]}>
+              {" "}
+              Add to cart
+            </button>
             <span className={styles["favorites"]}>
               <img src={Heart} alt={``} />
             </span>
@@ -166,9 +166,9 @@ const ProductDetail = () => {
             <p>SKU: N/A</p>
             <p>
               Categories:
-              {category.length > 0 &&
-                category.map((item, index, array) => {
-                  if (category.length - 1 === index) {
+              {category?.length > 0 &&
+                category?.map((item, index, array) => {
+                  if (category?.length - 1 === index) {
                     return item;
                   } else {
                     return ` ${item}, `;
@@ -241,39 +241,24 @@ const ProductDetail = () => {
         <section className={styles["related-prodcuts"]}>
           <h3 className={styles["related-prodcuts-title"]}>Related Prodcuts</h3>
           <ul className={styles["related-prodcuts__list"]}>
-            <li className={styles["prodcut"]}>
-              <img
-                src={``}
-                alt={``}
-                className={styles["related-prodcut__image"]}
-              />
-              <span className={styles["product_description"]}>
-                <h3>Coaster 506222-CO Loveseat</h3>
-                <p>$765.99</p>
-              </span>
-            </li>
-            <li className={styles["prodcut"]}>
-              <img
-                src={``}
-                alt={``}
-                className={styles["related-prodcut__image"]}
-              />
-              <span className={styles["product_description"]}>
-                <h3>Coaster 506222-CO Loveseat</h3>
-                <p>$765.99</p>
-              </span>
-            </li>
-            <li className={styles["prodcut"]}>
-              <img
-                src={``}
-                alt={``}
-                className={styles["related-prodcut__image"]}
-              />
-              <span className={styles["product_description"]}>
-                <h3>Coaster 506222-CO Loveseat</h3>
-                <p>$765.99</p>
-              </span>
-            </li>
+            {relatedProduct?.length > 0 &&
+              relatedProduct?.map((item, index) => {
+                return (
+                  <li className={styles["prodcut"]}>
+                    <div>
+                      <img
+                        src={item.image}
+                        alt={`related2`}
+                        className={styles["related-prodcut__image"]}
+                      />
+                      <span className={styles["product_description"]}>
+                        <h3>{item.product_name}</h3>
+                        <p>Rp. {item.price}</p>
+                      </span>
+                    </div>
+                  </li>
+                );
+              })}
           </ul>
           <span className={styles["btn-carousel"]}>
             <ul>

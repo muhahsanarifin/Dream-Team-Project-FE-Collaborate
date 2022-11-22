@@ -19,4 +19,5 @@ export const actionStrings = {
   addCart: "ADD_CART",
   dataCheckout: "DATA_CHECKOUT",
   getCategories: "GET_CATEGORIES",
+  getRelatedProduct: "GET_RELATED_PRODUCT"
 };

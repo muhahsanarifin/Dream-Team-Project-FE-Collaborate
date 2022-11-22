@@ -73,7 +73,7 @@
 }
 
 /* .categories {
-  border: 1px solid darkred;
+  border: 1px solid darkred; 
 } */
 
 .categories__list {
@@ -101,6 +101,7 @@
 }
 
 .brand__list li input[type="checkbox"] {
+  /* border: 1px solid darkblue; */
   width: 14px;
   height: 14px;
   accent-color: var(--p-checkbox-color);
@@ -356,6 +357,7 @@
 }
 
 .sort-dropdown {
+  /* border: 1px solid darkblue; */
   position: relative;
   display: flex;
   align-items: center;
@@ -373,9 +375,10 @@
 }
 
 .dropdown-list {
+  /* border: 1px solid darkblue; */
   position: absolute;
-  right: 4.5rem;
-  bottom: 2rem;
+  /* left: 1rem; */
+  top: 1rem;
   display: flex;
   max-width: fit-content;
   background-color: #1a1a1a;
@@ -404,11 +407,9 @@
   display: inline;
 }
 
-.tengah {
-  font-family: "Alegreya", sans-serif;
-  font-size: 80px;
-  margin: 0 auto;
-  margin-left: 10rem;
+.not-found {
+  font-family: "Arimo", sans-serif;
+  font-size: 40px;
   text-align: center;
 }
 /* || Responsive */

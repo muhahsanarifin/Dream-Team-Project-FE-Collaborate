@@ -1,11 +1,11 @@
 import axios from "axios";
 
-// const baseUrl = process.env.REACT_APP_DT_BACKEND_HOST;
+// const baseUrl = http://localhost:8090/;
 const baseUrl = 'https://dream-team-project-be.vercel.app/';
 
 
-// const baseUrl2 = `http://localhost:8090/`
-console.log(process.env.REACT_APP_DT_BACKEND_HOST);
+// const baseUrl2 = http://localhost:8090/
+// console.log(process.env.REACT_APP_DT_BACKEND_HOST);
 
 const axiosRequest = (method, url, data, params) => {
   return axios({
@@ -33,25 +33,47 @@ export const getData = (url) => {
   const urls = baseUrl + url
   return axios.get(urls);
 };
+
+
 export const createTransaction = (body) => {
-  const dataUser = JSON.parse(localStorage.getItem("data-user"));
-  const token = dataUser.token
-  console.log(token);
+  const dataUser = localStorage.getItem("token");
   const urls = baseUrl + 'raz/transaction/create'
   return axios.post(urls,body,{headers: {
-    "x-access-token": token,
+    "x-access-token": dataUser,
   }});
 };
 
 export const getCategories = (data) => {
-  return axiosRequest("GET", "/categories", data);
+  return axiosRequest("GET", "raz/product/category/", data);
 };
 
+export const getRelatedProduct = (url) => {
+  const urls = baseUrl + url
+  return axios.get(urls);
+};
+
+export const getSellerProduct = (token, params) => {
+  return axios({
+    method: "GET",
+    url: `${baseUrl}raz/product/seller`,
+    headers: { "x-access-token": token },
+    params,
+  });
+};
+
+export const deleteSellerProduct = (token, params) => {
+  return axios({
+    method: "UPDATE",
+    url: `${baseUrl}raz/product/seller`,
+    headers: { "x-access-token": token },
+    params,
+  });
+};
 
 // export const logout = (token) => {
 //   return axios({
 //     method: "DELETE",
-//     url: `${baseUrl}/auth/logout`,
+//     url: ${baseUrl}/auth/logout,
 //     headers: { "x-access-token": token },
 //   });
 // };

@@ -254,10 +254,11 @@
   display: flex;
   flex-direction: row;
   gap: 2rem;
+  overflow: scroll;
 }
 
 .prodcut {
-  border: 1px solid darkblue;
+  /* border: 1px solid darkblue; */
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -310,4 +311,8 @@
 
 .btn-carousel li:hover {
   background: var(--pd-font-color);
+}
+
+.pointer {
+  cursor: pointer;
 }

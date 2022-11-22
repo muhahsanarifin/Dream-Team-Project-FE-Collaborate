@@ -3,10 +3,10 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/Cart.module.css";
 import cartEmpty from "../assets/shopping-cart.png";
-
+import counterActions from "../redux/action/counterProduct"
 import remove from "../assets/remove.png";
 import { useDispatch, useSelector } from "react-redux";
-import counterActions from "../redux/action/counterProduct";
+// import counterActions from "../redux/action/counterProduct";
 import cart from "../redux/action/cart";
 import { useNavigate } from "react-router-dom";
 
@@ -48,31 +48,31 @@ const Cart = () => {
   const subtotal = () => {
     let temp = 0;
     cartData.map((item, idx) => {
-      temp += item.price;
+      return temp += item.total_price;
     });
     const value = rupiah(temp);
     return value;
   };
 
   const handleShipping_method = (e) => {
-    console.log(e.target.value==1);
+    console.log(e.target.value === 1);
     let temp = 0;
     cartData.map((item, idx) => {
-      temp += item.price;
+      return temp += item.total_price;
     });
 
     let total = temp ;
     console.log(body.shipping_method_id);
-    if (e.target.value == 1){
-      total += 10000
+    if (e.target.value === 1){
+      total += 10000;
     }
     const value = rupiah(total);
-    setBody({ ...body, shipping_method_id: e.target.value,total_price:total, total_priceString:value, sub_total:temp });
+    setBody({ ...body, shipping_method_id: e.target.value, total_price:total, total_priceString:value, sub_total:temp });
   };
 
-  const  handleCheckout =()=>{
+  const handleCheckout =()=>{
     if(body.total_price===null){
-      return alert('belom diitung')
+      return alert('Belum dihitung')
     }
     console.log(body);
     dispatch(cart.dataCheckoutThunk(body));
@@ -95,14 +95,14 @@ const Cart = () => {
               Buy everything in your cart now!
             </p>
           </section>
-          {cartData.length === 0 ? (
-            <section>
+          {cartData?.length === 0 ? (
+            <section className={styles["section-cart"]}>
               <section>
                 <img src={cartEmpty} alt=""></img>
               </section>
               <div>
-                <p>Your Cart is Empty</p>
-                <p>
+                <p className={styles["cart-empty-text-1"]}>Your Cart is Empty</p>
+                <p className={styles["cart-empty-text-2"]}>
                   Donec nunc nunc, gravida vitae diam vel, varius interdum erat.
                   Quisque a nunc vel diam auctor commodo. urabitur blandit ultri
                 </p>
@@ -120,7 +120,7 @@ const Cart = () => {
                     <th className={styles["header-th-3"]}>QUANTITY</th>
                     <th className={styles["header-th-4"]}>TOTAL</th>
                   </tr>
-                  {cartData.map((item, index) => {
+                  {cartData?.map((item, index) => {
                     return (
                       <tr className={styles["product-tr"]} key={index}>
                         <th>

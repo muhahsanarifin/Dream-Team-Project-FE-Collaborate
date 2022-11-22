@@ -1,17 +1,17 @@
-import React, { Component, Fragment } from "react";
+import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/MyProduct.module.css";
-import withNavigate from "../helpers/withNavigate";
 
 import product from "../assets/product3.png";
 import chev from "../assets/chevron.png";
 import check from "../assets/check.png";
+import { useNavigate } from "react-router-dom";
 
-class MyProducts extends Component {
-  render() {
+const MyProducts = () => {
+  const navigate = useNavigate()
     return (
-      <Fragment>
+      <>
         <main className={styles["main-2"]}>
           <main className={styles["main"]}>
             <Header />
@@ -26,14 +26,14 @@ class MyProducts extends Component {
                 <p
                   className={styles["nav-div-2"]}
                   onClick={() => {
-                    this.props.navigate("/profile/seller");
+                    navigate("/profile/seller");
                   }}
                 >
                   Profile
                 </p>
                 <div
                   onClick={() => {
-                    this.props.navigate("/profile/seller/product");
+                    navigate("/profile/seller/product");
                   }}
                 >
                   <div className={styles["nav-div-1"]}>
@@ -45,7 +45,7 @@ class MyProducts extends Component {
                 <p
                   className={styles["nav-div-2"]}
                   onClick={() => {
-                    this.props.navigate("/profile/seller/product/selling");
+                    navigate("/profile/seller/product/selling");
                   }}
                 >
                   Selling Product
@@ -53,7 +53,7 @@ class MyProducts extends Component {
                 <p
                   className={styles["nav-div-2"]}
                   onClick={() => {
-                    this.props.navigate("/profile/seller/order");
+                    navigate("/profile/seller/order");
                   }}
                 >
                   My Order
@@ -149,11 +149,9 @@ class MyProducts extends Component {
             <Footer />
           </main>
         </main>
-      </Fragment>
+      </>
     );
-  }
+  
 }
 
-const MyProduct = withNavigate(MyProducts);
-
-export default MyProduct;
+export default MyProducts;

@@ -12,6 +12,10 @@ const getProductDetailPending = () => ({
   type: actionStrings.getDetailProduct.concat("_", Pending),
 });
 
+const getRelatedProductPending = () => ({
+  type: actionStrings.getRelatedProduct.concat("_", Pending),
+});
+
 const getProductRejected = (error) => ({
   type: actionStrings.getProducts.concat("_", Rejected),
   payload: { error },
@@ -22,12 +26,23 @@ const getProductDetailRejected = (error) => ({
   payload: { error },
 });
 
+const getRelatedProductRejected = (error) => ({
+  type: actionStrings.getRelatedProduct.concat("_", Rejected),
+  payload: { error },
+});
+
 const getProductFulfilled = (data) => ({
   type: actionStrings.getProducts.concat("_", Fulfilled),
   payload: { data },
 });
+
 const getProductDetailFulfilled = (data) => ({
   type: actionStrings.getDetailProduct.concat("_", Fulfilled),
+  payload: { data },
+});
+
+const getRelatedProductFulfilled = (data) => ({
+  type: actionStrings.getRelatedProduct.concat("_", Fulfilled),
   payload: { data },
 });
 
@@ -55,9 +70,23 @@ const getProductDetailThunk = (id) => {
   };
 };
 
+const getRelatedProductThunk = (id) => {
+  return async (dispacth) => {
+    try {
+      dispacth(getRelatedProductPending());
+      const result = await getData(`raz/product/related/${id}`);
+      dispacth(getRelatedProductFulfilled(result.data));
+    } catch (error) {
+      dispacth(getRelatedProductRejected(error));
+    }
+  };
+};
+
+
 const productActions = {
   getProductThunk,
   getProductDetailThunk,
+  getRelatedProductThunk,
 };
 
 export default productActions;
