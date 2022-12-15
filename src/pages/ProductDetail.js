@@ -52,6 +52,7 @@ const ProductDetail = () => {
     const filter = cartData.filter(
       (item) => item.product_id === productDetail.id
     );
+    
     if (filter?.length > 0) {
       return Swal.fire({
         title: "product sudah dalam keranjang",

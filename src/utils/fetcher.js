@@ -1,8 +1,7 @@
 import axios from "axios";
 
-// const baseUrl = http://localhost:8090/;
-const baseUrl = 'https://dream-team-project-be.vercel.app/';
-
+// const baseUrl = "http://localhost:8090/";
+const baseUrl = "https://dream-team-project-be.vercel.app/";
 
 // const baseUrl2 = http://localhost:8090/
 // console.log(process.env.REACT_APP_DT_BACKEND_HOST);
@@ -20,7 +19,7 @@ export const login = (data) => {
   return axiosRequest("POST", "/auth/login", data);
 };
 
-export const getProduct = ( params, data) => {
+export const getProduct = (params, data) => {
   return axios({
     method: "GET",
     url: `${baseUrl}raz/product`,
@@ -30,17 +29,18 @@ export const getProduct = ( params, data) => {
 };
 
 export const getData = (url) => {
-  const urls = baseUrl + url
+  const urls = baseUrl + url;
   return axios.get(urls);
 };
 
-
 export const createTransaction = (body) => {
   const dataUser = localStorage.getItem("token");
-  const urls = baseUrl + 'raz/transaction/create'
-  return axios.post(urls,body,{headers: {
-    "x-access-token": dataUser,
-  }});
+  const urls = baseUrl + "raz/transaction/create";
+  return axios.post(urls, body, {
+    headers: {
+      "x-access-token": dataUser,
+    },
+  });
 };
 
 export const getCategories = (data) => {
@@ -48,7 +48,7 @@ export const getCategories = (data) => {
 };
 
 export const getRelatedProduct = (url) => {
-  const urls = baseUrl + url
+  const urls = baseUrl + url;
   return axios.get(urls);
 };
 
