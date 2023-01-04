@@ -3,17 +3,17 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styles from '../styles/Checkout.module.css';
 
-import chev from '../assets/chevron.png';
-import visa from '../assets/visa.png';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { createTransaction } from '../utils/fetcher';
-import Modal from '../components/modal/Modal';
-import cart from '../redux/action/cart';
+import chev from "../assets/chevron.png";
+import visa from "../assets/visa.png";
+import { useDispatch, useSelector } from "react-redux";
+// import { useNavigate } from "react-router-dom";
+import { createTransaction } from "../utils/fetcher";
+import Modal from "../components/modal/Modal";
+import cart from "../redux/action/cart";
 
 const Checkout = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const checkout = useSelector((state) => state.cart);
   const [body, setBody] = useState({

@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/Cart.module.css";
 import cartEmpty from "../assets/shopping-cart.png";
-import counterActions from "../redux/action/counterProduct"
+import counterActions from "../redux/action/counterProduct";
 import remove from "../assets/remove.png";
 import { useDispatch, useSelector } from "react-redux";
 // import counterActions from "../redux/action/counterProduct";
@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const cartData = useSelector((state) => state.cart.data);
   // const image = useSelector((state) => state.products.productsDetails.images)
   // const counter = useSelector((state) => state.counter.number);
@@ -23,11 +23,10 @@ const Cart = () => {
 
   const [body, setBody] = useState({
     shipping_method_id: 1,
-    total_price:null,
-    total_priceString :'',
-    sub_total:null
+    total_price: null,
+    total_priceString: "",
+    sub_total: null,
   });
-
 
   const handleDelete = (id) => {
     console.log(id);
@@ -48,7 +47,7 @@ const Cart = () => {
   const subtotal = () => {
     let temp = 0;
     cartData.map((item, idx) => {
-      return temp += item.price;
+      return (temp += item.total_price);
     });
     const value = rupiah(temp);
     return value;
@@ -58,27 +57,32 @@ const Cart = () => {
     console.log(e.target.value === 1);
     let temp = 0;
     cartData.map((item, idx) => {
-      return temp += item.price;
+      return (temp += item.total_price);
     });
 
-    let total = temp ;
+    let total = temp;
     console.log(body.shipping_method_id);
-    if (e.target.value === 1){
-      total += 10000
+    if (e.target.value === 1) {
+      total += 10000;
     }
     const value = rupiah(total);
-    setBody({ ...body, shipping_method_id: e.target.value,total_price:total, total_priceString:value, sub_total:temp });
+    setBody({
+      ...body,
+      shipping_method_id: e.target.value,
+      total_price: total,
+      total_priceString: value,
+      sub_total: temp,
+    });
   };
 
-  const handleCheckout =()=>{
-    if(body.total_price===null){
-      return alert('belom diitung')
+  const handleCheckout = () => {
+    if (body.total_price === null) {
+      return alert("Belum dihitung");
     }
     console.log(body);
     dispatch(cart.dataCheckoutThunk(body));
-    navigate('/checkout')
-  }
-  
+    navigate("/checkout");
+  };
 
   return (
     <>
@@ -101,7 +105,9 @@ const Cart = () => {
                 <img src={cartEmpty} alt=""></img>
               </section>
               <div>
-                <p className={styles["cart-empty-text-1"]}>Your Cart is Empty</p>
+                <p className={styles["cart-empty-text-1"]}>
+                  Your Cart is Empty
+                </p>
                 <p className={styles["cart-empty-text-2"]}>
                   Donec nunc nunc, gravida vitae diam vel, varius interdum erat.
                   Quisque a nunc vel diam auctor commodo. urabitur blandit ultri
@@ -236,11 +242,14 @@ const Cart = () => {
                   <div className={styles["total-div"]}>
                     <p className={styles["cart-total-header-2"]}>Total Price</p>
                     <p className={styles["cart-total-header"]}>
-                    {body.total_priceString}
+                      {body.total_priceString}
                     </p>
                   </div>
                 </div>
-                <button className={styles["proceed-button"]} onClick={handleCheckout}>
+                <button
+                  className={styles["proceed-button"]}
+                  onClick={handleCheckout}
+                >
                   Proceed To Check Out
                 </button>
               </aside>
