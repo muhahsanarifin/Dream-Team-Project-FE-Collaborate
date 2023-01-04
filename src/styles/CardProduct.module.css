@@ -11,13 +11,14 @@
 }
 
 .product__img {
-  width: 200px;
-  height: 260px;
+  width: 250px;
+  height: 250px;
   cursor: pointer;
 }
 .title {
+  text-align: center;
   font-size: 18px;
-  max-width: 8.6rem;
+  width: 100%;
   font-weight: 800;
 }
 

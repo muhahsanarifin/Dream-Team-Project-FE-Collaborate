@@ -41,17 +41,17 @@ const Products = () => {
     page: getQuery.get("page") || 1,
     limit: getQuery.get("limit") || 9,
   });
-  const totalDataFake = useSelector((state) => state.products.products ? state.products.products.length :  state.products.meta?.totalData);
-  const totalData =  useSelector((state) => totalDataFake ? state.products.meta?.totalData : 1) 
+  const totalDataFake = useSelector((state) => state.products.products ? state.products.products.length : state.products.meta?.totalData);
+  const totalData = useSelector((state) => totalDataFake ? state.products.meta?.totalData : 1)
   const endItem =
     Number(query.page) === 1 && totalData > Number(query.limit)
       ? query.limit
       : Number(query.page) === 1 && totalData < Number(query.limit)
-      ? totalData
-      : Number(query.page) !== 1 &&
-        totalData < Number(query.limit) * Number(query.page)
-      ? totalData
-      : Number(query.limit) * Number(query.page);
+        ? totalData
+        : Number(query.page) !== 1 &&
+          totalData < Number(query.limit) * Number(query.page)
+          ? totalData
+          : Number(query.limit) * Number(query.page);
   const inItem =
     Number(query.page) === 1
       ? 1
@@ -77,20 +77,21 @@ const Products = () => {
       <main className={styles["main"]}>
         <Header />
         <section className={styles["carousel"]}>
+          <div className={styles["breadcrumb"]}>
+            <p>Shop</p>
+            <span>{`>`}</span>
+            <p>Shop Right Sidebar</p>
+          </div>
           {/* <p>Carousel Soon...</p> */}
-          <CardComingSoon/>
+          <CardComingSoon />
         </section>
-        <section className={styles["breadcrumb"]}>
-          <p>Shop</p>
-          <span>{`>`}</span>
-          <p>Shop Right Sidebar</p>
-        </section>
+
         <section className={styles["main__prodcuts"]}>
           <aside className={styles["left-side-section"]}>
             <span className={styles["categories"]}>
               <h3>Categories</h3>
               <div>
-              <div className={styles["content"]}>
+                <div className={styles["content"]}>
                   {categories?.map((e) => (
                     <CardCategory
                       name={e.category}
@@ -102,13 +103,13 @@ const Products = () => {
                     />
                   ))}
                 </div>
-                </div>
+              </div>
               <ul className={styles["categories__list"]}>
               </ul>
             </span>
             <div className={styles["price"]}>
               <h3>Price</h3>
-              <p>Price $39 - $159</p>
+              <p>Price Rp.39.000 - Rp.159.000</p>
               <span></span>
               <button>Filter</button>
             </div>
@@ -348,7 +349,7 @@ const Products = () => {
                         onClick={() => {
                           setQuery({
                             ...query,
-                            sort: "oldest",
+                            sort: "oldes",
                           });
                         }}
                       >
@@ -358,7 +359,7 @@ const Products = () => {
                         onClick={() => {
                           setQuery({
                             ...query,
-                            sort: "newest",
+                            sort: "newes",
                           });
                         }}
                       >
@@ -388,7 +389,7 @@ const Products = () => {
                   </div>
                 )}
               </div>
-              
+
             </span>
             <span className={styles["product-lists"]}>
               {isLoading ? (

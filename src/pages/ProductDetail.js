@@ -19,7 +19,7 @@ import cart from "../redux/action/cart";
 import Swal from "sweetalert2";
 
 const ProductDetail = () => {
-  const navigate = useNavigate() 
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const [counter, setCounter] = useState(0);
   // const counters = useSelector((state) => state.counter.number);
@@ -109,98 +109,100 @@ const ProductDetail = () => {
         </section>
 
         <section className={styles["product-detail"]}>
-          <span className={styles["product-detail__images"]}>
+          <div className={styles["product-detail__images"]}>
             <div className={styles["product-detail__images-left-side"]}>
-            {image?.length > 0 &&
-              image?.map((item, index) => {
-                return <img src={item} alt="list_product_1" />
-              })}
+              {image?.length > 0 &&
+                image?.map((item, index) => {
+                  return <img src={item} alt="list_product_1" />
+                })}
             </div>
             <span className={styles["product-detail__images-right-side"]}>
-              <img src={image[0]} alt={`list_product`} />
+              <img className={styles["image_product"]} src={image[0]} alt={`list_product`} />
             </span>
-          </span>
-          <span className={styles["product-detail__descriptions"]}>
-            <h3 className={styles["product-detail__descriptions__titles"]}>
-              {productDetail.product_name}
-            </h3>
-            <span className={styles["ratings"]}>{`2 (review)`}</span>
-            <span className={styles["price-and-sold-history"]}>
-              <p className={styles["price"]}>{rupiah(productDetail.price)}</p>
-              <p className={styles["sold"]}>
-                {productDetail.sold} Sold / {productDetail.stock} In Stock
+          </div>
+          <div className={styles["content-product"]}>
+            <span className={styles["product-detail__descriptions"]}>
+              <h3 className={styles["product-detail__descriptions__titles"]}>
+                {productDetail.product_name}
+              </h3>
+              <span className={styles["ratings"]}>{`2 (review)`}</span>
+              <span className={styles["price-and-sold-history"]}>
+                <p className={styles["price"]}>{rupiah(productDetail.price)}</p>
+                <p className={styles["sold"]}>
+                  {productDetail.sold} Sold / {productDetail.stock} In Stock
+                </p>
+              </span>
+              <p className={styles[["description"]]}>
+                {productDetail.description_product}
               </p>
             </span>
-            <p className={styles[["description"]]}>
-              {productDetail.description_product}
-            </p>
-          </span>
-          <span className={styles["components"]}>
-            <ul className={styles["qty"]}>
-              <li
-                onClick={() => setCounter(counter - 1)}
-                className={`${styles["pointer"]}`}
-              >
-                -
-              </li>
-              <li>{counter}</li>
-              <li
-                onClick={() => setCounter(counter + 1)}
-                className={`${styles["pointer"]}`}
-              >
-                +
-              </li>
-            </ul>
-            <button onClick={handleAddCart} className={styles["add-to-cart"]}>
-              {" "}
-              Add to cart
-            </button>
-            <span className={styles["favorites"]}>
-              <img src={Heart} alt={``} />
+            <span className={styles["components"]}>
+              <ul className={styles["qty"]}>
+                <li
+                  onClick={() => setCounter(counter - 1)}
+                  className={`${styles["pointer"]}`}
+                >
+                  -
+                </li>
+                <li>{counter}</li>
+                <li
+                  onClick={() => setCounter(counter + 1)}
+                  className={`${styles["pointer"]}`}
+                >
+                  +
+                </li>
+              </ul>
+              <button onClick={handleAddCart} className={styles["add-to-cart"]}>
+                {" "}
+                Add to cart
+              </button>
+              <span className={styles["favorites"]}>
+                <img src={Heart} alt={``} />
+              </span>
+              <button className={styles["add-to-whishlist"]}>
+                {" "}
+                Add to whishlist
+              </button>
             </span>
-            <button className={styles["add-to-whishlist"]}>
-              {" "}
-              Add to whishlist
-            </button>
-          </span>
-          <span className={styles["details"]}>
-            <p>SKU: N/A</p>
-            <p>
-              Categories:
-              {category?.length > 0 &&
-                category?.map((item, index, array) => {
-                  if (category?.length - 1 === index) {
-                    return item;
-                  } else {
-                    return ` ${item}, `;
-                  }
-                })}
-            </p>
-            <p>Tag: Furniture, Chair, Scandinavian, Modern</p>
-            <p>Product ID: {productDetail.id}</p>
-          </span>
-          <span className={styles["deliveries"]}>
-            <ul>
-              <li>
-                <img src={delivery_fast} alt={``} />
-                <p>Delivery and return</p>
-              </li>
-              <li>
-                <img src={measurement} alt={``} />
-                <p>Size Guide</p>
-              </li>
+            <span className={styles["details"]}>
+              <p>SKU: N/A</p>
+              <p>
+                Categories:
+                {category?.length > 0 &&
+                  category?.map((item, index, array) => {
+                    if (category?.length - 1 === index) {
+                      return item;
+                    } else {
+                      return ` ${item}, `;
+                    }
+                  })}
+              </p>
+              <p>Tag: Furniture, Chair, Scandinavian, Modern</p>
+              <p>Product ID: {productDetail.id}</p>
+            </span>
+            <span className={styles["deliveries"]}>
+              <ul>
+                <li>
+                  <img src={delivery_fast} alt={``} />
+                  <p>Delivery and return</p>
+                </li>
+                <li>
+                  <img src={measurement} alt={``} />
+                  <p>Size Guide</p>
+                </li>
 
-              <li>
-                <img src={pin_check} alt={``} />
-                <p>Store availability</p>
-              </li>
-            </ul>
-          </span>
-          <span className={styles["medias"]}>
-            <img src={iconFb} alt={`facebook`} />
-            <img src={iconTwit} alt={`twitter`} />
-            <img src={iconYt} alt={`youtube`} />
-          </span>
+                <li>
+                  <img src={pin_check} alt={``} />
+                  <p>Store availability</p>
+                </li>
+              </ul>
+            </span>
+            <span className={styles["medias"]}>
+              <img src={iconFb} alt={`facebook`} />
+              <img src={iconTwit} alt={`twitter`} />
+              <img src={iconYt} alt={`youtube`} />
+            </span>
+          </div>
         </section>
         <section>
           <span className={styles["lists-section"]}>
@@ -208,7 +210,7 @@ const ProductDetail = () => {
               <li>Description</li>
               <li>Review</li>
               <li>Additional Information</li>
-              <li>Abaout Brand</li>
+              <li>About Brand</li>
               <li>Shipping & Delivery</li>
             </ul>
           </span>
@@ -248,9 +250,9 @@ const ProductDetail = () => {
                   <li className={styles["prodcut"]}>
                     <div>
                       <img
-                      onClick={() => {
-                        navigate(`/products/${item.id}`)
-                      }}
+                        onClick={() => {
+                          navigate(`/products/${item.id}`)
+                        }}
                         src={item.image}
                         alt={`related2`}
                         className={styles["related-prodcut__image"]}

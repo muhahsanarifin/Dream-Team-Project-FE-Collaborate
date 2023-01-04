@@ -1,7 +1,7 @@
 /* || Font styles */
 
-@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
 
 :root {
   --pd-main-color: #ffffff;
@@ -17,7 +17,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Arimo", sans-serif;
+  font-family: 'Arimo', sans-serif;
 }
 
 .main {
@@ -31,7 +31,8 @@
   /* border: 1px solid red; */
   display: flex;
   flex-direction: row;
-  gap: 0.2rem;
+  gap: 0.5rem;
+  padding-left: 65px;
 }
 
 .breadcrumb p {
@@ -51,8 +52,9 @@
   /* border: 1px solid darkgoldenrod; */
   display: flex;
   flex-direction: row;
-  gap: 1rem;
-  justify-content: center;
+  gap: 9rem;
+  justify-content: flex-start;
+  margin-left: 150px;
   align-items: center;
 }
 
@@ -74,8 +76,12 @@
 }
 
 .product-detail__images-right-side img {
-  width: 700px;
-  height: auto;
+  width: 450px;
+  height: 450px;
+}
+.image_product {
+  width: 500px;
+  height: 500px;
 }
 
 .product-detail__descriptions {
@@ -89,11 +95,13 @@
   /* border: 1px solid darkblue; */
   font-size: 32px;
   margin-bottom: 0;
+  padding-top: 30px;
+  /* padding-left: 65px; */
 }
 
-/* .ratings { 
-  border: 1px solid darkgoldenrod; 
- } */
+.ratings {
+  /* padding-left: 65px; */
+}
 
 .price-and-sold-history {
   /* border: 1px solid darkblue; */
@@ -102,8 +110,12 @@
   flex-direction: row;
   gap: 10rem;
   align-items: center;
+  /* padding-left: 65px; */
 }
 
+.content-product {
+  padding-left: 65px;
+}
 .price {
   font-size: 24px;
   font-weight: 800;
@@ -123,6 +135,7 @@
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
+  margin: 10px 0px;
 }
 
 .qty {
@@ -233,6 +246,7 @@
   flex-direction: row;
   align-items: center;
   gap: 1rem;
+  padding-left: 55px;
 }
 
 .images-description img {
