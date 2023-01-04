@@ -2,9 +2,9 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import jwt from "jwt-decode";
 
-class PrivateElement extends React.Component {
+class PrivateElementSeller extends React.Component {
   render() {
-    const { allowedRoles = ["seller", "customer"], children } = this.props;
+    const { allowedRoles = ["seller"], children } = this.props;
     // const { children } = this.props;
     const token = localStorage.getItem("token");
     if (token) {
@@ -36,4 +36,4 @@ class PrivateElement extends React.Component {
   }
 }
 
-export default PrivateElement;
+export default PrivateElementSeller;

@@ -6,9 +6,7 @@ import Swal from "sweetalert2";
 import Axios from "axios";
 import withNavigate from "../helpers/withNavigate";
 import jwt from "jwt-decode";
-import profile from "../assets/profile.png";
 import edit from "../assets/edit.png";
-import editwhite from "../assets/edit-white.png";
 import editb from "../assets/editb.png";
 import logout from "../assets/logout.png";
 import chev from "../assets/chevrongrey.png";
@@ -32,10 +30,10 @@ class ProfileSellers extends Component {
     document.title = "Profile";
     const token = localStorage.getItem("token");
     const info = jwt(token);
-    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/users/profile`;
+    const url = `https://dream-team-project-be.vercel.app/raz/users/profile`;
     const config = {
       headers: {
-        "x-access-token": localStorage.getItem("token"),
+        "x-access-token": token,
       },
     };
     Axios.get(url, config)
@@ -58,7 +56,7 @@ class ProfileSellers extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
+    const url = `https://dream-team-project-be.vercel.app/raz/auth/logout`;
     const config = {
       headers: {
         "x-access-token": localStorage.getItem("token"),
@@ -94,13 +92,15 @@ class ProfileSellers extends Component {
 
   handleSubmit2(event) {
     event.preventDefault();
-    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/users/profile/edit`;
+    const url = `https://dream-team-project-be.vercel.app/raz/users/profile/edit`;
     const formdata = new FormData();
     console.log(this.state);
     formdata.append("username", this.state.username);
     formdata.append("gender", this.state.gender);
     formdata.append("store_description", this.state.desc);
-    formdata.append("image", this.state.file);
+    if (this.state.file) {
+      formdata.append("image", this.state.file);
+    }
     const body = formdata;
     const config = {
       headers: {
@@ -129,6 +129,7 @@ class ProfileSellers extends Component {
         });
       });
   }
+
   handleFile(event) {
     if (event.target.files && event.target.files[0]) {
       this.setState({

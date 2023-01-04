@@ -14,6 +14,7 @@ import Checkout from "./pages/Checkout";
 import Tracking from "./pages/Tracking";
 import TrackingDetail from "./pages/TrackingDetail";
 import ProfileSeller from "./pages/ProfileSeller";
+import Profile from "./pages/Profile";
 import MyProduct from "./pages/MyProduct";
 import SellingProduct from "./pages/SellingProduct";
 import MyOrderSeller from "./pages/MyOrderSeller";
@@ -26,6 +27,7 @@ import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
 import ComingSoon from "./pages/ComingSoon";
 import PrivateElement from "./components/PrivateElement";
+import PrivateElementSeller from "./components/PrivateElementSeller";
 import ReversePrivateElement from "./components/ReversePrivateElement";
 
 const router = createBrowserRouter([
@@ -58,7 +60,7 @@ const router = createBrowserRouter([
     path: "/profile",
     element: (
       <PrivateElement>
-        <ProfileSeller />
+        <Profile />
       </PrivateElement>
     ),
   },
@@ -108,33 +110,33 @@ const router = createBrowserRouter([
   {
     path: "/profile/seller",
     element: (
-      <PrivateElement>
+      <PrivateElementSeller>
         <ProfileSeller />
-      </PrivateElement>
+      </PrivateElementSeller>
     ),
   },
   {
     path: "/profile/seller/product",
     element: (
-      <PrivateElement>
+      <PrivateElementSeller>
         <MyProduct />
-      </PrivateElement>
+      </PrivateElementSeller>
     ),
   },
   {
     path: "/profile/seller/product/selling",
     element: (
-      <PrivateElement>
+      <PrivateElementSeller>
         <SellingProduct />
-      </PrivateElement>
+      </PrivateElementSeller>
     ),
   },
   {
     path: "/profile/seller/order",
     element: (
-      <PrivateElement>
+      <PrivateElementSeller>
         <MyOrderSeller />
-      </PrivateElement>
+      </PrivateElementSeller>
     ),
   },
   { path: "/contact", element: <Contact /> },
