@@ -6,8 +6,7 @@ import Swal from "sweetalert2";
 import Axios from "axios";
 import withNavigate from "../helpers/withNavigate";
 import jwt from "jwt-decode";
-import edit from "../assets/edit.png";
-import editb from "../assets/editb.png";
+import edit from "../assets/default.png";
 import logout from "../assets/logout.png";
 import chev from "../assets/chevrongrey.png";
 
@@ -233,11 +232,6 @@ class ProfileSellers extends Component {
                           }
                         />
                       </h1>
-                      <form onSubmit={this.handleSubmit2}>
-                        <button className={styles["edit"]} type="submit">
-                          <img className={styles[""]} src={edit} alt="img" />
-                        </button>
-                      </form>
                     </div>
                     <p className={styles["profile-top-text"]}>
                       as {this.state.role}
@@ -247,23 +241,29 @@ class ProfileSellers extends Component {
                 <div className={styles["section-3-div"]}>
                   <div className={styles["section-3-subdiv"]}>
                     <label className={styles["section-3-label"]}>Gender</label>
-                    <input
-                      className={styles["section-3-text"]}
-                      type="text"
-                      value={this.state.gender}
-                      placeholder="Input your gender"
-                      onChange={(event) => this.handleChange(event, "gender")}
-                    />
+                    <div className={styles["radio-div"]}>
+                      <input
+                        className={styles["radio"]}
+                        type="radio"
+                        name="role"
+                        checked={this.state.gender === "male"}
+                        onClick={() => {
+                          this.setState({ gender: "male" });
+                        }}
+                      />
+                      <p className={styles["section-3-label"]}>Male</p>
+                      <input
+                        className={styles["radio"]}
+                        type="radio"
+                        name="role"
+                        checked={this.state.gender === "female"}
+                        onClick={() => {
+                          this.setState({ gender: "female" });
+                        }}
+                      />
+                      <p className={styles["section-3-label"]}>Female</p>
+                    </div>
                   </div>
-                  <form
-                    className={styles["section-3-form"]}
-                    onSubmit={this.handleSubmit2}
-                  >
-                    <button type="submit" className={styles["section-3-edit"]}>
-                      <p>EDIT</p>
-                      <img className={styles[""]} src={editb} alt="img" />
-                    </button>
-                  </form>
                 </div>
                 <div className={styles["section-3-div"]}>
                   <div>
@@ -273,10 +273,6 @@ class ProfileSellers extends Component {
                     <p className={styles["section-3-text"]}>
                       {this.state.email}
                     </p>
-                  </div>
-                  <div className={styles["section-3-edit"]}>
-                    <p>EDIT</p>
-                    <img className={styles[""]} src={editb} alt="img" />
                   </div>
                 </div>
                 <div className={styles["section-3-div"]}>
@@ -292,15 +288,6 @@ class ProfileSellers extends Component {
                       onChange={(event) => this.handleChange(event, "desc")}
                     />
                   </div>
-                  <form
-                    className={styles["section-3-form"]}
-                    onSubmit={this.handleSubmit2}
-                  >
-                    <button type="submit" className={styles["section-3-edit"]}>
-                      <p>EDIT</p>
-                      <img className={styles[""]} src={editb} alt="img" />
-                    </button>
-                  </form>
                 </div>
                 <div className={styles["btn-div"]}>
                   <form onSubmit={this.handleSubmit}>
@@ -309,7 +296,14 @@ class ProfileSellers extends Component {
                       <p>Logout</p>
                     </button>
                   </form>
-                  <button className={styles["logout"]}>Edit Password</button>
+                  <div className={styles["submit-div"]}>
+                    <form onSubmit={this.handleSubmit2}>
+                      <button type="submit" className={styles["logout"]}>
+                        Save Change
+                      </button>
+                    </form>
+                    <button className={styles["logout"]}>Edit Password</button>
+                  </div>
                 </div>
               </section>
             </section>

@@ -8,9 +8,6 @@ import withNavigate from "../helpers/withNavigate";
 import jwt from "jwt-decode";
 
 import def from "../assets/default.png";
-import edit from "../assets/edit.png";
-// import editwhite from "../assets/edit-white.png";
-import editb from "../assets/editb.png";
 import logout from "../assets/logout.png";
 
 class Profiles extends Component {

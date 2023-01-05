@@ -19,11 +19,11 @@
   display: none;
 }
 .section-1::after {
-  background-image: url('../assets/login-background.png');
-  background-image: url('../assets/login-background.png');
+  background-image: url("../assets/login-background.png");
+  background-image: url("../assets/login-background.png");
   background-repeat: no-repeat;
   background-size: cover;
-  content: '';
+  content: "";
   opacity: 0.2;
   top: 0;
   left: 0;
@@ -224,10 +224,10 @@
 }
 
 .section-1::after {
-  background-image: url('../assets/login-background.png');
+  background-image: url("../assets/login-background.png");
   background-repeat: no-repeat;
   background-size: cover;
-  content: '';
+  content: "";
   opacity: 0.2;
   top: 0;
   left: 0;
@@ -269,6 +269,7 @@
   font-weight: 700;
   font-size: 24px;
   line-height: 27.6px;
+  width: auto;
 }
 
 .profile-top-text {
@@ -407,6 +408,16 @@
   display: flex;
   column-gap: 30px;
   justify-content: space-between;
+}
+
+.submit-div {
+  display: flex;
+  column-gap: 30px;
+}
+
+.radio-div {
+  display: flex;
+  column-gap: 10px;
 }
 
 @media (max-width: 768px) {
