@@ -34,7 +34,7 @@ class Registers extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/register`;
+    const url = `https://dream-team-project-be.vercel.app/raz/auth/register`;
     const data = {
       email: this.state.email,
       password: this.state.password,
