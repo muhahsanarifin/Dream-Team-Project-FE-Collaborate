@@ -1,18 +1,18 @@
 import { ActionType } from "redux-promise-middleware";
-import { login, /* logout, reset */ } from "../../utils/fetcher";
-import { ACTION_STRING } from "./actionStrings";
+import { login /* logout, reset */ } from "../../utils/fetcher";
+import { actionStrings } from "./actionStrings";
 
 const { Pending, Rejected, Fulfilled } = ActionType;
 
 const loginPending = () => ({
-  type: ACTION_STRING.authLogin.concat("_", Pending),
+  type: actionStrings.authLogin.concat("_", Pending),
 });
 const loginRejected = (error) => ({
-  type: ACTION_STRING.authLogin.concat("_", Rejected),
+  type: actionStrings.authLogin.concat("_", Rejected),
   payload: { error },
 });
 const loginFulfilled = (data) => ({
-  type: ACTION_STRING.authLogin.concat("_", Fulfilled),
+  type: actionStrings.authLogin.concat("_", Fulfilled),
   payload: { data },
 });
 
@@ -40,17 +40,24 @@ const loginFulfilled = (data) => ({
 //   payload: { data },
 // });
 
-const loginThunk = (body, navigate) => {
-  return async (dispacth) => {
+const loginThunk = (body, navigate, cbSuccess, cbError) => {
+  return async (dispatch) => {
     try {
-      dispacth(loginPending());
+      dispatch(loginPending());
       const result = await login(body);
-      dispacth(loginFulfilled(result.data));
-      console.log(result.data);
-      localStorage.setItem("token", JSON.stringify(result.data.data.token));
+      // console.log(typeof result.data.data.token);
+      // console.log(typeof result.data.data.role);
+      const token = result.data.data.token;
+      localStorage.setItem("token", token);
+      localStorage.setItem("role", result.data.data.role);
+      dispatch(loginFulfilled(result.data));
+      // console.log(result.data);
+      // localStorage.setItem("token", JSON.stringify(result.data.data.token));
+      if (typeof cbSuccess === "function") cbSuccess();
       if (typeof navigate === "function") navigate();
     } catch (error) {
-      dispacth(loginRejected(error));
+      dispatch(loginRejected(error));
+      if (typeof cbError === "function") cbError(error);
     }
   };
 };

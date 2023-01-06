@@ -7,6 +7,7 @@ const baseUrl = "https://dream-team-project-be.vercel.app/";
 // console.log(process.env.REACT_APP_DT_BACKEND_HOST);
 
 const axiosRequest = (method, url, data, params) => {
+  console.log(data);
   return axios({
     method,
     url: `${baseUrl}${url}`,
@@ -16,7 +17,7 @@ const axiosRequest = (method, url, data, params) => {
 };
 
 export const login = (data) => {
-  return axiosRequest("POST", "/auth/login", data);
+  return axiosRequest("POST", "raz/auth/login", data);
 };
 
 export const getProduct = (params, data) => {
