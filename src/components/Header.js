@@ -23,6 +23,8 @@ class Header extends Component {
   }
 
   render() {
+    const token = localStorage.getItem("token");
+    console.log(typeof token);
     return (
       <Fragment>
         <main className={`${styles["main"]} ${styles["display-main"]}`}>
@@ -127,75 +129,85 @@ class Header extends Component {
                 style={{ display: this.state.menu }}
                 className={`${styles["header-right-toggle__contents"]}`}
               >
-                <Link
-                  to={`/login`}
-                  className={styles["link"]}
-                  style={{ display: this.props.displayLogin }}
-                >
-                  <li>Login</li>
-                </Link>
-                <Link
+                {!token ? (
+                  <Link
+                    to={`/login`}
+                    className={styles["link"]}
+                    style={{ display: this.props.displayLogin }}
+                  >
+                    <li>Login</li>
+                  </Link>
+                ) : null}
+                {!token ?<Link
                   to={`/register`}
                   className={styles["link"]}
                   style={{ display: this.props.displayRegister }}
                 >
                   <li>Register</li>
-                </Link>
-                <Link
-                  to={this.props.linkToProfile}
-                  className={styles["link"]}
-                  style={{ display: this.props.displayProfile }}
-                >
-                  <li>Profile</li>
-                </Link>
-                <Link to={`/chat`} className={styles["link"]}>
-                  <li>Chat</li>
-                </Link>
-                <Link to={`/notification`} className={styles["link"]}>
-                  <li>Notification</li>
-                </Link>
-                <li
-                  className={styles["link"]}
-                  style={{ display: this.props.displayLogout }}
-                  onClick={() => {
-                    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
-                    const config = {
-                      headers: {
-                        "x-access-token": localStorage.getItem("token"),
-                      },
-                    };
-                    Axios.delete(url, config)
-                      .then((res) => {
-                        Swal.fire({
-                          title: "Logout Success!",
-                          timer: 2000,
-                          showConfirmButton: false,
-                          timerProgressBar: true,
-                        }).then((result) => {
-                          if (result.dismiss === Swal.DismissReason.timer) {
-                            this.props.navigate("/login");
-                            localStorage.clear();
-                          }
+                </Link>: null}
+                {token ? (
+                  <Link
+                    to={this.props.linkToProfile}
+                    className={styles["link"]}
+                    style={{ display: this.props.displayProfile }}
+                  >
+                    <li>Profile</li>
+                  </Link>
+                ) : null}
+                {token ? (
+                  <Link to={`/chat`} className={styles["link"]}>
+                    <li>Chat</li>
+                  </Link>
+                ) : null}
+                {token ? (
+                  <Link to={`/notification`} className={styles["link"]}>
+                    <li>Notification</li>
+                  </Link>
+                ) : null}
+                {token ? (
+                  <li
+                    className={styles["link"]}
+                    style={{ display: this.props.displayLogout }}
+                    onClick={() => {
+                      const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
+                      const config = {
+                        headers: {
+                          "x-access-token": localStorage.getItem("token"),
+                        },
+                      };
+                      Axios.delete(url, config)
+                        .then((res) => {
+                          Swal.fire({
+                            title: "Logout Success!",
+                            timer: 2000,
+                            showConfirmButton: false,
+                            timerProgressBar: true,
+                          }).then((result) => {
+                            if (result.dismiss === Swal.DismissReason.timer) {
+                              this.props.navigate("/login");
+                              localStorage.clear();
+                            }
+                          });
+                        })
+                        .catch((err) => {
+                          console.log(err);
+                          Swal.fire({
+                            // title: "Logout Failed!",
+                            // showConfirmButton: false,
+                            // timer: 1000,
+                            title: "Logout Success!",
+                            timer: 2000,
+                            showConfirmButton: false,
+                            timerProgressBar: true,
+                          });
+                          this.props.navigate("/login");
+                          localStorage.clear();
                         });
-                      })
-                      .catch((err) => {
-                        console.log(err);
-                        Swal.fire({
-                          // title: "Logout Failed!",
-                          // showConfirmButton: false,
-                          // timer: 1000,
-                          title: "Logout Success!",
-                          timer: 2000,
-                          showConfirmButton: false,
-                          timerProgressBar: true,
-                        });
-                        this.props.navigate("/login");
-                        localStorage.removeItem("token");
-                      });
-                  }}
-                >
-                  Logout
-                </li>
+                    }}
+                  >
+                    Logout
+                  </li>
+                ) : null}
               </ul>
             </div>
           </div>

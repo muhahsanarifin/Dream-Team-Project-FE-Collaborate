@@ -8,13 +8,12 @@ import styles from "../styles/Products.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../redux/action/product";
 import categoriesActions from "../redux/action/categories";
-import cardComingSoon from "../components/CardComingSoon";
+import CardComingSoon from "../components/CardComingSoon";
 import {
   createSearchParams,
   useLocation,
   useSearchParams,
 } from "react-router-dom";
-import CardComingSoon from "../components/CardComingSoon";
 
 const useQuery = () => {
   const { search } = useLocation();
@@ -82,8 +81,9 @@ const Products = () => {
             <span>{`>`}</span>
             <p>Shop Right Sidebar</p>
           </div>
-          {/* <p>Carousel Soon...</p> */}
-          <CardComingSoon />
+          <span className={styles["cards"]}>
+            <CardComingSoon title={`We’re Building Something New`} />
+          </span>
         </section>
 
         <section className={styles["main__prodcuts"]}>
@@ -104,8 +104,7 @@ const Products = () => {
                   ))}
                 </div>
               </div>
-              <ul className={styles["categories__list"]}>
-              </ul>
+              <ul className={styles["categories__list"]}></ul>
             </span>
             <div className={styles["price"]}>
               <h3>Price</h3>
@@ -389,7 +388,6 @@ const Products = () => {
                   </div>
                 )}
               </div>
-
             </span>
             <span className={styles["product-lists"]}>
               {isLoading ? (
