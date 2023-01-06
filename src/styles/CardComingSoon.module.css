@@ -8,6 +8,7 @@
 .title {
   /* border: 1px solid darkred; */
   font-size: 54px;
+  width: 624px;
 }
 
 .email {
@@ -19,8 +20,9 @@
 .email input[type="text"] {
   outline: none;
   border: none;
-  flex: 1;
+  flex: 0.5;
   font-weight: 800;
+  /* border: 1px solid darkblue; */
 }
 
 .email p {
