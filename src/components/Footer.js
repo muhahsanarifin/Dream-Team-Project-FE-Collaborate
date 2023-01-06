@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import styles from "../styles/Footer.module.css";
+import { Link } from "react-router-dom";
 
 import face from "../assets/facebook.png";
 import twitter from "../assets/twitter.png";
@@ -39,7 +40,7 @@ class Footer extends Component {
             <aside className={styles["aside-center"]}>
               <aside>
                 <h1 className={styles["aside-center-header"]}>COMPANY</h1>
-                <p className={styles["aside-center-text"]}>ABOUT US</p>
+                <Link to={`/aboutus`} className={styles["aside-center-text"]}>ABOUT US</Link>
                 <p className={styles["aside-center-text"]}>HELP CENTER</p>
                 <p className={styles["aside-center-text"]}>LICENSES</p>
                 <p className={styles["aside-center-text"]}>MARKET API</p>

@@ -93,21 +93,23 @@
   cursor: pointer;
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 14px;
+  padding-right: 14px;
   border: 1px solid black;
 }
 
 .input_search {
   border: none;
   outline: none;
+  width: 75%;
+  flex: 1;
 }
 .icon_search {
   cursor: pointer;
   margin-top: 5px;
-  margin-right: 14px;
   width: 15px;
   height: 15px;
 }
@@ -610,6 +612,7 @@
   .content_all {
     gap: 3rem;
     padding-left: 0;
+    padding-right: 30px;
   }
   .content {
     padding-top: 0;
@@ -620,7 +623,7 @@
     left: 15px;
     top: 20px;
     font-weight: 400;
-    font-size: 26px;
+    font-size: 20px;
     padding-left: 0;
   }
   .blog {
@@ -642,6 +645,7 @@
   .search {
     padding-top: 10px;
     padding-bottom: 10px;
+    display: flex;
   }
   .brand_all {
     font-size: 20px;
@@ -776,7 +780,8 @@
     border-radius: 8px;
   }
   .relate_post {
-    padding-left: 285px;
+    padding-left: 0px;
+    text-align: center;
   }
 
   .text_kids_corner,
@@ -851,6 +856,7 @@
     text-align: center;
     gap: 1rem;
     padding-left: 0;
+    padding-right: 0;
   }
 
   .content_left {
@@ -955,6 +961,7 @@
   }
   .text_shop {
     padding-top: 20px;
+    padding-bottom: 20px;
     font-size: 26px;
     font-weight: 700;
   }
@@ -1042,6 +1049,10 @@
     gap: 26px;
     padding-top: 14px;
   }
+  .text_comment {
+    text-align: left;
+    margin-left: 4px;
+  }
   .input_text {
     width: 100%;
     height: 50px;
@@ -1074,10 +1085,10 @@
     font-size: 24px;
     text-align: center;
   }
-  .content_text_time {
+  /* .content_text_time {
     display: flex;
     flex-direction: row;
     gap: 1rem;
     padding-left: 43px;
-  }
+  } */
 }
