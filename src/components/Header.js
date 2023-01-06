@@ -138,16 +138,18 @@ class Header extends Component {
                     <li>Login</li>
                   </Link>
                 ) : null}
-                {!token ?<Link
-                  to={`/register`}
-                  className={styles["link"]}
-                  style={{ display: this.props.displayRegister }}
-                >
-                  <li>Register</li>
-                </Link>: null}
+                {!token ? (
+                  <Link
+                    to={`/register`}
+                    className={styles["link"]}
+                    style={{ display: this.props.displayRegister }}
+                  >
+                    <li>Register</li>
+                  </Link>
+                ) : null}
                 {token ? (
                   <Link
-                    to={this.props.linkToProfile}
+                    to={`/profile`}
                     className={styles["link"]}
                     style={{ display: this.props.displayProfile }}
                   >
