@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/Login.module.css";
 import Swal from "sweetalert2";
-import Axios from "axios";
+// import Axios from "axios";
 import withNavigate from "../helpers/withNavigate";
 import authActions from "../redux/action/auth";
 import { connect } from "react-redux";
