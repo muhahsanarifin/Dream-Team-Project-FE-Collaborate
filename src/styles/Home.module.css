@@ -27,6 +27,11 @@
   margin: auto;
 }
 
+.section {
+  margin: 0em 1em 3em 1em;
+  padding: 0em 1em 0em 1em;
+}
+
 .fist-section {
   /* border: 1px solid darkblue; */
   position: relative;

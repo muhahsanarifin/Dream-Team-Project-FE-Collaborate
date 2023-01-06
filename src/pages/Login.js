@@ -3,9 +3,9 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/Login.module.css";
 import Swal from "sweetalert2";
-import Axios from "axios";
+// import Axios from "axios";
 import withNavigate from "../helpers/withNavigate";
-// import authActions from "../redux/action/auth";
+import authActions from "../redux/action/auth";
 import { connect } from "react-redux";
 
 class Logins extends Component {
@@ -36,31 +36,71 @@ class Logins extends Component {
   handleSubmit(event) {
     console.log(this.props);
     event.preventDefault();
-    const url = `https://dream-team-project-be.vercel.app/raz/auth/login`;
-    const data = { email: this.state.email, password: this.state.password };
-    Axios.post(url, data)
-      .then((res) => {
-        localStorage.setItem("token", res.data.data.token);
-        localStorage.setItem("role", res.data.data.role);
-        Swal.fire({
-          title: "Login Success",
-          timer: 2000,
-          showConfirmButton: false,
-          timerProgressBar: true,
-        }).then((result) => {
-          if (result.dismiss === Swal.DismissReason.timer) {
-            this.props.navigate("/");
-          }
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-        Swal.fire({
-          title: "Wrong password or email",
-          showConfirmButton: false,
-          timer: 1000,
-        });
+    // const url = `https://dream-team-project-be.vercel.app/raz/auth/login`;
+    const body = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+
+    const loginSuccess = () => {
+      Swal.fire({
+        title: "Login Success",
+        timer: 2000,
+        showConfirmButton: false,
+        timerProgressBar: true,
+      }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.timer) {
+          this.props.navigate("/");
+        }
       });
+    };
+
+    const loginFailed = (err) => {
+      console.log(err);
+      Swal.fire({
+        title: "Wrong password or email",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    };
+
+    // console.log(body);
+    return this.props.dispatch(
+      authActions.loginThunk(
+        body,
+        () => this.props.navigate("/"),
+        loginSuccess,
+        loginFailed
+      )
+    );
+
+    // const url = `https://dream-team-project-be.vercel.app/raz/auth/login`;
+    // const data = { email: this.state.email, password: this.state.password };
+    // Axios.post(url, data)
+    //   .then((res) => {
+    //     console.log(res);
+    //     // console.log(res.data);
+    //     localStorage.setItem("token", res.data.data.token);
+    //     localStorage.setItem("role", res.data.data.role);
+    //     Swal.fire({
+    //       title: "Login Success",
+    //       timer: 2000,
+    //       showConfirmButton: false,
+    //       timerProgressBar: true,
+    //     }).then((result) => {
+    //       if (result.dismiss === Swal.DismissReason.timer) {
+    //         this.props.navigate("/");
+    //       }
+    //     });
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     Swal.fire({
+    //       title: "Wrong password or email",
+    //       showConfirmButton: false,
+    //       timer: 1000,
+    //     });
+    //   });
   }
 
   render() {

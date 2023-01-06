@@ -11,6 +11,8 @@ import chev from "../assets/chevron.png";
 import bar1 from "../assets/menu-1.png";
 import bar2 from "../assets/menu-2.png";
 import withNavigate from "../helpers/withNavigate";
+import authActions from "../redux/action/auth";
+import { connect } from "react-redux";
 
 class Header extends Component {
   constructor(props) {
@@ -20,6 +22,40 @@ class Header extends Component {
       shop: "none",
       menu: "none",
     };
+  }
+
+  handleLogout() {
+    const { dispatch } = this.props;
+    const logoutSuccess = () => {
+      Swal.fire({
+        title: "Logout Success",
+        timer: 2000,
+        showConfirmButton: false,
+        timerProgressBar: true,
+      }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.timer) {
+          this.props.navigate("/");
+        }
+      });
+    };
+
+    const logoutFailed = (err) => {
+      console.log(err);
+      Swal.fire({
+        title: "Logout Failed!",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    };
+
+    return dispatch(
+      authActions.logoutThunk(
+        localStorage.getItem("token"),
+        logoutSuccess,
+        () => this.props.navigate("/login"),
+        logoutFailed
+      )
+    );
   }
 
   render() {
@@ -170,42 +206,7 @@ class Header extends Component {
                   <li
                     className={styles["link"]}
                     style={{ display: this.props.displayLogout }}
-                    onClick={() => {
-                      const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
-                      const config = {
-                        headers: {
-                          "x-access-token": localStorage.getItem("token"),
-                        },
-                      };
-                      Axios.delete(url, config)
-                        .then((res) => {
-                          Swal.fire({
-                            title: "Logout Success!",
-                            timer: 2000,
-                            showConfirmButton: false,
-                            timerProgressBar: true,
-                          }).then((result) => {
-                            if (result.dismiss === Swal.DismissReason.timer) {
-                              this.props.navigate("/login");
-                              localStorage.clear();
-                            }
-                          });
-                        })
-                        .catch((err) => {
-                          console.log(err);
-                          Swal.fire({
-                            // title: "Logout Failed!",
-                            // showConfirmButton: false,
-                            // timer: 1000,
-                            title: "Logout Success!",
-                            timer: 2000,
-                            showConfirmButton: false,
-                            timerProgressBar: true,
-                          });
-                          this.props.navigate("/login");
-                          localStorage.clear();
-                        });
-                    }}
+                    onClick={this.handleLogout}
                   >
                     Logout
                   </li>
@@ -219,4 +220,4 @@ class Header extends Component {
   }
 }
 
-export default withNavigate(Header);
+export default connect(authActions.logoutThunk)(withNavigate(Header));

@@ -278,6 +278,8 @@
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  margin-top: 5px;
+  margin-bottom: 30px;
 }
 
 .text_more {
@@ -451,6 +453,7 @@
   .content_all {
     gap: 3rem;
     padding-left: 0;
+    padding-right: 30px;
   }
   .content {
     padding-top: 0;
@@ -566,6 +569,9 @@
   .content {
     padding-top: 0;
     padding-bottom: 0;
+  }
+  .content_all {
+    padding-right: 0px;
   }
   .text_blog {
     position: absolute;
@@ -709,9 +715,10 @@
   }
   .content_describe {
     font-size: 20px;
+    text-align: left;
   }
   .text_more {
-    font-size: 20px;
+    font-size: 16px;
   }
   .line {
     width: 285px;
