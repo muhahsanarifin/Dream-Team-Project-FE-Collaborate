@@ -54,7 +54,7 @@ export default function Header({
         timerProgressBar: true,
       }).then((result) => {
         if (result.dismiss === Swal.DismissReason.timer) {
-          this.props.navigate("/");
+          navigate("/");
         }
       });
     };
