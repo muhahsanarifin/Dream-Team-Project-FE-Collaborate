@@ -7,10 +7,10 @@ const CardComingSoon = () => {
     <>
       <span className={styles["sub-main"]}>
         <h3 className={styles["title"]}>We're Building SomeThing New</h3>
-        <span className={styles["email"]}>
+        {/* <span className={styles["email"]}>
           <input type="text" placeholder="Your Email" />
           <p>Subscribe</p>
-        </span>
+        </span> */}
       </span>
     </>
   );

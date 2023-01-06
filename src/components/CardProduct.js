@@ -8,6 +8,7 @@ const CardProduct = ({ img, title, price, id }) => {
   const detailsProduct = () => {
     navigate(`/products/${id}`);
   };
+
   return (
     <>
       <span className={styles["product"]}>

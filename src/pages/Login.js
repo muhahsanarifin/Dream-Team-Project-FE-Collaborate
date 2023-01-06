@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import Axios from "axios";
 import withNavigate from "../helpers/withNavigate";
 // import authActions from "../redux/action/auth";
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
 
 class Logins extends Component {
   constructor(props) {
@@ -44,14 +44,14 @@ class Logins extends Component {
     // console.log(body);
     // return (this.props.dispatch(authActions.loginThunk(body, () => this.props.navigate("/"))))
 
-    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/login`;
+    const url = `https://dream-team-project-be.vercel.app/raz/auth/login`;
     const data = { email: this.state.email, password: this.state.password };
     Axios.post(url, data)
       .then((res) => {
         console.log(res);
+        // console.log(res.data);
         localStorage.setItem("token", res.data.data.token);
         localStorage.setItem("role", res.data.data.role);
-        // console.log(res.data);
         Swal.fire({
           title: "Login Success",
           timer: 2000,
@@ -136,12 +136,13 @@ class Logins extends Component {
   }
 }
 
-// const mapStateToProps = (reduxState) => {
-//   return {
-//     auth: reduxState.auth
-//   };
-// };
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    auth: state.auth,
+  };
+};
 
 const Login = withNavigate(Logins);
 
-export default Login;
+export default connect(mapStateToProps)(Login);
