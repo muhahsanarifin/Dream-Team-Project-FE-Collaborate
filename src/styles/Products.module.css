@@ -31,7 +31,6 @@
 }
 
 .carousel {
-  /* border: 1px solid var(--p-btn-bg-color); */
   height: 50vh;
   text-align: center;
   font-weight: 800;
@@ -40,6 +39,12 @@
 .carousel p {
   text-align: center;
   font-size: 32px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .breadcrumb {
