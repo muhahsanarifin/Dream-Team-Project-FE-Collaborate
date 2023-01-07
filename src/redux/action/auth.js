@@ -1,5 +1,5 @@
 import { ActionType } from "redux-promise-middleware";
-import { login /* logout, reset */ } from "../../utils/fetcher";
+import { login, logout /*reset*/ } from "../../utils/fetcher";
 import { actionStrings } from "./actionStrings";
 
 const { Pending, Rejected, Fulfilled } = ActionType;
@@ -16,17 +16,17 @@ const loginFulfilled = (data) => ({
   payload: { data },
 });
 
-// const logoutPending = () => ({
-//   type: ACTION_STRING.authLogout.concat("_", Pending),
-// });
-// const logoutRejected = (error) => ({
-//   type: ACTION_STRING.authLogout.concat("_", Rejected),
-//   payload: { error },
-// });
-// const logoutFulfilled = (data) => ({
-//   type: ACTION_STRING.authLogout.concat("_", Fulfilled),
-//   payload: { data },
-// });
+const logoutPending = () => ({
+  type: actionStrings.authLogout.concat("_", Pending),
+});
+const logoutRejected = (error) => ({
+  type: actionStrings.authLogout.concat("_", Rejected),
+  payload: { error },
+});
+const logoutFulfilled = (data) => ({
+  type: actionStrings.authLogout.concat("_", Fulfilled),
+  payload: { data },
+});
 
 // const resetPending = () => ({
 //   type: ACTION_STRING.authReset.concat("_", Pending),
@@ -62,19 +62,22 @@ const loginThunk = (body, navigate, cbSuccess, cbError) => {
   };
 };
 
-// const logoutThunk = (token, navigate) => {
-//   return async (dispacth) => {
-//     try {
-//       dispacth(logoutPending());
-//       const result = await logout(token);
-//       dispacth(logoutFulfilled(result.data));
-//       console.log(result.data);
-//       if (typeof navigate === "function") navigate();
-//     } catch (error) {
-//       dispacth(logoutRejected(error));
-//     }
-//   };
-// };
+const logoutThunk = (token, cbSuccess, navigate, cbError) => {
+  return async (dispacth) => {
+    try {
+      dispacth(logoutPending());
+      const result = await logout(token);
+      dispacth(logoutFulfilled(result.data));
+      console.log(result.data);
+      if (typeof cbSuccess === "function") cbSuccess()
+      if (typeof navigate === "function") navigate();
+      localStorage.clear()
+    } catch (error) {
+      dispacth(logoutRejected(error));
+       if (typeof cbError === "function") cbError(error);
+    }
+  };
+};
 
 // const resetThunk = (body, navigate) => {
 //   return async (dispacth) => {
@@ -92,7 +95,7 @@ const loginThunk = (body, navigate, cbSuccess, cbError) => {
 
 const authActions = {
   loginThunk,
-  // logoutThunk,
+  logoutThunk,
   // resetThunk,
 };
 

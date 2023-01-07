@@ -71,13 +71,13 @@ export const deleteSellerProduct = (token, params) => {
   });
 };
 
-// export const logout = (token) => {
-//   return axios({
-//     method: "DELETE",
-//     url: ${baseUrl}/auth/logout,
-//     headers: { "x-access-token": token },
-//   });
-// };
+export const logout = (token) => {
+  return axios({
+    method: "DELETE",
+    url: `${baseUrl}raz/auth/logout`,
+    headers: { "x-access-token": token },
+  });
+};
 
 // export const reset = (data) => {
 //   return axiosRequest("POST", "/auth/reset", data);
