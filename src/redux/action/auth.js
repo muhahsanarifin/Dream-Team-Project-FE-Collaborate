@@ -1,56 +1,99 @@
 import { ActionType } from "redux-promise-middleware";
-import { login, /* logout, reset */ } from "../../utils/fetcher";
-import { ACTION_STRING } from "./actionStrings";
+import { login, logout, register } from "../../utils/fetcher";
+import { actionStrings } from "./actionStrings";
 
 const { Pending, Rejected, Fulfilled } = ActionType;
 
 const loginPending = () => ({
-  type: ACTION_STRING.authLogin.concat("_", Pending),
+  type: actionStrings.authLogin.concat("_", Pending),
 });
 const loginRejected = (error) => ({
-  type: ACTION_STRING.authLogin.concat("_", Rejected),
+  type: actionStrings.authLogin.concat("_", Rejected),
   payload: { error },
 });
 const loginFulfilled = (data) => ({
-  type: ACTION_STRING.authLogin.concat("_", Fulfilled),
+  type: actionStrings.authLogin.concat("_", Fulfilled),
   payload: { data },
 });
 
-// const logoutPending = () => ({
-//   type: ACTION_STRING.authLogout.concat("_", Pending),
-// });
-// const logoutRejected = (error) => ({
-//   type: ACTION_STRING.authLogout.concat("_", Rejected),
-//   payload: { error },
-// });
-// const logoutFulfilled = (data) => ({
-//   type: ACTION_STRING.authLogout.concat("_", Fulfilled),
-//   payload: { data },
-// });
+const logoutPending = () => ({
+  type: actionStrings.authLogout.concat("_", Pending),
+});
+const logoutRejected = (error) => ({
+  type: actionStrings.authLogout.concat("_", Rejected),
+  payload: { error },
+});
+const logoutFulfilled = (data) => ({
+  type: actionStrings.authLogout.concat("_", Fulfilled),
+  payload: { data },
+});
+
+const registerPending = () => ({
+  type: actionStrings.register.concat("_", Pending),
+});
+
+const registerRejected = (error) => ({
+  type: actionStrings.register.concat("_", Rejected),
+  payload: { error },
+});
+
+const registerFulfilled = (data) => ({
+  type: actionStrings.register.concat("_", Fulfilled),
+  payload: { data },
+});
 
 // const resetPending = () => ({
-//   type: ACTION_STRING.authReset.concat("_", Pending),
+//   type: actionStrings.authReset.concat("_", Pending),
 // });
 // const resetRejected = (error) => ({
-//   type: ACTION_STRING.authReset.concat("_", Rejected),
+//   type: actionStrings.authReset.concat("_", Rejected),
 //   payload: { error },
 // });
 // const resetFulfilled = (data) => ({
-//   type: ACTION_STRING.authReset.concat("_", Fulfilled),
+//   type: actionStrings.authReset.concat("_", Fulfilled),
 //   payload: { data },
 // });
 
-const loginThunk = (body, navigate) => {
-  return async (dispacth) => {
+// const loginThunk = (body, navigate) => {
+//   return async (dispacth) => {
+//     try {
+//       dispacth(loginPending());
+//       const result = await login(body);
+//       dispacth(loginFulfilled(result.data));
+//       console.log(result.data);
+//       localStorage.setItem("token", JSON.stringify(result.data.data.token));
+//       if (typeof navigate === "function") navigate();
+//     } catch (error) {
+//       dispacth(loginRejected(error));
+//     }
+//   };
+// };
+
+const registerThunk = (body, cbSuccess, cbDenied) => {
+  return async (dispatch) => {
     try {
-      dispacth(loginPending());
-      const result = await login(body);
-      dispacth(loginFulfilled(result.data));
-      console.log(result.data);
-      localStorage.setItem("token", JSON.stringify(result.data.data.token));
-      if (typeof navigate === "function") navigate();
+      dispatch(registerPending());
+      const result = await register(body);
+      dispatch(registerFulfilled(result.data));
+      if (typeof cbSuccess === "function") cbSuccess();
     } catch (error) {
-      dispacth(loginRejected(error));
+      dispatch(registerRejected(error));
+      if (typeof cbDenied === "function") cbDenied();
+    }
+  };
+};
+
+const loginThunk = (body, cbSuccess, cbDenied) => {
+  return async (dispatch) => {
+    try {
+      dispatch(loginPending());
+      const result = await login(body);
+      dispatch(loginFulfilled(result.data));
+      localStorage.setItem("token", JSON.stringify(result.data.data.token));
+      if (typeof cbSuccess === "function") cbSuccess();
+    } catch (error) {
+      dispatch(loginRejected(error));
+      if (typeof cbDenied === "function") cbDenied();
     }
   };
 };
@@ -69,6 +112,20 @@ const loginThunk = (body, navigate) => {
 //   };
 // };
 
+const logoutThunk = (cbSuccess) => {
+  return async (dispatch) => {
+    try {
+      dispatch(logoutPending());
+      const result = await logout();
+      dispatch(logoutFulfilled(result.data));
+      localStorage.clear();
+      if (typeof cbSuccess === "function") cbSuccess();
+    } catch (error) {
+      dispatch(logoutRejected(error));
+    }
+  };
+};
+
 // const resetThunk = (body, navigate) => {
 //   return async (dispacth) => {
 //     try {
@@ -85,7 +142,8 @@ const loginThunk = (body, navigate) => {
 
 const authActions = {
   loginThunk,
-  // logoutThunk,
+  logoutThunk,
+  registerThunk,
   // resetThunk,
 };
 

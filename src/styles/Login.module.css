@@ -124,10 +124,30 @@
   width: 100%;
   margin-bottom: 33px;
   padding-left: 20px;
+  padding-right: 20px;
   font-weight: 400;
   font-size: 12px;
   line-height: 28px;
   color: #4d4d4d;
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.inputPwd {
+  height: 65px;
+  flex: 1;
+  border: none;
+  outline: none;
 }
 
 .button {
@@ -143,6 +163,18 @@
   line-height: 16.1px;
   margin-bottom: 46px;
   cursor: pointer;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.button:disabled {
+  background-color: #DADADA;
+  color:#88888F;
+}
+
+.button:hover {
+  opacity: 0.8;
 }
 
 .remember-div {

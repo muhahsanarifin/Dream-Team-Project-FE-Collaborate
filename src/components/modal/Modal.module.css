@@ -14,7 +14,7 @@
   width: 600px;
   background-color: #ffffff;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 10px;
   padding-top: 30px;
   padding-bottom: 30px;
 }
@@ -48,12 +48,13 @@
     font-family: 'Poppins';
     font-size: 25px;
     font-weight: 700;
-    border-radius: 20px;
-    border: 1px solid #6A4029;
-    color: #6A4029;
+    border-radius: 10px;
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
 }
 
 .button:active {
-    background-color: #6A4029;
+    background-color: #000;
     color: #ffffff;
 }
