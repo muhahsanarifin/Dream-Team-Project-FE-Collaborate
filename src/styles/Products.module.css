@@ -539,7 +539,7 @@
 
   .info {
     /* border: 1px solid darkblue; */
-    padding-right: 2.6rem;
+    padding: 0px 20px;
   }
 
   .info__pages p,
@@ -560,9 +560,9 @@
 
   .product-lists {
     /* border: 1px solid darkblue; */
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
     min-height: 100vh;
   }
   .paginations ul {
