@@ -9,6 +9,7 @@ import jwt from "jwt-decode";
 import edit from "../assets/default.png";
 import logout from "../assets/logout.png";
 import chev from "../assets/chevrongrey.png";
+import { connect } from "react-redux";
 
 class ProfileSellers extends Component {
   constructor(props) {
@@ -27,12 +28,12 @@ class ProfileSellers extends Component {
 
   componentDidMount() {
     document.title = "Profile";
-    const token = localStorage.getItem("token");
+    const token = this.props.auth.userInfo.token;
     const info = jwt(token);
     const url = `https://dream-team-project-be.vercel.app/raz/users/profile`;
     const config = {
       headers: {
-        "x-access-token": token,
+        "x-access-token": this.props.auth.userInfo.token,
       },
     };
     Axios.get(url, config)
@@ -58,7 +59,7 @@ class ProfileSellers extends Component {
     const url = `https://dream-team-project-be.vercel.app/raz/auth/logout`;
     const config = {
       headers: {
-        "x-access-token": localStorage.getItem("token"),
+        "x-access-token": this.props.auth.userInfo.token,
       },
     };
     Axios.delete(url, config)
@@ -103,7 +104,7 @@ class ProfileSellers extends Component {
     const body = formdata;
     const config = {
       headers: {
-        "x-access-token": localStorage.getItem("token"),
+        "x-access-token": this.props.auth.userInfo.token,
       },
     };
     Axios.patch(url, body, config)
@@ -315,6 +316,14 @@ class ProfileSellers extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    auth: state.auth,
+  };
+};
+
 const ProfileSeller = withNavigate(ProfileSellers);
 
-export default ProfileSeller;
+export default connect(mapStateToProps)(ProfileSeller);
+// export default ProfileSeller;
