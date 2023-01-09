@@ -37,9 +37,9 @@ const authReducer = (prevState = initialState, { type, payload }) => {
     case authLogin.concat("_", Fulfilled):
       return {
         ...prevState,
+        isLoading: false,
         isError: false,
         isFulfilled: true,
-        isLoading: false,
         userInfo: {
           id: payload.data.data.user_id,
           token: payload.data.data.token,
@@ -52,16 +52,29 @@ const authReducer = (prevState = initialState, { type, payload }) => {
         ...prevState,
         isLoading: true,
         isError: false,
+        isFulfilled: false,
       };
     case authLogout.concat("_", Rejected):
       return {
         ...prevState,
-        isLoading: true,
-        isError: false,
+        isLoading: false,
+        isError: true,
+        isFulfilled: false,
         error: payload.error.response.data.status,
       };
     case authLogout.concat("_", Fulfilled):
-      return initialState;
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: false,
+        isFulfilled: true,
+        userInfo: {
+          id: null,
+          token: null,
+          email: null,
+          roles: null,
+        },
+      };
 
     case register.concat("_", Pending):
       return {
@@ -101,7 +114,7 @@ const authReducer = (prevState = initialState, { type, payload }) => {
         isLoading: false,
         isError: true,
         isFulfilled: false,
-        error: payload.error.response.data.status
+        error: payload.error.response.data.status,
       };
     case authReset.concat("_", Fulfilled):
       return {

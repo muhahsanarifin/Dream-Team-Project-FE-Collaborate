@@ -3,7 +3,6 @@ import styles from "../styles/Header.module.css";
 
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import Axios from "axios";
 import mag from "../assets/mag.png";
 import love from "../assets/love.png";
 import cart from "../assets/cart.png";
@@ -13,6 +12,7 @@ import bar2 from "../assets/menu-2.png";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../redux/action/product";
 import authActions from "../redux/action/auth";
+import Modal from "../components/modal/ModalLogout";
 
 export default function Header({
   displayLogin,
@@ -24,6 +24,7 @@ export default function Header({
   const [pages, setPages] = useState("none");
   const [shop, setShop] = useState("none");
   const [menu, setMenu] = useState("none");
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.userInfo.token);
   const [search, setSearch] = useState("");
@@ -240,7 +241,9 @@ export default function Header({
                 <li
                   className={styles["link"]}
                   style={{ display: displayLogout }}
-                  onClick={handleLogout}
+                  onClick={() => {
+                    setOpen(!open);
+                  }}
                 >
                   Logout
                 </li>
@@ -248,6 +251,7 @@ export default function Header({
             </ul>
           </div>
         </div>
+        <Modal open={open} setOpen={setOpen} />
       </main>
     </>
   );
