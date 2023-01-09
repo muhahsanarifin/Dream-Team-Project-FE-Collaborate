@@ -78,6 +78,18 @@ const Products = () => {
   const role = useSelector((state) => state.auth.userInfo.role); // Get role user
   const token = useSelector((state) => state.auth.userInfo.token); // Get token user
 
+  const [data, setData] = useState(0);
+  console.log(data);
+
+  const currency = (price) => {
+    return (
+      "Rp " +
+      parseFloat(price)
+        .toFixed()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+    );
+  };
+
   return (
     <>
       <main className={styles["main"]}>
@@ -130,9 +142,28 @@ const Products = () => {
             </span>
             <div className={styles["price"]}>
               <h3>Price</h3>
-              <p>Price Rp.39.000 - Rp.159.000</p>
+              {/* <p>Price Rp.39.000 - Rp.159.000</p> */}
+              <p>Rp 0 - {currency(data)}</p>
+              <input
+                type="range"
+                min="0"
+                max="3000000"
+                step="1000"
+                value={data}
+                onChange={(e) => setData(e.target.value)}
+              />
               <span></span>
-              <button>Filter</button>
+              <button
+                onClick={() => {
+                  setQuery({
+                    ...query,
+                    maxPrice: data ? data : "",
+                    page: "1",
+                  });
+                }}
+              >
+                Filter
+              </button>
             </div>
             <span className={styles["brands"]}>
               <h3>Brands</h3>
