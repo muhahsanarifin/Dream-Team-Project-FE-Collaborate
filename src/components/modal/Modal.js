@@ -14,6 +14,7 @@ const Modal = (props) => {
       window.open("https://simulator.sandbox.midtrans.com/bni/va/index")
     }
     props.setOpen(!props)
+    navigate('/products')
     // try {
     //   // console.log("test");
     //   await logout();

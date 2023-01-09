@@ -45,6 +45,24 @@ const Checkout = () => {
     setBody({ ...body, phone: "+62" + e.target.value });
   };
 
+  const getProfile = async () => {
+    // const token = localStorage.getItem("token");
+    // console.log(token);
+    try {
+      await dispatch(profileAction.getProfileThunk(token));
+    } catch (error) {
+      console.log(error);
+      if (error.response.data.statusCode === 403) {
+        localStorage.removeItem("login");
+        navigate("/login");
+      }
+      if (error.response.data.status === "You have to login first") {
+        localStorage.removeItem("login");
+        navigate("/login");
+      }
+    }
+  };
+
   const handleBank = (e) => {
     if (e.target.value === "BRI") {
       setBody({ ...body, payment_method: "BRI" });
@@ -83,26 +101,8 @@ const Checkout = () => {
     }
   };
 
-  const getProfile = async () => {
-    const token = localStorage.getItem("token");
-    console.log(token);
-    try {
-      await dispatch(profileAction.getProfileThunk(token));
-    } catch (error) {
-      console.log(error);
-      if (error.response.data.statusCode === 403) {
-        localStorage.removeItem("login");
-        navigate("/login");
-      }
-      if (error.response.data.status === "You have to login first") {
-        localStorage.removeItem("login");
-        navigate("/login");
-      }
-    }
-  };
-
   useEffect(() => {
-    getProfile();
+    getProfile(token);
   }, []);
 
   return (
@@ -126,7 +126,7 @@ const Checkout = () => {
             <input
               className={styles["input-1"]}
               type="text"
-              placeholder={profile.usename || "Your Name *"}
+              placeholder={profile.username || "Your Name *"} 
               onChange={name_user}
             />
             <input
