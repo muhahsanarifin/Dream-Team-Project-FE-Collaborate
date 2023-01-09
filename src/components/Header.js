@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from "react";
+import React, { useState } from "react";
 import styles from "../styles/Header.module.css";
 import Modal from "../components/modal/ModalLogout"
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import Axios from "axios";
 import mag from "../assets/mag.png";
@@ -11,267 +11,247 @@ import cart from "../assets/cart.png";
 import chev from "../assets/chevron.png";
 import bar1 from "../assets/menu-1.png";
 import bar2 from "../assets/menu-2.png";
-import withNavigate from "../helpers/withNavigate";
+import { useDispatch, useSelector } from "react-redux";
+import productActions from "../redux/action/product";
+import authActions from "../redux/action/auth";
 
-class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pages: "none",
-      shop: "none",
-      menu: "none",
-      open: false,
+export default function Header({
+  displayLogin,
+  displayRegister,
+  displayProfile,
+  displayLogout,
+}) {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [pages, setPages] = useState("none");
+  const [shop, setShop] = useState("none");
+  const [menu, setMenu] = useState("none");
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth.userInfo.token);
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+  const [query, setQuery] = useState({
+    search: search || "",
+    sort: "",
+    brandId: "",
+    colorId: "",
+    categoryId: "",
+    minPrice: "",
+    maxPrice: "",
+    page: 1,
+    limit: 9,
+  });
+
+  const handleLogout = () => {
+    const logoutSuccess = () => {
+      Swal.fire({
+        title: "Logout Success",
+        timer: 2000,
+        showConfirmButton: false,
+        timerProgressBar: true,
+      }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.timer) {
+          navigate("/login");
+        }
+      });
     };
-  }
-  handleOpen = () => {
-    console.log('Button clicked');
-  }
 
+    const logoutFailed = (err) => {
+      console.log(err);
+      Swal.fire({
+        title: "Logout Failed!",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    };
 
-  render() {
-    return (
-      <Fragment>
-        <main className={`${styles["main"]} ${styles["display-main"]}`}>
-          <h1 className={styles["header-left"]}>RAZ</h1>
-          <div className={styles["header-center"]}>
-            <Link to={`/`} className={styles["header-center__link"]}>
-              <span>
-                <p className={styles["header-center-text"]}>HOME</p>
-              </span>
-            </Link>
-            <div
-              className={`${styles["header-center-div"]} ${styles["header-center-div-page"]}`}
-            >
-              <span
-                onClick={() => {
-                  this.state.pages === "none"
-                    ? this.setState({ pages: "block" })
-                    : this.setState({ pages: "none" });
-                }}
-              >
-                <p className={styles["header-center-text"]}>PAGES</p>
-              </span>
-              <img className={styles["chevron"]} src={chev} alt="img" />
-              <ul
-                style={{ display: this.state.pages }}
-                className={styles["header-center-div__contents"]}
-              >
-                <Link to={`/aboutus`} className={styles["link"]}>
-                  <li>About Us</li>
-                </Link>
-                <Link to={`/contact`} className={styles["link"]}>
-                  <li>Contact Us</li>
-                </Link>
-                <Link to={`/soon`} className={styles["link"]}>
-                  <li>Coming Soon</li>
-                </Link>
-                <Link to={`/faq`} className={styles["link"]}>
-                  <li>FAQ Page</li>
-                </Link>
-              </ul>
-            </div>
-            <div
-              className={`${styles["header-center-div"]} ${styles["header-center-div-shop"]}`}
-            >
-              <span
-                onClick={() => {
-                  this.state.shop === "none"
-                    ? this.setState({ shop: "block" })
-                    : this.setState({ shop: "none" });
-                }}
-              >
-                <p className={styles["header-center-text"]}>SHOP</p>
-              </span>
-              <img className={styles["chevron"]} src={chev} alt="img" />
-              <ul
-                style={{ display: this.state.shop }}
-                className={styles["header-center-div__contents"]}
-              >
-                <Link to={`/products`} className={styles["link"]}>
-                  <li>Products</li>
-                </Link>
-                <Link to={`/cart`} className={styles["link"]}>
-                  <li>Shopping Chart</li>
-                </Link>
-                <Link to={`/checkout`} className={styles["link"]}>
-                  <li>Checkout</li>
-                </Link>
-                <Link to={`/profile`} className={styles["link"]}>
-                  <li>My Account</li>
-                </Link>
-                <Link to={`/tracking`} className={styles["link"]}>
-                  <li>Order Tracking</li>
-                </Link>
-              </ul>
-            </div>
-            <Link to={`/blog`} className={styles["header-center__link"]}>
-              <span>
-                <p className={styles["header-center-text"]}>BLOG</p>
-              </span>
-            </Link>
-          </div>
-          <div className={styles["header-right"]}>
-            <span className={styles["header-right-menu"]}>
-              <img className={styles["image-1"]} src={mag} alt="img" />
-              <img className={styles["image-2"]} src={love} alt="img" />
-              <Link to={`/cart`} className={styles["link"]}>
-                <img className={styles["image-3"]} src={cart} alt="img" />
-              </Link>
+    dispatch(
+      authActions.logoutThunk(
+        token,
+        logoutSuccess,
+        navigate("/login"),
+        logoutFailed
+      )
+    );
+  };
+  return (
+    <>
+      <main className={`${styles["main"]} ${styles["display-main"]}`}>
+        <h1 className={styles["header-left"]}>RAZ</h1>
+        <div className={styles["header-center"]}>
+          <Link to={`/`} className={styles["header-center__link"]}>
+            <span>
+              <p className={styles["header-center-text"]}>HOME</p>
             </span>
-            <div
+          </Link>
+          <div
+            className={`${styles["header-center-div"]} ${styles["header-center-div-page"]}`}
+          >
+            <span
               onClick={() => {
-                this.state.menu === "none"
-                  ? this.setState({ menu: "block" })
-                  : this.setState({ menu: "none" });
+                pages === "none" ? setPages("block") : setPages("none");
+                setShop("none");
+                setMenu("none");
               }}
-              className={styles["header-right-toggle"]}
             >
-              <img className={styles["menu-1"]} src={bar1} alt="img" />
-              <img className={styles["menu-2"]} src={bar2} alt="img" />
-              <img className={styles["menu-3"]} src={bar1} alt="img" />
-              <ul
-                style={{ display: this.state.menu }}
-                className={`${styles["header-right-toggle__contents"]}`}
-              >
+              <p className={styles["header-center-text"]}>PAGES</p>
+            </span>
+            <img className={styles["chevron"]} src={chev} alt="img" />
+            <ul
+              style={{ display: pages }}
+              className={styles["header-center-div__contents"]}
+            >
+              <Link to={`/aboutus`} className={styles["link"]}>
+                <li>About Us</li>
+              </Link>
+              <Link to={`/contact`} className={styles["link"]}>
+                <li>Contact Us</li>
+              </Link>
+              <Link to={`/soon`} className={styles["link"]}>
+                <li>Coming Soon</li>
+              </Link>
+              <Link to={`/faq`} className={styles["link"]}>
+                <li>FAQ Page</li>
+              </Link>
+            </ul>
+          </div>
+          <div
+            className={`${styles["header-center-div"]} ${styles["header-center-div-shop"]}`}
+          >
+            <span
+              onClick={() => {
+                shop === "none" ? setShop("block") : setShop("none");
+                setPages("none");
+                setMenu("none");
+              }}
+            >
+              <p className={styles["header-center-text"]}>SHOP</p>
+            </span>
+            <img className={styles["chevron"]} src={chev} alt="img" />
+            <ul
+              style={{ display: shop }}
+              className={styles["header-center-div__contents"]}
+            >
+              <Link to={`/products`} className={styles["link"]}>
+                <li>Products</li>
+              </Link>
+              <Link to={`/cart`} className={styles["link"]}>
+                <li>Shopping Chart</li>
+              </Link>
+              <Link to={`/checkout`} className={styles["link"]}>
+                <li>Checkout</li>
+              </Link>
+              <Link to={`/profile`} className={styles["link"]}>
+                <li>My Account</li>
+              </Link>
+              <Link to={`/tracking`} className={styles["link"]}>
+                <li>Order Tracking</li>
+              </Link>
+            </ul>
+          </div>
+          <Link to={`/blog`} className={styles["header-center__link"]}>
+            <span>
+              <p className={styles["header-center-text"]}>BLOG</p>
+            </span>
+          </Link>
+        </div>
+        <div className={styles["header-right"]}>
+          <span className={styles["header-right-menu"]}>
+            <input
+              placeholder="Search here"
+              className={`${styles["search-input"]}`}
+              onChange={(e) => {
+                setSearchParams({
+                  search: e.target.value,
+                });
+                setQuery({
+                  ...query,
+                  search: e.target.value,
+                });
+                console.log(query);
+              }}
+            />
+            <img
+              className={styles["image-1"]}
+              src={mag}
+              alt="img"
+              onClick={(e) => {
+                e.preventDefault();
+                console.log(query);
+                dispatch(productActions.getProductThunk(query));
+              }}
+            />
+            <img className={styles["image-2"]} src={love} alt="img" />
+            <Link to={`/cart`} className={styles["link"]}>
+              <img className={styles["image-3"]} src={cart} alt="img" />
+            </Link>
+          </span>
+          <div
+            onClick={() => {
+              menu === "none" ? setMenu("block") : setMenu("none");
+              setPages("none");
+              setShop("none");
+            }}
+            className={styles["header-right-toggle"]}
+          >
+            <img className={styles["menu-1"]} src={bar1} alt="img" />
+            <img className={styles["menu-2"]} src={bar2} alt="img" />
+            <img className={styles["menu-3"]} src={bar1} alt="img" />
+            <ul
+              style={{ display: menu }}
+              className={`${styles["header-right-toggle__contents"]}`}
+            >
+              {!token ? (
                 <Link
                   to={`/login`}
                   className={styles["link"]}
-                  style={{ display: this.props.displayLogin }}
+                  style={{ display: displayLogin }}
                 >
                   <li>Login</li>
                 </Link>
+              ) : null}
+              {!token ? (
                 <Link
                   to={`/register`}
                   className={styles["link"]}
-                  style={{ display: this.props.displayRegister }}
+                  style={{ display: displayRegister }}
                 >
                   <li>Register</li>
                 </Link>
+              ) : null}
+              {token ? (
                 <Link
-                  to={this.props.linkToProfile}
+                  to={"/profile"}
                   className={styles["link"]}
-                  style={{ display: this.props.displayProfile }}
+                  style={{ display: displayProfile }}
                 >
                   <li>Profile</li>
                 </Link>
+              ) : null}
+              {token ? (
                 <Link to={`/chat`} className={styles["link"]}>
                   <li>Chat</li>
                 </Link>
+              ) : null}
+              {/* {token ? (
                 <Link to={`/notification`} className={styles["link"]}>
                   <li>Notification</li>
                 </Link>
+              ) : null} */}
+              {token ? (
                 <li
                   className={styles["link"]}
-                  style={{ display: this.props.displayLogout }}
-                  onClick = {() => {this.setState({open : !this.state.open})}}
-                  // onClick={() => {
-                  //   const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
-                  //   const config = {
-                  //     headers: {
-                  //       "x-access-token": localStorage.getItem("token"),
-                  //     },
-                  //   };
-                  //   Axios.delete(url, config)
-                  //     .then((res) => {
-                  //       Swal.fire({
-                  //         title: "Logout Success!",
-                  //         timer: 2000,
-                  //         showConfirmButton: false,
-                  //         timerProgressBar: true,
-                  //       }).then((result) => {
-                  //         if (result.dismiss === Swal.DismissReason.timer) {
-                  //           this.props.navigate("/login");
-                  //           localStorage.clear();
-                  //         }
-                  //       });
-                  //     })
-                  //     .catch((err) => {
-                  //       console.log(err);
-                  //       Swal.fire({
-                  //         // title: "Logout Failed!",
-                  //         // showConfirmButton: false,
-                  //         // timer: 1000,
-                  //         title: "Logout Success!",
-                  //         timer: 2000,
-                  //         showConfirmButton: false,
-                  //         timerProgressBar: true,
-                  //       });
-                  //       this.props.navigate("/login");
-                  //       localStorage.removeItem("token");
-                  //     });
-                  // }}
+                  style={{ display: displayLogout }}
+                  onClick={handleLogout}
                 >
                   Logout
                 </li>
-              </ul>
-            </div>
-          </div>
-          {this.state.open ? (
-        <div className={styles.modal}>
-          <div className={styles["modal-content"]}>
-            <div className={styles["modal-header"]}>
-              <p className={styles["modal-title"]}>Logout</p>
-            </div>
-            <div className={styles["modal-body"]}>Are you sure want to logout?</div>
-            <div className={styles["modal-footer"]}>
-              
-                <button className={styles.button} 
-                onClick={() => {
-                    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
-                    const config = {
-                      headers: {
-                        "x-access-token": localStorage.getItem("token"),
-                      },
-                    };
-                    Axios.delete(url, config)
-                      .then((res) => {
-                        console.log(res);
-                        Swal.fire({
-                          title: "Logout Success!",
-                          timer: 2000,
-                          showConfirmButton: false,
-                          timerProgressBar: true,
-                        }).then((result) => {
-                          if (result.dismiss === Swal.DismissReason.timer) {
-                            this.props.navigate("/login");
-                            localStorage.clear();
-                          }
-                        });
-                      })
-                      .catch((err) => {
-                        console.log(err);
-                        Swal.fire({
-                          // title: "Logout Failed!",
-                          // showConfirmButton: false,
-                          // timer: 1000,
-                          title: "Logout Success!",
-                          timer: 2000,
-                          showConfirmButton: false,
-                          timerProgressBar: true,
-                        });
-                        this.props.navigate("/login");
-                        localStorage.removeItem("token");
-                      });
-                  }}>
-                  yes
-                </button>
-
-              <button
-                className={styles.button}
-                onClick={() => {
-                  this.setState({open: !this.state.open})
-              }}
-              >
-                no
-              </button>
-            </div>
+              ) : null}
+            </ul>
           </div>
         </div>
-      ) : null}
-        </main>
-      </Fragment>
-    );
-  }
+      </main>
+    </>
+  );
 }
 
-export default withNavigate(Header);
+// export default withNavigate(Header);

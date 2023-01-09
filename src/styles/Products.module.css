@@ -31,7 +31,6 @@
 }
 
 .carousel {
-  /* border: 1px solid var(--p-btn-bg-color); */
   height: 50vh;
   text-align: center;
   font-weight: 800;
@@ -40,6 +39,12 @@
 .carousel p {
   text-align: center;
   font-size: 32px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .breadcrumb {
@@ -384,8 +389,8 @@
 
 .dropdown-list {
   position: absolute;
-  right: 3.5rem;
-  bottom: -0.5rem;
+  right: 0rem;
+  top: 2rem;
   display: flex;
   max-width: fit-content;
   background-color: #1a1a1a;
@@ -534,7 +539,7 @@
 
   .info {
     /* border: 1px solid darkblue; */
-    padding-right: 2.6rem;
+    padding: 0px 20px;
   }
 
   .info__pages p,
@@ -555,9 +560,9 @@
 
   .product-lists {
     /* border: 1px solid darkblue; */
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
     min-height: 100vh;
   }
   .paginations ul {

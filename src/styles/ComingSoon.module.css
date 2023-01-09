@@ -21,7 +21,6 @@
 }
 
 .main {
-  /* border: 1px solid darkblue; */
   min-height: 50vh;
   display: flex;
   flex-direction: column;

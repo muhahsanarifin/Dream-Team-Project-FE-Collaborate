@@ -8,13 +8,12 @@ import styles from "../styles/Products.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../redux/action/product";
 import categoriesActions from "../redux/action/categories";
-import cardComingSoon from "../components/CardComingSoon";
+import CardComingSoon from "../components/CardComingSoon";
 import {
   createSearchParams,
   useLocation,
   useSearchParams,
 } from "react-router-dom";
-import CardComingSoon from "../components/CardComingSoon";
 
 const useQuery = () => {
   const { search } = useLocation();
@@ -23,7 +22,7 @@ const useQuery = () => {
 
 const Products = () => {
   const [show, setShow] = useState(false);
-  const dispacth = useDispatch();
+  const dispatch = useDispatch();
   const products = useSelector((state) => state.products.products);
   const isLoading = useSelector((state) => state.products.isLoading);
   const isRejected = useSelector((state) => state.products.isError);
@@ -39,19 +38,25 @@ const Products = () => {
     minPrice: getQuery.get("minPrice") || "",
     maxPrice: getQuery.get("maxPrice") || "",
     page: getQuery.get("page") || 1,
-    limit: getQuery.get("limit") || 9,
+    limit: getQuery.get("limit") || 8,
   });
-  const totalDataFake = useSelector((state) => state.products.products ? state.products.products.length : state.products.meta?.totalData);
-  const totalData = useSelector((state) => totalDataFake ? state.products.meta?.totalData : 1)
+  const totalDataFake = useSelector((state) =>
+    state.products.products
+      ? state.products.products.length
+      : state.products.meta?.totalData
+  );
+  const totalData = useSelector((state) =>
+    totalDataFake ? state.products.meta?.totalData : 1
+  );
   const endItem =
     Number(query.page) === 1 && totalData > Number(query.limit)
       ? query.limit
       : Number(query.page) === 1 && totalData < Number(query.limit)
-        ? totalData
-        : Number(query.page) !== 1 &&
-          totalData < Number(query.limit) * Number(query.page)
-          ? totalData
-          : Number(query.limit) * Number(query.page);
+      ? totalData
+      : Number(query.page) !== 1 &&
+        totalData < Number(query.limit) * Number(query.page)
+      ? totalData
+      : Number(query.limit) * Number(query.page);
   const inItem =
     Number(query.page) === 1
       ? 1
@@ -63,14 +68,12 @@ const Products = () => {
     const urlSearchParams = createSearchParams({ ...query });
     setSearchParams(urlSearchParams);
     console.log(query);
-    dispacth(productActions.getProductThunk(query));
-  }, [dispacth, query, searchParams]);
+    dispatch(productActions.getProductThunk(query));
+  }, [dispatch, query]);
 
   useEffect(() => {
-    dispacth(categoriesActions.getCategoriesThunk());
-  }, [dispacth]);
-
-
+    dispatch(categoriesActions.getCategoriesThunk());
+  }, [dispatch]);
   const role = localStorage.getItem("role"); // Get role user
   const token = localStorage.getItem("token"); // Get token user
 
@@ -99,8 +102,9 @@ const Products = () => {
             <span>{`>`}</span>
             <p>Shop Right Sidebar</p>
           </div>
-          {/* <p>Carousel Soon...</p> */}
-          <CardComingSoon />
+          <span className={styles["cards"]}>
+            <CardComingSoon title={`We’re Building Something New`} />
+          </span>
         </section>
 
         <section className={styles["main__prodcuts"]}>
@@ -121,8 +125,7 @@ const Products = () => {
                   ))}
                 </div>
               </div>
-              <ul className={styles["categories__list"]}>
-              </ul>
+              <ul className={styles["categories__list"]}></ul>
             </span>
             <div className={styles["price"]}>
               <h3>Price</h3>
@@ -406,7 +409,6 @@ const Products = () => {
                   </div>
                 )}
               </div>
-
             </span>
             <span className={styles["product-lists"]}>
               {isLoading ? (

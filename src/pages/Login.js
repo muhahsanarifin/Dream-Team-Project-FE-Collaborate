@@ -193,7 +193,6 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(authActions.loginThunk(body, loginSuccess, loginDenied));
-
   };
 
   useEffect(() => {

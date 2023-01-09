@@ -7,6 +7,7 @@ const baseUrl = "https://dream-team-project-be.vercel.app/";
 // console.log(process.env.REACT_APP_DT_BACKEND_HOST);
 
 const axiosRequest = (method, url, data, params) => {
+  console.log(data);
   return axios({
     method,
     url: `${baseUrl}${url}`,
@@ -38,12 +39,11 @@ export const getData = (url) => {
   return axios.get(urls);
 };
 
-export const createTransaction = (body) => {
-  const dataUser = localStorage.getItem("token");
+export const createTransaction = (body, token) => {
   const urls = baseUrl + "raz/transaction/create";
   return axios.post(urls, body, {
     headers: {
-      "x-access-token": dataUser,
+      "x-access-token": token,
     },
   });
 };
@@ -84,9 +84,13 @@ export const getProfile = (token) => {
   });
 };
 
-export const logout = () => {
+export const logout = (token) => {
   const URL = `${baseUrl}raz/auth/logout`;
-  return axios.delete(URL);
+  return axios.delete(URL, {
+    headers: {
+      "x-access-token": token,
+    },
+  });
 };
 
 // export const getProfile = () => {

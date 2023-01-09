@@ -108,6 +108,7 @@
 
 .product-image {
   padding-bottom: 50px;
+  width: 100px;
 }
 
 .header-th-1 {
@@ -314,7 +315,7 @@
 .shipping-choose {
   display: flex;
   align-items: center;
-  column-gap: 32px;
+  column-gap: 15px;
 }
 
 .shipping-btn {

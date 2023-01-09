@@ -17,15 +17,16 @@ import { useNavigate } from "react-router-dom";
 const Checkout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const token = useSelector((state) => state.auth.userInfo.token);
   const profile = useSelector((state) => state.profile.profile[0]);
 
   const [loading, setLoading] = useState(false);
 
   const checkout = useSelector((state) => state.cart);
   const [body, setBody] = useState({
-    name_user: profile.username ? profile.username : "",
-    address: profile.delivery_address ? profile.delivery_address : "",
-    phone: profile.phone_number ? profile.phone_number : "",
+    name_user: profile?.username ? profile?.username : "",
+    address: profile?.delivery_address ? profile?.delivery_address : "",
+    phone: profile?.phone_number ? profile?.phone_number : "",
     payment_method: null,
   });
 
@@ -68,7 +69,7 @@ const Checkout = () => {
       };
 
       setLoading(true);
-      const result = await createTransaction(data);
+      const result = await createTransaction(data, token);
       const dataPayment = result.data.data.midtrans.va_numbers[0];
       setBank(`${dataPayment.bank}`);
       setVa(`Va Number : ${dataPayment.va_number}`);
