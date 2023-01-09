@@ -14,6 +14,7 @@ import {
   useLocation,
   useSearchParams,
 } from "react-router-dom";
+import MultiRangeSlider from "multi-range-slider-react";
 
 const useQuery = () => {
   const { search } = useLocation();
@@ -78,8 +79,15 @@ const Products = () => {
   const role = useSelector((state) => state.auth.userInfo.role); // Get role user
   const token = useSelector((state) => state.auth.userInfo.token); // Get token user
 
-  const [data, setData] = useState(0);
-  console.log(data);
+  // const [data1, setData1] = useState(0);
+  // const [data2, setData2] = useState(3000000);
+
+  const [minValue, set_minValue] = useState(0);
+  const [maxValue, set_maxValue] = useState(3000000);
+  const handleInput = (e) => {
+    set_minValue(e.minValue);
+    set_maxValue(e.maxValue);
+  };
 
   const currency = (price) => {
     return (
@@ -143,21 +151,52 @@ const Products = () => {
             <div className={styles["price"]}>
               <h3>Price</h3>
               {/* <p>Price Rp.39.000 - Rp.159.000</p> */}
-              <p>Rp 0 - {currency(data)}</p>
+              <p>
+                {currency(minValue * 30000)} - {currency(maxValue * 30000)}
+              </p>
+              {/* <input
+                type="range"
+                min="0"
+                max="3000000"
+                step="1000"
+                value={data1}
+                onChange={(e) => setData1(e.target.value)}
+              />
               <input
                 type="range"
                 min="0"
                 max="3000000"
                 step="1000"
-                value={data}
-                onChange={(e) => setData(e.target.value)}
+                value={data2}
+                onChange={(e) => setData2(e.target.value)}
+              /> */}
+              <MultiRangeSlider
+                min={0}
+                max={100}
+                step={5}
+                minValue={minValue}
+                maxValue={maxValue}
+                onInput={(e) => {
+                  handleInput(e);
+                }}
+                label={false}
+                ruler={false}
+                style={{
+                  border: "none",
+                  boxShadow: "none",
+                  padding: "15px 10px",
+                }}
+                barInnerColor="black"
+                thumbLeftColor="black"
+                thumbRightColor="black"
               />
               <span></span>
               <button
                 onClick={() => {
                   setQuery({
                     ...query,
-                    maxPrice: data ? data : "",
+                    minPrice: minValue*30000,
+                    maxPrice: maxValue*30000,
                     page: "1",
                   });
                 }}
