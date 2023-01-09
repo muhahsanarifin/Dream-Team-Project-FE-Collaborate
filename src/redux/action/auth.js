@@ -119,7 +119,7 @@ const logoutThunk = (token, cbSuccess) => {
       const result = await logout(token);
       dispatch(logoutFulfilled(result.data));
       localStorage.clear();
-      if (typeof cbSuccess === "function") cbSuccess();
+      if (typeof cbSuccess === "function") cbSuccess(result.data.status);
     } catch (error) {
       dispatch(logoutRejected(error));
     }

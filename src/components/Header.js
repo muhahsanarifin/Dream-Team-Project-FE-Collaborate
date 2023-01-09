@@ -41,38 +41,38 @@ export default function Header({
     limit: 9,
   });
 
-  const handleLogout = () => {
-    const logoutSuccess = () => {
-      Swal.fire({
-        title: "Logout Success",
-        timer: 2000,
-        showConfirmButton: false,
-        timerProgressBar: true,
-      }).then((result) => {
-        if (result.dismiss === Swal.DismissReason.timer) {
-          navigate("/login");
-        }
-      });
-    };
+  // const handleLogout = () => {
+  //   const logoutSuccess = () => {
+  //     Swal.fire({
+  //       title: "Logout Success",
+  //       timer: 2000,
+  //       showConfirmButton: false,
+  //       timerProgressBar: true,
+  //     }).then((result) => {
+  //       if (result.dismiss === Swal.DismissReason.timer) {
+  //         navigate("/login");
+  //       }
+  //     });
+  //   };
 
-    const logoutFailed = (err) => {
-      console.log(err);
-      Swal.fire({
-        title: "Logout Failed!",
-        showConfirmButton: false,
-        timer: 1000,
-      });
-    };
+  //   const logoutFailed = (err) => {
+  //     console.log(err);
+  //     Swal.fire({
+  //       title: "Logout Failed!",
+  //       showConfirmButton: false,
+  //       timer: 1000,
+  //     });
+  //   };
 
-    dispatch(
-      authActions.logoutThunk(
-        token,
-        logoutSuccess,
-        navigate("/login"),
-        logoutFailed
-      )
-    );
-  };
+  //   dispatch(
+  //     authActions.logoutThunk(
+  //       token,
+  //       logoutSuccess,
+  //       navigate("/login"),
+  //       logoutFailed
+  //     )
+  //   );
+  // };
   return (
     <>
       <main className={`${styles["main"]} ${styles["display-main"]}`}>

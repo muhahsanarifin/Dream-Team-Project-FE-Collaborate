@@ -12,8 +12,9 @@ const ModalLogout = (props) => {
   const loading = useSelector((state) => state.auth.isLoading);
   console.log(props.handleClick);
   const token = useSelector((state) => state.auth.userInfo.token);
-  const logoutSuccess = () => {
-    toast.success("Logout success!");
+  
+  const logoutSuccess = (status) => {
+    toast.success(`${status}`);
     navigate("/login");
   };
 
