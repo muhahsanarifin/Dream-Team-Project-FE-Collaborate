@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import authActions from "../redux/action/auth";
+import authActions from "../../redux/action/auth";
 import styles from "./ModalLogout.module.css";
 import Loading from "../LoadingBtn";
 
@@ -10,10 +10,10 @@ const ModalLogout = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const loading = useSelector((state) => state.auth.isLoading);
-
+console.log(props.handleClick);
   const logoutSuccess = () => {
     toast.success("Logout success!");
-    navigate("/auth/login");
+    navigate("/login");
   };
 
   const logoutHandler = () => {
@@ -42,7 +42,7 @@ const ModalLogout = (props) => {
 
               <button
                 className={styles.button}
-                onClick={() => props.setOpen(!props)}
+                // onClick={() => props.setOpen(!props)}
               >
                 no
               </button>

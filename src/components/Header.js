@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import styles from "../styles/Header.module.css";
+import Modal from "../components/modal/ModalLogout"
 
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -19,8 +20,13 @@ class Header extends Component {
       pages: "none",
       shop: "none",
       menu: "none",
+      open: false,
     };
   }
+  handleOpen = () => {
+    console.log('Button clicked');
+  }
+
 
   render() {
     return (
@@ -157,7 +163,60 @@ class Header extends Component {
                 <li
                   className={styles["link"]}
                   style={{ display: this.props.displayLogout }}
-                  onClick={() => {
+                  onClick = {() => {this.setState({open : !this.state.open})}}
+                  // onClick={() => {
+                  //   const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
+                  //   const config = {
+                  //     headers: {
+                  //       "x-access-token": localStorage.getItem("token"),
+                  //     },
+                  //   };
+                  //   Axios.delete(url, config)
+                  //     .then((res) => {
+                  //       Swal.fire({
+                  //         title: "Logout Success!",
+                  //         timer: 2000,
+                  //         showConfirmButton: false,
+                  //         timerProgressBar: true,
+                  //       }).then((result) => {
+                  //         if (result.dismiss === Swal.DismissReason.timer) {
+                  //           this.props.navigate("/login");
+                  //           localStorage.clear();
+                  //         }
+                  //       });
+                  //     })
+                  //     .catch((err) => {
+                  //       console.log(err);
+                  //       Swal.fire({
+                  //         // title: "Logout Failed!",
+                  //         // showConfirmButton: false,
+                  //         // timer: 1000,
+                  //         title: "Logout Success!",
+                  //         timer: 2000,
+                  //         showConfirmButton: false,
+                  //         timerProgressBar: true,
+                  //       });
+                  //       this.props.navigate("/login");
+                  //       localStorage.removeItem("token");
+                  //     });
+                  // }}
+                >
+                  Logout
+                </li>
+              </ul>
+            </div>
+          </div>
+          {this.state.open ? (
+        <div className={styles.modal}>
+          <div className={styles["modal-content"]}>
+            <div className={styles["modal-header"]}>
+              <p className={styles["modal-title"]}>Logout</p>
+            </div>
+            <div className={styles["modal-body"]}>Are you sure want to logout?</div>
+            <div className={styles["modal-footer"]}>
+              
+                <button className={styles.button} 
+                onClick={() => {
                     const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
                     const config = {
                       headers: {
@@ -166,6 +225,7 @@ class Header extends Component {
                     };
                     Axios.delete(url, config)
                       .then((res) => {
+                        console.log(res);
                         Swal.fire({
                           title: "Logout Success!",
                           timer: 2000,
@@ -192,13 +252,22 @@ class Header extends Component {
                         this.props.navigate("/login");
                         localStorage.removeItem("token");
                       });
-                  }}
-                >
-                  Logout
-                </li>
-              </ul>
+                  }}>
+                  yes
+                </button>
+
+              <button
+                className={styles.button}
+                onClick={() => {
+                  this.setState({open: !this.state.open})
+              }}
+              >
+                no
+              </button>
             </div>
           </div>
+        </div>
+      ) : null}
         </main>
       </Fragment>
     );

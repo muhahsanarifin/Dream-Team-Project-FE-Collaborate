@@ -71,11 +71,28 @@ const Products = () => {
   }, [dispacth]);
 
 
+  const role = localStorage.getItem("role"); // Get role user
+  const token = localStorage.getItem("token"); // Get token user
 
   return (
     <>
       <main className={styles["main"]}>
-        <Header />
+      {token === null ? (
+          <Header displayProfile={`none`} displayLogout={`none`} />
+        ) : role === "customer" ? (
+          <Header
+            linkToProfile={`/profile`}
+            displayRegister={`none`}
+            displayLogin={`none`}
+            displayLogout={`none`}
+          />
+        ) : (
+          <Header
+            linkToProfile={`/profile/seller`}
+            displayRegister={`none`}
+            displayLogin={`none`}
+          />
+        )}
         <section className={styles["carousel"]}>
           <div className={styles["breadcrumb"]}>
             <p>Shop</p>

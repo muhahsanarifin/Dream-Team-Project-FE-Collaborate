@@ -86,7 +86,7 @@ export const getProfile = (token) => {
 
 export const logout = () => {
   const URL = `${baseUrl}raz/auth/logout`;
-  return axios.post(URL);
+  return axios.delete(URL);
 };
 
 // export const getProfile = () => {
