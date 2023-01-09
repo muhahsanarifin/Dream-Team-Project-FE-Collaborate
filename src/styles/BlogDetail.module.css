@@ -83,7 +83,7 @@
 }
 
 .content_right {
-  width: 860px;
+  width: 760px;
   height: 100%;
   padding-bottom: 120px;
   /* border: 1px solid black; */
@@ -506,7 +506,7 @@
 .input_comment {
   margin-top: 30px;
   padding-top: 15px;
-  width: 860px;
+  width: 760px;
   height: 190px;
   border: 1px solid black;
 }
@@ -608,6 +608,10 @@
   background-color: black;
 }
 
+.img_freshii {
+  width: 760px;
+}
+
 @media only screen and (max-width: 768px) {
   .content_all {
     gap: 3rem;
@@ -627,7 +631,7 @@
     padding-left: 0;
   }
   .blog {
-    font-family: 'Arimo';
+    font-family: "Arimo";
     padding-top: 60px;
     font-size: 46px;
   }
@@ -679,7 +683,7 @@
   }
   .text_shop {
     padding-top: 20px;
-    font-family: 'Arimo';
+    font-family: "Arimo";
   }
   .content_text_time {
     display: flex;
@@ -986,7 +990,7 @@
   }
   .text_Scandinavian {
     font-weight: 700;
-    font-family: 'arimo';
+    font-family: "arimo";
     font-size: 26px;
   }
   .text_scan,

@@ -19,7 +19,7 @@ import cart from "../redux/action/cart";
 import Swal from "sweetalert2";
 
 const ProductDetail = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [counter, setCounter] = useState(0);
   // const counters = useSelector((state) => state.counter.number);
@@ -52,7 +52,7 @@ const ProductDetail = () => {
     const filter = cartData.filter(
       (item) => item.product_id === productDetail.id
     );
-    
+
     if (filter?.length > 0) {
       return Swal.fire({
         title: "product sudah dalam keranjang",
@@ -88,7 +88,10 @@ const ProductDetail = () => {
   };
 
   useEffect(() => {
-    dispatch(productActions.getProductDetailThunk(id));
+    const success = () => {
+      window.scrollTo(0, 0);
+    };
+    dispatch(productActions.getProductDetailThunk(id, success));
   }, [dispatch, id]);
 
   useEffect(() => {
@@ -114,11 +117,15 @@ const ProductDetail = () => {
             <div className={styles["product-detail__images-left-side"]}>
               {image?.length > 0 &&
                 image?.map((item, index) => {
-                  return <img src={item} alt="list_product_1" />
+                  return <img src={item} alt="list_product_1" />;
                 })}
             </div>
             <span className={styles["product-detail__images-right-side"]}>
-              <img className={styles["image_product"]} src={image[0]} alt={`list_product`} />
+              <img
+                className={styles["image_product"]}
+                src={image[0]}
+                alt={`list_product`}
+              />
             </span>
           </div>
           <div className={styles["content-product"]}>
@@ -242,21 +249,21 @@ const ProductDetail = () => {
             </span>
           </span>
         </section>
-        <section className={styles["related-prodcuts"]}>
-          <h3 className={styles["related-prodcuts-title"]}>Related Prodcuts</h3>
-          <ul className={styles["related-prodcuts__list"]}>
+        <section className={styles["related-products"]}>
+          <h3 className={styles["related-products-title"]}>Related Products</h3>
+          <ul className={styles["related-products__list"]}>
             {relatedProduct?.length > 0 &&
               relatedProduct?.map((item, index) => {
                 return (
-                  <li className={styles["prodcut"]}>
+                  <li className={styles["product"]}>
                     <div>
                       <img
                         onClick={() => {
-                          navigate(`/products/${item.id}`)
+                          navigate(`/products/${item.id}`);
                         }}
                         src={item.image}
                         alt={`related2`}
-                        className={styles["related-prodcut__image"]}
+                        className={styles["related-product-image"]}
                       />
                       <span className={styles["product_description"]}>
                         <h3>{item.product_name}</h3>

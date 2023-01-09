@@ -72,12 +72,13 @@ const getProductThunk = (params) => {
   };
 };
 
-const getProductDetailThunk = (id) => {
+const getProductDetailThunk = (id, success) => {
   return async (dispacth) => {
     try {
       dispacth(getProductDetailPending());
       const result = await getData(`raz/product/${id}`);
       dispacth(getProductDetailFulfilled(result.data));
+      typeof success === "function" && success();
     } catch (error) {
       dispacth(getProductDetailRejected(error));
     }
@@ -96,7 +97,6 @@ const getSellerProductThunk = (token, params) => {
   };
 };
 
-
 const getRelatedProductThunk = (id) => {
   return async (dispacth) => {
     try {
@@ -108,7 +108,6 @@ const getRelatedProductThunk = (id) => {
     }
   };
 };
-
 
 const productActions = {
   getProductThunk,

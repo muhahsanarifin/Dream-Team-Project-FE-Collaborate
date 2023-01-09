@@ -38,7 +38,7 @@ const Products = () => {
     minPrice: getQuery.get("minPrice") || "",
     maxPrice: getQuery.get("maxPrice") || "",
     page: getQuery.get("page") || 1,
-    limit: getQuery.get("limit") || 9,
+    limit: getQuery.get("limit") || 8,
   });
   const totalDataFake = useSelector((state) =>
     state.products.products

@@ -1,12 +1,7 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import styles from "../styles/Header.module.css";
 
-import {
-  Link,
-  useLocation,
-  useNavigate,
-  useSearchParams,
-} from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import Axios from "axios";
 import mag from "../assets/mag.png";
@@ -59,6 +54,8 @@ export default function Header({
             <span
               onClick={() => {
                 pages === "none" ? setPages("block") : setPages("none");
+                setShop("none");
+                setMenu("none");
               }}
             >
               <p className={styles["header-center-text"]}>PAGES</p>
@@ -88,6 +85,8 @@ export default function Header({
             <span
               onClick={() => {
                 shop === "none" ? setShop("block") : setShop("none");
+                setPages("none");
+                setMenu("none");
               }}
             >
               <p className={styles["header-center-text"]}>SHOP</p>
@@ -125,7 +124,6 @@ export default function Header({
             <input
               placeholder="Search here"
               className={`${styles["search-input"]}`}
-              disabled={window.location.pathname !== "/products"}
               onChange={(e) => {
                 setSearchParams({
                   search: e.target.value,
@@ -155,6 +153,8 @@ export default function Header({
           <div
             onClick={() => {
               menu === "none" ? setMenu("block") : setMenu("none");
+              setPages("none");
+              setShop("none");
             }}
             className={styles["header-right-toggle"]}
           >

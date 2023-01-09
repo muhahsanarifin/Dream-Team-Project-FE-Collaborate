@@ -315,7 +315,7 @@
 .shipping-choose {
   display: flex;
   align-items: center;
-  column-gap: 32px;
+  column-gap: 15px;
 }
 
 .shipping-btn {
