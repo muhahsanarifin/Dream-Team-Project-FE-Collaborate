@@ -16,8 +16,13 @@ const axiosRequest = (method, url, data, params) => {
   });
 };
 
-export const login = (data) => {
-  return axiosRequest("POST", "raz/auth/login", data);
+// export const login = (data) => {
+//   return axiosRequest("POST", "/auth/login", data);
+// };
+
+export const login = (body) => {
+  const URL = `${baseUrl}raz/auth/login`;
+  return axios.post(URL, body);
 };
 
 export const getProduct = (params, data) => {
@@ -70,13 +75,44 @@ export const deleteSellerProduct = (token, params) => {
   });
 };
 
-export const logout = (token) => {
+export const getProfile = (token) => {
+  console.log(`${baseUrl}raz/users/profile`);
   return axios({
-    method: "DELETE",
-    url: `${baseUrl}raz/auth/logout`,
+    method: "GET",
+    url: `${baseUrl}raz/users/profile`,
     headers: { "x-access-token": token },
   });
 };
+
+export const logout = (token) => {
+  const URL = `${baseUrl}raz/auth/logout`;
+  return axios.delete(URL, {
+    headers: {
+      "x-access-token": token,
+    },
+  });
+};
+
+// export const getProfile = () => {
+//   const login = JSON.parse(localStorage.getItem("login"));
+//   const token = login.token;
+//   console.log(token);
+//   const URL = `${baseUrl}raz/users/profile`;
+//   console.log(URL);
+//   return axios.get(URL, {
+//     headers: {
+//       "x-access-token": token,
+//     },
+//   });
+// };
+
+// export const logout = (token) => {
+//   return axios({
+//     method: "DELETE",
+//     url: ${baseUrl}/auth/logout,
+//     headers: { "x-access-token": token },
+//   });
+// };
 
 // export const reset = (data) => {
 //   return axiosRequest("POST", "/auth/reset", data);
@@ -85,3 +121,8 @@ export const logout = (token) => {
 // export const register = (body) => {
 //   return axiosRequest("POST", "/users/register", body);
 // };
+
+export const register = (body) => {
+  const URL = `${baseUrl}raz/auth/register`;
+  return axios.post(URL, body);
+};

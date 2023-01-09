@@ -6,8 +6,6 @@ import Swal from "sweetalert2";
 import Axios from "axios";
 import withNavigate from "../helpers/withNavigate";
 import jwt from "jwt-decode";
-import authActions from "../redux/action/auth";
-import { connect } from "react-redux";
 
 import def from "../assets/default.png";
 import logout from "../assets/logout.png";
@@ -61,66 +59,34 @@ class Profiles extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const { dispatch } = this.props;
-    //   const url = `https://dream-team-project-be.vercel.app/raz/auth/logout`;
-    //   const config = {
-    //     headers: {
-    //       "x-access-token": localStorage.getItem("token"),
-    //     },
-    //   };
-    //   Axios.delete(url, config)
-    //     .then((res) => {
-    //       Swal.fire({
-    //         title: "Logout Success!",
-    //         timer: 2000,
-    //         showConfirmButton: false,
-    //         timerProgressBar: true,
-    //       }).then((result) => {
-    //         if (result.dismiss === Swal.DismissReason.timer) {
-    //           this.props.navigate("/login");
-    //           localStorage.clear();
-    //         }
-    //       });
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //       Swal.fire({
-    //         title: "Logout Failed!",
-    //         showConfirmButton: false,
-    //         timer: 1000,
-    //       });
-    //     });
-
-    const logoutSuccess = () => {
-      Swal.fire({
-        title: "Logout Success",
-        timer: 2000,
-        showConfirmButton: false,
-        timerProgressBar: true,
-      }).then((result) => {
-        if (result.dismiss === Swal.DismissReason.timer) {
-          this.props.navigate("/");
-        }
-      });
+    const url = `https://dream-team-project-be.vercel.app/raz/auth/logout`;
+    const config = {
+      headers: {
+        "x-access-token": localStorage.getItem("token"),
+      },
     };
-
-    const logoutFailed = (err) => {
-      console.log(err);
-      Swal.fire({
-        title: "Logout Failed!",
-        showConfirmButton: false,
-        timer: 1000,
+    Axios.delete(url, config)
+      .then((res) => {
+        Swal.fire({
+          title: "Logout Success!",
+          timer: 2000,
+          showConfirmButton: false,
+          timerProgressBar: true,
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            this.props.navigate("/login");
+            localStorage.clear();
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          title: "Logout Failed!",
+          showConfirmButton: false,
+          timer: 1000,
+        });
       });
-    };
-
-    return dispatch(
-      authActions.logoutThunk(
-        localStorage.getItem("token"),
-        logoutSuccess,
-        () => this.props.navigate("/login"),
-        logoutFailed
-      )
-    );
   }
 
   handleSubmit2(event) {
@@ -307,7 +273,6 @@ class Profiles extends Component {
   }
 }
 
-
 const Profile = withNavigate(Profiles);
 
-export default connect(authActions.logoutThunk)(Profile);
+export default Profile;

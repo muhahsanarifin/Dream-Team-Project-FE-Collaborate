@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Modal.module.css";
 
@@ -13,6 +13,7 @@ const Modal = (props) => {
     } else {
       window.open("https://simulator.sandbox.midtrans.com/bni/va/index")
     }
+    props.setOpen(!props)
     // try {
     //   // console.log("test");
     //   await logout();

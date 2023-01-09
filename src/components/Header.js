@@ -10,7 +10,7 @@ import cart from "../assets/cart.png";
 import chev from "../assets/chevron.png";
 import bar1 from "../assets/menu-1.png";
 import bar2 from "../assets/menu-2.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import productActions from "../redux/action/product";
 import authActions from "../redux/action/auth";
 
@@ -25,7 +25,7 @@ export default function Header({
   const [shop, setShop] = useState("none");
   const [menu, setMenu] = useState("none");
   const dispatch = useDispatch();
-  const token = localStorage.getItem("token");
+  const token = useSelector((state) => state.auth.userInfo.token);
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
   const [query, setQuery] = useState({

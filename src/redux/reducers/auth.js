@@ -16,7 +16,7 @@ const initialState = {
 
 const authReducer = (prevState = initialState, { type, payload }) => {
   const { Pending, Rejected, Fulfilled } = ActionType;
-  const { authLogin, authLogout, authReset } = actionStrings;
+  const { authLogin, authLogout, authReset, register } = actionStrings;
 
   switch (type) {
     case authLogin.concat("_", Pending):
@@ -58,10 +58,36 @@ const authReducer = (prevState = initialState, { type, payload }) => {
         ...prevState,
         isLoading: true,
         isError: false,
-        error: payload.error,
+        error: payload.error.message,
       };
     case authLogout.concat("_", Fulfilled):
       return initialState;
+
+    case register.concat("_", Pending):
+      return {
+        ...prevState,
+        isLoading: true,
+        isError: false,
+        isFulfilled: false,
+      };
+
+    case register.concat("_", Rejected):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: true,
+        isFulfilled: false,
+        error: payload.error.message,
+      };
+
+    case register.concat("_", Fulfilled):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: false,
+        isFulfilled: true,
+      };
+
     case authReset.concat("_", Pending):
       return {
         ...prevState,

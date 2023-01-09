@@ -1,7 +1,8 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/Checkout.module.css";
+import profileAction from "../redux/action/profile";
 
 import chev from "../assets/chevron.png";
 import visa from "../assets/visa.png";
@@ -9,18 +10,24 @@ import { useDispatch, useSelector } from "react-redux";
 // import { useNavigate } from "react-router-dom";
 import { createTransaction } from "../utils/fetcher";
 import Modal from "../components/modal/Modal";
+import Loading from "../components/LoadingBtn";
 import cart from "../redux/action/cart";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const token = useSelector((state) => state.auth.userInfo.token);
+  const profile = useSelector((state) => state.profile.profile[0]);
+
+  const [loading, setLoading] = useState(false);
+
   const checkout = useSelector((state) => state.cart);
   const [body, setBody] = useState({
-    name_user: "",
-    address: "",
-    phone: "",
-    payment_method: "",
+    name_user: profile?.username ? profile?.username : "",
+    address: profile?.delivery_address ? profile?.delivery_address : "",
+    phone: profile?.phone_number ? profile?.phone_number : "",
+    payment_method: null,
   });
 
   const [va, setVa] = useState("");
@@ -52,11 +59,16 @@ const Checkout = () => {
 
   const handlePayment = async () => {
     try {
+      if (body.payment_method === null) {
+        return alert("Choose your payment method");
+      }
       const data = {
         product_item: checkout.data,
         ...checkout.checkout,
         ...body,
       };
+
+      setLoading(true);
       const result = await createTransaction(data, token);
       const dataPayment = result.data.data.midtrans.va_numbers[0];
       setBank(`${dataPayment.bank}`);
@@ -64,11 +76,34 @@ const Checkout = () => {
       const defaultCart = [];
       dispatch(cart.addCartThunk(defaultCart));
       setOpen(true);
+      setLoading(false);
       console.log(result);
     } catch (error) {
       console.log(error);
     }
   };
+
+  const getProfile = async () => {
+    const token = localStorage.getItem("token");
+    console.log(token);
+    try {
+      await dispatch(profileAction.getProfileThunk(token));
+    } catch (error) {
+      console.log(error);
+      if (error.response.data.statusCode === 403) {
+        localStorage.removeItem("login");
+        navigate("/login");
+      }
+      if (error.response.data.status === "You have to login first") {
+        localStorage.removeItem("login");
+        navigate("/login");
+      }
+    }
+  };
+
+  useEffect(() => {
+    getProfile();
+  }, []);
 
   return (
     <Fragment>
@@ -91,13 +126,13 @@ const Checkout = () => {
             <input
               className={styles["input-1"]}
               type="text"
-              placeholder="Your Name *"
+              placeholder={profile.usename || "Your Name *"}
               onChange={name_user}
             />
             <input
               className={styles["input-1"]}
               type="text"
-              placeholder="Address *"
+              placeholder={profile.delivery_address || "Address *"}
               onChange={address}
             />
             <div className={styles["phone-div"]}>
@@ -108,7 +143,7 @@ const Checkout = () => {
               <input
                 className={styles["input-2"]}
                 type="text"
-                placeholder="Phone Number *"
+                placeholder={profile.phone_number || "Phone Number *"}
                 onChange={phone}
               />
             </div>
@@ -125,14 +160,31 @@ const Checkout = () => {
                 <option value="BNI">Bank BNI</option>
               </select>
             </div>
-            <button className={styles["checkout-btn"]} onClick={handlePayment}>
-              Check Out
-            </button>
+            {loading ? (
+              <button
+                className={styles["checkout-btn"]}
+                onClick={handlePayment}
+              >
+                <Loading />
+              </button>
+            ) : (
+              <button
+                className={styles["checkout-btn"]}
+                onClick={handlePayment}
+              >
+                Check Out
+              </button>
+            )}
           </section>
           <Footer />
         </main>
       </main>
-      <Modal open={open} setOpen={setOpen} title={bank} body={va} />
+      <Modal
+        open={open}
+        setOpen={setOpen}
+        title={bank}
+        body={`Please copy this ${va} to payment`}
+      />
     </Fragment>
   );
 };
