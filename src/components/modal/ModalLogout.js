@@ -10,14 +10,15 @@ const ModalLogout = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const loading = useSelector((state) => state.auth.isLoading);
-console.log(props.handleClick);
+  console.log(props.handleClick);
+  const token = useSelector((state) => state.auth.userInfo.token);
   const logoutSuccess = () => {
     toast.success("Logout success!");
     navigate("/login");
   };
 
   const logoutHandler = () => {
-    dispatch(authActions.logoutThunk(logoutSuccess));
+    dispatch(authActions.logoutThunk(token, logoutSuccess));
   };
 
   return (
@@ -28,7 +29,9 @@ console.log(props.handleClick);
             <div className={styles["modal-header"]}>
               <p className={styles["modal-title"]}>Logout</p>
             </div>
-            <div className={styles["modal-body"]}>Are you sure want to logout?</div>
+            <div className={styles["modal-body"]}>
+              Are you sure want to logout?
+            </div>
             <div className={styles["modal-footer"]}>
               {loading ? (
                 <div className={styles.button}>
@@ -39,10 +42,9 @@ console.log(props.handleClick);
                   yes
                 </button>
               )}
-
               <button
                 className={styles.button}
-                // onClick={() => props.setOpen(!props)}
+                onClick={() => props.setOpen(!props.open)}
               >
                 no
               </button>
