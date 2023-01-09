@@ -190,7 +190,7 @@ const Register = () => {
     }, 1000);
   };
 
-  const registerDenied = () => {
+  const registerDenied = (errorMsg) => {
     toast.error(`Register failed! ${errorMsg}`, {
       position: toast.POSITION.TOP_CENTER,
       autoClose: 1000,
