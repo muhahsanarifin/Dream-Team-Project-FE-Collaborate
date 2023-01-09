@@ -93,7 +93,7 @@ const loginThunk = (body, cbSuccess, cbDenied) => {
       if (typeof cbSuccess === "function") cbSuccess();
     } catch (error) {
       dispatch(loginRejected(error));
-      if (typeof cbDenied === "function") cbDenied();
+      if (typeof cbDenied === "function") cbDenied(error.response.data.status);
     }
   };
 };

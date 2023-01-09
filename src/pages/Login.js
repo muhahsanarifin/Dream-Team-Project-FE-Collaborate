@@ -183,8 +183,8 @@ const Login = () => {
     }, 1000);
   };
 
-  const loginDenied = () => {
-    toast.error(`Login failed! ${errorMsg}`, {
+  const loginDenied = (errMsg) => {
+    toast.error(`Login failed! ${errMsg}`, {
       position: toast.POSITION.TOP_CENTER,
       autoClose: 1000,
     });
