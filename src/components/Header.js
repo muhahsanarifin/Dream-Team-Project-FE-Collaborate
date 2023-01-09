@@ -12,6 +12,7 @@ import bar1 from "../assets/menu-1.png";
 import bar2 from "../assets/menu-2.png";
 import { useDispatch } from "react-redux";
 import productActions from "../redux/action/product";
+import authActions from "../redux/action/auth";
 
 export default function Header({
   displayLogin,
@@ -38,6 +39,39 @@ export default function Header({
     page: 1,
     limit: 9,
   });
+
+  const handleLogout = () => {
+    const logoutSuccess = () => {
+      Swal.fire({
+        title: "Logout Success",
+        timer: 2000,
+        showConfirmButton: false,
+        timerProgressBar: true,
+      }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.timer) {
+          navigate("/login");
+        }
+      });
+    };
+
+    const logoutFailed = (err) => {
+      console.log(err);
+      Swal.fire({
+        title: "Logout Failed!",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    };
+
+    dispatch(
+      authActions.logoutThunk(
+        token,
+        logoutSuccess,
+        navigate("/login"),
+        logoutFailed
+      )
+    );
+  };
   return (
     <>
       <main className={`${styles["main"]} ${styles["display-main"]}`}>
@@ -206,42 +240,7 @@ export default function Header({
                 <li
                   className={styles["link"]}
                   style={{ display: displayLogout }}
-                  onClick={() => {
-                    const url = `${process.env.REACT_APP_DT_BACKEND_HOST}raz/auth/logout`;
-                    const config = {
-                      headers: {
-                        "x-access-token": localStorage.getItem("token"),
-                      },
-                    };
-                    Axios.delete(url, config)
-                      .then((res) => {
-                        Swal.fire({
-                          title: "Logout Success!",
-                          timer: 2000,
-                          showConfirmButton: false,
-                          timerProgressBar: true,
-                        }).then((result) => {
-                          if (result.dismiss === Swal.DismissReason.timer) {
-                            navigate("/login");
-                            localStorage.clear();
-                          }
-                        });
-                      })
-                      .catch((err) => {
-                        console.log(err);
-                        Swal.fire({
-                          // title: "Logout Failed!",
-                          // showConfirmButton: false,
-                          // timer: 1000,
-                          title: "Logout Success!",
-                          timer: 2000,
-                          showConfirmButton: false,
-                          timerProgressBar: true,
-                        });
-                        navigate("/login");
-                        localStorage.clear();
-                      });
-                  }}
+                  onClick={handleLogout}
                 >
                   Logout
                 </li>

@@ -70,7 +70,7 @@
 }
 
 .product-detail__images-left-side img {
-  border: 1px solid darkblue;
+  /* border: 1px solid darkblue; */
   width: 140px;
   height: 140px;
 }
