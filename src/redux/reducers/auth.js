@@ -44,7 +44,7 @@ const authReducer = (prevState = initialState, { type, payload }) => {
           id: payload.data.data.user_id,
           token: payload.data.data.token,
           email: payload.data.data.email,
-          roles: payload.data.data.roles_id,
+          roles: payload.data.data.role,
         },
       };
     case authLogout.concat("_", Pending):

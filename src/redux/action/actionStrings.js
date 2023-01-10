@@ -11,7 +11,7 @@ export const actionStrings = {
   updateProducts: "_UPDATE_PRODUCT",
   getDetailProduct: "_GET_PRODUCT_DETAIL",
   getProfile: "_GET_PROFILE",
-  updateProfile: "_UPDATE_PROFILE",
+  editProfile: "_UPDATE_PROFILE",
   getPromos: "_GET_PROMOS",
   counterUp: "COUNTER_UP",
   counterDown: "COUNTER_DOWN",

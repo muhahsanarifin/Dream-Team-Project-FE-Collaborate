@@ -27,6 +27,7 @@ export default function Header({
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.userInfo.token);
+  const role = useSelector((state) => state.auth.userInfo.roles);
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
   const [query, setQuery] = useState({
@@ -140,9 +141,16 @@ export default function Header({
               <Link to={`/checkout`} className={styles["link"]}>
                 <li>Checkout</li>
               </Link>
-              <Link to={`/profile`} className={styles["link"]}>
-                <li>My Account</li>
-              </Link>
+              <li
+                onClick={() => {
+                  role === "seller"
+                    ? navigate("/profile/seller")
+                    : navigate("/profile");
+                }}
+                className={styles["link"]}
+              >
+                My Account
+              </li>
               <Link to={`/tracking`} className={styles["link"]}>
                 <li>Order Tracking</li>
               </Link>
@@ -219,13 +227,17 @@ export default function Header({
                 </Link>
               ) : null}
               {token ? (
-                <Link
-                  to={"/profile"}
+                <li
                   className={styles["link"]}
                   style={{ display: displayProfile }}
+                  onClick={() => {
+                    role === "seller"
+                      ? navigate("/profile/seller")
+                      : navigate("/profile");
+                  }}
                 >
-                  <li>Profile</li>
-                </Link>
+                  Profile
+                </li>
               ) : null}
               {token ? (
                 <Link to={`/chat`} className={styles["link"]}>

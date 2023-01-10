@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/MyProduct.module.css";
@@ -21,7 +21,7 @@ const MyProducts = () => {
   const isLoading = useSelector((state) => state.products.isLoading);
   const isRejected = useSelector((state) => state.products.isError);
   const [query, setQuery] = useState({});
-  const token = localStorage.getItem("token");
+  const token = useSelector((state) => state.auth.userInfo.token);
   // const useQuery = () => {
   //   const { search } = useLocation();
   //   return useMemo(() => new URLSearchParams(search), [search]);
@@ -124,7 +124,12 @@ const MyProducts = () => {
                     <th className={styles["table-text-4"]}>Rp {item.price}</th>
                     <th>
                       <p className={styles["delete-div"]}>
-                        <button className={styles["delete-btn"]} onClick={() => {}} >Delete</button>
+                        <button
+                          className={styles["delete-btn"]}
+                          onClick={() => {}}
+                        >
+                          Delete
+                        </button>
                       </p>
                     </th>
                   </tbody>

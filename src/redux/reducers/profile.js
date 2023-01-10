@@ -11,7 +11,7 @@ const initialState = {
 
 const profileReducer = (prevState = initialState, { type, payload }) => {
   const { Pending, Rejected, Fulfilled } = ActionType;
-  const { getProfile } = actionStrings;
+  const { getProfile, editProfile } = actionStrings;
 
   switch (type) {
     case getProfile.concat("_", Pending):
@@ -37,7 +37,29 @@ const profileReducer = (prevState = initialState, { type, payload }) => {
         isFulfilled: true,
         profile: payload.data.data,
       };
-
+    case editProfile.concat("_", Pending):
+      return {
+        ...prevState,
+        isLoading: true,
+        isError: false,
+        isFulfilled: false,
+      };
+    case editProfile.concat("_", Rejected):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: true,
+        isFulfilled: false,
+        error: payload.error.response.data.status,
+      };
+    case editProfile.concat("_", Fulfilled):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: false,
+        isFulfilled: true,
+        profile: payload.data.data,
+      };
     default:
       return prevState;
   }

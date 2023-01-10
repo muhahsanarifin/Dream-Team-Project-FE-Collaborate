@@ -1,5 +1,5 @@
 import { ActionType } from "redux-promise-middleware";
-import { getProfile } from "../../utils/fetcher";
+import { getProfile, editProfile } from "../../utils/fetcher";
 import { actionStrings } from "./actionStrings";
 
 const { Pending, Rejected, Fulfilled } = ActionType;
@@ -18,6 +18,20 @@ const getProfileFulfilled = (data) => ({
   payload: { data },
 });
 
+const editProfilePending = () => ({
+  type: actionStrings.editProfile.concat("_", Pending),
+});
+
+const editProfileRejected = (error) => ({
+  type: actionStrings.editProfile.concat("-", Rejected),
+  payload: { error },
+});
+
+const editProfileFulfilled = (data) => ({
+  type: actionStrings.editProfile.concat("_", Fulfilled),
+  payload: { data },
+});
+
 const getProfileThunk = (token) => {
   return async (dispatch) => {
     try {
@@ -30,8 +44,21 @@ const getProfileThunk = (token) => {
   };
 };
 
+const editProfileThunk = (body, token) => {
+  return async (dispatch) => {
+    try {
+      dispatch(editProfilePending());
+      const result = await editProfile(body, token);
+      dispatch(editProfileFulfilled(result.data));
+    } catch (error) {
+      dispatch(editProfileRejected(error));
+    }
+  };
+};
+
 const profileAction = {
-    getProfileThunk
-}
+  getProfileThunk,
+  editProfileThunk,
+};
 
 export default profileAction;
