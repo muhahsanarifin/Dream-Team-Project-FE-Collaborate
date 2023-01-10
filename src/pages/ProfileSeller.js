@@ -81,12 +81,12 @@ export default function ProfileSellers() {
     if (body.file) {
       formData.append("image", body.file);
     }
-    const bodies = formData;
-    const config = {
-      headers: {
-        "x-access-token": token,
-      },
-    };
+    // const bodies = formData;
+    // const config = {
+    //   headers: {
+    //     "x-access-token": token,
+    //   },
+    // };
 
     // for (const value of formData.values()) {
     //   console.log(value);

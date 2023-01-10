@@ -27,6 +27,17 @@ const axiosRequest = (method, url, data, params) => {
 //   return axiosRequest("POST", "/auth/login", data);
 // };
 
+export const getOrderCustomer = (params) => {
+  const url = `${baseUrl}raz/transaction/checkout-customer`;
+  return axios.get(url, params);
+};
+
+export const getOrderSeller = (params) => {
+  console.log(params);
+  const url = `${baseUrl}raz/transaction/checkout-seller`;
+  return axios.get(url, params);
+};
+
 export const login = (body) => {
   const URL = `${baseUrl}raz/auth/login`;
   return axios.post(URL, body);

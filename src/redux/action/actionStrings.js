@@ -21,4 +21,6 @@ export const actionStrings = {
   getCategories: "GET_CATEGORIES",
   getRelatedProduct: "GET_RELATED_PRODUCT",
   getSellerProduct: "GET_SELLER_PRODUCT",
+  getOrderSeller: "GET_ORDER_SELLER",
+  getOrderCustomer: "GET_ORDER_CUSTOMER",
 };
