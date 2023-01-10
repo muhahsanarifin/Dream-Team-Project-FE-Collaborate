@@ -8,8 +8,13 @@ import chev from "../assets/chevrongrey.png";
 import product1 from "../assets/product-picture-1.png";
 import product2 from "../assets/product2.png";
 import check from "../assets/check.png";
+import { connect } from "react-redux";
 
 class MyOrderSellers extends Component {
+  componentDidMount() {
+    console.log(this.props.auth.userInfo.roles);
+  }
+
   render() {
     return (
       <Fragment>
@@ -37,13 +42,23 @@ class MyOrderSellers extends Component {
                     this.props.navigate("/profile/seller/product");
                   }}
                 >
-                  <div className={styles["nav-div-2"]}>
+                  <div
+                    className={
+                      this.props.auth.userInfo.roles === "seller"
+                        ? styles["nav-div-2"]
+                        : styles["nav-div-3"]
+                    }
+                  >
                     <p>My Product</p>
                     <img className={styles["chev"]} src={chev} alt="img" />
                   </div>
                 </div>
                 <p
-                  className={styles["nav-div-2"]}
+                  className={
+                    this.props.auth.userInfo.roles === "seller"
+                      ? styles["nav-div-2"]
+                      : styles["nav-div-3"]
+                  }
                   onClick={() => {
                     this.props.navigate("/profile/seller/product/selling");
                   }}
@@ -124,4 +139,11 @@ class MyOrderSellers extends Component {
 
 const MyOrderSeller = withNavigate(MyOrderSellers);
 
-export default MyOrderSeller;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    auth: state.auth,
+  };
+};
+
+export default connect(mapStateToProps)(MyOrderSeller);

@@ -81,6 +81,10 @@
   cursor: pointer;
 }
 
+.nav-div-3 {
+  display: none;
+}
+
 .nav-line {
   width: 80px;
   border: 2px solid #c2c2c2;

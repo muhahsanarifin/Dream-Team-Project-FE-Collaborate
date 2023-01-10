@@ -157,6 +157,26 @@ class Profiles extends Component {
               </p>
             </section>
             <section className={styles["section-2"]}>
+              <div className={styles["profile-nav"]}>
+                <div>
+                  <p
+                    className={styles["nav-div-1"]}
+                    onClick={() => {
+                      this.props.navigate("/profile/seller");
+                    }}
+                  >
+                    Profile
+                  </p>
+                </div>
+                <p
+                  className={styles["nav-div-2"]}
+                  onClick={() => {
+                    this.props.navigate("/profile/order");
+                  }}
+                >
+                  My Order
+                </p>
+              </div>
               <div className={styles["profile-div"]}>
                 <label for="upload" className={styles["profile-image-div"]}>
                   {this.state.image ? (

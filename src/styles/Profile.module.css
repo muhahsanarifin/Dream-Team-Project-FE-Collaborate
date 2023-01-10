@@ -16,6 +16,36 @@
   padding-bottom: 74px;
 }
 
+.profile-nav {
+  display: flex;
+  column-gap: 80px;
+  margin-bottom: 100px;
+}
+
+.nav-div-1 {
+  display: flex;
+  align-items: center;
+  column-gap: 14px;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 37px;
+  color: #1a1a1a;
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+
+.nav-div-2 {
+  display: flex;
+  align-items: center;
+  column-gap: 14px;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 37px;
+  color: #b4b4b4;
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+
 .section-1::after {
   background-image: url("../assets/login-background.png");
   background-repeat: no-repeat;
