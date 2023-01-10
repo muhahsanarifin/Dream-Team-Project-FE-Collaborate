@@ -1,0 +1,128 @@
+.content-all {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.comment {
+  font-family: 'arimo';
+  font-weight: 400;
+  font-size: 32px;
+  padding-top: 100px;
+}
+
+.border_comment {
+  height: 800px;
+  border: 1px solid #d1d1d1;
+}
+
+.content_img_comment {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  padding: 40px 50px;
+}
+
+.content_comment_right {
+  display: flex;
+  flex-direction: column;
+}
+
+.text_comment {
+  font-family: 'Playfair Display';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: #535353;
+}
+
+.text_time_comment {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #989898;
+}
+.text_reply {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: black;
+  padding-left: 10px;
+}
+
+.content_img_comment_right {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  padding: 10px 0px 0px 150px;
+}
+
+.line_bani {
+  border-bottom: 1px solid #e12070;
+  width: 10px;
+  height: 1px;
+  padding-top: 50px;
+}
+
+.line_bottom {
+  padding-top: 40px;
+  border-bottom: 1px solid #d1d1d1;
+}
+
+.icon_rachel {
+  height: 94px;
+}
+
+.leave_comment {
+  padding-top: 50px;
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+}
+
+.text_address {
+  padding: 0.5rem 0;
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #4d4d4d;
+}
+
+.content_comment {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.input_text {
+  padding-left: 18px;
+  width: 270px;
+  height: 60px;
+}
+.input_comment {
+  margin-top: 30px;
+  padding-top: 15px;
+  width: 860px;
+  height: 190px;
+  border: 1px solid black;
+}
+.input_text_comment {
+  border: none;
+  width: 100%;
+  padding-left: 18px;
+}
+.send {
+  margin-top: 30px;
+  width: 170px;
+  height: 50px;
+  background-color: black;
+  color: #ffffff;
+}

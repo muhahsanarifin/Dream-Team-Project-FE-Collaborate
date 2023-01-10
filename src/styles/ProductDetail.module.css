@@ -103,6 +103,9 @@
   /* padding-left: 65px; */
 }
 
+.card-review {
+  padding: 0px 120px;
+}
 .price-and-sold-history {
   /* border: 1px solid darkblue; */
   margin-bottom: 0;
@@ -260,6 +263,7 @@
 
 .related-prodcuts-title {
   /* border: 1px solid darkcyan; */
+  padding-top: 30px;
   text-align: center;
 }
 

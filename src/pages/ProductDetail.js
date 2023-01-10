@@ -12,6 +12,9 @@ import iconFb from "../assets/1.png";
 import iconTwit from "../assets/2.png";
 import iconYt from "../assets/3.png";
 
+//import components
+import CardComment from "../components/CardComment";
+
 // import counterActions from "../redux/action/counterProduct";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../redux/action/product";
@@ -21,6 +24,7 @@ import Swal from "sweetalert2";
 const ProductDetail = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
+  const [review, setReview] = useState(true)
   const [counter, setCounter] = useState(0);
   // const counters = useSelector((state) => state.counter.number);
   const cartData = useSelector((state) => state.cart.data);
@@ -52,7 +56,7 @@ const ProductDetail = () => {
     const filter = cartData.filter(
       (item) => item.product_id === productDetail.id
     );
-    
+
     if (filter?.length > 0) {
       return Swal.fire({
         title: "product sudah dalam keranjang",
@@ -206,41 +210,44 @@ const ProductDetail = () => {
           </div>
         </section>
         <section>
+
           <span className={styles["lists-section"]}>
             <ul className={styles["lists"]}>
-              <li>Description</li>
-              <li>Review</li>
+              <li onClick={() => setReview(true)}>Description</li>
+              <li onClick={() => setReview(false)}>Review</li>
               <li>Additional Information</li>
               <li>About Brand</li>
               <li>Shipping & Delivery</li>
             </ul>
           </span>
-          <span className={styles["images-description"]}>
-            <img src={image[0]} alt={``} />
-            <span>
-              <p>
-                Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at
-                egestas magna molestie a. Proin ac ex maximus, ultrices justo
-                eget, sodales orci. Aliquam egestas libero ac turpis pharetra,
-                in vehicula lacus scelerisque. Vestibulum ut sem laoreet,
-                feugiat tellus at, hendrerit arcu..
-              </p>
-              <ul>
-                <li>
+          <div className={styles["card-review"]}>
+            {review ? <span className={styles["images-description"]}>
+              <img src={image[0]} alt={``} />
+              <span>
+                <p>
+                  Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at
+                  egestas magna molestie a. Proin ac ex maximus, ultrices justo
+                  eget, sodales orci. Aliquam egestas libero ac turpis pharetra,
+                  in vehicula lacus scelerisque. Vestibulum ut sem laoreet,
+                  feugiat tellus at, hendrerit arcu..
+                </p>
+                <ul>
+                  <li>
+                    Maecenas eu ante a elit tempus fermentum. Aliquam commodo
+                    tincidunt semper
+                  </li>
+                  <li>
+                    Aliquam est et tempus. Eaecenas libero ante, tincidunt vel
+                  </li>
+                </ul>
+                <p>
+                  Nunc lacus elit, faucibus ac laoreet sed, dapibus ac mi.
                   Maecenas eu ante a elit tempus fermentum. Aliquam commodo
-                  tincidunt semper
-                </li>
-                <li>
-                  Aliquam est et tempus. Eaecenas libero ante, tincidunt vel
-                </li>
-              </ul>
-              <p>
-                Nunc lacus elit, faucibus ac laoreet sed, dapibus ac mi.
-                Maecenas eu ante a elit tempus fermentum. Aliquam commodo
-                tincidunt semper. Phasellus accum
-              </p>
-            </span>
-          </span>
+                  tincidunt semper. Phasellus accum
+                </p>
+              </span>
+            </span> : <CardComment />}
+          </div>
         </section>
         <section className={styles["related-prodcuts"]}>
           <h3 className={styles["related-prodcuts-title"]}>Related Prodcuts</h3>
