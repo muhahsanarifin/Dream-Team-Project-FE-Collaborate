@@ -34,6 +34,7 @@ export default function SellingProducts() {
 
   const navigate = useNavigate();
   const token = useSelector((state) => state.auth.userInfo.token);
+  console.log(token);
   const [form, setForm] = useState({
     price: undefined,
     product_name: undefined,
@@ -43,14 +44,15 @@ export default function SellingProducts() {
     color_id: undefined,
     description_product: undefined,
     stock: undefined,
-    sold: undefined,
+    sold: 0,
     conditions: undefined,
     image: {},
   });
 
   useEffect(() => {
     document.title = "Selling Product";
-  }, []);
+    // console.log(form.category_id);
+  }, [form.category_id]);
 
   const handleChange = (e, field) => {
     setForm({
@@ -74,7 +76,7 @@ export default function SellingProducts() {
 
   const handleSubmit2 = (e) => {
     e.preventDefault();
-    const url = `https://dream-team-project-be.vercel.app/raz/product`;
+    const url = `http://localhost:8090/raz/product`;
     const formdata = new FormData();
     formdata.append("product_name", form.product_name);
     formdata.append("description_product", form.description_product);
@@ -88,6 +90,9 @@ export default function SellingProducts() {
     formdata.append("sold", form.sold);
     formdata.append("stock", form.stock);
     const body = formdata;
+    for (const pair of formdata.entries()) {
+      console.log(`${pair[0]}, ${pair[1]}`);
+    }
     const config = {
       headers: {
         "x-access-token": token,
@@ -375,6 +380,285 @@ export default function SellingProducts() {
                     }}
                   />
                   <p className={styles["sell-text-2"]}>MUSTARD</p>
+                </div>
+              </div>
+              <p className={styles["sell-text-1"]}>CATEGORY</p>
+              <div className={styles["condition-div"]}>
+                <div className={styles["condition-subdiv"]}>
+                  <button
+                    className={
+                      form.category_id.includes(1)
+                        ? styles["radio-checked"]
+                        : styles["radio"]
+                    }
+                    onClick={() => {
+                      setForm({
+                        ...form,
+                      });
+                      if (form.category_id.includes(1)) {
+                        form.category_id.splice(form.category_id.indexOf(1), 1);
+                      } else {
+                        form.category_id.push(1);
+                      }
+                      console.log(form.category_id);
+                    }}
+                  />
+                  <p className={styles["sell-text-2"]}>ACCESSORIES</p>
+                </div>
+                <div className={styles["condition-subdiv"]}>
+                  <button
+                    className={
+                      form.category_id.includes(2)
+                        ? styles["radio-checked"]
+                        : styles["radio"]
+                    }
+                    onClick={() => {
+                      setForm({
+                        ...form,
+                      });
+                      if (form.category_id.includes(2)) {
+                        form.category_id.splice(form.category_id.indexOf(2), 1);
+                      } else {
+                        form.category_id.push(2);
+                      }
+                      console.log(form.category_id);
+                    }}
+                  />
+                  <p className={styles["sell-text-2"]}>BRANDS</p>
+                </div>
+                <div className={styles["condition-subdiv"]}>
+                  <button
+                    className={
+                      form.category_id.includes(3)
+                        ? styles["radio-checked"]
+                        : styles["radio"]
+                    }
+                    onClick={() => {
+                      setForm({
+                        ...form,
+                      });
+                      if (form.category_id.includes(3)) {
+                        form.category_id.splice(form.category_id.indexOf(3), 1);
+                      } else {
+                        form.category_id.push(3);
+                      }
+                      console.log(form.category_id);
+                    }}
+                  />
+                  <p className={styles["sell-text-2"]}>CLOTHING</p>
+                </div>
+                <div className={styles["condition-subdiv"]}>
+                  <button
+                    className={
+                      form.category_id.includes(4)
+                        ? styles["radio-checked"]
+                        : styles["radio"]
+                    }
+                    onClick={() => {
+                      setForm({
+                        ...form,
+                      });
+                      if (form.category_id.includes(4)) {
+                        form.category_id.splice(form.category_id.indexOf(4), 1);
+                      } else {
+                        form.category_id.push(4);
+                      }
+                      console.log(form.category_id);
+                    }}
+                  />
+                  <p className={styles["sell-text-2"]}>FASHION</p>
+                </div>
+                <div className={styles["condition-subdiv"]}>
+                  <button
+                    className={
+                      form.category_id.includes(5)
+                        ? styles["radio-checked"]
+                        : styles["radio"]
+                    }
+                    onClick={() => {
+                      setForm({
+                        ...form,
+                      });
+                      if (form.category_id.includes(5)) {
+                        form.category_id.splice(form.category_id.indexOf(5), 1);
+                      } else {
+                        form.category_id.push(5);
+                      }
+                      console.log(form.category_id);
+                    }}
+                  />
+                  <p className={styles["sell-text-2"]}>FURNITURE</p>
+                </div>
+                <div className={styles["condition-subdiv"]}>
+                  <button
+                    className={
+                      form.category_id.includes(6)
+                        ? styles["radio-checked"]
+                        : styles["radio"]
+                    }
+                    onClick={() => {
+                      setForm({
+                        ...form,
+                      });
+                      if (form.category_id.includes(6)) {
+                        form.category_id.splice(form.category_id.indexOf(6), 1);
+                      } else {
+                        form.category_id.push(6);
+                      }
+                      console.log(form.category_id);
+                    }}
+                  />
+                  <p className={styles["sell-text-2"]}>MEN</p>
+                </div>
+                <div className={styles["condition-subdiv"]}>
+                  <button
+                    className={
+                      form.category_id.includes(7)
+                        ? styles["radio-checked"]
+                        : styles["radio"]
+                    }
+                    onClick={() => {
+                      setForm({
+                        ...form,
+                      });
+                      if (form.category_id.includes(7)) {
+                        form.category_id.splice(form.category_id.indexOf(7), 1);
+                      } else {
+                        form.category_id.push(7);
+                      }
+                      console.log(form.category_id);
+                    }}
+                  />
+                  <p className={styles["sell-text-2"]}>WOMAN</p>
+                </div>
+                <div className={styles["condition-subdiv"]}>
+                  <button
+                    className={
+                      form.category_id.includes(8)
+                        ? styles["radio-checked"]
+                        : styles["radio"]
+                    }
+                    onClick={() => {
+                      setForm({
+                        ...form,
+                      });
+                      if (form.category_id.includes(8)) {
+                        form.category_id.splice(form.category_id.indexOf(8), 1);
+                      } else {
+                        form.category_id.push(8);
+                      }
+                      console.log(form.category_id);
+                    }}
+                  />
+                  <p className={styles["sell-text-2"]}>SHOES</p>
+                </div>
+                <div className={styles["condition-subdiv"]}>
+                  <button
+                    className={
+                      form.category_id.includes(9)
+                        ? styles["radio-checked"]
+                        : styles["radio"]
+                    }
+                    onClick={() => {
+                      setForm({
+                        ...form,
+                      });
+                      if (form.category_id.includes(9)) {
+                        form.category_id.splice(form.category_id.indexOf(9), 1);
+                      } else {
+                        form.category_id.push(9);
+                      }
+                      console.log(form.category_id);
+                    }}
+                  />
+                  <p className={styles["sell-text-2"]}>WALLETS</p>
+                </div>
+              </div>
+              <p className={styles["sell-text-1"]}>SIZE</p>
+              <div className={styles["condition-div"]}>
+                <div className={styles["condition-subdiv"]}>
+                  <input
+                    className={styles["radio"]}
+                    type="radio"
+                    name="color"
+                    onClick={() => {
+                      setForm({
+                        ...form,
+                        size_id: 1,
+                      });
+                    }}
+                  />
+                  <p className={styles["sell-text-2"]}>S</p>
+                </div>
+                <div className={styles["condition-subdiv"]}>
+                  <input
+                    className={styles["radio"]}
+                    type="radio"
+                    name="color"
+                    onClick={() => {
+                      setForm({
+                        ...form,
+                        size_id: 2,
+                      });
+                    }}
+                  />
+                  <p className={styles["sell-text-2"]}>M</p>
+                </div>
+                <div className={styles["condition-subdiv"]}>
+                  <input
+                    className={styles["radio"]}
+                    type="radio"
+                    name="color"
+                    onClick={() => {
+                      setForm({
+                        ...form,
+                        size_id: 3,
+                      });
+                    }}
+                  />
+                  <p className={styles["sell-text-2"]}>L</p>
+                </div>
+                <div className={styles["condition-subdiv"]}>
+                  <input
+                    className={styles["radio"]}
+                    type="radio"
+                    name="color"
+                    onClick={() => {
+                      setForm({
+                        ...form,
+                        size_id: 4,
+                      });
+                    }}
+                  />
+                  <p className={styles["sell-text-2"]}>XL</p>
+                </div>
+                <div className={styles["condition-subdiv"]}>
+                  <input
+                    className={styles["radio"]}
+                    type="radio"
+                    name="color"
+                    onClick={() => {
+                      setForm({
+                        ...form,
+                        size_id: 5,
+                      });
+                    }}
+                  />
+                  <p className={styles["sell-text-2"]}>XXL</p>
+                </div>
+                <div className={styles["condition-subdiv"]}>
+                  <input
+                    className={styles["radio"]}
+                    type="radio"
+                    name="color"
+                    onClick={() => {
+                      setForm({
+                        ...form,
+                        size_id: 6,
+                      });
+                    }}
+                  />
+                  <p className={styles["sell-text-2"]}>ALL SIZE</p>
                 </div>
               </div>
               <h1 className={styles["sell-header-1"]}>Photo of Goods</h1>

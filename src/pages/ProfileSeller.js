@@ -87,6 +87,10 @@ export default function ProfileSellers() {
         "x-access-token": token,
       },
     };
+
+    // for (const value of formData.values()) {
+    //   console.log(value);
+    // }
     // Axios.patch(url, bodies, config)
     //   .then((res) => {
     //     Swal.fire({
