@@ -1,5 +1,5 @@
 import { ActionType } from "redux-promise-middleware";
-import { login, logout /*reset*/ } from "../../utils/fetcher";
+import { login, logout, register } from "../../utils/fetcher";
 import { actionStrings } from "./actionStrings";
 
 const { Pending, Rejected, Fulfilled } = ActionType;
@@ -28,53 +28,100 @@ const logoutFulfilled = (data) => ({
   payload: { data },
 });
 
+const registerPending = () => ({
+  type: actionStrings.register.concat("_", Pending),
+});
+
+const registerRejected = (error) => ({
+  type: actionStrings.register.concat("_", Rejected),
+  payload: { error },
+});
+
+const registerFulfilled = (data) => ({
+  type: actionStrings.register.concat("_", Fulfilled),
+  payload: { data },
+});
+
 // const resetPending = () => ({
-//   type: ACTION_STRING.authReset.concat("_", Pending),
+//   type: actionStrings.authReset.concat("_", Pending),
 // });
 // const resetRejected = (error) => ({
-//   type: ACTION_STRING.authReset.concat("_", Rejected),
+//   type: actionStrings.authReset.concat("_", Rejected),
 //   payload: { error },
 // });
 // const resetFulfilled = (data) => ({
-//   type: ACTION_STRING.authReset.concat("_", Fulfilled),
+//   type: actionStrings.authReset.concat("_", Fulfilled),
 //   payload: { data },
 // });
 
-const loginThunk = (body, navigate, cbSuccess, cbError) => {
+// const loginThunk = (body, navigate) => {
+//   return async (dispacth) => {
+//     try {
+//       dispacth(loginPending());
+//       const result = await login(body);
+//       dispacth(loginFulfilled(result.data));
+//       console.log(result.data);
+//       localStorage.setItem("token", JSON.stringify(result.data.data.token));
+//       if (typeof navigate === "function") navigate();
+//     } catch (error) {
+//       dispacth(loginRejected(error));
+//     }
+//   };
+// };
+
+const registerThunk = (body, cbSuccess, cbDenied) => {
   return async (dispatch) => {
     try {
-      dispatch(loginPending());
-      const result = await login(body);
-      // console.log(typeof result.data.data.token);
-      // console.log(typeof result.data.data.role);
-      const token = result.data.data.token;
-      localStorage.setItem("token", token);
-      localStorage.setItem("role", result.data.data.role);
-      dispatch(loginFulfilled(result.data));
-      // console.log(result.data);
-      // localStorage.setItem("token", JSON.stringify(result.data.data.token));
+      dispatch(registerPending());
+      const result = await register(body);
+      dispatch(registerFulfilled(result.data));
       if (typeof cbSuccess === "function") cbSuccess();
-      if (typeof navigate === "function") navigate();
     } catch (error) {
-      dispatch(loginRejected(error));
-      if (typeof cbError === "function") cbError(error);
+      dispatch(registerRejected(error));
+      if (typeof cbDenied === "function") cbDenied(error.response.data.status);
     }
   };
 };
 
-const logoutThunk = (token, cbSuccess, navigate, cbError) => {
-  return async (dispacth) => {
+const loginThunk = (body, cbSuccess, cbDenied) => {
+  return async (dispatch) => {
     try {
-      dispacth(logoutPending());
-      const result = await logout(token);
-      dispacth(logoutFulfilled(result.data));
-      console.log(result.data);
-      if (typeof cbSuccess === "function") cbSuccess()
-      if (typeof navigate === "function") navigate();
-      localStorage.clear()
+      dispatch(loginPending());
+      const result = await login(body);
+      dispatch(loginFulfilled(result.data));
+      localStorage.setItem("token", JSON.stringify(result.data.data.token));
+      if (typeof cbSuccess === "function") cbSuccess();
     } catch (error) {
-      dispacth(logoutRejected(error));
-       if (typeof cbError === "function") cbError(error);
+      dispatch(loginRejected(error));
+      if (typeof cbDenied === "function") cbDenied(error.response.data.status);
+    }
+  };
+};
+
+// const logoutThunk = (token, navigate) => {
+//   return async (dispacth) => {
+//     try {
+//       dispacth(logoutPending());
+//       const result = await logout(token);
+//       dispacth(logoutFulfilled(result.data));
+//       console.log(result.data);
+//       if (typeof navigate === "function") navigate();
+//     } catch (error) {
+//       dispacth(logoutRejected(error));
+//     }
+//   };
+// };
+
+const logoutThunk = (token, cbSuccess) => {
+  return async (dispatch) => {
+    try {
+      dispatch(logoutPending());
+      const result = await logout(token);
+      dispatch(logoutFulfilled(result.data));
+      localStorage.clear();
+      if (typeof cbSuccess === "function") cbSuccess();
+    } catch (error) {
+      dispatch(logoutRejected(error));
     }
   };
 };
@@ -96,6 +143,7 @@ const logoutThunk = (token, cbSuccess, navigate, cbError) => {
 const authActions = {
   loginThunk,
   logoutThunk,
+  registerThunk,
   // resetThunk,
 };
 

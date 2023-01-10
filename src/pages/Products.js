@@ -14,6 +14,7 @@ import {
   useLocation,
   useSearchParams,
 } from "react-router-dom";
+import MultiRangeSlider from "multi-range-slider-react";
 
 const useQuery = () => {
   const { search } = useLocation();
@@ -38,7 +39,7 @@ const Products = () => {
     minPrice: getQuery.get("minPrice") || "",
     maxPrice: getQuery.get("maxPrice") || "",
     page: getQuery.get("page") || 1,
-    limit: getQuery.get("limit") || 9,
+    limit: getQuery.get("limit") || 8,
   });
   const totalDataFake = useSelector((state) =>
     state.products.products
@@ -75,10 +76,47 @@ const Products = () => {
     dispatch(categoriesActions.getCategoriesThunk());
   }, [dispatch]);
 
+  const role = useSelector((state) => state.auth.userInfo.role); // Get role user
+  const token = useSelector((state) => state.auth.userInfo.token); // Get token user
+
+  // const [data1, setData1] = useState(0);
+  // const [data2, setData2] = useState(3000000);
+
+  const [minValue, set_minValue] = useState(0);
+  const [maxValue, set_maxValue] = useState(3000000);
+  const handleInput = (e) => {
+    set_minValue(e.minValue);
+    set_maxValue(e.maxValue);
+  };
+
+  const currency = (price) => {
+    return (
+      "Rp " +
+      parseFloat(price)
+        .toFixed()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+    );
+  };
+
   return (
     <>
       <main className={styles["main"]}>
-        <Header />
+        {token === null ? (
+          <Header displayProfile={`none`} displayLogout={`none`} />
+        ) : role === "customer" ? (
+          <Header
+            linkToProfile={`/profile`}
+            displayRegister={`none`}
+            displayLogin={`none`}
+            displayLogout={`none`}
+          />
+        ) : (
+          <Header
+            linkToProfile={`/profile/seller`}
+            displayRegister={`none`}
+            displayLogin={`none`}
+          />
+        )}
         <section className={styles["carousel"]}>
           <div className={styles["breadcrumb"]}>
             <p>Shop</p>
@@ -112,9 +150,59 @@ const Products = () => {
             </span>
             <div className={styles["price"]}>
               <h3>Price</h3>
-              <p>Price Rp.39.000 - Rp.159.000</p>
+              {/* <p>Price Rp.39.000 - Rp.159.000</p> */}
+              <p>
+                {currency(minValue * 30000)} - {currency(maxValue * 30000)}
+              </p>
+              {/* <input
+                type="range"
+                min="0"
+                max="3000000"
+                step="1000"
+                value={data1}
+                onChange={(e) => setData1(e.target.value)}
+              />
+              <input
+                type="range"
+                min="0"
+                max="3000000"
+                step="1000"
+                value={data2}
+                onChange={(e) => setData2(e.target.value)}
+              /> */}
+              <MultiRangeSlider
+                min={0}
+                max={100}
+                step={5}
+                minValue={minValue}
+                maxValue={maxValue}
+                onInput={(e) => {
+                  handleInput(e);
+                }}
+                label={false}
+                ruler={false}
+                style={{
+                  border: "none",
+                  boxShadow: "none",
+                  padding: "15px 10px",
+                }}
+                barInnerColor="black"
+                thumbLeftColor="black"
+                thumbRightColor="black"
+              />
               <span></span>
-              <button>Filter</button>
+              <button
+                onClick={() => {
+                  setQuery({
+                    ...query,
+                    minPrice: minValue*30000,
+                    maxPrice: maxValue*30000,
+                    page: "1",
+                  });
+                }}
+              >
+                Filter
+              </button>
             </div>
             <span className={styles["brands"]}>
               <h3>Brands</h3>

@@ -22,10 +22,15 @@ import japanesePlateFloral from "../assets/raz-retangle-5.png";
 
 import modernFloorLamp from "../assets/raz-retangle-6.png";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import profileAction from "../redux/action/profile";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth.userInfo.token);
   useEffect(() => {
     window.scrollTo(0, 0);
+    dispatch(profileAction.getProfileThunk(token));
   }, []);
   return (
     <>
