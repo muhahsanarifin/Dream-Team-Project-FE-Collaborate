@@ -1,10 +1,7 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:8090/";
-// const baseUrl = "https://dream-team-project-be.vercel.app/";
+let baseUrl = process.env.REACT_APP_DT_BACKEND_HOST;
 
-// const baseUrl2 = http://localhost:8090/
-// console.log(process.env.REACT_APP_DT_BACKEND_HOST);
 const config = (token) => {
   return {
     headers: {
