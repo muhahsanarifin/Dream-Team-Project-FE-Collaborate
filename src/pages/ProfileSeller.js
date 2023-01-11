@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import profileAction from "../redux/action/profile";
+import productActions from "../redux/action/product";
 
 export default function ProfileSellers() {
   document.title = "Profile";
@@ -19,6 +20,7 @@ export default function ProfileSellers() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.userInfo.token);
   const profile = useSelector((state) => state.profile.profile[0]);
+  const [query, setQuery] = useState({});
   const [body, setBody] = useState({
     username: profile.username,
     role: profile.role,
@@ -31,6 +33,7 @@ export default function ProfileSellers() {
   console.log(body);
   useEffect(() => {
     dispatch(profileAction.getProfileThunk(token));
+    dispatch(productActions.getSellerProductThunk(token, query));
   }, [dispatch, token]);
 
   const handleSubmit = (event) => {

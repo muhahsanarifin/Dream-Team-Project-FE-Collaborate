@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import styles from "../styles/Header.module.css";
 
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import {
+  createSearchParams,
+  Link,
+  useLocation,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 import Swal from "sweetalert2";
 import mag from "../assets/mag.png";
 import love from "../assets/love.png";
@@ -13,6 +19,11 @@ import { useDispatch, useSelector } from "react-redux";
 import productActions from "../redux/action/product";
 import authActions from "../redux/action/auth";
 import Modal from "../components/modal/ModalLogout";
+
+const useQuery = () => {
+  const { search } = useLocation();
+  return useMemo(() => new URLSearchParams(search), [search]);
+};
 
 export default function Header({
   displayLogin,
@@ -26,20 +37,21 @@ export default function Header({
   const [menu, setMenu] = useState("none");
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
+  const getQuery = useQuery();
   const token = useSelector((state) => state.auth.userInfo.token);
   const role = useSelector((state) => state.auth.userInfo.roles);
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
   const [query, setQuery] = useState({
-    search: search || "",
-    sort: "",
-    brandId: "",
-    colorId: "",
-    categoryId: "",
-    minPrice: "",
-    maxPrice: "",
-    page: 1,
-    limit: 9,
+    search: getQuery.get("search") || "",
+    sort: getQuery.get("sort") || "",
+    brandId: getQuery.get("brandId") || "",
+    colorId: getQuery.get("colorId") || "",
+    categoryId: getQuery.get("categoryId") || "",
+    minPrice: getQuery.get("minPrice") || "",
+    maxPrice: getQuery.get("maxPrice") || "",
+    page: getQuery.get("page") || 1,
+    limit: getQuery.get("limit") || 8,
   });
 
   const handleLogout = () => {
@@ -168,14 +180,10 @@ export default function Header({
               placeholder="Search here"
               className={`${styles["search-input"]}`}
               onChange={(e) => {
-                setSearchParams({
-                  search: e.target.value,
-                });
                 setQuery({
                   ...query,
                   search: e.target.value,
                 });
-                console.log(query);
               }}
             />
             <img
@@ -184,7 +192,8 @@ export default function Header({
               alt="img"
               onClick={(e) => {
                 e.preventDefault();
-                console.log(query);
+                const urlSearchParams = createSearchParams({ ...query });
+                setSearchParams(urlSearchParams);
                 dispatch(productActions.getProductThunk(query));
               }}
             />

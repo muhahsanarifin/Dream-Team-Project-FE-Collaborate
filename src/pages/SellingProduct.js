@@ -2,15 +2,20 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/SellingProduct.module.css";
-import Axios from "axios";
-import Swal from "sweetalert2";
+// import Axios from "axios";
+// import Swal from "sweetalert2";
 
 import chev from "../assets/chevrongrey.png";
 // import product from "../assets/product4.png";
 import add from "../assets/add.png";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRef } from "react";
+import productActions from "../redux/action/product";
+import Loading from "../components/LoadingBtn";
 
 export default function SellingProducts() {
   // constructor(props) {
@@ -33,25 +38,28 @@ export default function SellingProducts() {
   // }
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.userInfo.token);
-  console.log(token);
+  const isLoading = useSelector((state) => state.products.isLoading);
+  const refTarget = useRef(null);
+  const [imagePreview, setImagePreview] = useState([]);
   const [form, setForm] = useState({
-    price: undefined,
-    product_name: undefined,
+    price: 0,
+    product_name: "",
     category_id: [],
-    brand_id: undefined,
-    size_id: undefined,
-    color_id: undefined,
-    description_product: undefined,
-    stock: undefined,
+    brand_id: 0,
+    size_id: 0,
+    color_id: 0,
+    description_product: "",
+    stock: 0,
     sold: 0,
-    conditions: undefined,
-    image: {},
+    conditions: "",
+    image: [],
+    file: "",
   });
-
+  console.log(form);
   useEffect(() => {
     document.title = "Selling Product";
-    // console.log(form.category_id);
   }, [form.category_id]);
 
   const handleChange = (e, field) => {
@@ -61,17 +69,35 @@ export default function SellingProducts() {
     });
   };
 
-  const handleFile = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      setForm({
-        ...form,
-        image: URL.createObjectURL(e.target.files[0]),
-      });
-    }
-    setForm({
-      ...form,
-      file: e.target.files[0],
-    });
+  // const handleFile = (e) => {
+  //   if (e.target.files && e.target.files[0]) {
+  //     setForm({
+  //       ...form,
+  //       image: URL.createObjectURL(e.target.files[0]),
+  //     });
+  //   }
+  //   setForm({
+  //     ...form,
+  //     file: e.target.files[0],
+  //   });
+  // };
+
+  const imageHandler = (e) => {
+    const photo = e.target.files[0];
+    const defaultSize = 2 * 1024 * 1024;
+    if (
+      photo.type !== "image/jpeg" &&
+      photo.type !== "image/jpg" &&
+      photo.type !== "image/png"
+    )
+      return toast.error("Only receive .jpeg, .jpg, .png file");
+    if (photo.size > defaultSize)
+      return toast.error("File are too large, max size are 2 Mb");
+    setForm({ ...form });
+    form.image.push(e.target.files[0]);
+    setImagePreview([...imagePreview]);
+    console.log(URL.createObjectURL(e.target.files[0]).toString());
+    imagePreview.push(URL.createObjectURL(e.target.files[0]).toString());
   };
 
   const handleSubmit2 = (e) => {
@@ -84,41 +110,27 @@ export default function SellingProducts() {
     formdata.append("conditions", form.conditions);
     formdata.append("brand_id", form.brand_id);
     formdata.append("color_id", form.color_id);
-    formdata.append("image", form.file);
     formdata.append("category_id", form.category_id);
     formdata.append("size_id", form.size_id);
     formdata.append("sold", form.sold);
     formdata.append("stock", form.stock);
-    const body = formdata;
+    form.image.forEach((image) => {
+      formdata.append("image", image);
+    });
+    // const body = formdata;
     for (const pair of formdata.entries()) {
       console.log(`${pair[0]}, ${pair[1]}`);
     }
-    const config = {
-      headers: {
-        "x-access-token": token,
-      },
-    };
-    Axios.post(url, body, config)
-      .then((res) => {
-        Swal.fire({
-          title: "Product added successfully!",
-          timer: 2000,
-          showConfirmButton: false,
-        }).then((result) => {
-          if (result.dismiss === Swal.DismissReason.timer) {
-            window.location.reload();
-          }
-        });
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-        Swal.fire({
-          title: "Oops! Something went wrong",
-          showConfirmButton: false,
-          timer: 1000,
-        });
+    const success = () => {
+      toast.success("Product successfully created", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1000,
       });
+      setTimeout(() => {
+        navigate("/profile/seller");
+      }, 500);
+    };
+    dispatch(productActions.createProductThunk(formdata, token, success));
   };
 
   return (
@@ -195,14 +207,14 @@ export default function SellingProducts() {
                 className={styles["input-1"]}
                 type="text"
                 placeholder="Unit price *"
-                value={form.price}
+                value={form.price === 0 ? "" : form.price}
                 onChange={(e) => handleChange(e, "price")}
               />
               <input
                 className={styles["input-1"]}
                 type="text"
                 placeholder="Unit Stock *"
-                value={form.stock}
+                value={form.stock === 0 ? "" : form.stock}
                 onChange={(e) => handleChange(e, "stock")}
               />
               <p className={styles["sell-text-1"]}>Stock Condition</p>
@@ -663,21 +675,32 @@ export default function SellingProducts() {
               </div>
               <h1 className={styles["sell-header-1"]}>Photo of Goods</h1>
               <div className={styles["product-div"]}>
-                {form.image === undefined ? (
+                {form.image === "" ? (
                   <label htmlFor="upload" className={styles["add-div"]}>
                     <img className={styles["add"]} src={add} alt="img" />
                     <p className={styles["add-text"]}>Add more image</p>
                   </label>
                 ) : (
                   <div className={styles["product-div"]}>
-                    <label htmlFor="upload">
-                      <img
-                        className={styles["product-img"]}
-                        src={form.image}
-                        alt="img"
-                      />
-                    </label>
-                    <label htmlFor="upload" className={styles["add-div"]}>
+                    {form.image.map((item) => {
+                      return (
+                        <label htmlFor="upload">
+                          <img
+                            className={styles["product-img"]}
+                            src={URL.createObjectURL(item)}
+                            alt="img"
+                          />
+                        </label>
+                      );
+                    })}
+                    <label
+                      htmlFor="upload"
+                      className={styles["add-div"]}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        refTarget.current.click();
+                      }}
+                    >
                       <img className={styles["add"]} src={add} alt="img" />
                       <p className={styles["add-text"]}>Add more image</p>
                     </label>
@@ -689,14 +712,22 @@ export default function SellingProducts() {
                 name="file"
                 id="upload"
                 className={styles["none"]}
+                ref={refTarget}
                 onChange={(e) => {
-                  handleFile(e);
+                  imageHandler(e);
+                  console.log(e.target.files[0]);
                 }}
               />
               <form onSubmit={handleSubmit2}>
-                <button type="submit" className={styles["sell-btn"]}>
-                  Sell Product
-                </button>
+                {isLoading ? (
+                  <div className={styles["button"]}>
+                    <Loading />
+                  </div>
+                ) : (
+                  <button type="submit" className={styles["sell-btn"]}>
+                    Sell Product
+                  </button>
+                )}
               </form>
             </section>
           </section>

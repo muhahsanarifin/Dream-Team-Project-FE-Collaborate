@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/MyOrderSeller.module.css";
@@ -49,7 +49,7 @@ export default function MyOrderSellers() {
   }, [dispatch, auth.userInfo.roles, auth.userInfo.token]);
 
   return (
-    <Fragment>
+    <>
       <main className={styles["main-2"]}>
         <main className={styles["main"]}>
           <Header />
@@ -134,16 +134,18 @@ export default function MyOrderSellers() {
                         />
                       </th>
                       <th className={styles["th-text-1"]}>
-                        ${item.product_name}
+                        {item.product_name}
                       </th>
-                      <th className={styles["th-text-2"]}>Rp {item.price}</th>
+                      <th className={styles["th-text-2"]}>Rp.{item.price}</th>
                       <th className={styles["th-text-3"]}>{item.quantity}</th>
                       <th>
                         <div className={styles["th-text-4"]}>
                           {item.status_order}
                         </div>
                       </th>
-                      <th className={styles["th-text-5"]}>$21.00</th>
+                      <th className={styles["th-text-5"]}>
+                        Rp.{item.price * item.quantity}
+                      </th>
                     </tr>
                   );
                 })
@@ -154,7 +156,7 @@ export default function MyOrderSellers() {
           <Footer />
         </main>
       </main>
-    </Fragment>
+    </>
   );
 }
 

@@ -195,8 +195,8 @@ const Products = () => {
                 onClick={() => {
                   setQuery({
                     ...query,
-                    minPrice: minValue*30000,
-                    maxPrice: maxValue*30000,
+                    minPrice: minValue * 30000,
+                    maxPrice: maxValue * 30000,
                     page: "1",
                   });
                 }}
@@ -440,7 +440,7 @@ const Products = () => {
                         onClick={() => {
                           setQuery({
                             ...query,
-                            sort: "oldes",
+                            sort: "oldest",
                           });
                         }}
                       >
@@ -450,7 +450,7 @@ const Products = () => {
                         onClick={() => {
                           setQuery({
                             ...query,
-                            sort: "newes",
+                            sort: "newest",
                           });
                         }}
                       >

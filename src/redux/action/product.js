@@ -1,5 +1,10 @@
 import { ActionType } from "redux-promise-middleware";
-import { getProduct, getData, getSellerProduct } from "../../utils/fetcher";
+import {
+  getProduct,
+  getData,
+  getSellerProduct,
+  createProduct,
+} from "../../utils/fetcher";
 import { actionStrings } from "./actionStrings";
 
 const { Pending, Rejected, Fulfilled } = ActionType;
@@ -60,6 +65,20 @@ const getSellerProductFulfilled = (data) => ({
   payload: { data },
 });
 
+const createProductPending = () => ({
+  type: actionStrings.createProduct.concat("_", Pending),
+});
+
+const createProductRejected = (error) => ({
+  type: actionStrings.createProduct.concat("_", Rejected),
+  payload: { error },
+});
+
+const createProductFulfilled = (data) => ({
+  type: actionStrings.createProduct.concat("_", Fulfilled),
+  payload: { data },
+});
+
 const getProductThunk = (params) => {
   return async (dispacth) => {
     try {
@@ -109,11 +128,26 @@ const getRelatedProductThunk = (id) => {
   };
 };
 
+const createProductThunk = (body, token, cbSuccess) => {
+  return async (dispacth) => {
+    try {
+      dispacth(createProductPending());
+      const result = await createProduct(body, token);
+      dispacth(createProductFulfilled(result.data));
+      if (typeof cbSuccess === "function") cbSuccess();
+    } catch (error) {
+      console.log(error);
+      dispacth(createProductRejected(error));
+    }
+  };
+};
+
 const productActions = {
   getProductThunk,
   getProductDetailThunk,
   getRelatedProductThunk,
   getSellerProductThunk,
+  createProductThunk,
 };
 
 export default productActions;
