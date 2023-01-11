@@ -29,6 +29,7 @@ import icon_rachel from "../assets/icon_rachel.png";
 import img_chair from "../assets/img_chair.png";
 import img_matress from "../assets/img_matress.png";
 import { useNavigate } from "react-router-dom";
+import CardComment from "../components/CardComment";
 
 const BlogDetail = () => {
   const navigate = useNavigate();
@@ -366,7 +367,7 @@ const BlogDetail = () => {
                       <p className={styles["paginasi"]}>NEXT POST</p>
                     </div>
                     <p className={styles["comment"]}>4 Comment</p>
-                    <div className={styles["border_comment"]}>
+                    {/* <div className={styles["border_comment"]}>
                       <div className={styles["content_img_comment"]}>
                         <div className={styles["wrapper-img"]}>
                           <img src={icon_hana} alt="icon_hana" />
@@ -469,7 +470,8 @@ const BlogDetail = () => {
                         placeholder="Your Comment"
                       />
                     </div>
-                    <button className={styles["send"]}>Send</button>
+                    <button className={styles["send"]}>Send</button> */}
+                    <CardComment />
                   </article>
                 </div>
               </div>

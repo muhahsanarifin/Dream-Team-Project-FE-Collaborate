@@ -11,7 +11,7 @@ export const actionStrings = {
   updateProducts: "_UPDATE_PRODUCT",
   getDetailProduct: "_GET_PRODUCT_DETAIL",
   getProfile: "_GET_PROFILE",
-  updateProfile: "_UPDATE_PROFILE",
+  editProfile: "_UPDATE_PROFILE",
   getPromos: "_GET_PROMOS",
   counterUp: "COUNTER_UP",
   counterDown: "COUNTER_DOWN",
@@ -21,4 +21,6 @@ export const actionStrings = {
   getCategories: "GET_CATEGORIES",
   getRelatedProduct: "GET_RELATED_PRODUCT",
   getSellerProduct: "GET_SELLER_PRODUCT",
+  getOrderSeller: "GET_ORDER_SELLER",
+  getOrderCustomer: "GET_ORDER_CUSTOMER",
 };

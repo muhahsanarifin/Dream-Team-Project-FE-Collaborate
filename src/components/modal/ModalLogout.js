@@ -10,7 +10,6 @@ const ModalLogout = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const loading = useSelector((state) => state.auth.isLoading);
-  console.log(props.handleClick);
   const token = useSelector((state) => state.auth.userInfo.token);
   
   const logoutSuccess = (status) => {

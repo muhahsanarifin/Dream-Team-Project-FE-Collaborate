@@ -28,6 +28,7 @@ import AboutUs from "./pages/AboutUs";
 import ComingSoon from "./pages/ComingSoon";
 import PrivateElement from "./components/PrivateElement";
 import PrivateElementSeller from "./components/PrivateElementSeller";
+import PrivateElementUser from "./components/PrivateElemetUser";
 import ReversePrivateElement from "./components/ReversePrivateElement";
 
 const router = createBrowserRouter([
@@ -137,6 +138,14 @@ const router = createBrowserRouter([
       <PrivateElementSeller>
         <MyOrderSeller />
       </PrivateElementSeller>
+    ),
+  },
+  {
+    path: "/profile/order",
+    element: (
+      <PrivateElementUser>
+        <MyOrderSeller />
+      </PrivateElementUser>
     ),
   },
   { path: "/contact", element: <Contact /> },

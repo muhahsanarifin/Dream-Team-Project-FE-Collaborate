@@ -26,7 +26,13 @@ const initialState = {
 
 const productReducer = (prevState = initialState, { type, payload }) => {
   const { Pending, Rejected, Fulfilled } = ActionType;
-  const { getProducts, getDetailProduct, getRelatedProduct, getSellerProduct } = actionStrings;
+  const {
+    getProducts,
+    getDetailProduct,
+    getRelatedProduct,
+    getSellerProduct,
+    createProduct,
+  } = actionStrings;
   console.log(payload);
   switch (type) {
     case getProducts.concat("_", Pending):
@@ -52,7 +58,7 @@ const productReducer = (prevState = initialState, { type, payload }) => {
         isError: false,
         isFulfilled: false,
       };
-    
+
     case getSellerProduct.concat("_", Pending):
       return {
         ...prevState,
@@ -68,7 +74,7 @@ const productReducer = (prevState = initialState, { type, payload }) => {
         isError: true,
         isFulfilled: false,
       };
-    
+
     case getRelatedProduct.concat("_", Rejected):
       return {
         ...prevState,
@@ -76,7 +82,7 @@ const productReducer = (prevState = initialState, { type, payload }) => {
         isError: true,
         isFulfilled: false,
       };
-    
+
     case getSellerProduct.concat("_", Rejected):
       return {
         ...prevState,
@@ -102,7 +108,7 @@ const productReducer = (prevState = initialState, { type, payload }) => {
         products: payload.data.data,
         meta: payload.data.meta,
       };
-    
+
     case getRelatedProduct.concat("_", Fulfilled):
       return {
         ...prevState,
@@ -122,15 +128,37 @@ const productReducer = (prevState = initialState, { type, payload }) => {
         productsDetails: payload.data.data,
       };
 
-      case getSellerProduct.concat("_", Fulfilled):
-        return {
-          ...prevState,
-          isLoading: false,
-          isError: false,
-          isFulfilled: true,
-          sellerProducts: payload.data.data,
-        };
-      
+    case getSellerProduct.concat("_", Fulfilled):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: false,
+        isFulfilled: true,
+        sellerProducts: payload.data.data,
+      };
+
+    case createProduct.concat("_", Pending):
+      return {
+        ...prevState,
+        isLoading: true,
+        isError: false,
+        isFulfilled: false,
+      };
+    case createProduct.concat("_", Rejected):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: true,
+        isFulfilled: false,
+      };
+    case createProduct.concat("_", Fulfilled):
+      return {
+        ...prevState,
+        isLoading: false,
+        isError: false,
+        isFulfilled: true,
+      };
+
     default:
       return prevState;
   }

@@ -1,4 +1,4 @@
-import React, { Component, Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/Register.module.css";
@@ -164,7 +164,6 @@ const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isLoading = useSelector((state) => state.auth.isLoading);
-  const errorMsg = useSelector((state) => state.auth.error);
   const [body, setBody] = useState({});
   const [isPwdShown, setIsPwdShown] = useState(false);
   const [emptyForm, setEmptyForm] = useState(true);
